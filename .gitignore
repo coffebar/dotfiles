@@ -1,0 +1,12 @@
+# Ignore all
+*
+
+# but not .dotfiles
+!.*
+# but not .sh files
+!*.sh
+
+# ignore history and logs
+*.log
+*_history
+
