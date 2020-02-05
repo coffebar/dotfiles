@@ -1,12 +1,23 @@
 # Ignore all
 *
 
+
 # but not .dotfiles
 !.*
 # but not .sh files
 !*.sh
+!/Downloads/Telegram Desktop/unzip_here.sh
 
 # ignore history and logs
 *.log
 *_history
+
+# ignore also this files
+.ICEauthority
+.Xauthority
+.bash_logout
+.fonts/
+.java/
+.xsession-errors*
+.sudo_as_admin_successful
 
