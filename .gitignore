@@ -1,12 +1,15 @@
 # Ignore all
 *
 
-
 # but not .dotfiles
 !.*
 # but not .sh files
 !*.sh
 !/Downloads/Telegram Desktop/unzip_here.sh
+
+# xfce panels-config backup
+!.local/**
+!/.local/share/xfpanel-switch/xfce-panels-config.tar.bz2
 
 # ignore history and logs
 *.log
@@ -20,4 +23,6 @@
 .java/
 .xsession-errors*
 .sudo_as_admin_successful
+
+
 
