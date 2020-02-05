@@ -1,4 +1,6 @@
 #!/bin/bash
+# Script waits for archive files downloaded by Telegram 
+# and extracts them to the upper directory "Downloads"
 
 cd "$(dirname "$0")"
 inotifywait --format '%f' -m -e close_write -e moved_to "./" |\
