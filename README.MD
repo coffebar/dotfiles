@@ -10,6 +10,7 @@ My dotfiles backup.
 - google-chrome
 - Telegram
 - vim
+- xautomation
 
 ## Restore backup:
 ## Please don't do this without understanding all files and commands! It may harm your system.
