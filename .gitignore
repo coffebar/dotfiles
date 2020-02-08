@@ -11,6 +11,9 @@
 !.local/**
 !/.local/share/xfpanel-switch/xfce-panels-config.tar.bz2
 
+# desktop location changed to "Downloads"
+!/.config/user-dirs.dirs
+
 # ignore history and logs
 *.log
 *_history
