@@ -220,7 +220,7 @@ ${voffset 10}${goto 40}${upspeedgraph eth0 26,80 FFFFFF FFFFFF}${goto 150}${down
 ${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup eth0}${color5}${goto 150}Received: ${color2}${totaldown eth0}
 ${else}
 ${if_existing /proc/net/route enp3s0}
-${voffset -330}${goto 40}${color5}Up: ${color2}${upspeed enp3s0}${color5}${goto 150}Down: ${color2}${downspeed enp3s0}
+${voffset -380}${goto 40}${color5}Up: ${color2}${upspeed enp3s0}${color5}${goto 150}Down: ${color2}${downspeed enp3s0}
 ${voffset 10}${goto 40}${upspeedgraph enp3s0 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph enp3s0 26,80 FFFFFF FFFFFF}
 ${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup enp3s0}${color5}${goto 150}Received: ${color2}${totaldown enp3s0}
 ${else}
@@ -251,14 +251,5 @@ ${voffset 8}${goto 40}Intel Core i5-4690K${alignr 39}${addr enp3s0}
 ${voffset 8}${goto 40}SSD used: ${alignr 39}${fs_used} / ${fs_size}
 ${voffset 8}${goto 40}GeForce GTX 960: ${alignr 39}${nvidia temp} °C
 
-${font Droid Sans Mono :size=9}${voffset 28}
-${alignc}Chrome:${font Droid Sans Mono :size=11}
-${voffset 8}${goto 5}Ctrl+L — фокус в URL
-${goto 5}Alt+Enter — откр.URL в нов. вкл.
-${goto 5}Ctrl+Tab, Ctrl+Shift+Tab — ⟷
-${goto 5}Ctrl+W — закр. активной вкл.
-${goto 5}Ctrl+Shift+T — восст. закр. вкл.
-${goto 5}Ctrl+Shift+N — нов. инкогнито
-${goto 5}Ctrl+T — новая вкладка
-${goto 5}Ctrl+R — обновить страницу
+
 ]]
