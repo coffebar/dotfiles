@@ -2,20 +2,21 @@
 # Startup applications
 # - I prefer if all this in a single file
 
+# redirect output to files
+exec 1>$HOME/startup.out.log
+exec 2>$HOME/startup.err.log
+
 # xbindkeys - keyboard bindings
 /usr/bin/xbindkeys_autostart &
 
 # conky - desktop widget
 bash $HOME/.harmattan-themes/conky.sh &
 
-# Falkon browser
-/usr/bin/falkon &
+# phpstorm IDE
+/bin/sh $HOME/PhpStorm/bin/phpstorm.sh &
 
 # chrome browser
 google-chrome &
-
-# phpstorm IDE
-/bin/sh $HOME/PhpStorm/bin/phpstorm.sh &
 
 # Shutter - capture and edit screenshots
 /usr/bin/shutter --min_at_startup &
@@ -46,18 +47,22 @@ mount /dev/mapper/homelib
 # Rhythmbox - music player
 rhythmbox &
 
+# Dropbox - sync files
+dropbox start -i &
+
 
 # moving windows by workspaces
 function move_app_to_workspace() {
-  # wait up to 20 sec until wmctrl find window
-  for i in {1..10}; do wmctrl -r $1 -t $2 && break || sleep 2; done
+  # wait up to 40 sec until wmctrl find window
+  for i in {1..20}; do wmctrl -r $1 -t $2 && grep "$2 $(hostname) $1" && break || sleep 2; done
+  # debug echo
+  echo "$1 -> $2"
 }
 
 move_app_to_workspace ' File Manager' 1 &
 move_app_to_workspace 'Telegram' 1 &
 
 move_app_to_workspace 'Welcome to PhpStorm' 2 &
-move_app_to_workspace 'Statistics by date - Falkon' 2 &
 
 move_app_to_workspace 'rhythmbox' 3 &
 
@@ -66,3 +71,6 @@ move_app_to_workspace 'rhythmbox' 3 &
 if [ -e "$HOME/backup-server.sh" ]; then
   "$HOME/backup-server.sh" > "$HOME/Downloads/serv.bkp.log" 2>&1
 fi
+
+
+wmctrl -l
