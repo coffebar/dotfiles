@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="ys"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,7 +68,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras pip vagrant composer docker extract zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(sudo git git-extras pip vagrant composer docker extract zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,3 +102,4 @@ alias composer="php $HOME/bin/composer.phar"
 alias i="sudo apt install"
 alias pip="$HOME/.local/bin/pip"
 alias tb="nc termbin.com 9999"
+alias dotf="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
