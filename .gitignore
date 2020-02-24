@@ -7,8 +7,15 @@
 !*.sh
 !/Downloads/Telegram Desktop/unzip_here.sh
 
+# not ignore Templates folder
+!/Templates
+!/Templates/*.*
+
 # xfce panels-config backup
 !.local/**
+.local/share/
+.local/lib/
+.local/bin/
 !/.local/share/xfpanel-switch/xfce-panels-config.tar.bz2
 
 # desktop location changed to "Downloads"
@@ -18,7 +25,8 @@
 *.log
 *_history
 
-# ignore also this files
+
+# ignore also this
 .ICEauthority
 .Xauthority
 .bash_logout
@@ -26,6 +34,9 @@
 .java/
 .xsession-errors*
 .sudo_as_admin_successful
-
-
-
+.ecryptfs
+.Private
+.Xdefaults
+.directory
+.gtkrc-2.0
+.gtkrc-xfce
