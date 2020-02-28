@@ -1,6 +1,6 @@
 tilda_config_version="1.4.1"
 # command=""
-font="Consolas 12"
+font="Source Code Pro Medium 11"
 key="<Primary>grave"
 addtab_key="<Shift><Control>t"
 fullscreen_key="F11"
