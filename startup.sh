@@ -9,11 +9,14 @@ exec 2>$HOME/startup.err.log
 # xbindkeys - keyboard bindings
 /usr/bin/xbindkeys_autostart &
 
+# check day of week to choose programs to run
+DAYOFWEEK=`/bin/date +%u`
+
 # conky - desktop widget
 bash $HOME/.harmattan-themes/conky.sh &
 
 # phpstorm IDE
-/bin/sh $HOME/PhpStorm/bin/phpstorm.sh &
+[[ $DAYOFWEEK < 6 ]] && /bin/sh $HOME/PhpStorm/bin/phpstorm.sh &
 
 # chrome browser
 google-chrome &
@@ -28,17 +31,17 @@ google-chrome &
 $HOME/Telegram/Telegram &
 
 # script to extract zip files after download
-/bin/bash "$HOME/Downloads/Telegram Desktop/unzip_here.sh" &
+[[ $DAYOFWEEK < 6 ]] && /bin/bash "$HOME/Downloads/Telegram Desktop/unzip_here.sh" &
 
 # Ctrl+` to open terminal Tilda
 /usr/bin/tilda --hidden --working-dir="$HOME/Downloads" \
   --config-file="$HOME/.config/tilda/config_0" &
 
 # VS Code
-/usr/bin/code &
+[[ $DAYOFWEEK < 6 ]] && /usr/bin/code &
 
 # Thunar - file manager
-thunar &
+thunar "$HOME/Downloads" &
 
 # mount encrypted disk
 sudo /usr/sbin/cryptdisks_start homelib
@@ -49,6 +52,10 @@ rhythmbox &
 
 # Dropbox - sync files
 dropbox start -i &
+
+# Error Report from the server
+[[ $DAYOFWEEK < 6 ]] && zenity --title="Tabs API Error Report" \
+  --text="`ssh tabs /home/tabs/feed-err.sh`" --width=300 --info &
 
 
 # moving windows by workspaces
@@ -62,15 +69,12 @@ function move_app_to_workspace() {
 move_app_to_workspace ' File Manager' 1 &
 move_app_to_workspace 'Telegram' 1 &
 
-move_app_to_workspace 'Welcome to PhpStorm' 2 &
+[[ $DAYOFWEEK < 6 ]] && move_app_to_workspace 'Welcome to PhpStorm' 2 &
 
 move_app_to_workspace 'rhythmbox' 3 &
 
 
 # run backup
-if [ -e "$HOME/backup-server.sh" ]; then
-  "$HOME/backup-server.sh" > "$HOME/Downloads/serv.bkp.log" 2>&1
-fi
-
-
-wmctrl -l
+# if [ -e "$HOME/backup-server.sh" ]; then
+#   "$HOME/backup-server.sh" > "$HOME/Downloads/serv.bkp.log" 2>&1
+# fi
