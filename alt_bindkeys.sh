@@ -45,7 +45,7 @@ case "$1" in
   (nmcli connection show --active | grep --quiet "$VPN_UUID") && nmcli connection down "$VPN_UUID" || nmcli connection up "$VPN_UUID"
   ;;
   "k")
-  # k - open Google Keep chrome app
-  google-chrome --app=https://keep.google.com/u/0/ --new-window
+  # k - open Google Keep web version
+  wmctrl -a 'Google Keep' || google-chrome --app=https://keep.google.com/u/0/ --new-window
   ;;
 esac
