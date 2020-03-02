@@ -46,6 +46,6 @@ case "$1" in
   ;;
   "k")
   # k - open Google Keep chrome app
-  google-chrome --app-id=hmjkmjkepdijhoojdojkdfohbdgmmhki
+  google-chrome --app=https://keep.google.com/u/0/ --new-window
   ;;
 esac
