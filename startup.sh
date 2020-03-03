@@ -13,7 +13,9 @@ exec 2>$HOME/startup.err.log
 DAYOFWEEK=`/bin/date +%u`
 
 # conky - desktop widget
-bash $HOME/.harmattan-themes/conky.sh &
+if [ -e "$HOME/.harmattan-themes/conky.sh" ]; then
+  bash $HOME/.harmattan-themes/conky.sh &
+fi
 
 # phpstorm IDE
 [[ $DAYOFWEEK < 6 ]] && /bin/sh $HOME/PhpStorm/bin/phpstorm.sh &
@@ -73,8 +75,10 @@ move_app_to_workspace 'Telegram' 1 &
 
 move_app_to_workspace 'rhythmbox' 3 &
 
+# custom visualizations via conky
+[ -e "$HOME/desktop-utils.sh" ] && zsh "$HOME/desktop-utils.sh" &
 
 # run backup
-# if [ -e "$HOME/backup-server.sh" ]; then
-#   "$HOME/backup-server.sh" > "$HOME/Downloads/serv.bkp.log" 2>&1
-# fi
+if [ -e "$HOME/backup-server.sh" ]; then
+  "$HOME/backup-server.sh" > "$HOME/Downloads/serv.bkp.log" 2>&1
+fi
