@@ -50,15 +50,19 @@ thunar "$HOME/Downloads" &
 sudo /usr/sbin/cryptdisks_start homelib
 mount /dev/mapper/homelib
 
-# Rhythmbox - music player
-rhythmbox &
+# music player
+if [ -e "$HOME/Downloads/gmusicbrowser/gmusicbrowser.pl" ]; then
+  $HOME/Downloads/gmusicbrowser/gmusicbrowser.pl &
+else
+  gmusicbrowser &
+fi
 
 # Dropbox - sync files
 dropbox start -i &
 
 # Error Report from the server
 [[ $DAYOFWEEK -lt 6 && $DAYHOUR -lt 19 ]] && zenity --title="Tabs API Error Report" \
-  --text="`ssh tabs /home/tabs/feed-err.sh`" --width=300 --info &
+  --text="`ssh tabs-via-google /home/tabs/feed-err.sh`" --width=300 --info &
 
 
 # moving windows by workspaces
@@ -74,7 +78,8 @@ move_app_to_workspace 'Telegram' 1 &
 
 [[ $DAYOFWEEK -lt 6 ]] && move_app_to_workspace 'Welcome to PhpStorm' 2 &
 
-move_app_to_workspace 'rhythmbox' 3 &
+# move music player
+move_app_to_workspace 'by ###' 3 &
 
 # custom visualizations via conky (stored outside this repo)
 [ -e "$HOME/desktop-utils.sh" ] && zsh "$HOME/desktop-utils.sh" &

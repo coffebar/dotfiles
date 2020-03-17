@@ -14,17 +14,17 @@ case "$1" in
   "f")
   # f - Thunar File Manager
   wmctrl -a ' File Manager' || thunar
-  wmctrl -a ' File Manager' -e '0,0,36,-1,-1'
+  #wmctrl -a ' File Manager' -e '0,0,36,-1,-1'
   ;;
   "t")
   # t - Telegram
   wmctrl -a 'Telegram' || $HOME/Telegram/Telegram
-  wmctrl -a 'Telegram' -e '0,3,762,-1,-1' 
+  #wmctrl -a 'Telegram' -e '0,3,762,-1,-1' 
   ;;
   "c")
   # c - code
   wmctrl -a ' vscode ' || code
-  wmctrl -a ' vscode ' -e '0,1280,738,-1,-1'
+  #wmctrl -a ' vscode ' -e '0,1280,738,-1,-1'
   ;;
   # More apps below
   "i")
