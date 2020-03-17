@@ -11,6 +11,7 @@ exec 2>$HOME/startup.err.log
 
 # check day of week to choose programs to run
 DAYOFWEEK=`/bin/date +%u`
+DAYHOUR=`/bin/date +%H`
 
 # conky - desktop widget
 if [ -e "$HOME/.harmattan-themes/conky.sh" ]; then
@@ -18,7 +19,7 @@ if [ -e "$HOME/.harmattan-themes/conky.sh" ]; then
 fi
 
 # phpstorm IDE
-[[ $DAYOFWEEK < 6 ]] && /bin/sh $HOME/PhpStorm/bin/phpstorm.sh &
+[[ $DAYOFWEEK -lt 6 ]] && /bin/sh $HOME/PhpStorm/bin/phpstorm.sh &
 
 # chrome browser
 google-chrome &
@@ -33,14 +34,14 @@ google-chrome &
 $HOME/Telegram/Telegram &
 
 # script to extract zip files after download
-[[ $DAYOFWEEK < 6 ]] && /bin/bash "$HOME/Downloads/Telegram Desktop/unzip_here.sh" &
+[[ $DAYOFWEEK -lt 6 ]] && /bin/bash "$HOME/Downloads/Telegram Desktop/unzip_here.sh" &
 
 # Ctrl+` to open terminal Tilda
 /usr/bin/tilda --hidden --working-dir="$HOME/Downloads" \
   --config-file="$HOME/.config/tilda/config_0" &
 
 # VS Code
-[[ $DAYOFWEEK < 6 ]] && /usr/bin/code &
+[[ $DAYOFWEEK -lt 6 ]] && /usr/bin/code &
 
 # Thunar - file manager
 thunar "$HOME/Downloads" &
@@ -56,7 +57,7 @@ rhythmbox &
 dropbox start -i &
 
 # Error Report from the server
-[[ $DAYOFWEEK < 6 ]] && zenity --title="Tabs API Error Report" \
+[[ $DAYOFWEEK -lt 6 && $DAYHOUR -lt 19 ]] && zenity --title="Tabs API Error Report" \
   --text="`ssh tabs /home/tabs/feed-err.sh`" --width=300 --info &
 
 
@@ -71,14 +72,20 @@ function move_app_to_workspace() {
 move_app_to_workspace ' File Manager' 1 &
 move_app_to_workspace 'Telegram' 1 &
 
-[[ $DAYOFWEEK < 6 ]] && move_app_to_workspace 'Welcome to PhpStorm' 2 &
+[[ $DAYOFWEEK -lt 6 ]] && move_app_to_workspace 'Welcome to PhpStorm' 2 &
 
 move_app_to_workspace 'rhythmbox' 3 &
 
-# custom visualizations via conky
+# custom visualizations via conky (stored outside this repo)
 [ -e "$HOME/desktop-utils.sh" ] && zsh "$HOME/desktop-utils.sh" &
 
-# run backup
-if [ -e "$HOME/backup-server.sh" ]; then
-  "$HOME/backup-server.sh" > "$HOME/Downloads/serv.bkp.log" 2>&1
+# make backups only once per day (backup-server.sh is stored outside this repo)
+if [ -e "$HOME/backup-server.sh" ]; then # check if script exists 
+  # check if last backup was made not today
+  today_date=$(date +%Y-%m-%d)
+  last_date_cmd=$(ls -l --full-time "$HOME/Downloads/serv.bkp.log" | egrep -c $today_date)
+  if [[ $last_date_cmd -lt 1 ]]; then
+    # run backup
+    "$HOME/backup-server.sh" > "$HOME/Downloads/serv.bkp.log" 2>&1
+  fi
 fi
