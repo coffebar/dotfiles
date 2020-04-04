@@ -6,6 +6,9 @@
 exec 1>$HOME/startup.out.log
 exec 2>$HOME/startup.err.log
 
+# enable pulse-audio echo cancellation filter
+export PULSE_PROP="filter.want=echo-cancel"
+
 # xbindkeys - keyboard bindings
 /usr/bin/xbindkeys_autostart &
 
