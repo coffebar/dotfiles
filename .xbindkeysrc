@@ -39,6 +39,9 @@
 "google-chrome --user-data-dir=/tmp > /dev/null"
   XF86HomePage
 
+"$HOME/toggle_headphones.sh"
+  XF86Tools
+
 # Open or focus apps by ALT+key
 # See 'alt_bindkeys.sh' for details
 
