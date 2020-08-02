@@ -48,4 +48,8 @@ case "$1" in
   # k - open Google Keep web version
   wmctrl -a 'Google Keep' || google-chrome --app=https://keep.google.com/u/0/ --new-window
   ;;
+  "p")
+  # p - Play/Pause gmusicbrowser
+  dbus-send --dest=org.gmusicbrowser /org/gmusicbrowser org.gmusicbrowser.RunCommand string:PlayPause
+  ;;
 esac

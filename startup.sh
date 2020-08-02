@@ -27,6 +27,9 @@ fi
 # chrome browser
 google-chrome &
 
+# firefox browser
+firefox &
+
 # Shutter - capture and edit screenshots
 /usr/bin/shutter --min_at_startup &
 
@@ -37,14 +40,14 @@ google-chrome &
 $HOME/Telegram/Telegram &
 
 # script to extract zip files after download
-[[ $DAYOFWEEK -lt 6 ]] && /bin/bash "$HOME/Downloads/Telegram Desktop/unzip_here.sh" &
+/bin/bash "$HOME/Downloads/Telegram Desktop/unzip_here.sh" &
 
 # Ctrl+` to open terminal Tilda
 /usr/bin/tilda --hidden --working-dir="$HOME/Downloads" \
   --config-file="$HOME/.config/tilda/config_0" &
 
 # VS Code
-[[ $DAYOFWEEK -lt 6 ]] && /usr/bin/code &
+/usr/bin/code &
 
 # Thunar - file manager
 thunar "$HOME/Downloads" &
@@ -53,36 +56,38 @@ thunar "$HOME/Downloads" &
 sudo /usr/sbin/cryptdisks_start homelib
 mount /dev/mapper/homelib
 
-# music player
-if [ -e "$HOME/Downloads/gmusicbrowser/gmusicbrowser.pl" ]; then
-  $HOME/Downloads/gmusicbrowser/gmusicbrowser.pl &
-else
-  gmusicbrowser &
-fi
-
 # Dropbox - sync files
 dropbox start -i &
 
 # Error Report from the server
 [[ $DAYOFWEEK -lt 6 && $DAYHOUR -lt 19 ]] && zenity --title="Tabs API Error Report" \
-  --text="`ssh tabs-via-google /home/tabs/feed-err.sh`" --width=300 --info &
+  --text="`ssh searches /home/search/feed-err.sh`" --width=300 --info &
 
 
 # moving windows by workspaces
 function move_app_to_workspace() {
   # wait up to 40 sec until wmctrl find window
-  for i in {1..20}; do wmctrl -r $1 -t $2 && grep "$2 $(hostname) $1" && break || sleep 2; done
+  for i in {1..20}; do 
+    MATCHES=$(wmctrl -l | grep "$1")
+    if [[ $MATCHES ]]; then
+        echo $MATCHES | awk '{ print $1 }' | xargs -I % wmctrl -i -r "%" -t $2
+        break
+    else
+        sleep 2
+    fi
+  done
   # debug echo
   echo "$1 -> $2"
 }
 
 move_app_to_workspace ' File Manager' 1 &
 move_app_to_workspace 'Telegram' 1 &
+move_app_to_workspace 'Mozilla Firefox' 2 &
+move_app_to_workspace ' Google Chrome' 2 &
+move_app_to_workspace 'Mozilla Firefox' 2 &
+move_app_to_workspace ' Google Chrome' 2 &
 
 [[ $DAYOFWEEK -lt 6 ]] && move_app_to_workspace 'Welcome to PhpStorm' 2 &
-
-# move music player
-move_app_to_workspace 'by ###' 3 &
 
 # custom visualizations via conky (stored outside this repo)
 [ -e "$HOME/desktop-utils.sh" ] && zsh "$HOME/desktop-utils.sh" &
