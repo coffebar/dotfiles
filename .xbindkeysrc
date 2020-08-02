@@ -61,6 +61,10 @@
   Alt + v + Release
 "/bin/bash $HOME/alt_bindkeys.sh k"
   Alt + k + Release
+"/bin/bash $HOME/alt_bindkeys.sh p"
+  Alt + p + Release
+"$HOME/toggle_headphones.sh"
+  Alt + period + Release
 
 # CTRL + Win + q -> close chrome 
 "/bin/bash $HOME/ctrl_q.sh > /dev/null"  
