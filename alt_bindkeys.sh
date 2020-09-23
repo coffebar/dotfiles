@@ -52,4 +52,8 @@ case "$1" in
   # p - Play/Pause gmusicbrowser
   dbus-send --dest=org.gmusicbrowser /org/gmusicbrowser org.gmusicbrowser.RunCommand string:PlayPause
   ;;
+  "s")
+  # s - Spotify
+  wmctrl -a 'Spotify ' || /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=spotify --file-forwarding com.spotify.Client
+  ;;
 esac

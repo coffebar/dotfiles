@@ -7,7 +7,7 @@ exec 1>$HOME/startup.out.log
 exec 2>$HOME/startup.err.log
 
 # enable pulse-audio echo cancellation filter
-export PULSE_PROP="filter.want=echo-cancel"
+#export PULSE_PROP="filter.want=echo-cancel"
 
 # xbindkeys - keyboard bindings
 /usr/bin/xbindkeys_autostart &
@@ -84,8 +84,7 @@ move_app_to_workspace ' File Manager' 1 &
 move_app_to_workspace 'Telegram' 1 &
 move_app_to_workspace 'Mozilla Firefox' 2 &
 move_app_to_workspace ' Google Chrome' 2 &
-move_app_to_workspace 'Mozilla Firefox' 2 &
-move_app_to_workspace ' Google Chrome' 2 &
+
 
 [[ $DAYOFWEEK -lt 6 ]] && move_app_to_workspace 'Welcome to PhpStorm' 2 &
 
