@@ -1,0 +1,69 @@
+window:
+  dynamic_title: true
+  dimensions:
+    columns: 120
+    lines: 35
+
+padding:
+  x: 0
+  y: 0
+
+
+
+
+decorations: none
+background_opacity: 0.98
+
+# Font configuration (changes require restart)
+font:
+  size: 11.0
+  # Normal (roman) font face
+  normal: 
+    family: 'Source Code Pro'
+    style: Regular
+
+  # Bold font face
+  bold:
+    family: 'Source Code Pro'
+    style: Bold
+  # Italic font face
+  italic:
+    family: 'Source Code Pro'
+    style: Italic
+
+
+# Colors (based on Pop!_OS)
+colors:
+  # Default colors
+  primary:
+    background: '#2b2e37'
+    foreground: '#F2F2F2'
+
+  # Normal colors
+  normal:
+    black:   '#333333'
+    red:     '#CC0000'
+    green:   '#4E9A06'
+    yellow:  '#C4A000'
+    blue:    '#3465A4'
+    magenta: '#75507B'
+    cyan:    '#06989A'
+    white:   '#D3D7CF'
+
+  # Bright colors
+  bright:
+    black:   '#88807C'
+    red:     '#F15D22'
+    green:   '#73C48F'
+    yellow:  '#FFCE51'
+    blue:    '#48B9C7'
+    magenta: '#AD7FA8'
+    cyan:    '#34E2E2'
+    white:   '#EEEEEC'
+
+
+key_bindings:
+  - { key: V,        mods: Command,       action: Paste                        }
+  - { key: C,        mods: Command,       action: Copy                         }
+  - { key: Q,        mods: Command,       action: Quit                         }
+  - { key: N,        mods: Command,       action: SpawnNewInstance             }
