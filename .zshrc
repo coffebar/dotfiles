@@ -103,3 +103,4 @@ alias i="sudo apt install"
 alias pip="$HOME/.local/bin/pip"
 alias tb="nc termbin.com 9999"
 alias dotf="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias alacritty=$HOME/.cargo/bin/alacritty
