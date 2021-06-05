@@ -98,6 +98,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+neofetch --disable gpu shell title wm de resolution packages kernel icons theme distro term_font --os_arch off --cpu_speed on --cpu_temp C --cpu_brand off --speed_type current --cpu_cores off --distro_shorthand off --kernel_shorthand off --gtk_shorthand off --shell_version off --memory_percent on --color_blocks off --ascii_bold off --off
+/usr/bin/landscape-sysinfo --exclude-sysinfo-plugins=Temperature,LandscapeLink,Network,Memory
+
 alias composer="php $HOME/bin/composer.phar"
 alias i="sudo apt install"
 alias pip="$HOME/.local/bin/pip"
