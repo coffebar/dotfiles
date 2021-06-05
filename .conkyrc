@@ -26,14 +26,14 @@ show_graph_range=false,
 gap_x=0,
 gap_y=-100,
 minimum_height=800,
-minimum_width=268,
+minimum_width=278,
 own_window=true,
 own_window_type="normal",
 own_window_transparent=true,
 own_window_hints="undecorated,below,sticky,skip_taskbar,skip_pager",
-border_inner_margin=0,
+border_inner_margin=0, 
 border_outer_margin=0,
-alignment="middle_left",
+alignment="middle_left", 
 own_window_argb_visual=true,
 --own_window_argb_value=0,
 
@@ -43,7 +43,7 @@ own_window_argb_visual=true,
 -------------------------------------
 use_xft=true,
 xftalpha=1,
-font="Droid Sans:size=8",
+font="Source Code Pro:size=8",
 text_buffer_size=256,
 override_utf8_locale=true,
 
@@ -129,8 +129,8 @@ ${color2}${voffset -13}${alignc -77}${execi 300 ~/.harmattan-assets/parse_weathe
 \
 \
 \
-${goto 36}${voffset -172}${font Droid Sans :size=36}${color1}${execi 300 jq -r .main.temp ~/.cache/harmattan-conky/weather.json | awk '{print int($1+0.5)}' # round num}${if_match "$template8" == "metric"}°C${else}${if_match "$template8" == "imperial"} °F${else}${if_match "$template8" == "default"} K${endif}${endif}${endif}${font}${color}
-${goto 46}${voffset 14}${font Droid Sans :size=12}${color1}${execi 300 jq -r .weather[0].description ~/.cache/harmattan-conky/weather.json | sed "s|\<.|\U&|g"}${font}${color}
+${goto 36}${voffset -172}${font Source Code Pro :size=36}${color1}${execi 300 jq -r .main.temp ~/.cache/harmattan-conky/weather.json | awk '{print int($1+0.5)}' # round num}${if_match "$template8" == "metric"}°C${else}${if_match "$template8" == "imperial"} °F${else}${if_match "$template8" == "default"} K${endif}${endif}${endif}${font}${color}
+${goto 46}${voffset 14}${font Source Code Pro :size=12}${color1}${execi 300 jq -r .weather[0].description ~/.cache/harmattan-conky/weather.json | sed "s|\<.|\U&|g"}${font}${color}
 ${color1}${alignr 52}${voffset -73}${execi 300 jq -r .main.pressure ~/.cache/harmattan-conky/weather.json | awk '{print int($1+0.5)}' # round num} hPa
 ${color1}${alignr 52}${voffset 7}${execi 300 jq -r .main.humidity ~/.cache/harmattan-conky/weather.json | awk '{print int($1+0.5)}' # round num} %${color}
 ${color1}${alignr 52}${voffset 7}${execi 300 jq -r .wind.speed ~/.cache/harmattan-conky/weather.json | awk '{print int($1+0.5)}' # round num}${if_match "$template8" == "metric"} m/s${else}${if_match "$template8" == "default"} m/s${else}${if_match "$template8" == "imperial"} mi/h${endif}${endif}${endif}${color}
@@ -138,8 +138,8 @@ ${color1}${alignr 52}${voffset 7}${execi 300 jq -r .wind.speed ~/.cache/harmatta
 \
 \
 \
-${voffset -117}${font Droid Sans Mono :size=22}${alignc}${color2}${time %H:%M}${font}${color}
-${voffset 4}${font Droid Sans :size=10}${alignc}${color6}${execi 300 LANG=${template9} LC_TIME=${template9} date +"%A, %B %-d"}${font}${color}
+${voffset -117}${font Source Code Pro :size=22}${alignc}${color2}${time %H:%M}${font}${color}
+${voffset 4}${font Source Code Pro :size=10}${alignc}${color6}${execi 300 LANG=${template9} LC_TIME=${template9} date +"%A, %B %-d"}${font}${color}
 \
 \
 \
@@ -246,8 +246,8 @@ ${execi 300 cp -f ~/.harmattan-assets/icons/#fff__32/$(~/.harmattan-assets/parse
 \
 \
 \
-${voffset 370}${alignc}${font Droid Sans Mono :size=14}${desktop_name}${font}
-${voffset 8}${goto 40}Intel Core i5-4690K${alignr 39}${addr enp3s0}
+${voffset 370}${alignc}${font Source Code Pro :size=14}${desktop_name}${font}
+${voffset 8}${goto 40}Intel Core i5${alignr 39}${addr enp3s0}
 ${voffset 8}${goto 40}SSD used: ${alignr 39}${fs_used} / ${fs_size}
 ${voffset 8}${goto 40}GeForce GTX 960: ${alignr 39}${nvidia temp} °C
 \
