@@ -56,4 +56,8 @@ case "$1" in
   # s - Spotify
   wmctrl -a 'Spotify ' || /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=spotify --file-forwarding com.spotify.Client
   ;;
+  "r")
+  # r - restart xfce panel
+  xfce4-panel -r
+  ;;
 esac

@@ -57,6 +57,8 @@
   Alt + b + Release
 "/bin/bash $HOME/alt_bindkeys.sh y"
   Alt + y + Release
+"/bin/bash $HOME/alt_bindkeys.sh r"
+  Alt + r + Release
 "/bin/bash $HOME/alt_bindkeys.sh v"
   Alt + v + Release
 "/bin/bash $HOME/alt_bindkeys.sh k"
