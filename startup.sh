@@ -34,7 +34,7 @@ firefox -new-instance -P Work &
 /usr/bin/shutter --min_at_startup &
 
 # Synapse launcher
-/usr/bin/synapse --startup &
+[ -e "/usr/bin/synapse" ] && /usr/bin/synapse --startup &
 
 # Telegram messenger
 $HOME/Telegram/Telegram &
@@ -53,11 +53,13 @@ $HOME/Telegram/Telegram &
 thunar "$HOME/Downloads" &
 
 # mount encrypted disk
-sudo /usr/sbin/cryptdisks_start homelib
-mount /dev/mapper/homelib
+if grep '/dev/mapper/homelib' /etc/fstab; then
+  sudo /usr/sbin/cryptdisks_start homelib
+  mount /dev/mapper/homelib
+fi
 
 # Dropbox - sync files
-dropbox start -i &
+/usr/bin/dropbox start -i &
 
 # Start KeePassXC with unlocking password # see https://github.com/keepassxreboot/keepassxc/issues/1267
 bash -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin $HOME/Dropbox/lastpass.kdbx" &
