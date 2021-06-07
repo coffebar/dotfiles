@@ -1,0 +1,21 @@
+{
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": true,
+    "markdown-pdf.displayHeaderFooter": false,
+    "markdown-pdf.emoji": false,
+    "editor.mouseWheelZoom": true,
+    "workbench.startupEditor": "none",
+    "workbench.statusBar.visible": false,
+    "terminal.explorerKind": "external",
+    "workbench.enableExperiments": false,
+    "window.menuBarVisibility": "visible",
+    "window.restoreWindows": "all",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "update.mode": "manual",
+    "editor.accessibilitySupport": "off",
+    "telemetry.enableCrashReporter": false,
+    "http.proxySupport": "on",
+    "editor.fontFamily": "'Source Code Pro', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 15
+}
