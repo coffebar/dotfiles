@@ -20,37 +20,37 @@ if [ -e "$HOME/.harmattan-themes/conky.sh" ]; then
   bash $HOME/.harmattan-themes/conky.sh &
 fi
 
-# phpstorm IDE
-[[ $DAYOFWEEK -lt 6 ]] && /bin/sh $HOME/PhpStorm/bin/phpstorm.sh &
 
-# chrome browser
-google-chrome &
+if [[ $DAYOFWEEK -lt 6 ]]; then
+  # phpstorm IDE
+  /bin/sh $HOME/PhpStorm/bin/phpstorm.sh &
+  # chrome browser
+  google-chrome &
+fi
 
 # firefox browser
 firefox -new-instance -P default &
 firefox -new-instance -P Work &
 
-# Shutter - capture and edit screenshots
-/usr/bin/shutter --min_at_startup &
+# xfce only
+if [[ $XDG_CURRENT_DESKTOP == "XFCE" ]]; then
 
-# Synapse launcher
-[ -e "/usr/bin/synapse" ] && /usr/bin/synapse --startup &
+  # Shutter - capture and edit screenshots
+  /usr/bin/shutter --min_at_startup &
+
+  # Synapse launcher
+  [ -e "/usr/bin/synapse" ] && /usr/bin/synapse --startup &
+
+  # Thunar - file manager
+  thunar "$HOME/Downloads" &
+
+fi
 
 # Telegram messenger
 $HOME/Telegram/Telegram &
 
 # script to extract zip files after download
 /bin/bash "$HOME/Downloads/Telegram Desktop/unzip_here.sh" &
-
-# Ctrl+` to open terminal Tilda
-/usr/bin/tilda --hidden --working-dir="$HOME/Downloads" \
-  --config-file="$HOME/.config/tilda/config_0" &
-
-# VS Code
-/usr/bin/code &
-
-# Thunar - file manager
-thunar "$HOME/Downloads" &
 
 # mount encrypted disk
 if grep '/dev/mapper/homelib' /etc/fstab; then
@@ -59,7 +59,7 @@ if grep '/dev/mapper/homelib' /etc/fstab; then
 fi
 
 # Dropbox - sync files
-/usr/bin/dropbox start -i &
+#/usr/bin/dropbox start -i &
 
 # Start KeePassXC with unlocking password # see https://github.com/keepassxreboot/keepassxc/issues/1267
 bash -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin $HOME/Dropbox/lastpass.kdbx" &
@@ -81,10 +81,9 @@ function move_app_to_workspace() {
   echo "$1 -> $2"
 }
 
-move_app_to_workspace ' File Manager' 1 &
-move_app_to_workspace 'Telegram' 1 &
-move_app_to_workspace 'Lastpass' 2 &
 
+# move keepass app
+move_app_to_workspace 'Lastpass' 1 &
 
-# custom visualizations via conky (stored outside this repo)
+# custom visualizations via conky (stored outside dotfiles repo)
 [ -e "$HOME/desktop-utils.sh" ] && zsh "$HOME/desktop-utils.sh" &

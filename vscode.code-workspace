@@ -11,6 +11,8 @@
 		"workbench.statusBar.feedback.visible": false,
 		"workbench.statusBar.visible": false,
 		"terminal.explorerKind": "external",
-		"workbench.enableExperiments": false
+		"workbench.enableExperiments": false,
+		"telemetry.enableTelemetry": false,
+		"telemetry.enableCrashReporter": false
 	}
 }
