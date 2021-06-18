@@ -43,7 +43,7 @@ own_window_argb_visual=true,
 -------------------------------------
 use_xft=true,
 xftalpha=1,
-font="Source Code Pro:size=6",
+font="Source Code Pro:size=8",
 text_buffer_size=256,
 override_utf8_locale=true,
 
@@ -138,8 +138,8 @@ ${color1}${alignr 52}${voffset 7}${execi 300 jq -r .wind.speed ~/.cache/harmatta
 \
 \
 \
-${voffset -117}${font Source Code Pro :size=20}${alignc}${color2}${time %H:%M}${font}${color}
-${voffset 4}${font Source Code Pro :size=8}${alignc}${color6}${execi 300 LANG=${template9} LC_TIME=${template9} date +"%A, %B %-d"}${font}${color}
+${voffset -117}${font Source Code Pro :size=22}${alignc}${color2}${time %H:%M}${font}${color}
+${voffset 4}${font Source Code Pro :size=10}${alignc}${color6}${execi 300 LANG=${template9} LC_TIME=${template9} date +"%A, %B %-d"}${font}${color}
 \
 \
 \
@@ -220,7 +220,7 @@ ${voffset 10}${goto 40}${upspeedgraph eth0 26,80 FFFFFF FFFFFF}${goto 150}${down
 ${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup eth0}${color5}${goto 150}Received: ${color2}${totaldown eth0}
 ${else}
 ${if_existing /proc/net/route enp3s0}
-${voffset -320}${goto 40}${color5}Up: ${color2}${upspeed enp3s0}${color5}${goto 150}Down: ${color2}${downspeed enp3s0}
+${voffset -380}${goto 40}${color5}Up: ${color2}${upspeed enp3s0}${color5}${goto 150}Down: ${color2}${downspeed enp3s0}
 ${voffset 10}${goto 40}${upspeedgraph enp3s0 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph enp3s0 26,80 FFFFFF FFFFFF}
 ${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup enp3s0}${color5}${goto 150}Received: ${color2}${totaldown enp3s0}
 ${else}
