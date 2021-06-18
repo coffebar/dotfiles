@@ -41,9 +41,6 @@ if [[ $XDG_CURRENT_DESKTOP == "XFCE" ]]; then
   # Synapse launcher
   [ -e "/usr/bin/synapse" ] && /usr/bin/synapse --startup &
 
-  # Thunar - file manager
-  thunar "$HOME/Downloads" &
-
 fi
 
 # Telegram messenger

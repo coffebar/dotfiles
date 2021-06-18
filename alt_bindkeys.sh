@@ -12,8 +12,8 @@ case "$1" in
 # |__T__|__C__|
 #
   "f")
-  # f - Dolphin File Manager
-  wmctrl -a ' Dolphin' || dolphin
+  # f - Thunar File Manager
+  wmctrl -a ' File Manager' || thunar
   #wmctrl -a ' File Manager' -e '0,0,36,-1,-1'
   ;;
   "t")
@@ -24,7 +24,6 @@ case "$1" in
   "c")
   # c - editor
   wmctrl -a ' Kate' || kate
-  #wmctrl -a ' vscode ' -e '0,1280,738,-1,-1'
   ;;
   # More apps below
   "i")
