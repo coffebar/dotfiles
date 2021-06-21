@@ -11,6 +11,9 @@ exec 2>$HOME/startup.err.log
 # xbindkeys - keyboard bindings
 /usr/bin/xbindkeys_autostart &
 
+# keyboard modifications 
+xmodmap "$HOME/.xmodmaprc"
+
 # check day of week to choose programs to run
 DAYOFWEEK=`/bin/date +%u`
 DAYHOUR=`/bin/date +%H`
