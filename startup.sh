@@ -55,6 +55,8 @@ if grep '/dev/mapper/homelib' /etc/fstab; then
   mount /dev/mapper/homelib
 fi
 
+ulauncher --hide-window &
+
 # Dropbox - sync files
 #/usr/bin/dropbox start -i &
 

@@ -1,0 +1,4 @@
+! change CapsLock behavior to BackSpace
+
+remove Lock = Caps_Lock
+keycode 66 = BackSpace
