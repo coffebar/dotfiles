@@ -6,12 +6,13 @@ My dotfiles backup.
 - git
 - rsync
 - wmctrl
-- vscode
+- xmodmap
+- kate
 - google-chrome
 - Telegram
-- vim
 - xautomation
 - font SourceCodePro
+- ulauncher
 
 ## Restore backup:
 ## Please don't do this without understanding all files and commands! It may harm your system.
