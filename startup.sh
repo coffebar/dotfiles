@@ -10,9 +10,7 @@ exec 2>$HOME/startup.err.log
 
 # xbindkeys - keyboard bindings
 /usr/bin/xbindkeys_autostart &
-
-# keyboard modifications 
-xmodmap "$HOME/.xmodmaprc"
+/bin/bash -c "sleep 5 && /usr/bin/xmodmap $HOME/.xmodmaprc"
 
 # check day of week to choose programs to run
 DAYOFWEEK=`/bin/date +%u`
@@ -20,7 +18,7 @@ DAYHOUR=`/bin/date +%H`
 
 # conky - desktop widget
 if [ -e "$HOME/.harmattan-themes/conky.sh" ]; then
-  bash $HOME/.harmattan-themes/conky.sh &
+  /bin/bash $HOME/.harmattan-themes/conky.sh &
 fi
 
 
@@ -64,7 +62,7 @@ ulauncher --hide-window &
 #/usr/bin/dropbox start -i &
 
 # Start KeePassXC with unlocking password # see https://github.com/keepassxreboot/keepassxc/issues/1267
-bash -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin $HOME/Dropbox/lastpass.kdbx" &
+/bin/bash -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin $HOME/Dropbox/lastpass.kdbx" &
 
 
 # moving windows by workspaces
