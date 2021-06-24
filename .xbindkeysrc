@@ -70,6 +70,10 @@
 "/bin/bash $HOME/alt_bindkeys.sh s"
   Alt + s + Release
 
+# Open new terminal
+"$HOME/.cargo/bin/alacritty"
+  Control + grave
+
 
 ##################################
 # End of xbindkeys configuration #
