@@ -107,3 +107,8 @@ alias pip="$HOME/.local/bin/pip"
 alias tb="nc termbin.com 9999"
 alias dotf="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 alias alacritty=$HOME/.cargo/bin/alacritty
+
+wp() {
+  # watch ping
+  watch -t "ping -c 1 8.8.8.8 | grep -oP '\d+\.\d* ms' -m 1 | grep -oP '\d+\.\d*'"
+}
