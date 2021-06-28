@@ -16,6 +16,8 @@ My dotfiles backup.
 - ulauncher
 - ranger
 - xmodmap
+- ueberzug # pip3 install ueberzug
+
 
 ## Restore backup:
 ## Please don't do this without understanding all files and commands! It may harm your system.
