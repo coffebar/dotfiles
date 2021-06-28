@@ -26,12 +26,12 @@ if [[ $DAYOFWEEK -lt 6 ]]; then
   # phpstorm IDE
   /bin/sh $HOME/PhpStorm/bin/phpstorm.sh &
   # chrome browser
-  google-chrome &
+  /usr/bin/google-chrome &
 fi
 
 # firefox browser
-firefox -new-instance -P default &
-firefox -new-instance -P Work &
+/usr/bin/firefox -new-instance -P default &
+/usr/bin/firefox -new-instance -P Work &
 
 # xfce only
 if [[ $XDG_CURRENT_DESKTOP == "XFCE" ]]; then
@@ -56,7 +56,7 @@ if grep '/dev/mapper/homelib' /etc/fstab; then
   mount /dev/mapper/homelib
 fi
 
-ulauncher --hide-window &
+/usr/bin/ulauncher --hide-window &
 
 # Dropbox - sync files
 #/usr/bin/dropbox start -i &
@@ -87,3 +87,6 @@ move_app_to_workspace 'Lastpass' 1 &
 
 # custom visualizations via conky (stored outside dotfiles repo)
 [ -e "$HOME/desktop-utils.sh" ] && zsh "$HOME/desktop-utils.sh" &
+
+# backup home directory
+[ -e /bin/backup-abc-toshiba-start.sh ] && sudo /bin/bash /bin/backup-abc-toshiba-start.sh &
