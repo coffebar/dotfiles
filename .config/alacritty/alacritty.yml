@@ -9,14 +9,12 @@ padding:
   y: 0
 
 
-
-
 decorations: none
 background_opacity: 0.98
 
 # Font configuration (changes require restart)
 font:
-  size: 11.0
+  size: 12.0
   # Normal (roman) font face
   normal: 
     family: 'Source Code Pro'
