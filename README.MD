@@ -3,6 +3,7 @@ My dotfiles backup.
 ## Requirements:
 - zsh
 - oh-my-zsh
+- fish
 - git
 - rsync
 - wmctrl
@@ -13,6 +14,8 @@ My dotfiles backup.
 - xautomation
 - font SourceCodePro
 - ulauncher
+- ranger
+- xmodmap
 
 ## Restore backup:
 ## Please don't do this without understanding all files and commands! It may harm your system.

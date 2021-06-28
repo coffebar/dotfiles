@@ -73,6 +73,10 @@
 # Open new terminal
 "$HOME/.cargo/bin/alacritty"
   Control + grave
+  
+# Ranger file manager
+"$HOME/.cargo/bin/alacritty -e ranger"
+  Control + Alt + f + Release
 
 
 ##################################
