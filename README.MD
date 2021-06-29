@@ -11,7 +11,7 @@ My dotfiles backup.
 - google-chrome
 - Telegram
 - xautomation
-- font SourceCodePro
+- ttf font 'JetBrains Mono'
 - ulauncher
 - ranger
 - xmodmap
