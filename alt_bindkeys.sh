@@ -5,10 +5,10 @@
 # Alt+$1 pressed
 case "$1" in
 
-# Moving windows to custom positions 
+# Moving windows to custom positions
 # F - Files, T - Telegram, C - code (vs code)
 #  _____
-# |__F__|_____ 
+# |__F__|_____
 # |__T__|__C__|
 #
   "f")
@@ -19,11 +19,12 @@ case "$1" in
   "t")
   # t - Telegram
   wmctrl -a 'Telegram' || $HOME/Telegram/Telegram
-  #wmctrl -a 'Telegram' -e '0,3,762,-1,-1' 
+  #wmctrl -a 'Telegram' -e '0,3,762,-1,-1'
   ;;
   "c")
   # c - editor
-  wmctrl -a ' Kate' || kate
+  wmctrl -a 'Vim Editor Session' || "$HOME/.cargo/bin/alacritty" -t "Vim Editor Session" \
+      -e /usr/bin/vim -S "$HOME/configs.edit.session.vim"
   ;;
   # More apps below
   "i")
@@ -40,7 +41,7 @@ case "$1" in
   ;;
   "v")
   # v - connect or disconnect to VPN
-  VPN_UUID='client94'
+  VPN_UUID='cyber'
   (nmcli connection show --active | grep --quiet "$VPN_UUID") && nmcli connection down "$VPN_UUID" || nmcli connection up "$VPN_UUID"
   ;;
   "k")
