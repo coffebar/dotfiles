@@ -8,7 +8,6 @@ My dotfiles backup.
 - rsync
 - wmctrl
 - xmodmap
-- kate
 - google-chrome
 - Telegram
 - xautomation

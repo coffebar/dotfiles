@@ -154,6 +154,9 @@ if has("gui_running")
     set guitablabel=%M\ %t
 endif
 
+" More colorfull theme
+set termguicolors
+
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
@@ -237,6 +240,8 @@ map <leader>t<leader> :tabnext
 let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
+# Autosave all sessions
+au VimLeavePre * if v:this_session != '' | exec "mks! " . v:this_session | endif
 
 
 " Opens a new tab with the current buffer's path
