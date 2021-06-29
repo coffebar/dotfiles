@@ -240,7 +240,7 @@ map <leader>t<leader> :tabnext
 let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
-# Autosave all sessions
+" Autosave all sessions
 au VimLeavePre * if v:this_session != '' | exec "mks! " . v:this_session | endif
 
 
