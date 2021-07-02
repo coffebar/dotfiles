@@ -75,7 +75,7 @@
   Control + grave
   
 # Ranger file manager
-"wmctrl -a 'Ranger' || $HOME/.cargo/bin/alacritty -t Ranger -e ranger $HOME/Bookmarks/"
+"wmctrl -a ' - File Manager' || thunar"
   Control + Alt + f + Release
 
 
