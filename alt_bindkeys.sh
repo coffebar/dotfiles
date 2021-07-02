@@ -13,7 +13,7 @@ case "$1" in
 #
   "f")
   # f - Thunar File Manager
-  wmctrl -a ' File Manager' || thunar
+  wmctrl -a 'Ranger File Manager' || $HOME/.cargo/bin/alacritty -t 'Ranger File Manager' -e ranger $HOME/Bookmarks/
   #wmctrl -a ' File Manager' -e '0,0,36,-1,-1'
   ;;
   "t")
