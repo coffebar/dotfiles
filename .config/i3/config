@@ -5,7 +5,6 @@
 # Requirements for my custom config:
 #
 
-# 'JetBrains Mono' @link https://www.jetbrains.com/lp/mono/
 # alacritty
 # amixer
 # compton
@@ -15,20 +14,28 @@
 # feh
 # i3-gaps
 # i3lock
+# siji font
 # nm-applet
 # numlockx
 # polybar
 # setxkbmap
+# xautolock
 # xrandr
+# xss-lock
 # xxkb
-
+#
+# TODO: change siji font to something better
+#####################
 
 # Mod key = Super key
 set $mod Mod4
 
+# Alt key
+set $alt Mod1
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:'JetBrains Mono' 12 
+font pango:'Droid Sans' 12 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -206,7 +213,7 @@ new_float normal
 hide_edge_borders none
 
 
-set $Locker i3lock -c000000 && sleep 1
+set $Locker i3lock -c000000 --show-failed-attempts && sleep 1
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
@@ -222,6 +229,13 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Pause mode "$mode_system"
+# Ctrl + Alt + l → lock 
+bindsym $alt+Control+l exec --no-startup-id $Locker
+
+# Move to the next/prev workspace on current monitor
+bindsym $alt+Control+Right workspace next_on_output
+bindsym $alt+Control+Left workspace prev_on_output 
+
 # make a screenshot with shutter
 bindsym Print exec shutter -s
 
@@ -240,15 +254,30 @@ bindsym $mod+minus scratchpad show
 # bind workspace to HDMI-0 display
 workspace $ws1 output HDMI-0
 
+# assign apps to workspaces
+assign [class="Firefox$"] → $ws1 
+assign [class="^TelegramDesktop$"] → $ws2
+assign [class="^Alacritty$" title="Terminal"] → $ws2
+assign [class="^KeePassXC$"] → $ws4
+
+# per app rules
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [class="Shutter"] floating enable
+for_window [class="^copyq$"] floating enable, border pixel 2
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="^KeePassXC$"] floating enable border normal
+for_window [class="^KeePassXC$" title="Browser Access Request"] move window to workspace current
+
+
+# Apps startup section
+
 # arrange displays
-exec xrandr --output HDMI-0 --auto --left-of DP-0.8
+exec xrandr --output HDMI-0 --primary --auto --left-of DP-0.8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# start polybar
-exec --no-startup-id polybar -r example
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -257,19 +286,11 @@ exec --no-startup-id nm-applet
 # window compositor compton
 exec --no-startup-id "compton -b"
 
+# keyboard layouts
 exec setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
 
-assign [class="Firefox$"] → $ws1 
-assign [class="^TelegramDesktop$"] → $ws2
-assign [class="^Alacritty$" title="Terminal"] → $ws2
-assign [class="^KeePassXC$"] → $ws4
-
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [class="Shutter"] floating enable
-for_window [class="^copyq$"] floating enable, border pixel 2
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="^KeePassXC$"] floating enable border normal
+# start polybar on thr every monitor
+exec --no-startup-id ~/polybar.start.sh
 
 # desktop image
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/10-14-Night.jpg
@@ -278,7 +299,7 @@ exec --no-startup-id exec dropbox start
 # notifications daemon
 exec --no-startup-id dunst
 # keyboard indicator 
-exec_always --no-startup-id i3-msg 'exec "killall xxkb; sleep 1; xxkb"'
+exec_always --no-startup-id i3-msg 'exec "killall xxkb; sleep 1; xxkb &"'
 # Enable numlock
 exec_always --no-startup-id numlockx on
 # breaks for eyes
@@ -287,13 +308,16 @@ exec --no-startup-id i3-msg 'exec rsibreak --autostart'
 exec --no-startup-id i3-msg 'exec shutter --min_at_startup'
 # clipboard manager
 exec --no-startup-id i3-msg 'exec copyq'
-
+# telegram-desktop
 exec --no-startup-id ~/Telegram/Telegram
-exec --no-startup-id i3-msg 'workspace 1;exec firefox -new-instance -P Work'
-exec --no-startup-id firefox -new-instance -P default
-exec --no-startup-id i3-msg 'workspace 2;exec alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh && fish"'
-
+# firefox
+exec --no-startup-id firefox -new-instance -P default & sleep 2 && firefox -new-instance -P Work &
+# run bash script in terminal and show result
+exec --no-startup-id i3-msg 'exec alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh && fish"'
+# custom script
 exec --no-startup-id ~/startup.sh
+# screen locker (after 15 minutes)
+exec --no-startup-id "xautolock -time 15 -locker '$Locker'"
 
 #bindsym $mod+t [class="Telegram"] focus
 
