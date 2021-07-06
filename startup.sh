@@ -16,36 +16,38 @@ exec 2>$HOME/startup.err.log
 DAYOFWEEK=`/bin/date +%u`
 DAYHOUR=`/bin/date +%H`
 
-# conky - desktop widget
-if [ -e "$HOME/.harmattan-themes/conky.sh" ]; then
-  /bin/bash $HOME/.harmattan-themes/conky.sh &
-fi
-
-
-if [[ $DAYOFWEEK -lt 6 ]]; then
-  # phpstorm IDE
-  /bin/sh $HOME/PhpStorm/bin/phpstorm.sh &
-  # chrome browser
-  /usr/bin/google-chrome &
-fi
-
-# firefox browser
-/usr/bin/firefox -new-instance -P default &
-/usr/bin/firefox -new-instance -P Work &
-
 # xfce only
 if [[ $XDG_CURRENT_DESKTOP == "XFCE" ]]; then
+
+
+  if [[ $DAYOFWEEK -lt 6 ]]; then
+    # phpstorm IDE
+    /bin/sh $HOME/PhpStorm/bin/phpstorm.sh &
+    # chrome browser
+    /usr/bin/google-chrome &
+  fi
+
+  # conky - desktop widget
+  if [ -e "$HOME/.harmattan-themes/conky.sh" ]; then
+    /bin/bash $HOME/.harmattan-themes/conky.sh &
+  fi
 
   # Shutter - capture and edit screenshots
   /usr/bin/shutter --min_at_startup &
 
-  # Synapse launcher
-  [ -e "/usr/bin/synapse" ] && /usr/bin/synapse --startup &
+  # custom visualizations via conky (stored outside dotfiles repo)
+  [ -e "$HOME/desktop-utils.sh" ] && zsh "$HOME/desktop-utils.sh" &
 
+  # firefox browser
+  /usr/bin/firefox -new-instance -P default &
+  /usr/bin/firefox -new-instance -P Work &
+
+  # Telegram messenger
+  $HOME/Telegram/Telegram &
+
+  /usr/bin/ulauncher --hide-window &
 fi
 
-# Telegram messenger
-$HOME/Telegram/Telegram &
 
 # script to extract zip files after download
 /bin/bash "$HOME/Downloads/Telegram Desktop/unzip_here.sh" &
@@ -56,19 +58,19 @@ if grep '/dev/mapper/homelib' /etc/fstab; then
   mount /dev/mapper/homelib
 fi
 
-/usr/bin/ulauncher --hide-window &
 
 # Dropbox - sync files
 #/usr/bin/dropbox start -i &
 
 # Start KeePassXC with unlocking password # see https://github.com/keepassxreboot/keepassxc/issues/1267
 /bin/bash -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin $HOME/Dropbox/lastpass.kdbx" &
-
+# remove "urgency" from KeePassXC on startup
+/bin/bash -c 'sleep 5 && wmctrl -r KeePassXC -b remove,demands_attention' &
 
 # moving windows by workspaces
 function move_app_to_workspace() {
   # wait up to 40 sec until wmctrl find window
-  for i in {1..20}; do 
+  for i in {1..20}; do
     MATCHES=$(wmctrl -l | grep "$1")
     if [[ $MATCHES ]]; then
         echo $MATCHES | awk '{ print $1 }' | xargs -I % wmctrl -i -r "%" -t $2
@@ -82,11 +84,10 @@ function move_app_to_workspace() {
 }
 
 
-# move keepass app
-move_app_to_workspace 'Lastpass' 1 &
-
-# custom visualizations via conky (stored outside dotfiles repo)
-[ -e "$HOME/desktop-utils.sh" ] && zsh "$HOME/desktop-utils.sh" &
+if [[ $XDG_CURRENT_DESKTOP == "XFCE" ]]; then
+  # move keepass app
+  move_app_to_workspace 'Lastpass' 1 &
+fi
 
 # backup home directory
 [ -e /bin/backup-abc-toshiba-start.sh ] && sudo /bin/bash /bin/backup-abc-toshiba-start.sh &

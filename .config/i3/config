@@ -1,0 +1,306 @@
+# i3 config file (v4)
+#
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+# Requirements for my custom config:
+#
+
+# 'JetBrains Mono' @link https://www.jetbrains.com/lp/mono/
+# alacritty
+# amixer
+# compton
+# copyq
+# dmenu 
+# feh
+# i3-gaps
+# i3lock
+# nm-applet
+# numlockx
+# polybar
+# setxkbmap
+# xrandr
+# xxkb
+
+
+# Mod key = Super key
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:'JetBrains Mono' 12 
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec alacritty
+
+# kill focused window
+bindsym $mod+Shift+q kill
+bindsym $mod+BackSpace kill
+
+# start a program launcher
+bindsym $mod+d exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+z split h
+# split in vertical orientation
+bindsym $mod+x split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 1 px or 1 ppt
+        bindsym Down resize grow height 1 px or 1 ppt
+        bindsym Up resize shrink height 1 px or 1 ppt
+        bindsym Right resize grow width 1 px or 1 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+
+###############################bar color########################################
+#set $bg-color 	         #2b2e37
+#set $inactive-bg-color   #2f343f
+#set $text-color          #f3f4f5
+#set $inactive-text-color #676E7D
+#set $urgent-bg-color     #F15D22
+###############################bar color########################################
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+#bar {
+#        status_command i3status | i3status-title-on-bar --color '#02FFBF'
+#        position top
+#        tray_padding 0
+#        font pango:DejaVu Sans Mono 10
+#        colors {
+#            background $bg-color
+#            separator $bg-color
+#            focused_workspace  $bg-color          $bg-color          $text-color
+#            inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#		    urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#    	}
+#}
+#
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+new_window pixel 2
+new_float normal
+
+# Hide borders
+hide_edge_borders none
+
+
+set $Locker i3lock -c000000 && sleep 1
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Pause mode "$mode_system"
+# make a screenshot with shutter
+bindsym Print exec shutter -s
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 2%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 2%-
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+
+# bind workspace to HDMI-0 display
+workspace $ws1 output HDMI-0
+
+# arrange displays
+exec xrandr --output HDMI-0 --auto --left-of DP-0.8
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# start polybar
+exec --no-startup-id polybar -r example
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# window compositor compton
+exec --no-startup-id "compton -b"
+
+exec setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
+
+assign [class="Firefox$"] → $ws1 
+assign [class="^TelegramDesktop$"] → $ws2
+assign [class="^Alacritty$" title="Terminal"] → $ws2
+assign [class="^KeePassXC$"] → $ws4
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [class="Shutter"] floating enable
+for_window [class="^copyq$"] floating enable, border pixel 2
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="^KeePassXC$"] floating enable border normal
+
+# desktop image
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/10-14-Night.jpg
+# dropbox daemon
+exec --no-startup-id i3-msg 'exec dropbox start'
+# keyboard indicator 
+exec_always --no-startup-id i3-msg 'exec xxkb'
+# Enable numlock
+exec_always --no-startup-id numlockx on
+# breaks for eyes
+exec --no-startup-id i3-msg 'exec rsibreak --autostart'
+# screenshooting
+exec --no-startup-id i3-msg 'exec shutter --min_at_startup'
+# clipboard manager
+exec --no-startup-id i3-msg 'exec copyq'
+
+exec --no-startup-id ~/Telegram/Telegram
+exec --no-startup-id i3-msg 'workspace 1;exec firefox -new-instance -P Work'
+exec --no-startup-id firefox -new-instance -P default
+exec --no-startup-id i3-msg 'workspace 2;exec alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh && fish"'
+exec --no-startup-id ~/startup.sh
+# volume control
+exec --no-startup-id pasystray
+# remove "urgency" from KeePassXC on startup
+ 
+# TODO: replace conky with bash scripts in the terminal
+
+bindsym $mod+t [class="Telegram"] focus
+
+# i3-gaps 
+gaps inner 8 
+gaps outer 0
+smart_gaps on
+smart_borders on
+
