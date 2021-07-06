@@ -14,7 +14,6 @@
 # feh
 # i3-gaps
 # i3lock
-# siji font
 # nm-applet
 # numlockx
 # polybar
@@ -24,7 +23,6 @@
 # xss-lock
 # xxkb
 #
-# TODO: change siji font to something better
 #####################
 
 # Mod key = Super key
@@ -259,6 +257,7 @@ assign [class="Firefox$"] → $ws1
 assign [class="^TelegramDesktop$"] → $ws2
 assign [class="^Alacritty$" title="Terminal"] → $ws2
 assign [class="^KeePassXC$"] → $ws4
+assign [class="^XXkb$"] → $ws4
 
 # per app rules
 for_window [window_role="pop-up"] floating enable
