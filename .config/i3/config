@@ -273,9 +273,11 @@ for_window [class="^KeePassXC$"] floating enable border normal
 # desktop image
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/10-14-Night.jpg
 # dropbox daemon
-exec --no-startup-id i3-msg 'exec dropbox start'
+exec --no-startup-id exec dropbox start
+# notifications daemon
+exec --no-startup-id dunst
 # keyboard indicator 
-exec_always --no-startup-id i3-msg 'exec xxkb'
+exec_always --no-startup-id i3-msg 'exec "killall xxkb; sleep 1; xxkb"'
 # Enable numlock
 exec_always --no-startup-id numlockx on
 # breaks for eyes
