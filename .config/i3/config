@@ -289,14 +289,10 @@ exec --no-startup-id ~/Telegram/Telegram
 exec --no-startup-id i3-msg 'workspace 1;exec firefox -new-instance -P Work'
 exec --no-startup-id firefox -new-instance -P default
 exec --no-startup-id i3-msg 'workspace 2;exec alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh && fish"'
-exec --no-startup-id ~/startup.sh
-# volume control
-exec --no-startup-id pasystray
-# remove "urgency" from KeePassXC on startup
- 
-# TODO: replace conky with bash scripts in the terminal
 
-bindsym $mod+t [class="Telegram"] focus
+exec --no-startup-id ~/startup.sh
+
+#bindsym $mod+t [class="Telegram"] focus
 
 # i3-gaps 
 gaps inner 8 
