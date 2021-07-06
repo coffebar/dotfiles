@@ -53,7 +53,9 @@ module-margin-right = 2
 
 font-0 = "Droid Sans:pixelsize=12;3"
 font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
-font-2 = siji:pixelsize=14;1
+# Font Awesome 4 from system package
+# /usr/share/fonts/truetype/font-awesome/fontawesome-webfont.ttf
+font-2 = "FontAwesome:pixelsize=13;3"
 
 modules-left = i3 pulseaudio xbacklight memory cpu battery temperature
 modules-center = xwindow
@@ -205,7 +207,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #06989A
 label = %percentage:2%%
@@ -213,7 +215,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #AD7FA8
 label = %percentage_used%%
@@ -266,7 +268,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #3465A4
 
@@ -279,7 +281,7 @@ format-volume = <label-volume> <bar-volume>
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+label-muted =  muted
 label-muted-foreground = #666
 
 bar-volume-width = 10
@@ -374,9 +376,9 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 =  
+ramp-1 = 
+ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
@@ -386,9 +388,9 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open =  
 label-open-foreground = ${colors.secondary}
-label-close =  cancel
+label-close = cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
