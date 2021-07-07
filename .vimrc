@@ -172,7 +172,12 @@ set nobackup
 set nowb
 set noswapfile
 
-
+" Templates
+" will be used to create a new files
+if has("autocmd")
+    autocmd BufNewFile *.sh 0r ~/Templates/bash.sh
+    autocmd BufNewFile *.py 0r ~/Templates/python.py
+endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
