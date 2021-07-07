@@ -125,16 +125,16 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace 1; workspace 1
+bindsym $mod+Shift+2 move container to workspace 2; workspace 2
+bindsym $mod+Shift+3 move container to workspace 3; workspace 3
+bindsym $mod+Shift+4 move container to workspace 4; workspace 4
+bindsym $mod+Shift+5 move container to workspace 5; workspace 5
+bindsym $mod+Shift+6 move container to workspace 6; workspace 6
+bindsym $mod+Shift+7 move container to workspace 7; workspace 7
+bindsym $mod+Shift+8 move container to workspace 8; workspace 8
+bindsym $mod+Shift+9 move container to workspace 9; workspace 9
+bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -178,31 +178,6 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-
-###############################bar color########################################
-#set $bg-color 	         #2b2e37
-#set $inactive-bg-color   #2f343f
-#set $text-color          #f3f4f5
-#set $inactive-text-color #676E7D
-#set $urgent-bg-color     #F15D22
-###############################bar color########################################
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status | i3status-title-on-bar --color '#02FFBF'
-#        position top
-#        tray_padding 0
-#        font pango:DejaVu Sans Mono 10
-#        colors {
-#            background $bg-color
-#            separator $bg-color
-#            focused_workspace  $bg-color          $bg-color          $text-color
-#            inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-#		    urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-#    	}
-#}
-#
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window pixel 2
 new_float normal
@@ -210,8 +185,7 @@ new_float normal
 # Hide borders
 hide_edge_borders none
 
-
-set $Locker i3lock -c000000 --show-failed-attempts && sleep 1
+set $Locker ~/.config/i3/locker.sh 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
@@ -267,12 +241,13 @@ for_window [class="^copyq$"] floating enable, border pixel 2
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="^KeePassXC$"] floating enable border normal
 for_window [class="^KeePassXC$" title="Browser Access Request"] move window to workspace current
+for_window [class="^Gnome-calculator$"] floating enable, border pixel 0
 
 
 # Apps startup section
 
 # arrange displays
-exec xrandr --output HDMI-0 --primary --auto --left-of DP-0.8
+exec --no-startup-id xrandr --output HDMI-0 --primary --auto --left-of DP-0.8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -280,13 +255,13 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet &
 
 # window compositor compton
 exec --no-startup-id "compton -b"
 
 # keyboard layouts
-exec setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
+exec --no-startup-id setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
 
 # start polybar on thr every monitor
 exec --no-startup-id ~/polybar.start.sh
@@ -302,21 +277,21 @@ exec_always --no-startup-id i3-msg 'exec "killall xxkb; sleep 1; xxkb &"'
 # Enable numlock
 exec_always --no-startup-id numlockx on
 # breaks for eyes
-exec --no-startup-id i3-msg 'exec rsibreak --autostart'
+exec --no-startup-id rsibreak --autostart
 # screenshooting
-exec --no-startup-id i3-msg 'exec shutter --min_at_startup'
+exec --no-startup-id shutter --min_at_startup
 # clipboard manager
-exec --no-startup-id i3-msg 'exec copyq'
+exec --no-startup-id copyq
 # telegram-desktop
 exec --no-startup-id ~/Telegram/Telegram
 # firefox
 exec --no-startup-id firefox -new-instance -P default & sleep 2 && firefox -new-instance -P Work &
 # run bash script in terminal and show result
-exec --no-startup-id i3-msg 'exec alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh && fish"'
+exec --no-startup-id i3-msg 'exec --no-startup-id alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh && fish"'
 # custom script
 exec --no-startup-id ~/startup.sh
 # screen locker (after 15 minutes)
-exec --no-startup-id "xautolock -time 15 -locker '$Locker'"
+exec --no-startup-id "xautolock -time 15 -locker $Locker"
 
 #bindsym $mod+t [class="Telegram"] focus
 
