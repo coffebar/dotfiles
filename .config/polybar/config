@@ -209,7 +209,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #06989A
+;format-underline = #06989A
 label = %percentage:2%%
 
 [module/memory]
@@ -217,7 +217,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #AD7FA8
+;format-underline = #AD7FA8
 label = %percentage_used%%
 
 [module/wlan]
@@ -270,7 +270,7 @@ time-alt = %H:%M:%S
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #3465A4
+;format-underline = #00000000
 
 label = %date%   %time%
 
@@ -368,7 +368,7 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #C4A000
+;format-underline = #C4A000
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
@@ -389,11 +389,11 @@ expand-right = true
 format-spacing = 1
 
 label-open =  
-label-open-foreground = ${colors.secondary}
+;label-open-foreground = ${colors.secondary}
 label-close = cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
+;label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
