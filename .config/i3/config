@@ -242,6 +242,7 @@ for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="^KeePassXC$"] floating enable border normal
 for_window [class="^KeePassXC$" title="Browser Access Request"] move window to workspace current
 for_window [class="^Gnome-calculator$"] floating enable, border pixel 0
+for_window [class="^Xreader$"] floating enable, border pixel 0
 
 
 # Apps startup section
