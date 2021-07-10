@@ -57,25 +57,21 @@
   Alt + b + Release
 "/bin/bash $HOME/alt_bindkeys.sh y"
   Alt + y + Release
-"/bin/bash $HOME/alt_bindkeys.sh r"
-  Alt + r + Release
 "/bin/bash $HOME/alt_bindkeys.sh v"
   Alt + v + Release
 "/bin/bash $HOME/alt_bindkeys.sh k"
   Alt + k + Release
-"/bin/bash $HOME/alt_bindkeys.sh p"
-  Alt + p + Release
 "$HOME/toggle_headphones.sh"
   Alt + period + Release
 "/bin/bash $HOME/alt_bindkeys.sh s"
   Alt + s + Release
 
 # Open new terminal
-"$HOME/.cargo/bin/alacritty"
-  Control + grave
+#"alacritty"
+#  Control + grave
   
 # Ranger file manager
-"wmctrl -a ' - File Manager' || thunar"
+"wmctrl -a 'Ranger File Manager' || alacritty -t 'Ranger File Manager' -e ranger ~/Bookmarks"
   Control + Alt + f + Release
 
 

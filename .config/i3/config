@@ -18,7 +18,6 @@
 # numlockx
 # polybar
 # setxkbmap
-# xautolock
 # xrandr
 # xss-lock
 # xxkb
@@ -46,6 +45,10 @@ font pango:'Droid Sans' 12
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+
+# arrange displays
+exec --no-startup-id xrandr --output HDMI-0 --primary --auto --left-of DP-0.8
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -55,13 +58,17 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+BackSpace kill
+bindsym $alt+space kill
 
 # start a program launcher
 bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
+
+# krunner is better then i3-dmenu-desktop
+bindsym $mod+space exec --no-startup-id krunner --replace
 
 # change focus
 bindsym $mod+h focus left
@@ -104,7 +111,8 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# - not using this a lot
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -223,15 +231,23 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 
-# bind workspace to HDMI-0 display
+# bind workspaces 
 workspace $ws1 output HDMI-0
+workspace $ws2 output DP-0.8
+workspace $ws3 output DP-0.8
+workspace $ws4 output HDMI-0
+workspace $ws6 output primary
+workspace $ws8 output primary
 
 # assign apps to workspaces
 assign [class="Firefox$"] → $ws1 
 assign [class="^TelegramDesktop$"] → $ws2
 assign [class="^Alacritty$" title="Terminal"] → $ws2
-assign [class="^KeePassXC$"] → $ws4
-assign [class="^XXkb$"] → $ws4
+assign [class="^Alacritty$" title="Vim Editor Session"] → $ws2
+assign [class="^jetbrains-phpstorm$"] → $ws3
+assign [class="^Google-chrome$"] → $ws4
+assign [class="^XXkb$"] → $ws9
+assign [class="^KeePassXC$"] → $ws9
 
 # per app rules
 for_window [window_role="pop-up"] floating enable
@@ -243,12 +259,10 @@ for_window [class="^KeePassXC$"] floating enable border normal
 for_window [class="^KeePassXC$" title="Browser Access Request"] move window to workspace current
 for_window [class="^Gnome-calculator$"] floating enable, border pixel 0
 for_window [class="^Xreader$"] floating enable, border pixel 0
+for_window [class="^jetbrains" title="^Diff Between '"] floating enable
 
 
 # Apps startup section
-
-# arrange displays
-exec --no-startup-id xrandr --output HDMI-0 --primary --auto --left-of DP-0.8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -269,7 +283,7 @@ exec --no-startup-id ~/polybar.start.sh
 
 # desktop image
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/10-14-Night.jpg
-# dropbox daemon
+# dropbox
 exec --no-startup-id exec dropbox start
 # notifications daemon
 exec --no-startup-id dunst
@@ -277,6 +291,10 @@ exec --no-startup-id dunst
 exec_always --no-startup-id i3-msg 'exec "killall xxkb; sleep 1; xxkb &"'
 # Enable numlock
 exec_always --no-startup-id numlockx on
+# load pre-saved layout
+exec --no-startup-id i3-msg "workspace $ws1; append_layout ~/.config/i3/workspace-1.json"
+exec --no-startup-id i3-msg "workspace $ws2; append_layout ~/.config/i3/workspace-2.json"
+
 # breaks for eyes
 exec --no-startup-id rsibreak --autostart
 # screenshooting
@@ -286,13 +304,14 @@ exec --no-startup-id copyq
 # telegram-desktop
 exec --no-startup-id ~/Telegram/Telegram
 # firefox
-exec --no-startup-id firefox -new-instance -P default & sleep 2 && firefox -new-instance -P Work &
+exec --no-startup-id firefox -new-instance -P default & sleep 2 && firefox -new-instance -P Work
 # run bash script in terminal and show result
-exec --no-startup-id i3-msg 'exec --no-startup-id alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh && fish"'
+exec --no-startup-id alacritty -t Terminal -e bash -c "(~/PycharmProjects/desktop-utils/ssl.sh && fish) || zsh"
+# vim in terminal with saved session
+exec --no-startup-id alacritty -t "Vim Editor Session" -e /usr/bin/vim -S "~/configs.edit.session.vim"
+
 # custom script
 exec --no-startup-id ~/startup.sh
-# screen locker (after 15 minutes)
-exec --no-startup-id "xautolock -time 15 -locker $Locker"
 
 #bindsym $mod+t [class="Telegram"] focus
 

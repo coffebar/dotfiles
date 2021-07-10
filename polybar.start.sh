@@ -8,7 +8,7 @@ PRIMARY=$(polybar -m | grep primary | awk -F: '{print $1}')
 
 MONITOR=$PRIMARY polybar --reload $BAR_NAME &
 
-sleep 1
+sleep 3
 
 for i in $(polybar -m | grep -v primary | awk -F: '{print $1}'); do
     MONITOR=$i polybar --reload $BAR_NAME &

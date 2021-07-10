@@ -18,7 +18,8 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #2b2e37
+;background = #2b2e37
+background = #2b2e37a3
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #F2F2F2
@@ -63,7 +64,9 @@ modules-right = date powermenu
 
 tray-position = right
 tray-padding = 2 
-;tray-background = #0063ff
+tray-background = ${colors.background}
+;tray-scale = 1.2
+tray-offset-y = 1
 
 ;wm-restack = bspwm
 ;wm-restack = i3

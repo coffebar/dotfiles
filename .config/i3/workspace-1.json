@@ -1,0 +1,44 @@
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 455,
+       "width": 1264,
+       "x": 0,
+       "y": 0
+    },
+    "marks": [],
+    "name": "Firefox",
+    "percent": 0.5,
+    "swallows": [
+       {
+        "class": "^Firefox$",
+        "window_role": "^browser$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1393,
+       "width": 837,
+       "x": 0,
+       "y": 0
+    },
+    "marks": [],
+    "name": "Firefox",
+    "percent": 0.5,
+    "swallows": [
+       {
+        "class": "^Firefox$",
+        "window_role": "^browser$"
+       }
+    ],
+    "type": "con"
+}
+
