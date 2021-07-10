@@ -1,22 +1,39 @@
 My dotfiles backup.
 
 ## Requirements:
-- zsh
-- oh-my-zsh
+
+- alacritty
+- amixer
+- bash
+- compton
+- dmenu
+- dunst
+- feh
 - fish
 - git
-- rsync
-- wmctrl
-- xmodmap
 - google-chrome
-- Telegram
-- xautomation
-- ttf font 'JetBrains Mono'
-- ulauncher
+- i3-gaps
+- i3lock
+- nm-applet
+- numlockx
+- oh-my-zsh
+- polybar
 - ranger
-- xmodmap
+- rsync
+- setxkbmap
+- telegram
+- ttf font 'JetBrains Mono'
 - ueberzug # pip3 install ueberzug
-
+- wmctrl
+- xautomation
+- xclip
+- xmodmap
+- xmodmap
+- xrandr
+- xss-lock
+- xxkb
+- zsh
+- ~~ulauncher~~ krunner
 
 ## Restore backup:
 ## Please don't do this without understanding all files and commands! It may harm your system.
