@@ -15,16 +15,17 @@ case "$1" in
   # f - File Manager
   # open directory from clipboard if exists
   BUFF=$(xclip -selection c -o)
+  FM=thunar
   if [ -f "$BUFF" ]; then
       D=$(dirname "$BUFF")
-      thunar "$D" &
+      $FM "$D" &
       exit
   fi
   if [ -d "$BUFF" ]; then
-      thunar "$BUFF" &
+      $FM "$BUFF" &
       exit
   fi
-  wmctrl -a ' - File Manager' || thunar $HOME/Downloads &
+  $FM $HOME/Downloads &
   ;;
   "t")
   # t - Telegram
