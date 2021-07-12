@@ -380,3 +380,11 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+
+
+"" Plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'ap/vim-css-color'
+
+call plug#end()
