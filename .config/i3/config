@@ -15,6 +15,7 @@
 # i3-gaps
 # i3lock
 # nm-applet
+# kbdd
 # numlockx
 # polybar
 # setxkbmap
@@ -230,6 +231,14 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+#bindsym $mod+t [class="Telegram"] focus
+
+
+# i3-gaps 
+gaps inner 8 
+gaps outer 0
+smart_gaps on
+smart_borders on
 
 # bind workspaces 
 workspace $ws1 output HDMI-0
@@ -294,7 +303,8 @@ exec_always --no-startup-id numlockx on
 # load pre-saved layout
 exec --no-startup-id i3-msg "workspace $ws1; append_layout ~/.config/i3/workspace-1.json"
 exec --no-startup-id i3-msg "workspace $ws2; append_layout ~/.config/i3/workspace-2.json"
-
+# daemon to make per window layout using xkb
+exec --no-startup-id kbdd
 # breaks for eyes
 exec --no-startup-id rsibreak --autostart
 # screenshooting
@@ -313,11 +323,5 @@ exec --no-startup-id alacritty -t "Vim Editor Session" -e /usr/bin/vim -S "~/con
 # custom script
 exec --no-startup-id ~/startup.sh
 
-#bindsym $mod+t [class="Telegram"] focus
 
-# i3-gaps 
-gaps inner 8 
-gaps outer 0
-smart_gaps on
-smart_borders on
 
