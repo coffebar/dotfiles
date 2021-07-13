@@ -1,9 +1,6 @@
 #!/bin/bash
 # This script runs on press ALT+key from $HOME/.xbindkeysrc
 
-# add aliases if not loaded
-[ -f ~/.bash_aliases ] && [ -z "$NNN_BMS" ] && source ~/.bash_aliases
-
 
 # Alt+$1 pressed
 case "$1" in
