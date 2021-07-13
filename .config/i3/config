@@ -6,17 +6,19 @@
 #
 
 # alacritty
+# autotiling
 # amixer
-# compton
 # copyq
 # dmenu 
 # dunst
 # feh
 # i3-gaps
 # i3lock
-# nm-applet
 # kbdd
+# nm-applet
 # numlockx
+# picom
+# rofi
 # polybar
 # setxkbmap
 # xrandr
@@ -62,7 +64,7 @@ bindsym $mod+BackSpace kill
 bindsym $alt+space kill
 
 # start a program launcher
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show run -theme Arc-Dark
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -220,6 +222,9 @@ bindsym $alt+Control+Left workspace prev_on_output
 # make a screenshot with shutter
 bindsym Print exec shutter -s
 
+# ssh connect: Mod+tilda
+bindsym $mod+grave exec rofi -show ssh -theme Arc-Dark
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 2%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 2%-
@@ -261,15 +266,17 @@ assign [class="^KeePassXC$"] → $ws9
 # per app rules
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
-for_window [class="Shutter"] floating enable
-for_window [class="^copyq$"] floating enable, border pixel 2
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="^KeePassXC$"] floating enable border normal
-for_window [class="^KeePassXC$" title="Browser Access Request"] move window to workspace current
+for_window [class="Shutter"] floating enable, move position center
+for_window [class="^copyq$"] floating enable, move position center
+for_window [class="(?i)virtualbox"] floating enable
+for_window [class="^KeePassXC$"] move position center 
+for_window [class="^KeePassXC$" title="Browser Access Request"] floating enable, move window to workspace current
 for_window [class="^Gnome-calculator$"] floating enable, border pixel 0
 for_window [class="^Xreader$"] floating enable, border pixel 0
-for_window [class="^jetbrains" title="^Diff Between '"] floating enable
+for_window [class="^jetbrains" title="^Diff Between '"] floating enable, border pixel 0
 
+# workaround @link https://bugzilla.mozilla.org/show_bug.cgi?id=686747
+for_window [class="Firefox"] resize grow height 1 px or 1 ppt
 
 # Apps startup section
 
@@ -281,8 +288,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet &
 
-# window compositor compton
-exec --no-startup-id "compton -b"
+# window compositor 
+exec --no-startup-id "picom -b --backend glx --vsync --xrender-sync-fence"
 
 # keyboard layouts
 exec --no-startup-id setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
@@ -323,5 +330,8 @@ exec --no-startup-id alacritty -t "Vim Editor Session" -e /usr/bin/vim -S "~/con
 # custom script
 exec --no-startup-id ~/startup.sh
 
+# kde connect
+exec --no-startup-id kdeconnect-cli --refresh
 
-
+# autotiling @link https://github.com/nwg-piotr/autotiling
+exec_always --no-startup-id autotiling
