@@ -20,6 +20,7 @@
 # picom
 # rofi
 # polybar
+# flameshot
 # setxkbmap
 # xrandr
 # xss-lock
@@ -219,8 +220,8 @@ bindsym $alt+Control+l exec --no-startup-id $Locker
 bindsym $alt+Control+Right workspace next_on_output
 bindsym $alt+Control+Left workspace prev_on_output 
 
-# make a screenshot with shutter
-bindsym Print exec shutter -s
+# make a screenshot with flameshot
+bindsym Print exec flameshot gui --path ~/Pictures/
 
 # ssh connect: Mod+tilda
 bindsym $mod+grave exec rofi -show ssh -theme Arc-Dark
@@ -314,8 +315,6 @@ exec --no-startup-id i3-msg "workspace $ws2; append_layout ~/.config/i3/workspac
 exec --no-startup-id kbdd
 # breaks for eyes
 exec --no-startup-id rsibreak --autostart
-# screenshooting
-exec --no-startup-id shutter --min_at_startup
 # clipboard manager
 exec --no-startup-id copyq
 # telegram-desktop
