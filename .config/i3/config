@@ -301,11 +301,11 @@ exec --no-startup-id ~/polybar.start.sh
 # desktop image
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/10-14-Night.jpg
 # dropbox
-exec --no-startup-id exec dropbox start
+exec --no-startup-id dropbox start
 # notifications daemon
 exec --no-startup-id dunst
 # keyboard indicator 
-exec_always --no-startup-id i3-msg 'exec "killall xxkb; sleep 1; xxkb &"'
+exec_always --no-startup-id i3-msg 'exec --no-startup-id "killall xxkb; sleep 1; xxkb &"'
 # Enable numlock
 exec_always --no-startup-id numlockx on
 # load pre-saved layout
@@ -327,7 +327,7 @@ exec --no-startup-id alacritty -t Terminal -e bash -c "(~/PycharmProjects/deskto
 exec --no-startup-id alacritty -t "Vim Editor Session" -e /usr/bin/vim -S "~/configs.edit.session.vim"
 
 # custom script
-exec --no-startup-id ~/startup.sh
+exec --no-startup-id ~/startup.sh &
 
 # kde connect
 exec --no-startup-id kdeconnect-cli --refresh
