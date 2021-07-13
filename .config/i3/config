@@ -6,21 +6,20 @@
 #
 
 # alacritty
-# autotiling
 # amixer
+# autotiling
 # copyq
-# dmenu 
 # dunst
 # feh
+# flameshot
 # i3-gaps
 # i3lock
 # kbdd
 # nm-applet
 # numlockx
 # picom
-# rofi
 # polybar
-# flameshot
+# rofi
 # setxkbmap
 # xrandr
 # xss-lock
