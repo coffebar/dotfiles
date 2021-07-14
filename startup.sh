@@ -32,9 +32,6 @@ if [[ $XDG_CURRENT_DESKTOP == "XFCE" ]]; then
     /bin/bash $HOME/.harmattan-themes/conky.sh &
   fi
 
-  # Shutter - capture and edit screenshots
-  /usr/bin/shutter --min_at_startup &
-
   # custom visualizations via conky (stored outside dotfiles repo)
   [ -e "$HOME/desktop-utils.sh" ] && zsh "$HOME/desktop-utils.sh" &
 
