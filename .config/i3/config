@@ -97,18 +97,22 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# Commented since autotiling installed
 # split in horizontal orientation
-bindsym $mod+z split h
+#bindsym $mod+z split h
 # split in vertical orientation
-bindsym $mod+x split v
+#bindsym $mod+x split v
+# change container layout (stacked, tabbed, toggle split)
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
+
+
+# start apps for work
+bindsym $mod+w exec --no-startup-id "bash ~/alt_bindkeys.sh b && sleep 1 && bash ~/alt_bindkeys.sh i"
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
