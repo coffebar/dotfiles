@@ -8,8 +8,7 @@ exec 2>$HOME/startup.err.log
 # enable pulse-audio echo cancellation filter
 #export PULSE_PROP="filter.want=echo-cancel"
 
-# xbindkeys - keyboard bindings
-/usr/bin/xbindkeys_autostart &
+# keyboard modifications (swap keys)
 /bin/bash -c "sleep 5 && /usr/bin/xmodmap $HOME/.xmodmaprc"
 
 # check day of week to choose programs to run
@@ -19,6 +18,7 @@ DAYHOUR=`/bin/date +%H`
 # xfce only
 if [[ $XDG_CURRENT_DESKTOP == "XFCE" ]]; then
 
+  /usr/bin/xbindkeys_autostart &
 
   if [[ $DAYOFWEEK -lt 6 ]]; then
     # phpstorm IDE
@@ -39,8 +39,6 @@ if [[ $XDG_CURRENT_DESKTOP == "XFCE" ]]; then
   /usr/bin/firefox -new-instance -P default &
   /usr/bin/firefox -new-instance -P Work &
 
-  # Telegram messenger
-  $HOME/Telegram/Telegram &
 
   /usr/bin/ulauncher --hide-window &
 fi
@@ -56,8 +54,10 @@ if grep '/dev/mapper/homelib' /etc/fstab; then
 fi
 
 
+# Telegram messenger
+$HOME/Telegram/Telegram &
 # Dropbox - sync files
-#/usr/bin/dropbox start -i &
+/usr/bin/dropbox start -i &
 
 # Start KeePassXC with unlocking password # see https://github.com/keepassxreboot/keepassxc/issues/1267
 /bin/bash -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin $HOME/Dropbox/lastpass.kdbx" &

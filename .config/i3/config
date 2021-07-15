@@ -18,11 +18,13 @@
 # nm-applet
 # numlockx
 # picom
+# playerctl 
 # polybar
 # rofi
 # setxkbmap
 # xrandr
 # xss-lock
+# xte
 # xxkb
 #
 #####################
@@ -108,9 +110,6 @@ bindsym $mod+Shift+Right move right
 #bindsym $mod+e layout toggle split
 
 
-# start apps for work
-bindsym $mod+w exec --no-startup-id "bash ~/alt_bindkeys.sh b && sleep 1 && bash ~/alt_bindkeys.sh i"
-
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
@@ -182,6 +181,68 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+# custom bindings
+
+# mouse side buttons to copy & paste on GUI apps
+bindsym --whole-window button8 exec "xte 'keydown Control_L' 'keydown c' 'keyup c' 'keyup Control_L'"
+bindsym --whole-window button9 exec "xte 'keydown Control_L' 'keydown v' 'keyup v' 'keyup Control_L'"
+
+# Ctrl + Alt + l → lock 
+bindsym $alt+Control+l exec --no-startup-id $Locker
+
+# Move to the next/prev workspace on current monitor
+bindsym $alt+Control+Right workspace next_on_output
+bindsym $alt+Control+Left workspace prev_on_output 
+
+# make a screenshot with flameshot
+bindsym Print exec flameshot gui --path ~/Pictures/
+
+# ssh connect: Mod+tilda
+bindsym $mod+grave exec rofi -show ssh -theme Arc-Dark
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 2%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 2%-
+
+# control Audio players
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+#bindsym $mod+t [class="Telegram"] focus
+
+# start apps for work
+bindsym $mod+w exec --no-startup-id "bash ~/alt_bindkeys.sh b && sleep 1 && bash ~/alt_bindkeys.sh i"
+
+# calculator
+bindsym XF86Calculator exec --no-startup-id gnome-calculator
+
+# change audio output
+bindsym XF86Tools exec --no-startup-id bash ~/toggle_headphones.sh
+
+# file browser
+bindsym $alt+f exec --no-startup-id "bash ~/alt_bindkeys.sh f"
+bindsym XF86Explorer exec --no-startup-id "wmctrl -a 'Ranger File Manager' || alacritty -t 'Ranger File Manager' -e ranger ~/Bookmarks"
+
+# more apps (can be live changed in ~/alt_bindkeys.sh)
+bindsym $alt+t exec --no-startup-id "bash ~/alt_bindkeys.sh t"
+bindsym $alt+c exec --no-startup-id "bash ~/alt_bindkeys.sh c"
+bindsym $alt+i exec --no-startup-id "bash ~/alt_bindkeys.sh i"
+bindsym $alt+b exec --no-startup-id "bash ~/alt_bindkeys.sh b"
+bindsym $alt+v exec --no-startup-id "bash ~/alt_bindkeys.sh v"
+bindsym $alt+s exec --no-startup-id "bash ~/alt_bindkeys.sh s"
+
+
+
+# workspaces
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -216,32 +277,6 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Pause mode "$mode_system"
-# Ctrl + Alt + l → lock 
-bindsym $alt+Control+l exec --no-startup-id $Locker
-
-# Move to the next/prev workspace on current monitor
-bindsym $alt+Control+Right workspace next_on_output
-bindsym $alt+Control+Left workspace prev_on_output 
-
-# make a screenshot with flameshot
-bindsym Print exec flameshot gui --path ~/Pictures/
-
-# ssh connect: Mod+tilda
-bindsym $mod+grave exec rofi -show ssh -theme Arc-Dark
-
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 2%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 2%-
-
-# move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
-
-#bindsym $mod+t [class="Telegram"] focus
-
 
 # i3-gaps 
 gaps inner 8 
@@ -301,35 +336,30 @@ exec --no-startup-id setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
 # start polybar on thr every monitor
 exec --no-startup-id ~/polybar.start.sh
 
+# load pre-saved layout and start browser
+exec --no-startup-id i3-msg "workspace $ws1; exec firefox -new-instance -P default & sleep 2 && firefox -new-instance -P Work"
+exec --no-startup-id i3-msg "workspace $ws2; append_layout ~/.config/i3/workspace-2.json"
+
 # desktop image
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/10-14-Night.jpg
-# dropbox
-exec --no-startup-id dropbox start
 # notifications daemon
 exec --no-startup-id dunst
 # keyboard indicator 
 exec_always --no-startup-id i3-msg 'exec --no-startup-id "killall xxkb; sleep 1; xxkb &"'
 # Enable numlock
 exec_always --no-startup-id numlockx on
-# load pre-saved layout
-exec --no-startup-id i3-msg "workspace $ws1; append_layout ~/.config/i3/workspace-1.json"
-exec --no-startup-id i3-msg "workspace $ws2; append_layout ~/.config/i3/workspace-2.json"
 # daemon to make per window layout using xkb
 exec --no-startup-id kbdd
 # breaks for eyes
 exec --no-startup-id rsibreak --autostart
 # clipboard manager
 exec --no-startup-id copyq
-# telegram-desktop
-exec --no-startup-id ~/Telegram/Telegram
-# firefox
-exec --no-startup-id firefox -new-instance -P default & sleep 2 && firefox -new-instance -P Work
 # run bash script in terminal and show result
 exec --no-startup-id alacritty -t Terminal -e bash -c "(~/PycharmProjects/desktop-utils/ssl.sh && fish) || zsh"
 # vim in terminal with saved session
 exec --no-startup-id alacritty -t "Vim Editor Session" -e /usr/bin/vim -S "~/configs.edit.session.vim"
 
-# custom script
+# custom startup script (mound disks, run backup, start other apps)
 exec --no-startup-id ~/startup.sh &
 
 # kde connect
