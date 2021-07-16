@@ -296,7 +296,7 @@ workspace $ws8 output primary
 assign [class="Firefox$"] → $ws1 
 assign [class="^TelegramDesktop$"] → $ws2
 assign [class="^Alacritty$" title="Terminal"] → $ws2
-assign [class="^Alacritty$" title="Vim Editor Session"] → $ws2
+assign [class="^Alacritty$" title="nVim Editor Session"] → $ws2
 assign [class="^jetbrains-phpstorm$"] → $ws3
 assign [class="^Google-chrome$"] → $ws4
 assign [class="^XXkb$"] → $ws9
@@ -357,7 +357,7 @@ exec --no-startup-id copyq
 # run bash script in terminal and show result
 exec --no-startup-id alacritty -t Terminal -e bash -c "(~/PycharmProjects/desktop-utils/ssl.sh && fish) || zsh"
 # vim in terminal with saved session
-exec --no-startup-id alacritty -t "Vim Editor Session" -e /usr/bin/vim -S "~/configs.edit.session.vim"
+exec --no-startup-id alacritty -t "nVim Editor Session" -e nvim -S "~/.config/nvim/configs-session.vim"
 
 # custom startup script (mound disks, run backup, start other apps)
 exec --no-startup-id ~/startup.sh &

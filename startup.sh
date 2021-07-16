@@ -55,7 +55,7 @@ fi
 
 
 # Telegram messenger
-$HOME/Telegram/Telegram &
+telegram-desktop &
 # Dropbox - sync files
 /usr/bin/dropbox start -i &
 

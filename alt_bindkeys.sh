@@ -26,12 +26,17 @@ case "$1" in
   ;;
   "t")
   # t - Telegram
-  wmctrl -a 'Telegram' || $HOME/Telegram/Telegram &
+  wmctrl -a 'Telegram' || telegram-desktop &
   ;;
   "c")
   # c - editor
-  wmctrl -a 'Vim Editor Session' || alacritty -t "Vim Editor Session" \
-      -e /usr/bin/vim -S "$HOME/configs.edit.session.vim" &
+  wmctrl -a 'nVim Editor Session' && exit
+  # define bare git repo to make work vim's git plugins
+  export GIT_DIR=$HOME/dotfiles
+  export GIT_WORK_TREE=$HOME
+
+  alacritty -t "nVim Editor Session" \
+      -e nvim -S $HOME/.config/nvim/configs-session.vim &
   ;;
   # More apps below
   "i")

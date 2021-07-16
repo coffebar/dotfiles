@@ -60,7 +60,7 @@ font-2 = "FontAwesome:pixelsize=13;3"
 
 modules-left = i3 pulseaudio xbacklight memory cpu battery temperature
 modules-center = xwindow
-modules-right = date powermenu
+modules-right = date 
 
 tray-position = right
 tray-padding = 2 

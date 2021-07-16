@@ -5,18 +5,15 @@ My dotfiles backup.
 - alacritty
 - amixer
 - bash
-- compton
-- dmenu
 - dunst
 - feh
 - fish
 - git
-- google-chrome
 - i3-gaps
 - i3lock
 - nm-applet
 - numlockx
-- oh-my-zsh
+- picom
 - polybar
 - ranger
 - rsync
@@ -27,7 +24,6 @@ My dotfiles backup.
 - wmctrl
 - xautomation
 - xclip
-- xmodmap
 - xmodmap
 - xrandr
 - xss-lock
