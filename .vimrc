@@ -152,6 +152,7 @@ if has("gui_running")
     set guioptions-=e
     set t_Co=256
     set guitablabel=%M\ %t
+    set guifont=JetBrains\ Mono\ 14
 endif
 
 " More colorfull theme
@@ -162,7 +163,6 @@ set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -405,5 +405,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ap/vim-css-color'
 "" fzf - fuzzy finder, requires fzf installed
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"" git 
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
