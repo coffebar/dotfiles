@@ -407,5 +407,7 @@ Plug 'ap/vim-css-color'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "" git 
 Plug 'airblade/vim-gitgutter'
+"" statusline
+Plug 'hoob3rt/lualine.nvim'
 
 call plug#end()
