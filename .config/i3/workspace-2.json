@@ -38,12 +38,12 @@
                "y": 0
             },
             "marks": [],
-            "name": "Vim Editor Session",
+            "name": "nVim Editor Session",
             "percent": 0.72,
             "swallows": [
                {
                 "class": "^Alacritty$",
-                "title": "^Vim\\ Editor\\ Session$"
+                "title": "^nVim\\ Editor\\ Session$"
                }
             ],
             "type": "con"

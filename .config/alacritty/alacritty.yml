@@ -17,16 +17,16 @@ font:
   size: 11.0
   # Normal (roman) font face
   normal: 
-    family: 'JetBrains Mono' 
+    family: JetBrains Mono
     style: Regular
 
   # Bold font face
   bold:
-    family: 'JetBrains Mono'
+    family: JetBrains Mono
     style: Bold
   # Italic font face
   italic:
-    family: 'JetBrains Mono'
+    family: JetBrains Mono
     style: Italic
 
 
