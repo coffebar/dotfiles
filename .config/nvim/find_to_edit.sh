@@ -3,22 +3,24 @@
 
 exec 2>/dev/null
 find "$HOME" -maxdepth 4 -a -type f -readable \
-    -not -path "$HOME/.npm/*" \
+    -not -path "$HOME/Public/*" \
+    -not -path "$HOME/Music/*" \
     -not -path "$HOME/Downloads/*" \
-    -not -path "$HOME/.dvdcss/*" \
     -not -path "$HOME/Pictures/*" \
-    -not -path "$HOME/.cache/*" \
-    -not -path "$HOME/.java/*" \
-    -not -path "$HOME/.vim_runtime/*" \
     -not -path "$HOME/Private/*" \
+    -not -path "$HOME/dotfiles/*" \
+    -not -path "$HOME/Dropbox/*" \
+    -not -path "$HOME/.dropbox/*" \
+    -not -path "$HOME/.dropbox-dist/*" \
+    -not -path "$HOME/.cache/*" \
+    -not -path "$HOME/.dvdcss/*" \
+    -not -path "$HOME/.java/*" \
+    -not -path "$HOME/.npm/*" \
+    -not -path "$HOME/.vim_runtime/*" \
     -not -path "$HOME/.ViberPC/*" \
     -not -path "$HOME/.mozilla/*" \
     -not -path "$HOME/.config/google-chrome*" \
     -not -path "$HOME/.config/microsoft-*" \
-    -not -path "$HOME/Dropbox/*" \
-    -not -path "$HOME/.dropbox/*" \
-    -not -path "$HOME/.dropbox-dist/*" \
-    -not -path "$HOME/dotfiles/*" \
     -not -path "$HOME/.encryptfs/*" \
     -not -path "*/.Cache/*" \
     -not -path "*/.git/*" \
@@ -70,4 +72,7 @@ find "$HOME" -maxdepth 4 -a -type f -readable \
     -not -iname "*.p12" \
     -not -iname "*.awb" \
     -not -iname "*.exc" \
+    -not -iname "*.exe" \
+    -not -iname "*.lock" \
+    -not -iname "*.pid" \
     -not -iname "*.dic"
