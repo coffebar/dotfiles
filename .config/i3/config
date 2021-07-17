@@ -232,6 +232,9 @@ bindsym XF86Tools exec --no-startup-id bash ~/toggle_headphones.sh
 bindsym $alt+f exec --no-startup-id "bash ~/alt_bindkeys.sh f"
 bindsym XF86Explorer exec --no-startup-id "wmctrl -a 'Ranger File Manager' || alacritty -t 'Ranger File Manager' -e ranger ~/Bookmarks"
 
+# super+/ open FZF script to open nvim
+bindcode $mod+51 exec --no-startup-id alacritty -t 'fzf:nvim' -e bash ~/.config/nvim/find_and_edit.sh
+
 # more apps (can be live changed in ~/alt_bindkeys.sh)
 bindsym $alt+t exec --no-startup-id "bash ~/alt_bindkeys.sh t"
 bindsym $alt+c exec --no-startup-id "bash ~/alt_bindkeys.sh c"

@@ -240,7 +240,11 @@ map <leader>tm :tabmove
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+nmap <leader>tl :exe "tabn ".g:lasttab<CR>
+
+" fzf open file and edit
+nmap <leader>f :Ffnd<CR>
+
 au TabLeave * let g:lasttab = tabpagenr()
 " Autosave all sessions
 au VimLeavePre * if v:this_session != '' | exec "mks! " . v:this_session | endif
@@ -391,6 +395,9 @@ function! s:CloseHiddenBuffers()
     endif
   endfor
 endfunction
+
+
+command! Ffnd call fzf#run({'source': '~/.config/nvim/find_to_edit.sh', 'sink': 'e'})
 
 
 "" Plugins
