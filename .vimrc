@@ -134,11 +134,6 @@ set foldcolumn=1
 " Enable syntax highlighting
 syntax enable 
 
-" Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
 try
     colorscheme desert
 catch
@@ -407,7 +402,18 @@ Plug 'ap/vim-css-color'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "" git 
 Plug 'airblade/vim-gitgutter'
-"" statusline
-Plug 'hoob3rt/lualine.nvim'
+"" nvim only
+if has('nvim')
+"" statusline, requires patched font https://github.com/ryanoasis/nerd-fonts
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+endif
+"" popular file explorer
+Plug 'preservim/nerdtree'
+"" colorschemes (optional)
+Plug 'arcticicestudio/nord-vim'
+Plug 'gruvbox-community/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'ajmwagar/vim-deus'
 
 call plug#end()
