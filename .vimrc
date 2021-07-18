@@ -153,6 +153,9 @@ endif
 " More colorfull theme
 set termguicolors
 
+" Completion List color
+hi Pmenu guibg=#444444 ctermbg=DarkGray
+
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
@@ -411,9 +414,13 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'airblade/vim-gitgutter'
 "" nvim only
 if has('nvim')
-"" statusline, requires patched font https://github.com/ryanoasis/nerd-fonts
+  "" statusline, requires patched font https://github.com/ryanoasis/nerd-fonts
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  "" asynchronous completion framework
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/neco-vim'
+  Plug 'Shougo/neco-syntax'
 endif
 "" popular file explorer
 Plug 'preservim/nerdtree'
