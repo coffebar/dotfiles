@@ -62,7 +62,6 @@ bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
-bindsym $mod+BackSpace kill
 bindsym $alt+space kill
 
 # start a program launcher
@@ -109,6 +108,8 @@ bindsym $mod+Shift+Right move right
 #bindsym $mod+w layout tabbed
 #bindsym $mod+e layout toggle split
 
+# sticky window toggle
+bindsym $mod+Shift+s sticky toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle

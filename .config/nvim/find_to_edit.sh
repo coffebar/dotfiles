@@ -23,7 +23,10 @@ find "$HOME" -maxdepth 4 -a -type f -readable \
     -not -path "$HOME/.config/microsoft-*" \
     -not -path "$HOME/.encryptfs/*" \
     -not -path "*/.Cache/*" \
+    -not -path "*/Cache/*" \
+    -not -path "*/Snapshots/*" \
     -not -path "*/.git/*" \
+    -not -path "*/bin/*" \
     -not -path "*/node_modules/*" \
     -not -path "*/logs/*" \
     -not -iname "*.log" \
@@ -75,4 +78,7 @@ find "$HOME" -maxdepth 4 -a -type f -readable \
     -not -iname "*.exe" \
     -not -iname "*.lock" \
     -not -iname "*.pid" \
+    -not -iname "*.sav" \
+    -not -iname "*.vdi" \
+    -not -iname "*.vbox" \
     -not -iname "*.dic"
