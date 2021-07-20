@@ -10,9 +10,9 @@ echo "$OTHER_SINK_ID $OTHER_SINK_NAME"
 
 IS_HDMI=$(echo "$OTHER_SINK_NAME" | grep hdmi)
 if [[ $IS_HDMI ]]; then
-  pacmd set-sink-volume $OTHER_SINK_ID 30000
-else
   pacmd set-sink-volume $OTHER_SINK_ID 50000
+else
+  pacmd set-sink-volume $OTHER_SINK_ID 30000
 fi
 
 pacmd set-default-sink $OTHER_SINK_ID
