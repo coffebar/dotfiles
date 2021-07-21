@@ -6,5 +6,6 @@ PREVIEW='bat --style=numbers --color=always --line-range :500 {}'
 export GIT_DIR=$HOME/dotfiles
 export GIT_WORK_TREE=$HOME
 FNAME=$(~/.config/nvim/find_to_edit.sh | fzf --preview "$PREVIEW")
+echo "Opening $FNAME"
 [ -f "$FNAME" ] && nvim "$FNAME"
 
