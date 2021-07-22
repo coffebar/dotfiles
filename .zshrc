@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -9,6 +16,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="ys"
+# different theme for alacritty terminal emulator
+# that has a patched font
+[ -z "$ALACRITTY_LOG" ] || ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,7 +78,7 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo git git-extras pip vagrant composer docker extract zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(sudo git git-extras pip vagrant composer docker extract zsh-syntax-highlighting zsh-autosuggestions taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,9 +111,12 @@ source $ZSH/oh-my-zsh.sh
 #neofetch --disable gpu shell title wm de resolution packages kernel icons theme distro term_font --os_arch off --cpu_speed on --cpu_temp C --cpu_brand off --speed_type current --cpu_cores off --distro_shorthand off --kernel_shorthand off --gtk_shorthand off --shell_version off --memory_percent on --color_blocks off --ascii_bold off --off
 #/usr/bin/landscape-sysinfo --exclude-sysinfo-plugins=Temperature,LandscapeLink,Network,Memory
 
-source .bash_aliases
+source ~/.bash_aliases
 
 wp() {
   # watch ping
   watch -t "ping -c 1 8.8.8.8 | grep -oP '\d+\.\d* ms' -m 1 | grep -oP '\d+\.\d*'"
 }
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

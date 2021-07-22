@@ -359,7 +359,7 @@ exec --no-startup-id rsibreak --autostart
 # clipboard manager
 exec --no-startup-id copyq
 # run bash script in terminal and show result
-exec --no-startup-id alacritty -t Terminal -e bash -c "(~/PycharmProjects/desktop-utils/ssl.sh && fish) || zsh"
+exec --no-startup-id alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh;zsh"
 # vim in terminal with saved session
 exec --no-startup-id alacritty -t "nVim Editor Session" -e nvim -S "~/.config/nvim/configs-session.vim"
 
