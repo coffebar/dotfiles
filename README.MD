@@ -13,8 +13,10 @@ My dotfiles backup.
 - i3lock
 - nm-applet
 - numlockx
+- ohmyzsh
 - picom
 - polybar
+- powerlevel10k
 - ranger
 - rsync
 - setxkbmap
