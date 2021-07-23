@@ -19,7 +19,7 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 ;background = #2b2e37
-background = #2b2e37a3
+background = #2b2e37
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #F2F2F2
@@ -60,7 +60,7 @@ font-2 = "FontAwesome:pixelsize=13;3"
 
 modules-left = i3 pulseaudio xbacklight memory cpu battery temperature
 modules-center = xwindow
-modules-right = date 
+modules-right = player-mpris-tail date 
 
 tray-position = right
 tray-padding = 2 
@@ -425,5 +425,7 @@ screenchange-reload = true
 margin-top = 0
 margin-bottom = 0
 
-; vim:ft=dosini
-
+[module/player-mpris-tail]
+type = custom/script
+exec = ~/player-mpris-tail.py -f '{icon} {artist} - {title}   '
+tail = true
