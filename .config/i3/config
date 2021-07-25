@@ -260,6 +260,7 @@ set $ws10 "10"
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 2
+default_floating_border pixel 2
 
 # Hide borders
 hide_edge_borders none
