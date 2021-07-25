@@ -57,7 +57,7 @@ fi
 # Telegram messenger
 telegram-desktop &
 # Dropbox - sync files
-/usr/bin/dropbox start -i &
+# /usr/bin/dropbox start -i & # paused
 
 # Start KeePassXC with unlocking password # see https://github.com/keepassxreboot/keepassxc/issues/1267
 /bin/bash -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin $HOME/Dropbox/lastpass.kdbx" &
