@@ -5,8 +5,10 @@ source ~/.vimrc
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 "" reload nvim config automatically
-au! BufWritePost ~/.vim/vimrc source $MYVIMRC
-au! BufWritePost ~/.config/nvim/init.vim source $MYVIMRC
+if has("autocmd")
+  au! BufWritePost ~/.vimrc source $MYVIMRC
+  au! BufWritePost ~/.config/nvim/init.vim source $MYVIMRC
+endif
 
 "" airline options
 let g:airline_theme='deus'
