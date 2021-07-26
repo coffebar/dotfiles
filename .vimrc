@@ -429,5 +429,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'ajmwagar/vim-deus'
+"" i3 config syntax highlighting
+Plug 'mboughaba/i3config.vim'
 
 call plug#end()
