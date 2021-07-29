@@ -429,3 +429,5 @@ margin-bottom = 0
 type = custom/script
 exec = ~/player-mpris-tail.py -f '{icon} {artist} - {title}   '
 tail = true
+
+; vim: set ft=dosini :
