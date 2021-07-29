@@ -11,7 +11,6 @@
 # copyq
 # dunst
 # feh
-# flameshot
 # i3-gaps
 # i3lock
 # kbdd
@@ -22,6 +21,7 @@
 # polybar
 # rofi
 # setxkbmap
+# shutter
 # xrandr
 # xss-lock
 # xte
@@ -52,7 +52,7 @@ font pango:'Droid Sans' 12
 
 
 # arrange displays
-exec --no-startup-id xrandr --output HDMI-0 --primary --auto --left-of DP-0.8
+#exec --no-startup-id xrandr --output HDMI-0 --primary --auto --left-of DP-0.8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -196,8 +196,8 @@ bindsym $alt+Control+l exec --no-startup-id $Locker
 bindsym $alt+Control+Right workspace next_on_output
 bindsym $alt+Control+Left workspace prev_on_output 
 
-# make a screenshot with flameshot
-bindsym Print exec flameshot gui --path ~/Pictures/
+# make a screenshot 
+bindsym Print exec --no-startup-id shutter -s
 
 # ssh connect: Mod+tilda
 bindsym $mod+grave exec rofi -show ssh -theme Arc-Dark
@@ -289,12 +289,12 @@ smart_gaps on
 smart_borders on
 
 # bind workspaces 
-workspace $ws1 output HDMI-0
-workspace $ws2 output DP-0.8
-workspace $ws3 output DP-0.8
-workspace $ws4 output HDMI-0
-workspace $ws6 output primary
-workspace $ws8 output primary
+#workspace $ws1 output HDMI-0
+#workspace $ws2 output DP-0.8
+#workspace $ws3 output DP-0.8
+#workspace $ws4 output HDMI-0
+#workspace $ws6 output primary
+#workspace $ws8 output primary
 
 # assign apps to workspaces
 assign [class="Firefox$"] → $ws1 
