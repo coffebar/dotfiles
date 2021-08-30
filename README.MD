@@ -28,6 +28,7 @@ My dotfiles backup.
 - xclip
 - xmodmap
 - xrandr
+- xsecurelock
 - xss-lock
 - xxkb
 - zsh
