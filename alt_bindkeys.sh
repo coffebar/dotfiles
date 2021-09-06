@@ -1,12 +1,11 @@
 #!/bin/bash
-# This script runs on press ALT+key from $HOME/.xbindkeysrc
+# This script runs on press ALT+key
 
 
 # Alt+$1 pressed
 case "$1" in
 
 # Moving windows to custom positions
-# F - Files, T - Telegram, C - code editor (vim)
 #
   "f")
   # f - File Manager
@@ -29,7 +28,7 @@ case "$1" in
   wmctrl -a 'Telegram' || telegram-desktop &
   ;;
   "c")
-  # c - editor
+  # c - code editor
   wmctrl -a 'nVim Editor Session' && exit
   # define bare git repo to make work vim's git plugins
   export GIT_DIR=$HOME/dotfiles
@@ -48,19 +47,13 @@ case "$1" in
   "b")
   # b - browser
   wmctrl -a ' - Google Chrome' || google-chrome &
-  i3-msg 'workspace 4, move workspace to output primary'
+  i3-msg 'workspace 4, move workspace to output HDMI-0'
   i3-msg 'workspace 4'
-  ;;
-  "y")
-  # removed
   ;;
   "v")
   # v - connect or disconnect to VPN
   VPN_UUID='cyber'
   (nmcli connection show --active | grep --quiet "$VPN_UUID") && nmcli connection down "$VPN_UUID" || nmcli connection up "$VPN_UUID"
-  ;;
-  "k")
-  # removed
   ;;
   "s")
   # s - Spotify
