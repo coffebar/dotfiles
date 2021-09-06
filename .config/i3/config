@@ -11,8 +11,6 @@
 # copyq
 # dunst
 # feh
-# i3-gaps
-# i3lock
 # kbdd
 # nm-applet
 # numlockx
@@ -25,6 +23,7 @@
 # xrandr
 # xss-lock
 # xte
+# xsecurelock
 # xxkb
 #
 #####################
@@ -96,16 +95,6 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
-# Commented since autotiling installed
-# split in horizontal orientation
-#bindsym $mod+z split h
-# split in vertical orientation
-#bindsym $mod+x split v
-# change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
-#bindsym $mod+e layout toggle split
 
 # sticky window toggle
 bindsym $mod+Shift+s sticky toggle
@@ -217,8 +206,6 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-#bindsym $mod+t [class="Telegram"] focus
-
 # start apps for work
 bindsym $mod+w exec --no-startup-id "bash ~/alt_bindkeys.sh b && sleep 1 && bash ~/alt_bindkeys.sh i"
 
@@ -258,19 +245,19 @@ set $ws9 "9"
 set $ws10 "10"
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 1
+default_floating_border pixel 1
 
 # Hide borders
 hide_edge_borders none
 
 set $Locker ~/.config/i3/locker.sh 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    #bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
 
@@ -280,12 +267,6 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Pause mode "$mode_system"
-
-# i3-gaps 
-gaps inner 8
-gaps outer 0
-smart_gaps on
-smart_borders on
 
 # bind workspaces 
 workspace $ws1 output HDMI-0

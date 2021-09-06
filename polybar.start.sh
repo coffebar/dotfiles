@@ -9,7 +9,7 @@ PRIMARY=$(polybar -m | grep primary | awk -F: '{print $1}')
 MONITOR=$PRIMARY polybar --reload $BAR_NAME &
 
 # for single monitor setup
-exit 0
+#exit 0
 
 sleep 3
 
