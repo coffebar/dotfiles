@@ -207,7 +207,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # start apps for work
-bindsym $mod+w exec --no-startup-id "bash ~/alt_bindkeys.sh b && sleep 1 && bash ~/alt_bindkeys.sh i"
+bindsym $mod+w exec --no-startup-id "bash ~/.config/i3/work.sh"
 
 # calculator
 bindsym XF86Calculator exec --no-startup-id gnome-calculator
@@ -295,6 +295,8 @@ for_window [class="^KeePassXC$" title="Browser Access Request"] floating enable,
 for_window [class="^Gnome-calculator$"] floating enable, border pixel 0
 for_window [class="^Xreader$"] floating enable, border pixel 0
 for_window [class="^jetbrains" title="^Diff Between '"] floating enable, border pixel 0
+for_window [class="^Telegram" title="Media viewer"] move window to output left
+for_window [class="^Telegram" title="Save "] move window to workspace "2" 
 
 # workaround @link https://bugzilla.mozilla.org/show_bug.cgi?id=686747
 for_window [class="Firefox"] resize grow height 1 px or 1 ppt
