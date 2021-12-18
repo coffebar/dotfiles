@@ -1,7 +1,7 @@
 My dotfiles backup for Arch setup.
 
 
-![screenshot](https://raw.githubusercontent.com/Hukuta/dotfiles/main/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/Hukuta/dotfiles/master/screenshot.png)
 
 
 Requirements listed in pkglist.txt
