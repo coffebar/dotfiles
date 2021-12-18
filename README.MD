@@ -1,38 +1,6 @@
-My dotfiles backup.
+My dotfiles backup for Arch setup.
 
-## Requirements:
-
-- alacritty
-- amixer
-- bash
-- dunst
-- feh
-- fish
-- git
-- i3-gaps
-- i3lock
-- nm-applet
-- numlockx
-- ohmyzsh
-- picom
-- polybar
-- powerlevel10k
-- ranger
-- rsync
-- setxkbmap
-- telegram
-- ttf font 'JetBrains Mono'
-- ueberzug # pip3 install ueberzug
-- wmctrl
-- xautomation
-- xclip
-- xmodmap
-- xrandr
-- xsecurelock
-- xss-lock
-- xxkb
-- zsh
-- ~~ulauncher~~ krunner
+Requirements listed in pkglist.txt
 
 ## Restore backup:
 ## Please don't do this without understanding all files and commands! It may harm your system.
@@ -40,4 +8,5 @@ My dotfiles backup.
 git clone --depth=1 https://github.com/Hukuta/dotfiles.git dotfiles_tmp
 rsync -rv --exclude '.git' --exclude 'README.MD' --exclude '.gitignore' ./dotfiles_tmp/ ./ 
 rm -rf ./dotfiles_tmp/
+sudo pacman -S --needed - < pkglist.txt
 ```

@@ -46,7 +46,7 @@ case "$1" in
   ;;
   "b")
   # b - browser
-  wmctrl -a ' - Google Chrome' || google-chrome &
+  wmctrl -a ' - Google Chrome' || chromium &
   i3-msg 'workspace 4, move workspace to output HDMI-0'
   i3-msg 'workspace 4'
   ;;
