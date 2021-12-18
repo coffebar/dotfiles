@@ -1,5 +1,9 @@
 My dotfiles backup for Arch setup.
 
+
+![screenshot](https://raw.githubusercontent.com/Hukuta/dotfiles/main/screenshot.png)
+
+
 Requirements listed in pkglist.txt
 
 ## Restore backup:
@@ -7,6 +11,8 @@ Requirements listed in pkglist.txt
 ```
 git clone --depth=1 https://github.com/Hukuta/dotfiles.git dotfiles_tmp
 rsync -rv --exclude '.git' --exclude 'README.MD' --exclude '.gitignore' ./dotfiles_tmp/ ./ 
+
 rm -rf ./dotfiles_tmp/
+
 sudo pacman -S --needed - < pkglist.txt
 ```
