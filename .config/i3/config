@@ -12,7 +12,7 @@
 # dunst
 # feh
 # kbdd
-# nm-applet
+# network-manager-applet
 # numlockx
 # picom
 # playerctl 
@@ -20,12 +20,13 @@
 # rofi
 # setxkbmap
 # shutter
+# ttf-droid
+# ttf-font-awesome-4
+# xautomation
 # xrandr
-# xss-lock
-# xte
 # xsecurelock
+# xss-lock
 # xxkb
-#
 #####################
 
 # Mod key = Super key
