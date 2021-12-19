@@ -61,6 +61,7 @@ i3status
 imagemagick
 inotify-tools
 intel-ucode
+kbdd-git
 keepassxc
 krunner
 lib32-nvidia-390xx-utils
@@ -161,7 +162,6 @@ xorg-xprop
 xorg-xrandr
 xsecurelock
 xss-lock
-xxkb
 yay
 zip
 zsh
