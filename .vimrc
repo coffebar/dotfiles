@@ -410,8 +410,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'ap/vim-css-color'
 "" fzf - fuzzy finder, requires fzf installed
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"" git 
-Plug 'airblade/vim-gitgutter'
 "" nvim only
 if has('nvim')
   "" statusline, requires patched font https://github.com/ryanoasis/nerd-fonts
