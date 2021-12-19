@@ -26,7 +26,6 @@
 # xrandr
 # xsecurelock
 # xss-lock
-# xxkb
 #####################
 
 # Mod key = Super key
@@ -331,7 +330,7 @@ exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/10-14-Night.jpg
 # notifications daemon
 exec --no-startup-id dunst
 # keyboard indicator 
-exec_always --no-startup-id [ "$XDG_VTNR" -eq '7' ] && i3-msg 'exec --no-startup-id "killall xxkb; sleep 1; xxkb &"'
+#exec_always --no-startup-id [ "$XDG_VTNR" -eq '7' ] && i3-msg 'exec --no-startup-id "killall xxkb; sleep 1; xxkb &"'
 # Enable numlock
 exec_always --no-startup-id numlockx on
 # daemon to make per window layout using xkb

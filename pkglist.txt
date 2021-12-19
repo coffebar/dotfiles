@@ -160,7 +160,6 @@ xorg-xprop
 xorg-xrandr
 xsecurelock
 xss-lock
-xxkb
 yay
 zip
 zsh
