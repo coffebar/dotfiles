@@ -276,7 +276,7 @@ workspace $ws3 output DP-0.8
 workspace $ws4 output HDMI-0
 
 # assign apps to workspaces
-assign [class="Firefox$"] → $ws1 
+assign [class="firefox$"] → $ws1 
 assign [class="^TelegramDesktop$"] → $ws2
 assign [class="^Alacritty$" title="Terminal"] → $ws2
 assign [class="^Alacritty$" title="nVim Editor Session"] → $ws2
@@ -301,7 +301,7 @@ for_window [class="^Telegram" title="Media viewer"] move window to output left
 for_window [class="^Telegram" title="Save "] move window to workspace "2" 
 
 # workaround @link https://bugzilla.mozilla.org/show_bug.cgi?id=686747
-for_window [class="Firefox"] resize grow height 1 px or 1 ppt
+for_window [class="firefox"] resize grow height 1 px or 1 ppt
 
 # Apps startup section
 
