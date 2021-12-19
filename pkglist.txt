@@ -43,6 +43,7 @@ gcc
 gedit
 gimp
 git
+gnome-calculator
 gnome-keyring
 gnu-free-fonts
 goaccess
@@ -160,6 +161,7 @@ xorg-xprop
 xorg-xrandr
 xsecurelock
 xss-lock
+xxkb
 yay
 zip
 zsh
