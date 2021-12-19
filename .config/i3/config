@@ -26,6 +26,7 @@
 # xrandr
 # xsecurelock
 # xss-lock
+# xxkb
 #####################
 
 # Mod key = Super key
@@ -217,7 +218,7 @@ bindsym XF86Tools exec --no-startup-id bash ~/toggle_headphones.sh
 
 # file browser
 bindsym $alt+f exec --no-startup-id "bash ~/alt_bindkeys.sh f"
-bindsym XF86Explorer exec --no-startup-id "wmctrl -a 'Ranger File Manager' || alacritty -t 'Ranger File Manager' -e ranger ~/Bookmarks"
+bindsym XF86Explorer exec --no-startup-id "thunar"
 
 # super+/ open FZF script to open nvim
 bindcode $mod+51 exec --no-startup-id alacritty -t 'fzf:nvim' -e bash ~/.config/nvim/find_and_edit.sh
@@ -330,7 +331,7 @@ exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/10-14-Night.jpg
 # notifications daemon
 exec --no-startup-id dunst
 # keyboard indicator 
-#exec_always --no-startup-id [ "$XDG_VTNR" -eq '7' ] && i3-msg 'exec --no-startup-id "killall xxkb; sleep 1; xxkb &"'
+exec_always --no-startup-id [ "$XDG_VTNR" -eq '7' ] && i3-msg 'exec --no-startup-id "killall xxkb; sleep 1; xxkb &"'
 # Enable numlock
 exec_always --no-startup-id numlockx on
 # daemon to make per window layout using xkb

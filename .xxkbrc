@@ -1,7 +1,7 @@
-XXkb.mainwindow.in_tray: true
+XXkb.mainwindow.in_tray: false
 XXkb.button.enable: no
 XXkb.mainwindow.appicon: no
-XXkb.mainwindow.enable: yes
+XXkb.mainwindow.enable: no
 XXkb.mainwindow.label.enable: yes
 XXkb.mainwindow.type: tray
 XXkb.mainwindow.appicon: no
