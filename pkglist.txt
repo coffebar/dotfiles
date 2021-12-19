@@ -84,6 +84,7 @@ lzop
 m4
 make
 man-db
+microsoft-edge-stable-bin
 mpv
 neofetch
 neovim
@@ -160,6 +161,7 @@ xorg-xinit
 xorg-xkill
 xorg-xprop
 xorg-xrandr
+xreader
 xsecurelock
 xss-lock
 yay
