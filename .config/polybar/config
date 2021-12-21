@@ -31,7 +31,7 @@ alert = #F15D22
 [bar/example]
 monitor = ${env:MONITOR:HDMI-0}
 width = 100%
-height = 27
+height = 26
 offset-x = 0%
 offset-y = 0% 
 radius = 0
@@ -63,10 +63,10 @@ modules-center = xwindow
 modules-right = player-mpris-tail date 
 
 tray-position = right
-tray-padding = 2 
+tray-padding = 0 
 tray-background = ${colors.background}
 ;tray-scale = 1.2
-tray-offset-y = 1
+tray-offset-y = 0
 
 ;wm-restack = bspwm
 ;wm-restack = i3
