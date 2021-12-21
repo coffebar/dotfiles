@@ -314,7 +314,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker
 exec --no-startup-id nm-applet &
 
 # window compositor 
-exec --no-startup-id "picom -b --config=./picom.conf"
+#exec --no-startup-id "picom -b --config=./picom.conf"
+exec --no-startup-id "xcompmgr -cC &"
 
 # keyboard layouts
 exec --no-startup-id setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"

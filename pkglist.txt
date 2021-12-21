@@ -61,6 +61,7 @@ i3status
 imagemagick
 inotify-tools
 intel-ucode
+jdk-jetbrains
 kbdd-git
 keepassxc
 krunner
@@ -103,10 +104,10 @@ pacman-contrib
 patch
 pavucontrol
 php-xmlrpc
-picom
 pix-git
 pkgconf
 plasma-workspace
+playerctl
 polkit-kde-agent
 polybar
 pulseaudio
@@ -151,6 +152,7 @@ which
 wmctrl
 xautomation
 xclip
+xcompmgr
 xdg-user-dirs
 xdotool
 xfce4-settings
