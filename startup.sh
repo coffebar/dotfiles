@@ -2,8 +2,8 @@
 # Startup applications - I prefer if all this in a single file
 
 # redirect output to files
-exec 1>$HOME/startup.out.log
-exec 2>$HOME/startup.err.log
+exec 1>/tmp/startup.out.log
+exec 2>/tmp/startup.err.log
 
 # enable pulse-audio echo cancellation filter
 #export PULSE_PROP="filter.want=echo-cancel"

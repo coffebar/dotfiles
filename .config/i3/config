@@ -20,6 +20,7 @@
 # polybar
 # rofi
 # setxkbmap
+# syncthingtray
 # shutter
 # ttf-droid
 # ttf-font-awesome-4
@@ -331,6 +332,8 @@ exec_always --no-startup-id numlockx on
 exec --no-startup-id kbdd
 # breaks for eyes
 exec --no-startup-id rsibreak --autostart
+# syncthing tray
+exec --no-startup-id syncthingtray --wait &
 # clipboard manager
 exec --no-startup-id copyq
 # load pre-saved layout and start browser
