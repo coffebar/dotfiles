@@ -55,15 +55,15 @@ module-margin-right = 2
 font-0 = "Droid Sans:pixelsize=12;3"
 font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
 # Font Awesome 4 from system package
-# /usr/share/fonts/truetype/font-awesome/fontawesome-webfont.ttf
 font-2 = "FontAwesome:pixelsize=13;3"
 
-modules-left = i3 pulseaudio xbacklight memory cpu battery temperature
+modules-left = i3 pulseaudio memory cpu temperature
 modules-center = xwindow
-modules-right = player-mpris-tail date 
+modules-right = date 
 
-tray-position = right
-tray-padding = 0 
+;tray-position = right
+tray-position = left
+tray-padding = 4 
 tray-background = ${colors.background}
 ;tray-scale = 1.2
 tray-offset-y = 0
@@ -78,6 +78,59 @@ tray-offset-y = 0
 
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/second]
+monitor = ${env:MONITOR:DP-0.8}
+width = 100%
+height = 26
+offset-x = 0%
+offset-y = 0% 
+radius = 0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = ${colors.background}
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = "Droid Sans:pixelsize=12;3"
+font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
+# Font Awesome 4 from system package
+font-2 = "FontAwesome:pixelsize=13;3"
+
+modules-left = i3
+modules-center = xwindow
+modules-right = player-mpris-tail
+
+tray-position = left
+tray-padding = 4 
+tray-background = ${colors.background}
+;tray-scale = 1.2
+tray-offset-y = 0
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -218,7 +271,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #AD7FA8
 label = %percentage_used%%
@@ -373,7 +426,7 @@ warn-temperature = 60
 format = <ramp> <label>
 ;format-underline = #C4A000
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+;format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%

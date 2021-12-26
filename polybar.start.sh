@@ -1,18 +1,14 @@
 #!/usr/bin/env bash
 # start polybar for each monitor
-# starting from the primary one
+# starting from the left
 
-BAR_NAME=example
+if [ $(polybar -m | wc -l) == 1 ]; then
+    polybar --reload example &
+else
+    FIRST_MONITOR=$(polybar -m | grep "+0+0" | awk -F: '{print $1}')
+    SECOND_MONITOR=$(polybar -m | grep -v "+0+0" | awk -F: '{print $1}')
 
-PRIMARY=$(polybar -m | grep primary | awk -F: '{print $1}')
-
-MONITOR=$PRIMARY polybar --reload $BAR_NAME &
-
-# for single monitor setup
-#exit 0
-
-sleep 3
-
-for i in $(polybar -m | grep -v primary | awk -F: '{print $1}'); do
-    MONITOR=$i polybar --reload $BAR_NAME &
-done
+    MONITOR=$SECOND_MONITOR polybar --reload second &
+    sleep 3
+    MONITOR=$FIRST_MONITOR polybar --reload example &
+fi
