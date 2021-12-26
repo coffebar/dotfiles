@@ -97,12 +97,16 @@ npm
 ntfs-3g
 ntp
 numlockx
+nvidia-390xx
+nvidia-390xx-utils
+opencl-nvidia-390xx
 openssh
 openvpn
 p7zip
 pacman-contrib
 patch
 pavucontrol
+php
 php-xmlrpc
 pix-git
 pkgconf
