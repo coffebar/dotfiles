@@ -309,24 +309,16 @@ for_window [class="firefox"] resize grow height 1 px or 1 ppt
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet &
-
 # window compositor 
 #exec --no-startup-id "picom -b --config=./picom.conf"
-exec --no-startup-id "xcompmgr -cC &"
-
-# keyboard layouts
-exec --no-startup-id setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
+exec --no-startup-id "xcompmgr -n &"
 
 # start polybar on thr every monitor
 exec --no-startup-id ~/polybar.start.sh
-
-# load pre-saved layout and start browser
-exec --no-startup-id [ "$XDG_VTNR" -eq '7' ] && i3-msg "workspace $ws1; exec firefox -new-instance -P default"
-exec --no-startup-id [ "$XDG_VTNR" -eq '7' ] && i3-msg "workspace $ws2; append_layout ~/.config/i3/workspace-2.json"
-
+# keyboard layouts
+exec --no-startup-id setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
+# custom startup script (mound disks, run backup, start other apps)
+exec --no-startup-id [ "$XDG_VTNR" -eq '7' ] && ~/startup.sh &
 # desktop image
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/10-14-Night.jpg
 # notifications daemon
@@ -341,19 +333,21 @@ exec --no-startup-id kbdd
 exec --no-startup-id rsibreak --autostart
 # clipboard manager
 exec --no-startup-id copyq
+# load pre-saved layout and start browser
+exec --no-startup-id [ "$XDG_VTNR" -eq '7' ] && i3-msg "workspace $ws1; exec firefox -new-instance -P default"
+exec --no-startup-id [ "$XDG_VTNR" -eq '7' ] && i3-msg "workspace $ws2; append_layout ~/.config/i3/workspace-2.json"
 # run bash script in terminal and show result
 exec --no-startup-id alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh;zsh"
 # vim in terminal with saved session
 exec --no-startup-id alacritty -t "nVim Editor Session" -e nvim -S "~/.config/nvim/configs-session.vim"
-
-# custom startup script (mound disks, run backup, start other apps)
-exec --no-startup-id [ "$XDG_VTNR" -eq '7' ] && ~/startup.sh &
-
 # polkit-kde-agent
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
-
 # autotiling @link https://github.com/nwg-piotr/autotiling
 exec_always --no-startup-id autotiling
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet &
 
 
 # vim:filetype=i3config
