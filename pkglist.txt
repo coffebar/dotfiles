@@ -127,6 +127,7 @@ sshfs
 steam
 sudo
 syncthing
+syncthingtray
 telegram-desktop
 texinfo
 thunar
