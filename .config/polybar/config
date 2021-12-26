@@ -57,9 +57,9 @@ font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
 # Font Awesome 4 from system package
 font-2 = "FontAwesome:pixelsize=13;3"
 
-modules-left = i3 pulseaudio memory cpu temperature
+modules-left = i3 pulseaudio 
 modules-center = xwindow
-modules-right = date 
+modules-right = memory cpu temperature date 
 
 ;tray-position = right
 tray-position = left
