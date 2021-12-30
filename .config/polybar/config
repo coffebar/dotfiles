@@ -113,7 +113,7 @@ font-2 = "FontAwesome:pixelsize=13;3"
 
 modules-left = i3
 modules-center = xwindow
-modules-right = player-mpris-tail
+modules-right = player-mpris-tail eth
 
 tray-position = left
 tray-padding = 4 
@@ -274,7 +274,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #AD7FA8
-label = %percentage_used%%
+label = %gb_used%
 
 [module/wlan]
 type = internal/network
@@ -300,13 +300,13 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = 
+interface = enp3s0
 interval = 3.0
 
-format-connected-underline = #55aa55
-format-connected-prefix = " "
+;format-connected-underline = #55aa55
+;format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+label-connected =  %upspeed%   %downspeed%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
