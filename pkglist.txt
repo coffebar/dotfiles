@@ -97,6 +97,7 @@ ntfs-3g
 ntp
 numlockx
 nvidia-dkms
+nvidia-settings
 openssh
 openvpn
 p7zip
