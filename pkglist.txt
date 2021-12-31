@@ -52,6 +52,7 @@ gparted
 gptfdisk
 groff
 grub
+grub-customizer
 gsfonts
 gvfs
 haveged
@@ -65,6 +66,7 @@ jdk-jetbrains
 kbdd-git
 keepassxc
 krunner
+lib32-opencl-nvidia
 libdv
 libreoffice-fresh
 libreoffice-fresh-en-gb
@@ -77,6 +79,8 @@ lightdm-settings
 linux
 linux-firmware
 linux-headers
+linux-zen
+linux-zen-headers
 lsof
 lxappearance
 lxqt-policykit
@@ -98,6 +102,7 @@ ntp
 numlockx
 nvidia-dkms
 nvidia-settings
+opencl-nvidia
 openssh
 openvpn
 p7zip
