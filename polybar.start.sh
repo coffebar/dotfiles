@@ -2,7 +2,7 @@
 # start polybar for each monitor
 # starting from the left
 
-killall polybar && sleep 1
+killall polybar
 
 if [ $(polybar -m | wc -l) == 1 ]; then
     polybar --reload example &
