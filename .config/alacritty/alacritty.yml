@@ -63,5 +63,4 @@ colors:
 key_bindings:
   - { key: V,        mods: Command,       action: Paste                        }
   - { key: C,        mods: Command,       action: Copy                         }
-  - { key: Q,        mods: Command,       action: Quit                         }
-  - { key: N,        mods: Command,       action: SpawnNewInstance             }
+  - { key: Q,        mods: Control,       action: Quit                         }
