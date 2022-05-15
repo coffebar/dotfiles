@@ -317,7 +317,7 @@ exec --no-startup-id "xcompmgr -n &"
 # start polybar on thr every monitor
 exec --no-startup-id ~/polybar.start.sh
 # keyboard layouts
-exec --no-startup-id setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
+exec --no-startup-id setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle"
 # custom startup script (mound disks, run backup, start other apps)
 exec --no-startup-id [ "$XDG_VTNR" -eq '7' ] && ~/startup.sh &
 # desktop image
@@ -351,6 +351,8 @@ exec_always --no-startup-id autotiling
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet &
+
+exec --no-startup-id blueman-applet &
 
 
 # vim:filetype=i3config
