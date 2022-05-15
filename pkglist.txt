@@ -108,6 +108,7 @@ network-manager-applet
 networkmanager
 networkmanager-openvpn
 nodejs
+noise-suppression-for-voice
 noto-fonts
 npm
 ntfs-3g
