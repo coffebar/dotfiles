@@ -54,7 +54,7 @@ case "$1" in
   # v - connect or disconnect to VPN
   #VPN_UUID='cyber'
   #(nmcli connection show --active | grep --quiet "$VPN_UUID") && nmcli connection down "$VPN_UUID" || nmcli connection up "$VPN_UUID"
-  WG_CONF="$HOME/Downloads/wg/wg0-client-pc.conf"
+  WG_CONF="$HOME/Sync/Work/vpn/wg0-client-pc.conf"
   # note: add "abc ALL=(root) NOPASSWD:/usr/bin/wg-quick" to /etc/sudoers.d/wg
   if [ -f "$WG_CONF" ]; then
     sudo /usr/bin/wg-quick down $WG_CONF || sudo /usr/bin/wg-quick up $WG_CONF
