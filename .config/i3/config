@@ -216,6 +216,7 @@ bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
 # change audio output
 bindsym XF86Tools exec --no-startup-id bash ~/toggle_headphones.sh
+bindsym Control+F12 exec --no-startup-id bash ~/toggle_headphones.sh
 
 # file browser
 bindsym $alt+f exec --no-startup-id "bash ~/alt_bindkeys.sh f"
@@ -273,9 +274,12 @@ bindsym $mod+End mode "$mode_system"
 
 # bind workspaces 
 workspace $ws1 output HDMI-0
-workspace $ws2 output DP-0.8
-workspace $ws3 output DP-0.8
+#workspace $ws2 output DP-0.8
+workspace $ws2 output DVI-I-1
+#workspace $ws3 output DP-0.8
+workspace $ws3 output DVI-I-1 
 workspace $ws4 output HDMI-0
+workspace $ws5 output HDMI-0
 
 # assign apps to workspaces
 assign [class="firefox$"] → $ws1 
@@ -285,6 +289,7 @@ assign [class="^Alacritty$" title="nVim Editor Session"] → $ws2
 assign [class="^jetbrains-phpstorm$"] → $ws3
 assign [class="^Google-chrome$"] → $ws4
 assign [class="^Chromium$"] → $ws4
+assign [class="^Microsoft-edge$"] → $ws5
 assign [class="^XXkb$"] → $ws9
 assign [class="^KeePassXC$"] → $ws9
 
@@ -317,8 +322,6 @@ exec --no-startup-id "xcompmgr -n &"
 
 # start polybar on thr every monitor
 exec --no-startup-id ~/polybar.start.sh
-# keyboard layouts
-exec --no-startup-id setxkbmap "us,ua" ",winkeys" "grp:alt_shift_toggle"
 # custom startup script (mound disks, run backup, start other apps)
 exec --no-startup-id [ "$XDG_VTNR" -eq '7' ] && ~/startup.sh &
 # desktop image

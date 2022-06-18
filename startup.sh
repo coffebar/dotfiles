@@ -8,9 +8,6 @@ exec 2>/tmp/startup.err.log
 # enable pulse-audio echo cancellation filter
 #export PULSE_PROP="filter.want=echo-cancel"
 
-# keyboard modifications (swap keys)
-/bin/bash -c "sleep 5 && /usr/bin/xmodmap $HOME/.xmodmaprc"
-
 # check day of week to choose programs to run
 DAYOFWEEK=`/bin/date +%u`
 DAYHOUR=`/bin/date +%H`
