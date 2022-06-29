@@ -14,5 +14,22 @@ rsync -rv --exclude '.git' --exclude 'README.MD' --exclude '.gitignore' ./dotfil
 
 rm -rf ./dotfiles_tmp/
 
-sudo pacman -S --needed - < pkglist.txt
+# install yay
+pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd .. && rm -rf yay
+yay -Y --gendb
+
+# install packages
+yay -S --needed - < pkglist.txt
+
+# install ohmyzsh
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# install vim plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# visit vim and run :PlugInstall
+
 ```
