@@ -26,27 +26,6 @@
                }
             ],
             "type": "con"
-        },
-        {
-            "border": "pixel",
-            "current_border_width": 2,
-            "floating": "auto_off",
-            "geometry": {
-               "height": 840,
-               "width": 1320,
-               "x": 0,
-               "y": 0
-            },
-            "marks": [],
-            "name": "nVim Editor Session",
-            "percent": 0.72,
-            "swallows": [
-               {
-                "class": "^Alacritty$",
-                "title": "^nVim\\ Editor\\ Session$"
-               }
-            ],
-            "type": "con"
         }
     ]
 }

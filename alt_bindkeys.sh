@@ -40,7 +40,7 @@ case "$1" in
   # More apps below
   "i")
   # i - IDE PhpStorm
-  wmctrl -a ' PhpStorm' || $HOME/PhpStorm/bin/phpstorm.sh &
+  wmctrl -a ' PhpStorm' || GDK_SCALE='' $HOME/PhpStorm/bin/phpstorm.sh &
   i3-msg 'workspace 3, move workspace to output DP-0.8'
   i3-msg 'workspace 3'
   ;;

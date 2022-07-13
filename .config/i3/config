@@ -53,7 +53,7 @@ font pango:'Droid Sans' 12
 
 
 # arrange displays
-#exec --no-startup-id xrandr --output HDMI-0 --primary --auto --left-of DP-0.8
+#exec --no-startup-id xrandr --output DP-1.3 --primary --auto --left-of DP-0.8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -65,14 +65,11 @@ bindsym $mod+Return exec alacritty
 bindsym $alt+space kill
 
 # start a program launcher
-bindsym $mod+d exec rofi -show run -theme Arc-Dark
+bindsym $mod+d exec rofi -show run -theme Arc-Dark -dpi $QT_FONT_DPI
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
-
-# krunner is better then i3-dmenu-desktop
-bindsym $mod+space exec --no-startup-id krunner --replace
 
 # change focus
 bindsym $mod+h focus left
@@ -187,10 +184,10 @@ bindsym $alt+Control+Right workspace next_on_output
 bindsym $alt+Control+Left workspace prev_on_output 
 
 # make a screenshot 
-bindsym Print exec --no-startup-id shutter -s
+bindsym Print exec --no-startup-id shutter -s 
 
 # ssh connect: Mod+tilda
-bindsym $mod+grave exec rofi -show ssh -theme Arc-Dark
+bindsym $mod+grave exec rofi -show ssh -theme Arc-Dark -dpi $QT_FONT_DPI
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 2%+
@@ -200,6 +197,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 2%
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioNext exec --no-startup-id playerctl next
+
+# screen brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set 20%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 20%-
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -273,13 +274,13 @@ bindsym $mod+Pause mode "$mode_system"
 bindsym $mod+End mode "$mode_system"
 
 # bind workspaces 
-workspace $ws1 output HDMI-0
+workspace $ws1 output DP-1.3
 #workspace $ws2 output DP-0.8
-workspace $ws2 output DVI-I-1
+workspace $ws2 output DP-1.1.8
 #workspace $ws3 output DP-0.8
-workspace $ws3 output DVI-I-1 
-workspace $ws4 output HDMI-0
-workspace $ws5 output HDMI-0
+workspace $ws3 output DP-1.1.8 
+workspace $ws4 output DP-1.3
+workspace $ws5 output DP-1.3
 
 # assign apps to workspaces
 assign [class="firefox$"] → $ws1 
@@ -346,7 +347,7 @@ exec --no-startup-id [ "$XDG_VTNR" -eq '7' ] && i3-msg "workspace $ws2; append_l
 # run bash script in terminal and show result
 exec --no-startup-id alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh;zsh"
 # vim in terminal with saved session
-exec --no-startup-id alacritty -t "nVim Editor Session" -e nvim -S "~/.config/nvim/configs-session.vim"
+#exec --no-startup-id alacritty -t "nVim Editor Session" -e nvim -S "~/.config/nvim/configs-session.vim"
 # polkit-kde-agent
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 # autotiling @link https://github.com/nwg-piotr/autotiling
@@ -364,5 +365,15 @@ exec --no-startup-id bash ~/filter-mic.sh &
 # edge browser
 #exec --no-startup-id microsoft-edge-stable &
 exec --no-startup-id firefox &
+# hybrid GPU manager tray icon
+exec --no-startup-id optimus-manager-qt &
+# touchpad 
+exec --no-startup-id libinput-gestures-setup start &
+# audio manger tray icon
+exec --no-startup-id pasystray &
+# fix JetBrains scale options for HDPI
+exec_always --no-startup-id bash ~/.config/JetBrains/fix-vmoptions.sh &
+# screenshoter
+exec --no-startup-id shutter --min_at_startup &
 
 # vim:filetype=i3config
