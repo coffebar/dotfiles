@@ -308,6 +308,9 @@ for_window [class="^jetbrains" title="^Diff Between '"] floating enable, border 
 for_window [class="^Telegram" title="Media viewer"] move window to output left
 for_window [class="^Telegram" title="Save "] move window to workspace "2" 
 
+
+for_window [class="^jetbrains-phpstorm$" title="License Expired"] kill 
+
 # workaround @link https://bugzilla.mozilla.org/show_bug.cgi?id=686747
 for_window [class="firefox"] resize grow height 1 px or 1 ppt
 
