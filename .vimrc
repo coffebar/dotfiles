@@ -293,6 +293,9 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap VIM 0 to first non-blank character
 map 0 ^
+" insert blank line
+nmap <leader>o o<ESC>
+nmap <leader>O O<ESC>
 
 
 " Delete trailing white space on save, useful for some filetypes ;)
