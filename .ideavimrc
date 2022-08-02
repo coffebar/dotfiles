@@ -37,6 +37,9 @@ map <leader>l <Action>(NextTab)
 map <leader>h <Action>(PreviousTab)
 map <leader>f <Action>(GotoFile)
 map <leader>g <Action>(FindInPath)
+
+nmap <leader>o o<ESC>
+nmap <leader>O O<ESC>
 nnoremap Q :action CloseProject<CR>
 map <leader>= <Action>(ReformatCode)
 nnoremap <leader>u :action FindUsages<CR>
