@@ -190,8 +190,8 @@ bindsym Print exec --no-startup-id shutter -s
 bindsym $mod+grave exec rofi -show ssh -theme Arc-Dark -dpi $QT_FONT_DPI
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 2%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 2%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
 
 # control Audio players
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause

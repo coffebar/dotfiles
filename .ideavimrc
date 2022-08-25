@@ -37,12 +37,20 @@ map <leader>l <Action>(NextTab)
 map <leader>h <Action>(PreviousTab)
 map <leader>f <Action>(GotoFile)
 map <leader>g <Action>(FindInPath)
-
+" insert blank line
 nmap <leader>o o<ESC>
 nmap <leader>O O<ESC>
+
 nnoremap Q :action CloseProject<CR>
 map <leader>= <Action>(ReformatCode)
 nnoremap <leader>u :action FindUsages<CR>
+
+" copy current line to system clipboard
+nnoremap <leader>c "+yy
+
+" append ; to the end of line
+imap <leader>; <Esc>A;<Esc>
+nmap <leader>; <Esc>A;<Esc>
 
 " scrolling
 nmap <leader>d <C-d>

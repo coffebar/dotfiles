@@ -213,6 +213,8 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 vnoremap <C-c> "+y
 " paste in normal mode from system clipboard
 nmap <C-p> "+p
+" copy current line to system clipboard
+nnoremap <leader>c "+yy
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
