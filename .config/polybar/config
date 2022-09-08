@@ -57,7 +57,7 @@ font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
 # Font Awesome 4 from system package
 font-2 = "FontAwesome:pixelsize=13;3"
 
-modules-left = i3 pulseaudio backlight player-mpris-tail
+modules-left = i3 pulseaudio backlight
 modules-center = xwindow
 modules-right = memory cpu battery temperature date 
 
@@ -458,10 +458,5 @@ screenchange-reload = true
 [global/wm]
 margin-top = 0
 margin-bottom = 0
-
-[module/player-mpris-tail]
-type = custom/script
-exec = ~/player-mpris-tail.py -f '{icon} {artist} - {title}   '
-tail = true
 
 ; vim: set ft=dosini :
