@@ -5,6 +5,9 @@
 killall polybar
 
 PROF=$(autorandr --current)
+if [ -z $PROF ]; then
+    exit 0
+fi
 if [[ $PROF == *'dock'* ]]; then
     FIRST_MONITOR=$(polybar -m | grep "+0+0" | awk -F: '{print $1}')
     SECOND_MONITOR=$(polybar -m | grep -v "+0+0" | awk -F: '{print $1}')

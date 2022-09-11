@@ -378,5 +378,7 @@ exec --no-startup-id pasystray &
 exec_always --no-startup-id bash ~/.config/JetBrains/fix-vmoptions.sh &
 # screenshoter
 exec --no-startup-id shutter --min_at_startup &
+# autorandr
+exec --no-startup-id autorandr -c 
 
 # vim:filetype=i3config
