@@ -52,9 +52,6 @@ font pango:'Droid Sans' 12
 # font, it doesn’t scale on retina/hidpi displays.
 
 
-# arrange displays
-#exec --no-startup-id xrandr --output DP-1.3 --primary --auto --left-of DP-0.8
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -274,13 +271,13 @@ bindsym $mod+Pause mode "$mode_system"
 bindsym $mod+End mode "$mode_system"
 
 # bind workspaces 
-workspace $ws1 output DP-1.3
+workspace $ws1 output HDMI-0
 #workspace $ws2 output DP-0.8
 workspace $ws2 output DP-1.1.8
 #workspace $ws3 output DP-0.8
 workspace $ws3 output DP-1.1.8 
-workspace $ws4 output DP-1.3
-workspace $ws5 output DP-1.3
+workspace $ws4 output HDMI-0
+workspace $ws5 output HDMI-0
 
 # assign apps to workspaces
 assign [class="firefox$"] → $ws1 
