@@ -57,7 +57,7 @@ font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
 # Font Awesome 4 from system package
 font-2 = "FontAwesome:pixelsize=13;3"
 
-modules-left = i3 pulseaudio backlight
+modules-left = i3 pulseaudio backlight gpu-power
 modules-center = xwindow
 modules-right = memory cpu battery temperature date 
 
@@ -458,5 +458,10 @@ screenchange-reload = true
 [global/wm]
 margin-top = 0
 margin-bottom = 0
+
+[module/gpu-power]
+type = custom/script
+exec = nvidia-smi --query-gpu=temperature.gpu,power.draw --format=csv,noheader
+interval = 5
 
 ; vim: set ft=dosini :
