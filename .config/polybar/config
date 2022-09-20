@@ -461,7 +461,8 @@ margin-bottom = 0
 
 [module/gpu-power]
 type = custom/script
-exec = nvidia-smi --query-gpu=temperature.gpu,power.draw --format=csv,noheader
+exec = nvidia-smi --query-gpu=temperature.gpu,power.draw --format=csv,noheader | sed -e 's/,/ C  /' 
 interval = 5
+label = %{F#73C48F}%output%%{F-}
 
 ; vim: set ft=dosini :

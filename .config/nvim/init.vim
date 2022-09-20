@@ -21,3 +21,4 @@ let g:airline_powerline_fonts = 1
 "" python3 -m pip install --user --upgrade pynvim
 let g:deoplete#enable_at_startup = 1
 
+set relativenumber
