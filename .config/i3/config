@@ -196,8 +196,8 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 
 # screen brightness
-bindsym XF86MonBrightnessUp exec brightnessctl set 20%+
-bindsym XF86MonBrightnessDown exec brightnessctl set 20%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -336,7 +336,7 @@ exec_always --no-startup-id numlockx on
 # daemon to make per window layout using xkb
 exec --no-startup-id kbdd
 # breaks for eyes
-exec --no-startup-id rsibreak --autostart
+# exec --no-startup-id rsibreak --autostart
 # syncthing tray
 exec --no-startup-id syncthingtray --wait &
 # clipboard manager

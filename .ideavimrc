@@ -15,6 +15,9 @@ set noerrorbells
 set t_vb=
 set tm=500
 
+" line numbers
+set relativenumber
+
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 
