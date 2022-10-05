@@ -12,20 +12,17 @@
 # dunst
 # feh
 # kbdd
-# kbdd
 # network-manager-applet
 # numlockx
-# picom
 # playerctl 
 # polybar
 # rofi
-# setxkbmap
-# syncthingtray
 # shutter
+# syncthingtray
 # ttf-droid
 # ttf-font-awesome-4
 # xautomation
-# xrandr
+# xcompmgr
 # xsecurelock
 # xss-lock
 #####################
@@ -35,6 +32,9 @@ set $mod Mod4
 
 # Alt key
 set $alt Mod1
+
+# theme for rofi launcher
+set $rofi_theme "Arc-Dark"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -62,11 +62,7 @@ bindsym $mod+Return exec alacritty
 bindsym $alt+space kill
 
 # start a program launcher
-bindsym $mod+d exec rofi -show run -theme Arc-Dark -dpi $QT_FONT_DPI
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-#bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec rofi -show run -theme $rofi_theme -dpi $QT_FONT_DPI
 
 # change focus
 bindsym $mod+h focus left
@@ -184,7 +180,7 @@ bindsym $alt+Control+Left workspace prev_on_output
 bindsym Print exec --no-startup-id shutter -s 
 
 # ssh connect: Mod+tilda
-bindsym $mod+grave exec rofi -show ssh -theme Arc-Dark -dpi $QT_FONT_DPI
+bindsym $mod+grave exec rofi -show ssh -theme $rofi_theme -dpi $QT_FONT_DPI
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
@@ -248,9 +244,11 @@ set $ws10 "10"
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 1
 default_floating_border pixel 1
+# workaround since version 4.21 needed
+for_window [class="^.*"] border pixel 1
 
 # Hide borders
-hide_edge_borders none
+hide_edge_borders smart
 
 set $Locker ~/.config/i3/locker.sh 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
@@ -302,7 +300,7 @@ for_window [class="^KeePassXC$" title="Browser Access Request"] floating enable,
 for_window [class="^Gnome-calculator$"] floating enable, border pixel 0
 for_window [class="^Xreader$"] floating enable, border pixel 0
 for_window [class="^jetbrains" title="^Diff Between '"] floating enable, border pixel 0
-for_window [class="^Telegram" title="Media viewer"] move window to output left
+# for_window [class="^Telegram" title="Media viewer"] move window to output left
 for_window [class="^Telegram" title="Save "] move window to workspace "2" 
 
 
@@ -318,7 +316,6 @@ for_window [class="firefox"] resize grow height 1 px or 1 ppt
 exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker
 
 # window compositor 
-#exec --no-startup-id "picom -b --config=./picom.conf"
 exec --no-startup-id "xcompmgr -n &"
 
 # start polybar on thr every monitor
