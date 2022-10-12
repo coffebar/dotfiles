@@ -9,6 +9,9 @@ nnoremap <leader>r :action IdeaVim.ReloadVimRc.reload<CR>
 set ideajoin
 set showmode
 
+set sneak
+set quickscope
+
 " no sounds on error
 set visualbell
 set noerrorbells

@@ -27,7 +27,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 NPM_PACKAGES="${HOME}/.npm-packages"
-PATH="$HOME/.node/bin:$PATH:$NPM_PACKAGES/bin"
+PATH="$HOME/.node/bin:$PATH:$NPM_PACKAGES/bin:$HOME/.node_modules/bin"
 NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
 MANPATH="$HOME/.node/share/man:$NPM_PACKAGES/share/man:$MANPATH"
 
