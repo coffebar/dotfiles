@@ -209,19 +209,18 @@ set wrap "Wrap lines
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
-" copy to system clipboard by Ctrl+c
+" copy to system clipboard by Ctrl+c in the Visual mode
 vnoremap <C-c> "+y
 " paste in normal mode from system clipboard
-nmap <C-p> "+p
+vnoremap <C-p> "+p
+nnoremap <C-p> "+p
+inoremap <C-p> <esc>"+p
 " copy current line to system clipboard
 nnoremap <leader>c "+yy
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <C-space> ?
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -441,5 +440,10 @@ Plug 'joshdick/onedark.vim'
 Plug 'ajmwagar/vim-deus'
 "" i3 config syntax highlighting
 Plug 'mboughaba/i3config.vim'
+"" formatter
+Plug 'mhartington/formatter.nvim'
+"" s-motion to search by 2 characters
+Plug 'justinmk/vim-sneak'
 
 call plug#end()
+
