@@ -47,6 +47,7 @@ let mapleader = " "
 
 " Fast saving
 nmap <leader>w :w!<cr>
+nmap <leader>ц :w!<cr>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
@@ -233,6 +234,7 @@ map <C-l> <C-W>l
 
 " Close all tabs
 map <leader>a :qa!<cr>
+map <leader>ф :qa!<cr>
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>:tabclose<cr>gT
@@ -297,6 +299,10 @@ map 0 ^
 " insert blank line
 nmap <leader>o o<ESC>
 nmap <leader>O O<ESC>
+
+" Fix some cyrillic
+nmap Ф A
+nmap Ш I
 
 
 " Delete trailing white space on save, useful for some filetypes ;)
