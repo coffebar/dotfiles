@@ -31,3 +31,6 @@ PATH="$HOME/.node/bin:$PATH:$NPM_PACKAGES/bin:$HOME/.node_modules/bin"
 NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
 MANPATH="$HOME/.node/share/man:$NPM_PACKAGES/share/man:$MANPATH"
 
+if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
+    export MOZ_ENABLE_WAYLAND=1
+fi
