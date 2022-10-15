@@ -16,6 +16,7 @@
 .local/share/
 .local/lib/
 .local/bin/
+.local/state/
 !/.local/share/xfpanel-switch/xfce-panels-config.tar.bz2
 
 # desktop location changed to "Downloads"
@@ -25,6 +26,8 @@
 *.log
 *_history
 
+# ssh related is secret
+.ssh
 
 # ignore also this
 .ICEauthority
@@ -40,3 +43,11 @@
 .directory
 .gtkrc-2.0
 .gtkrc-xfce
+.fehbg
+.steampath
+.steampid
+.wget-hsts
+.zcompdump-*
+.cargo/.package-cache
+*.bak
+*.lock
