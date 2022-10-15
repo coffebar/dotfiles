@@ -46,7 +46,7 @@ nmap <leader>g <Action>(FindInPath)
 " insert blank line
 nmap <leader>o o<ESC>
 nmap <leader>O O<ESC>
-;
+
 nmap <leader>= <Action>(ReformatCode)
 nnoremap <leader>u :action FindUsages<CR>
 
@@ -54,8 +54,8 @@ nnoremap <leader>u :action FindUsages<CR>
 nnoremap <leader>c "+yy
 
 " append ; to the end of line
-imap <leader>; <Esc>A;<Esc>
-nmap <leader>; <Esc>A;<Esc>
+inoremap <leader>; <Esc>A;<Esc>
+nnoremap <leader>; <Esc>A;<Esc>
 
 " scrolling
 nmap <leader>d <C-d>

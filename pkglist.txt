@@ -3,6 +3,7 @@ acpi_call
 alacritty
 alsa-plugins
 alsa-utils
+android-tools
 arandr
 arc-gtk-theme
 audacity
@@ -30,7 +31,6 @@ deluge
 deluge-gtk
 dhcpcd
 dialog
-dmenu
 dmidecode
 docker
 docker-compose
@@ -63,6 +63,7 @@ git
 gnome-calculator
 gnome-keyring
 gnome-system-monitor
+go
 goaccess
 google-chrome
 gparted
@@ -107,11 +108,14 @@ linux-headers
 linux-zen
 linux-zen-headers
 lsof
+ltex-ls-bin
+lua-language-server
 lxappearance
 lxqt-policykit
 lzop
 m4
 make
+mako
 man-db
 mc
 microsoft-edge-dev-bin
@@ -135,6 +139,7 @@ ntp
 numlockx
 nvidia-dkms
 nvidia-settings
+nvim-packer-git
 opencl-nvidia
 openvpn
 optimus-manager
@@ -146,6 +151,7 @@ pasystray
 patch
 pavucontrol
 php
+phpactor
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -160,6 +166,8 @@ remmina
 rofi
 rsibreak
 rsync
+rust-analyzer
+rustup
 sdl_ttf
 seahorse
 sed
@@ -168,6 +176,9 @@ simplescreenrecorder
 smartmontools
 sshfs
 sudo
+sway-nvidia
+swaybg
+swaylock
 syncthing
 syncthingtray
 systemd-resolvconf
@@ -201,6 +212,7 @@ virtualbox
 virtualbox-ext-oracle
 vlc
 wavpack
+waybar
 wget
 which
 wireguard-tools
