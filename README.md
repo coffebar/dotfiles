@@ -7,9 +7,13 @@ My .dotfiles backup for Arch setup.
 Requirements listed in pkglist.txt
 
 ## Restore backup:
-## Please don't do this without understanding all files and commands! It may harm your system.
+### Please don't do this without understanding all files and commands! 
+
+Note: before proceed you need to create or restore ssh keys and install git 
+
+### Download config files and install packages from AUR
 ```
-git clone --depth=1 https://github.com/coffebar/dotfiles.git dotfiles_tmp
+git clone --depth=1 git@github.com:coffebar/dotfiles.git dotfiles_tmp
 rsync -rv --exclude '.git' --exclude 'README.MD' --exclude '.gitignore' ./dotfiles_tmp/ ./ 
 
 rm -rf ./dotfiles_tmp/
@@ -30,7 +34,7 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
 
 ```
 
-Neovim plugins and dependencies
+### Neovim plugins and dependencies
 ```
 npm i -g pyright bash-language-server \
   vscode-langservers-extracted \
