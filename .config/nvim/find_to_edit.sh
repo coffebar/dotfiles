@@ -2,7 +2,7 @@
 # find files in the home folder (with a long ignore list)
 
 exec 2>/dev/null
-find "$HOME" -maxdepth 4 -a -type f \
+find "$HOME" -maxdepth 5 -a -type f \
     -readable \
     -writable \
     -not -path "$HOME/Public/*" \
@@ -11,9 +11,6 @@ find "$HOME" -maxdepth 4 -a -type f \
     -not -path "$HOME/Pictures/*" \
     -not -path "$HOME/Private/*" \
     -not -path "$HOME/dotfiles/*" \
-    -not -path "$HOME/Dropbox/*" \
-    -not -path "$HOME/.dropbox/*" \
-    -not -path "$HOME/.dropbox-dist/*" \
     -not -path "$HOME/.cache/*" \
     -not -path "$HOME/.java/*" \
     -not -path "$HOME/.npm/*" \
