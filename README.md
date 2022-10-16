@@ -32,6 +32,9 @@ yay -S --needed - < pkglist.txt
 # install ohmyzsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# patch config
+npm config set prefix ~/.node_modules
+
 ```
 
 ### Neovim plugins and dependencies
