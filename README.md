@@ -44,7 +44,7 @@ npm i -g pyright bash-language-server \
   typescript typescript-language-server \
   @tailwindcss/language-server \
   eslint
-yay -Sy ltex-ls-bin rust-analyzer phpactor lua-language-server
+yay -Sy --needed -ltex-ls-bin rust-analyzer phpactor lua-language-server nvim-packer-git
 nvim -c PackerSync # packer is installed via yay
 nvim -c 'TSInstall css python php rust javascript sql toml typescript go yaml dockerfile scss html bash json lua c kotlin markdown'
 ```
