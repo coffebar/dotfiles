@@ -26,6 +26,9 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# remove absolute path leaks in release binary (rust)
+export RUSTFLAGS="--remap-path-prefix $HOME=~"
+
 NPM_PACKAGES="${HOME}/.npm-packages"
 PATH="$HOME/.node/bin:$PATH:$NPM_PACKAGES/bin:$HOME/.node_modules/bin"
 NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
@@ -34,3 +37,4 @@ MANPATH="$HOME/.node/share/man:$NPM_PACKAGES/share/man:$MANPATH"
 if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
     export MOZ_ENABLE_WAYLAND=1
 fi
+
