@@ -52,7 +52,7 @@ fi
 
 
 # Telegram messenger
-telegram-desktop &
+XDG_CURRENT_DESKTOP=gnome telegram-desktop &
 
 # Start KeePassXC with unlocking password # see https://github.com/keepassxreboot/keepassxc/issues/1267
 /bin/bash -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin $HOME/Sync/Work/lastpass.kdbx" &

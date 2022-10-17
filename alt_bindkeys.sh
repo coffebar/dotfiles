@@ -25,7 +25,7 @@ case "$1" in
   ;;
   "t")
   # t - Telegram
-  wmctrl -a 'Telegram' || telegram-desktop &
+  wmctrl -a 'Telegram' || XDG_CURRENT_DESKTOP=gnome telegram-desktop &
   ;;
   "c")
   # c - code editor
