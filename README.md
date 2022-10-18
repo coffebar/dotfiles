@@ -61,3 +61,5 @@ This [neovim](https://github.com/neovim/neovim) setup supports syntax highlighti
 - rust 
 - typescript
 
+### Telegram theme for desktop
+[arcdarkgrey](https://t.me/addtheme/arcdarkgrey)
