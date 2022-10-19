@@ -57,6 +57,7 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
 
 # patch config
 npm config set prefix ~/.node_modules
+cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
 
 ```
 

@@ -71,7 +71,7 @@ gptfdisk
 grep
 groff
 gsfonts
-gst-plugin-pipewire
+gst-plugins-good
 gum
 gvfs
 gvfs-gphoto2
@@ -91,6 +91,7 @@ iwd
 kbdd-git
 kdenlive
 keepassxc
+ksnip
 lib32-opencl-nvidia
 libdv
 libinput-gestures
@@ -172,7 +173,6 @@ rustup
 sdl_ttf
 seahorse
 sed
-shutter
 simplescreenrecorder
 smartmontools
 sshfs
@@ -221,6 +221,7 @@ wireless_tools
 wireplumber
 wmctrl
 woeusb
+wrk
 xautomation
 xclip
 xcompmgr
