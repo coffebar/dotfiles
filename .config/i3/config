@@ -17,7 +17,7 @@
 # playerctl 
 # polybar
 # rofi
-# shutter
+# ksnip
 # syncthingtray
 # ttf-droid
 # ttf-font-awesome-4
@@ -177,7 +177,9 @@ bindsym $alt+Control+Right workspace next_on_output
 bindsym $alt+Control+Left workspace prev_on_output 
 
 # make a screenshot 
-bindsym Print exec --no-startup-id shutter -s 
+bindsym Print exec --no-startup-id ksnip -r 
+# start ksnip or open an editor window
+bindsym $mod+Print exec --no-startup-id ksnip
 
 # ssh connect: Mod+tilda
 bindsym $mod+grave exec rofi -show ssh -theme $rofi_theme -dpi $QT_FONT_DPI
@@ -292,6 +294,7 @@ assign [class="^KeePassXC$"] → $ws9
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="Shutter"] floating enable, move position center
+for_window [class="ksnip"] floating enable, move position center
 for_window [class="^copyq$"] floating enable, move position center
 for_window [class="(?i)virtualbox"] floating enable
 for_window [class="^KeePassXC$"] move position center 
@@ -366,8 +369,6 @@ exec --no-startup-id libinput-gestures-setup start &
 exec --no-startup-id pasystray &
 # fix JetBrains scale options for HDPI
 exec_always --no-startup-id bash ~/.config/JetBrains/fix-vmoptions.sh &
-# screenshoter
-exec --no-startup-id shutter --min_at_startup &
 # autorandr
 exec --no-startup-id autorandr -c 
 
