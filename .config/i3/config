@@ -214,7 +214,7 @@ bindsym Control+F12 exec --no-startup-id bash ~/toggle_headphones.sh
 
 # file browser
 bindsym $alt+f exec --no-startup-id "~/lua/wm-keymap.lua f"
-bindsym XF86Explorer exec --no-startup-id "thunar"
+bindsym XF86Explorer exec --no-startup-id "~/lua/wm-keymap.lua f"
 
 # super+/ open FZF script to open nvim
 bindcode $mod+51 exec --no-startup-id alacritty -t 'fzf:nvim' -e bash ~/.config/nvim/find_and_edit.sh
