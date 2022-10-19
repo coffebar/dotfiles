@@ -22,7 +22,6 @@
 # ttf-droid
 # ttf-font-awesome-4
 # xautomation
-# xcompmgr
 #####################
 
 # Mod key = Super key
@@ -306,8 +305,6 @@ for_window [class="firefox"] resize grow height 1 px or 1 ppt
 # screen before suspend. Use loginctl lock-session to lock your screen.
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker
 
-# window compositor 
-exec --no-startup-id "xcompmgr -n &"
 
 # custom startup script (mound disks, run backup, start other apps)
 exec --no-startup-id [ "$XDG_VTNR" -eq '7' ] && ~/startup.sh &
@@ -344,9 +341,6 @@ exec_always --no-startup-id autotiling
 #exec --no-startup-id nm-applet &
 
 #exec --no-startup-id blueman-applet &
-
-# switch microphone source to filter with noise cancallation
-#exec --no-startup-id bash ~/filter-mic.sh &
 
 # edge browser
 #exec --no-startup-id microsoft-edge-stable &
