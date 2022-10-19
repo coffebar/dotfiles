@@ -355,9 +355,6 @@ exec --no-startup-id nm-applet &
 
 exec --no-startup-id blueman-applet &
 
-# switch microphone source to filter with noise cancallation
-exec --no-startup-id bash ~/filter-mic.sh &
-
 # edge browser
 #exec --no-startup-id microsoft-edge-stable &
 exec --no-startup-id firefox &
