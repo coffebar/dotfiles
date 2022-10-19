@@ -30,7 +30,7 @@ fi
 export RUSTFLAGS="--remap-path-prefix $HOME=~"
 
 NPM_PACKAGES="${HOME}/.npm-packages"
-PATH="$HOME/.node/bin:$PATH:$NPM_PACKAGES/bin:$HOME/.node_modules/bin"
+PATH="$HOME/.node/bin:$PATH:$NPM_PACKAGES/bin:$HOME/.node_modules/bin:$HOME/go/bin"
 NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
 MANPATH="$HOME/.node/share/man:$NPM_PACKAGES/share/man:$MANPATH"
 

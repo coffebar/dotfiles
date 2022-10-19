@@ -26,6 +26,8 @@ Requirements listed in pkglist.txt
 
 - CapsLock is changed to Backspace.
 
+- Nice aliases: i to install package, dp to push dotfiles into this repo, v to open nvim. 
+
 
 ## Restore backup:
 ### Please don't do this without understanding all files and commands! 
@@ -65,6 +67,7 @@ npm i -g pyright bash-language-server \
   typescript typescript-language-server \
   @tailwindcss/language-server \
   eslint
+go install golang.org/x/tools/gopls@latest
 yay -Sy --needed -ltex-ls-bin rust-analyzer phpactor lua-language-server nvim-packer-git
 nvim -c PackerSync # packer is installed via yay
 nvim -c 'TSInstall css python php rust javascript sql toml typescript go yaml dockerfile scss html bash json lua c kotlin markdown'
@@ -74,6 +77,7 @@ This [neovim](https://github.com/neovim/neovim) setup supports syntax highlighti
 
 - bash
 - css
+- go
 - html 
 - javascript
 - lua
@@ -85,7 +89,4 @@ This [neovim](https://github.com/neovim/neovim) setup supports syntax highlighti
 ### Telegram desktop theme:
 ### [arcdarkgrey](https://t.me/addtheme/arcdarkgrey)
 
---- 
 
-
-<!-- vim:filetype=markdown -->
