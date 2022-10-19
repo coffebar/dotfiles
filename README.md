@@ -61,5 +61,30 @@ This [neovim](https://github.com/neovim/neovim) setup supports syntax highlighti
 - rust 
 - typescript
 
-### Telegram theme for desktop
-[arcdarkgrey](https://t.me/addtheme/arcdarkgrey)
+### Telegram desktop theme:
+### [arcdarkgrey](https://t.me/addtheme/arcdarkgrey)
+
+--- 
+
+
+## Interesting features
+
+- Some of wm's binds improved by lua script. Lua has more flexibility than i3config syntax. It is a good practice to automatically switch to the appropriate workspace after opening programs using a keyboard shortcut.
+
+- ``Alt + f`` open a file manager in that directory what was found in clipboard. For example, if you copied a file from some program, you can open it's directory just by pressing this shortcut.
+
+- ``Super + ` `` open ssh servers menu to connect.
+
+- ``Super + \ `` open fuzzy finder to search for local text files in the home directory to edit in NeoVim.
+
+- Automatic tiling via [autotiling](https://github.com/nwg-piotr/autotiling) script. Split direction depends on the currently focused window dimensions.
+
+- Automatic tiling freed up ``Super + H`` shortcut. So i'm using HJKL to navigate inside WM.
+
+- UI scale options depends on current display setup and [autorandr](https://github.com/phillipberndt/autorandr) profile name.
+
+- Mouse side buttons bound to copy and paste in graphics applications. Although I try to use the mouse less, it's useful for (web)apps with mouse-centric UI.
+
+- CapsLock is changed to Backspace.
+
+<!-- vim:filetype=markdown -->
