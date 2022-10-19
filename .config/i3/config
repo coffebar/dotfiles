@@ -213,19 +213,17 @@ bindsym XF86Tools exec --no-startup-id bash ~/toggle_headphones.sh
 bindsym Control+F12 exec --no-startup-id bash ~/toggle_headphones.sh
 
 # file browser
-bindsym $alt+f exec --no-startup-id "bash ~/alt_bindkeys.sh f"
+bindsym $alt+f exec --no-startup-id "~/lua/wm-keymap.lua f"
 bindsym XF86Explorer exec --no-startup-id "thunar"
 
 # super+/ open FZF script to open nvim
 bindcode $mod+51 exec --no-startup-id alacritty -t 'fzf:nvim' -e bash ~/.config/nvim/find_and_edit.sh
 
-# more apps (can be live changed in ~/alt_bindkeys.sh)
-bindsym $alt+t exec --no-startup-id "bash ~/alt_bindkeys.sh t"
-bindsym $alt+c exec --no-startup-id "bash ~/alt_bindkeys.sh c"
-bindsym $alt+i exec --no-startup-id "bash ~/alt_bindkeys.sh i"
-bindsym $alt+b exec --no-startup-id "bash ~/alt_bindkeys.sh b"
-bindsym $alt+v exec --no-startup-id "bash ~/alt_bindkeys.sh v"
-bindsym $alt+s exec --no-startup-id "bash ~/alt_bindkeys.sh s"
+# more apps (can be live changed in lua file)
+bindsym $alt+t exec --no-startup-id "~/lua/wm-keymap.lua t"
+bindsym $alt+i exec --no-startup-id "~/lua/wm-keymap.lua i"
+bindsym $alt+b exec --no-startup-id "~/lua/wm-keymap.lua b"
+bindsym $alt+v exec --no-startup-id "~/lua/wm-keymap.lua v"
 
 bindsym Control+Page_Up exec --no-startup-id copyq show
 
