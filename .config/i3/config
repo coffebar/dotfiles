@@ -325,7 +325,7 @@ exec --no-startup-id ~/polybar.start.sh
 # custom startup script (mound disks, run backup, start other apps)
 exec --no-startup-id [ "$XDG_VTNR" -eq '7' ] && ~/startup.sh &
 # desktop image
-exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/10-14-Night.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/bridge.jpg
 # notifications daemon
 exec --no-startup-id dunst
 # keyboard daemon to make per window layout 
