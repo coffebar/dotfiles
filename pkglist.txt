@@ -88,6 +88,7 @@ imagemagick
 inotify-tools
 intel-ucode
 iwd
+jq
 kbdd-git
 kdenlive
 keepassxc
