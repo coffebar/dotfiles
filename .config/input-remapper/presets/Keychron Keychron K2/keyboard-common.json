@@ -1,8 +1,1 @@
-{
-    "mapping": {
-        "1,29,1+1,50,1": [
-            "modify(Control_L, k(l)).\nmodify(Control_L, k(v)).\nkey(KP_Enter)",
-            "keyboard"
-        ]
-    }
-}
+../../keyboard-common.json
