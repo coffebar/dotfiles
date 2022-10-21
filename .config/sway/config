@@ -6,22 +6,21 @@
 
 # alacritty
 # amixer
-# swaybg
-# swaylock
 # autotiling
 # copyq
-# mako
-# feh
+# input-remapper-git
 # kbdd
+# mako
 # network-manager-applet
 # playerctl 
-# waybar
 # rofi
 # shutter
+# swaybg
+# swaylock
 # syncthingtray
 # ttf-droid
 # ttf-font-awesome-4
-# xautomation
+# waybar
 #####################
 
 # Mod key = Super key
@@ -41,7 +40,7 @@ floating_modifier $mod
 
 input * {
     xkb_layout us,ua
-    xkb_options grp:alt_shift_toggle,caps:backspase
+    xkb_options grp:alt_shift_toggle
 }
 
 input type:touchpad {
@@ -158,10 +157,6 @@ bindsym $mod+r mode "resize"
 
 
 # custom bindings
-
-# mouse side buttons to copy & paste on GUI apps
-bindsym --whole-window button8 exec "xte 'keydown Control_L' 'keydown c' 'keyup c' 'keyup Control_L'"
-bindsym --whole-window button9 exec "xte 'keydown Control_L' 'keydown v' 'keyup v' 'keyup Control_L'"
 
 # Ctrl + Alt + l → lock 
 bindsym $alt+Control+l exec --no-startup-id $Locker
@@ -342,6 +337,9 @@ exec_always --no-startup-id autotiling
 
 #exec --no-startup-id blueman-applet &
 
+# input-remapper to remap custom mouse buttons and to emulate some keypresses
+# requere: systemctl enable input-remapper
+exec --no-startup-id input-remapper-control --command autoload --config-dir "~/.config/input-remapper/"
 # edge browser
 #exec --no-startup-id microsoft-edge-stable &
 exec --no-startup-id firefox &

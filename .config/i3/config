@@ -11,17 +11,17 @@
 # copyq
 # dunst
 # feh
+# input-remapper-git
 # kbdd
+# ksnip
 # network-manager-applet
 # numlockx
 # playerctl 
 # polybar
 # rofi
-# ksnip
 # syncthingtray
 # ttf-droid
 # ttf-font-awesome-4
-# xautomation
 # xcompmgr
 # xsecurelock
 # xss-lock
@@ -165,10 +165,6 @@ bindsym $mod+r mode "resize"
 
 # custom bindings
 
-# mouse side buttons to copy & paste on GUI apps
-bindsym --whole-window button8 exec "xte 'keydown Control_L' 'keydown c' 'keyup c' 'keyup Control_L'"
-bindsym --whole-window button9 exec "xte 'keydown Control_L' 'keydown v' 'keyup v' 'keyup Control_L'"
-
 # Ctrl + Alt + l → lock 
 bindsym $alt+Control+l exec --no-startup-id $Locker
 
@@ -203,9 +199,6 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
-
-# start apps for work
-bindsym $mod+w exec --no-startup-id "bash ~/.config/i3/work.sh"
 
 # calculator
 bindsym XF86Calculator exec --no-startup-id gnome-calculator
@@ -322,8 +315,6 @@ exec --no-startup-id "xcompmgr -n &"
 
 # start polybar on thr every monitor
 exec --no-startup-id ~/polybar.start.sh
-# custom startup script (mound disks, run backup, start other apps)
-exec --no-startup-id [ "$XDG_VTNR" -eq '7' ] && ~/startup.sh &
 # desktop image
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/bridge.jpg
 # notifications daemon
@@ -358,6 +349,9 @@ exec --no-startup-id nm-applet &
 
 exec --no-startup-id blueman-applet &
 
+# input-remapper to remap custom mouse buttons and to emulate some keypresses
+# requere: systemctl enable input-remapper
+exec --no-startup-id input-remapper-control --command autoload --config-dir "~/.config/input-remapper/"
 # edge browser
 #exec --no-startup-id microsoft-edge-stable &
 exec --no-startup-id firefox &
@@ -371,5 +365,13 @@ exec --no-startup-id pasystray &
 exec_always --no-startup-id bash ~/.config/JetBrains/fix-vmoptions.sh &
 # autorandr
 exec --no-startup-id autorandr -c 
+# script to extract zip files after download
+exec --no-startup-id /bin/bash ~/Downloads/Telegram\ Desktop/unzip_here.sh &
+# telegram messanger
+exec --no-startup-id XDG_CURRENT_DESKTOP=gnome telegram-desktop &
+# Start KeePassXC with unlocking password # see https://github.com/keepassxreboot/keepassxc/issues/1267
+exec --no-startup-id /bin/sh -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin ~/Sync/Work/lastpass.kdbx" &
+# remove "urgency" from KeePassXC on startup
+exec --no-startup-id /bin/sh -c 'sleep 5 && wmctrl -r KeePassXC -b remove,demands_attention' &
 
 # vim:filetype=i3config
