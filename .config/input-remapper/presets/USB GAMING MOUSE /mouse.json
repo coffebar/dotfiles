@@ -1,0 +1,12 @@
+{
+    "mapping": {
+        "1,276,1": [
+            "KEY_LEFTCTRL+v",
+            "keyboard"
+        ],
+        "1,275,1": [
+            "KEY_LEFTCTRL+c",
+            "keyboard"
+        ]
+    }
+}

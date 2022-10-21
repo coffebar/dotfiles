@@ -8,7 +8,7 @@ function push {
 }
 
 function menu {
-	DOTF_OPT=$(gum choose "commit -a && push" "diff" "status -suno" "status --untracked-files=all")
+	DOTF_OPT=$(gum choose "diff" "commit -a && push" "status -suno" "status --untracked-files=all")
 	[[ $DOTF_OPT =~ "commit" ]] && push
 	[[ $DOTF_OPT =~ "diff" ]] && dotf diff
 	[[ $DOTF_OPT =~ "status" ]] && dotf status -suno

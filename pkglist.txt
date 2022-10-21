@@ -86,6 +86,7 @@ i3lock
 i3status
 imagemagick
 inotify-tools
+input-remapper-git
 intel-ucode
 iwd
 jq
@@ -223,7 +224,6 @@ wireplumber
 wmctrl
 woeusb
 wrk
-xautomation
 xclip
 xcompmgr
 xdg-user-dirs

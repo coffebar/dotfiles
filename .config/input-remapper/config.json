@@ -1,0 +1,21 @@
+{
+    "version": "1.5.0",
+    "autoload": {
+        "USB GAMING MOUSE ": "mouse",
+        "Keychron Keychron K2": "keyboard-common",
+        "AT Translated Set 2 keyboard": "keyboard-common"
+    },
+    "macros": {
+        "keystroke_sleep_ms": 10
+    },
+    "gamepad": {
+        "joystick": {
+            "non_linearity": 4,
+            "pointer_speed": 80,
+            "left_purpose": "none",
+            "right_purpose": "none",
+            "x_scroll_speed": 2,
+            "y_scroll_speed": 0.5
+        }
+    }
+}
