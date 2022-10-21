@@ -1,0 +1,8 @@
+{
+    "mapping": {
+        "1,29,1+1,50,1": [
+            "modify(Control_L, k(l)).modify(Control_L, k(v)).key(KP_Enter)",
+            "keyboard"
+        ]
+    }
+}
