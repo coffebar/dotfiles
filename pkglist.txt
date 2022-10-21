@@ -211,8 +211,6 @@ unrar
 unzip
 usbutils
 vim
-virtualbox
-virtualbox-ext-oracle
 vlc
 wavpack
 waybar
