@@ -35,7 +35,7 @@ Requirements listed in pkglist.txt
 Note: before proceed you need to create or restore ssh keys and install git 
 
 ### Download config files and install packages from AUR
-```
+```bash
 git clone --depth=1 git@github.com:coffebar/dotfiles.git dotfiles_tmp
 rsync -rv --exclude '.git' --exclude 'README.MD' --exclude '.gitignore' ./dotfiles_tmp/ ./ 
 
@@ -72,7 +72,7 @@ cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
 ```
 
 ### Neovim plugins and dependencies
-```
+```bash
 npm i -g pyright bash-language-server \
   vscode-langservers-extracted \
   typescript typescript-language-server \
@@ -84,7 +84,7 @@ yay -Sy --needed -ltex-ls-bin rust-analyzer phpactor lua-language-server nvim-pa
 nvim --headless -c 'TSInstall! css python php rust javascript sql toml typescript go yaml dockerfile scss html bash json lua c kotlin markdown' -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 Optionally, add a cronjob to keep nvim plugins updated
-```
+```bash
 (crontab -l; echo "0 13 * * * nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'" ) | crontab -
 ```
 
