@@ -81,7 +81,8 @@ npm i -g pyright bash-language-server \
 go install golang.org/x/tools/gopls@latest
 yay -Sy --needed -ltex-ls-bin rust-analyzer phpactor lua-language-server nvim-packer-git
 # I hope packer was installed via yay
-nvim --headless -c 'TSInstall! css python php rust javascript sql toml typescript go yaml dockerfile scss html bash json lua c kotlin markdown' -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c 'TSInstall! css python php rust javascript sql toml typescript go yaml dockerfile scss html bash json lua c kotlin markdown'
 ```
 Optionally, add a cronjob to keep nvim plugins updated
 ```bash
