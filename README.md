@@ -80,8 +80,12 @@ npm i -g pyright bash-language-server \
   eslint
 go install golang.org/x/tools/gopls@latest
 yay -Sy --needed -ltex-ls-bin rust-analyzer phpactor lua-language-server nvim-packer-git
-nvim -c PackerSync # packer is installed via yay
-nvim -c 'TSInstall css python php rust javascript sql toml typescript go yaml dockerfile scss html bash json lua c kotlin markdown'
+# I hope packer was installed via yay
+nvim --headless -c 'TSInstall! css python php rust javascript sql toml typescript go yaml dockerfile scss html bash json lua c kotlin markdown' -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+```
+Optionally, add a cronjob to keep nvim plugins updated
+```
+(crontab -l; echo "0 13 * * * nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'" ) | crontab -
 ```
 
 This [neovim](https://github.com/neovim/neovim) setup supports syntax highlighting and code completion for following languages: 
