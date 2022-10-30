@@ -1,5 +1,8 @@
 local lspconfig = require("lspconfig")
 
+-- load snippets
+require("luasnip.loaders.from_vscode").lazy_load()
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -24,6 +27,8 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 	-- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	if client.server_capabilities.documentFormattingProvider then
+		vim.keymap.set('v', '=', function() vim.lsp.buf.format {}
+		end, { silent = false })
 		vim.keymap.set('n', '=', function() vim.lsp.buf.format {
 				async = false,
 				range = nil,
