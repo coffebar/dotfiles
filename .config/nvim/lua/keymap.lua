@@ -12,7 +12,7 @@ end
 local nmap = bind("n", { noremap = false })
 local nnoremap = bind("n")
 local vnoremap = bind("v")
-local xnoremap = bind("x")
+-- local xnoremap = bind("x")
 local inoremap = bind("i")
 
 -- Fast saving
@@ -51,6 +51,8 @@ nnoremap('<leader>h', ':bprevious<cr>')
 -- fzf open file and edit
 nnoremap('<leader>f', ':Ffnd<cr>')
 
+nnoremap('<leader>t', ':TroubleToggle<cr>')
+
 nnoremap('0', '^')
 nnoremap('<leader>o', 'o<ESC>')
 nnoremap('<leader>O', 'O<ESC>')
@@ -63,3 +65,9 @@ nnoremap('<leader>c', '"+yy')
 -- append ; to the end of line
 inoremap('<leader>;', '<Esc>A;<Esc>')
 nnoremap('<leader>;', '<Esc>A;<Esc>')
+-- Gitsigns
+nnoremap('<leader>gs', ':Gitsigns stage_hunk<cr>')
+nnoremap('<leader>gS', ':Gitsigns stage_buffer<cr>')
+nnoremap('<leader>gr', ':Gitsigns reset_hunk<cr>')
+nnoremap('<leader>gu', ':Gitsigns undo_stage_hunk<cr>')
+nnoremap('<leader>gR', ':Gitsigns reset_buffer<cr>')

@@ -29,7 +29,8 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/nvim-cmp'
 	use 'L3MON4D3/LuaSnip'
 	use 'saadparwaiz1/cmp_luasnip'
-
+	-- icons for "folke/trouble.nvim",
+	use 'kyazdani42/nvim-web-devicons'
 	-- start page
 	use 'mhinz/vim-startify'
 	-- search counter
@@ -47,4 +48,28 @@ return require('packer').startup(function(use)
 		setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
 		ft = { "markdown" },
 	})
+	-- help menu
+	use {
+		"folke/which-key.nvim",
+		config = function()
+			require("which-key").setup {}
+		end
+	}
+	-- blank char visualization
+	use "lukas-reineke/indent-blankline.nvim"
+	-- show debug info
+	use {
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("trouble").setup {}
+		end
+	}
+	-- bufferline - tabs with diagnostics indicator
+	use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'kyazdani42/nvim-web-devicons' }
+	-- git decorations
+	use {
+		'lewis6991/gitsigns.nvim',
+		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+	}
 end)
