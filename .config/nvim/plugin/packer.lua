@@ -74,4 +74,11 @@ return require('packer').startup(function(use)
 	}
 	-- snippets
 	use "rafamadriz/friendly-snippets"
+	-- tests
+	use {
+		"klen/nvim-test",
+		config = function()
+			require('nvim-test').setup()
+		end
+	}
 end)
