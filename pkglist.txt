@@ -38,6 +38,7 @@ dosfstools
 dunst
 ecryptfs-utils
 efibootmgr
+electrum
 exfat-utils
 faac
 fakeroot
@@ -93,6 +94,7 @@ jq
 kbdd-git
 kdenlive
 keepassxc
+khal
 ksnip
 lib32-opencl-nvidia
 libdv
@@ -163,10 +165,10 @@ pipewire-pulse
 pix
 pkgconf
 playerctl
+poedit
 polkit-kde-agent
 polybar
 python-pip
-remmina
 rofi
 rsibreak
 rsync
@@ -185,7 +187,6 @@ swaylock
 syncthing
 syncthingtray
 systemd-resolvconf
-teamviewer
 telegram-desktop
 texinfo
 texlive-core
