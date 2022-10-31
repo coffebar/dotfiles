@@ -19,7 +19,8 @@ if key == 'f' then
 	local dir
 	-- read from clipboard
 	local buff = os.capture('xclip -selection c -o')
-	if not string.find(buff, '\n') then
+	local fch = string.sub(buff, 0, 1)
+	if not string.find(buff, '\n') and (fch == "/" or fch == "~") then
 		-- if clipboard has only 1 line
 		-- try to get directory path from it
 		dir = os.capture(string.format('dirname "%s"', buff))
