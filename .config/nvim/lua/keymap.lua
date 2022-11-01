@@ -14,6 +14,7 @@ local nnoremap = bind("n")
 local vnoremap = bind("v")
 -- local xnoremap = bind("x")
 local inoremap = bind("i")
+local tnoremap = bind("t")
 
 -- Fast saving
 nnoremap('<leader>w', ':w!<cr>')
@@ -38,8 +39,17 @@ nnoremap('<leader>ф', ':qa!<cr>')
 nmap('Ф', 'A')
 nmap('Ш', 'I')
 
---nnoremap('=', '<nop>')
---vnoremap('=', '<nop>')
+-- open terminal in split below and start Insert mode
+nnoremap('<leader>t', ':belowright split | resize 10 | terminal<cr>i')
+
+-- terminal mode related
+-- close terminal window
+tnoremap('<C-d>', '<C-\\><C-n>:q!<cr>')
+-- exit terminal insert mode
+tnoremap('<Esc>', '<C-\\><C-n>')
+-- exit terminal insert mode and switch window
+tnoremap('jk', '<C-\\><C-n><C-w><C-w>')
+tnoremap('kj', '<C-\\><C-n><C-w><C-w>')
 
 -- Close the current buffer
 nmap('<leader>bd', ':bd!<cr>')
@@ -51,7 +61,7 @@ nnoremap('<leader>h', ':bprevious<cr>')
 -- fzf open file and edit
 nnoremap('<leader>f', ':Ffnd<cr>')
 
-nnoremap('<leader>t', ':TroubleToggle<cr>')
+nnoremap('<leader>T', ':TroubleToggle<cr>')
 
 nnoremap('0', '^')
 nnoremap('<leader>o', 'o<ESC>')
