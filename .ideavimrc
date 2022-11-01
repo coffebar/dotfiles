@@ -47,7 +47,8 @@ nmap <leader>g <Action>(FindInPath)
 nmap <leader>o o<ESC>
 nmap <leader>O O<ESC>
 
-nmap <leader>= <Action>(ReformatCode)
+nmap = <Action>(ReformatCode)
+vmap = <Action>(ReformatCode)
 nnoremap <leader>u :action FindUsages<CR>
 
 " copy current line to system clipboard
