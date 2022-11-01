@@ -47,12 +47,15 @@ nnoremap('<leader>t', ':belowright split | resize 10 | terminal<cr>i')
 tnoremap('<C-d>', '<C-\\><C-n>:q!<cr>')
 -- exit terminal insert mode
 tnoremap('<Esc>', '<C-\\><C-n>')
--- exit terminal insert mode and switch window
-tnoremap('jk', '<C-\\><C-n><C-w><C-w>')
-tnoremap('kj', '<C-\\><C-n><C-w><C-w>')
+-- exit terminal's insert mode and go to upper window
+tnoremap('jk', '<C-\\><C-n><C-w>k')
+-- Ctrl+4 to close terminal window
+tnoremap('<C-\\>', '<C-\\><C-n>:bd!<cr>')
 
 -- Close the current buffer
 nmap('<leader>bd', ':bd!<cr>')
+-- Ctrl+4 to close window and keep buffer
+nmap('<C-\\>', ':q<cr>')
 -- Close all the buffers
 nmap('<leader>ba', ':bufdo bd<cr>')
 
