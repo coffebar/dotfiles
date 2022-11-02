@@ -65,24 +65,15 @@ sudo systemctl start ufw
 # install ohmyzsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# patch config
-npm config set prefix ~/.node_modules
+# copy ksnip config
 cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
 
 ```
 
 ### Neovim plugins and dependencies
+This script can be used to sync nvim config from this repo
 ```bash
-npm i -g pyright bash-language-server \
-  vscode-langservers-extracted \
-  typescript typescript-language-server \
-  @tailwindcss/language-server \
-  eslint
-go install golang.org/x/tools/gopls@latest
-yay -Sy --needed -ltex-ls-bin rust-analyzer phpactor lua-language-server nvim-packer-git
-# I hope packer was installed via yay
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-nvim -c 'TSInstall! css python php rust javascript sql toml typescript go yaml dockerfile scss html bash json lua c kotlin markdown diff'
+./fetch-nvim-conf.sh
 ```
 Optionally, add a cronjob to keep nvim plugins updated
 ```bash
