@@ -54,4 +54,6 @@ elseif key == 'v' then
 	-- toggle VPN
 	local conf = string.format("%s/Sync/Work/vpn/wg0-client-pc.conf", home)
 	os.execute(string.format("sudo /usr/bin/wg-quick down %s || sudo /usr/bin/wg-quick up %s", conf, conf))
+elseif key == 'm' then
+	os.execute("~/movies.sh")
 end
