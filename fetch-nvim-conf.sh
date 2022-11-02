@@ -12,16 +12,16 @@ npm config set prefix ~/.node_modules
 
 function install_packages_if_needed() {
 	for p in "$@"
-    do
+	do
 		npm list -g "$p" | grep '@' || npm install -g "$p"
-    done
+	done
 }
 
 install_packages_if_needed pyright bash-language-server \
-  vscode-langservers-extracted \
-  typescript typescript-language-server \
-  @tailwindcss/language-server \
-  eslint
+	vscode-langservers-extracted \
+	typescript typescript-language-server \
+	@tailwindcss/language-server \
+	eslint
 
 go version && go install golang.org/x/tools/gopls@latest
 
