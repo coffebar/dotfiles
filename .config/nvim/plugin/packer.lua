@@ -43,7 +43,6 @@ return require('packer').startup(function(use)
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 	use("romgrk/nvim-treesitter-context")
 	-- markdown preview
-	-- install without yarn or npm
 	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
 		setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
 		ft = { "markdown" },
@@ -67,18 +66,16 @@ return require('packer').startup(function(use)
 	}
 	-- bufferline - tabs with diagnostics indicator
 	use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'kyazdani42/nvim-web-devicons' }
-	-- git decorations
-	use {
-		'lewis6991/gitsigns.nvim',
-		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
-	}
+	-- git
+	use { 'lewis6991/gitsigns.nvim' }
+	use { 'tpope/vim-fugitive' }
 	-- snippets
 	use "rafamadriz/friendly-snippets"
 	-- tests
 	use {
 		"klen/nvim-test",
 		config = function()
-			require('nvim-test').setup()
+			require('nvim-test').setup({})
 		end
 	}
 end)

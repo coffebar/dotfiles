@@ -84,3 +84,5 @@ nnoremap('<leader>gS', ':Gitsigns stage_buffer<cr>')
 nnoremap('<leader>gr', ':Gitsigns reset_hunk<cr>')
 nnoremap('<leader>gu', ':Gitsigns undo_stage_hunk<cr>')
 nnoremap('<leader>gR', ':Gitsigns reset_buffer<cr>')
+-- Fugitive
+nnoremap('<leader>gg', ':Git<cr>')
