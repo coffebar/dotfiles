@@ -106,9 +106,6 @@ libreoffice-fresh-en-gb
 libreoffice-fresh-ru
 libreoffice-fresh-uk
 libtool
-lightdm
-lightdm-gtk-greeter
-lightdm-gtk-greeter-settings
 linux
 linux-firmware
 linux-headers
@@ -149,8 +146,6 @@ nvidia-settings
 nvim-packer-git
 opencl-nvidia
 openvpn
-optimus-manager
-optimus-manager-qt
 p7zip
 pacman
 pacman-contrib

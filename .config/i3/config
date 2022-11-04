@@ -364,8 +364,6 @@ exec --no-startup-id libinput-gestures-setup start &
 exec --no-startup-id pasystray &
 # fix JetBrains scale options for HDPI
 exec_always --no-startup-id bash ~/.config/JetBrains/fix-vmoptions.sh &
-# autorandr
-exec --no-startup-id autorandr -c 
 # script to extract zip files after download
 exec --no-startup-id /bin/bash ~/Downloads/Telegram\ Desktop/unzip_here.sh &
 # telegram messanger
