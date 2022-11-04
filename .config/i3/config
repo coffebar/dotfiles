@@ -321,7 +321,7 @@ exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/bridge.jpg
 # notifications daemon
 exec --no-startup-id dunst
 # keyboard daemon to make per window layout 
-exec_always --no-startup-id [ "$XDG_VTNR" -eq '7' ] && i3-msg 'exec --no-startup-id "kbdd"'
+exec_always --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg 'exec --no-startup-id "kbdd"'
 # Enable numlock
 exec_always --no-startup-id numlockx on
 # daemon to make per window layout using xkb
@@ -333,8 +333,8 @@ exec --no-startup-id syncthingtray --wait &
 # clipboard manager
 exec --no-startup-id copyq
 # load pre-saved layout and start browser
-exec --no-startup-id [ "$XDG_VTNR" -eq '7' ] && i3-msg "workspace $ws1; append_layout ~/.config/i3/workspace-1.json"
-exec --no-startup-id [ "$XDG_VTNR" -eq '7' ] && i3-msg "workspace $ws2; append_layout ~/.config/i3/workspace-2.json"
+exec --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg "workspace $ws1; append_layout ~/.config/i3/workspace-1.json"
+exec --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg "workspace $ws2; append_layout ~/.config/i3/workspace-2.json"
 # run bash script in terminal and show result
 exec --no-startup-id alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh;zsh"
 # vim in terminal with saved session
