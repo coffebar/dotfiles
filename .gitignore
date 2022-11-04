@@ -11,7 +11,7 @@
 !/Templates
 !/Templates/*.*
 
-!.config/nvim/**
+!.config/**/*.lua
 .local/share/
 .local/lib/
 .local/bin/
