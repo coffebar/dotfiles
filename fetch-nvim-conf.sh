@@ -5,7 +5,7 @@ git clone --depth=1 git@github.com:coffebar/dotfiles.git /tmp/dotfiles_tmp_nvim
 rsync -rv --delete /tmp/dotfiles_tmp_nvim/.config/nvim/ ~/.config/nvim/
 rm -rf /tmp/dotfiles_tmp_nvim/
 
-yay -Sy --needed neovim go npm ltex-ls-bin rust-analyzer phpactor lua-language-server nvim-packer-git
+yay -Sy --needed neovim go npm ltex-ls-bin rust-analyzer phpactor lua-language-server nvim-packer-git fd ripgrep
 # todo: build a list of packages for ubuntu repo
 
 npm config set prefix ~/.node_modules

@@ -42,6 +42,7 @@ electrum
 exfat-utils
 faac
 fakeroot
+fd
 feh
 file
 file-roller
@@ -169,6 +170,7 @@ poedit
 polkit-kde-agent
 polybar
 python-pip
+ripgrep
 rofi
 rsibreak
 rsync

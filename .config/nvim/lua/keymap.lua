@@ -86,3 +86,5 @@ nnoremap('<leader>gu', ':Gitsigns undo_stage_hunk<cr>')
 nnoremap('<leader>gR', ':Gitsigns reset_buffer<cr>')
 -- Fugitive
 nnoremap('<leader>gg', ':Git<cr>')
+-- Telescope
+nnoremap('<leader>F', ':Telescope find_files<cr>')
