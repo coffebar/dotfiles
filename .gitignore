@@ -11,13 +11,11 @@
 !/Templates
 !/Templates/*.*
 
-# xfce panels-config backup
-!.local/**
+!.config/nvim/**
 .local/share/
 .local/lib/
 .local/bin/
 .local/state/
-!/.local/share/xfpanel-switch/xfce-panels-config.tar.bz2
 
 # desktop location changed to "Downloads"
 !/.config/user-dirs.dirs
