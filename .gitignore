@@ -49,3 +49,16 @@
 .cargo/.package-cache
 *.bak
 *.lock
+.Xresources.back
+.bash_profile
+.dmrc
+.docker/
+.gitconfig
+.lesshst
+.npmrc
+.oh-my-zsh/
+.pulse-cookie
+.shell.pre-oh-my-zsh
+.viminfo
+.yarnrc
+.zshrc.pre-oh-my-zsh
