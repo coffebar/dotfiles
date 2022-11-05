@@ -141,7 +141,7 @@ npm
 ntfs-3g
 ntp
 numlockx
-nvidia-dkms
+nvidia-open-dkms
 nvidia-settings
 nvim-packer-git
 opencl-nvidia
