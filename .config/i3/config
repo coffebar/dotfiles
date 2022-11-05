@@ -323,11 +323,9 @@ exec --no-startup-id dunst
 # keyboard daemon to make per window layout 
 exec_always --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg 'exec --no-startup-id "kbdd"'
 # Enable numlock
-exec_always --no-startup-id numlockx on
+#exec_always --no-startup-id numlockx on
 # daemon to make per window layout using xkb
 exec --no-startup-id kbdd
-# breaks for eyes
-# exec --no-startup-id rsibreak --autostart
 # syncthing tray
 exec --no-startup-id syncthingtray --wait &
 # clipboard manager
@@ -353,11 +351,7 @@ exec --no-startup-id blueman-applet &
 # input-remapper to remap custom mouse buttons and to emulate some keypresses
 # requere: systemctl enable input-remapper
 exec --no-startup-id input-remapper-control --command autoload --config-dir "~/.config/input-remapper/"
-# edge browser
-#exec --no-startup-id microsoft-edge-stable &
 exec --no-startup-id firefox &
-# hybrid GPU manager tray icon
-exec --no-startup-id optimus-manager-qt &
 # touchpad 
 exec --no-startup-id libinput-gestures-setup start &
 # audio manger tray icon
