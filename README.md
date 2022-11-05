@@ -10,7 +10,7 @@ Requirements listed in pkglist.txt
 
 - Some of wm's binds improved by lua script. Lua has more flexibility than i3config syntax. It is a good practice to automatically switch to the appropriate workspace after opening programs using a keyboard shortcut.
 
-- ``Alt + f`` open a file manager in that directory what was found in clipboard. For example, if you copied a file from some program, you can open it's directory just by pressing this shortcut.
+- ``Alt + f`` open a file manager in that directory what was found in clipboard. For example, if you copied a file from some program, you can open its directory just by pressing this shortcut.
 
 - ``Super + ` `` open ssh servers menu to connect.
 
@@ -18,7 +18,7 @@ Requirements listed in pkglist.txt
 
 - Automatic tiling via [autotiling](https://github.com/nwg-piotr/autotiling) script. Split direction depends on the currently focused window dimensions.
 
-- Automatic tiling freed up ``Super + H`` shortcut. So i'm using HJKL to navigate inside WM.
+- Automatic tiling freed up ``Super + H`` shortcut. So I'm using HJKL to navigate inside WM.
 
 - UI scale options depends on current display setup and [autorandr](https://github.com/phillipberndt/autorandr) profile name.
 
@@ -82,16 +82,7 @@ Optionally, add a cronjob to keep nvim plugins updated
 
 This [neovim](https://github.com/neovim/neovim) setup supports syntax highlighting and code completion for following languages: 
 
-- bash
-- css
-- go
-- html 
-- javascript
-- lua
-- php
-- python
-- rust 
-- typescript
+Bash CSS Go HTML JavaScript Lua PHP Python Rust Typescript
 
 ### Telegram desktop theme:
 ### [arcdarkgrey](https://t.me/addtheme/arcdarkgrey)
