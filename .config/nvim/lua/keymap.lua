@@ -88,3 +88,5 @@ nnoremap('<leader>gR', ':Gitsigns reset_buffer<cr>')
 nnoremap('<leader>gg', ':Git<cr>')
 -- Telescope
 nnoremap('<leader>F', ':Telescope find_files<cr>')
+-- NeoTree
+nnoremap('<leader>n', ':NeoTreeFocusToggle<cr>')
