@@ -8,13 +8,13 @@ Requirements listed in pkglist.txt
 
 ## Interesting features
 
-- Some of wm's binds improved by lua script. Lua has more flexibility than i3config syntax. It is a good practice to automatically switch to the appropriate workspace after opening programs using a keyboard shortcut.
+- Some of wm's binds improved by Lua script. Lua has more flexibility than i3config syntax. It is a good practice to automatically switch to the appropriate workspace after opening programs using a keyboard shortcut.
 
 - ``Alt + f`` open a file manager in that directory what was found in clipboard. For example, if you copied a file from some program, you can open its directory just by pressing this shortcut.
 
 - ``Super + ` `` open ssh servers menu to connect.
 
-- ``Super + \ `` open fuzzy finder to search for local text files in the home directory to edit in NeoVim.
+- ``Super + \ `` open fuzzy finder to search for local text files in the home directory to edit in Neovim.
 
 - Automatic tiling via [autotiling](https://github.com/nwg-piotr/autotiling) script. Split direction depends on the currently focused window dimensions.
 
@@ -26,7 +26,7 @@ Requirements listed in pkglist.txt
 
 - CapsLock is changed to Backspace.
 
-- Nice aliases: i to install package, dp to push dotfiles into this repo, v to open nvim. 
+- Nice aliases: i to install package, 'dp' to push dotfiles into this repo, v to open Neovim. 
 
 
 ## Restore backup:
@@ -71,11 +71,11 @@ cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
 ```
 
 ### Neovim plugins and dependencies
-Run this script to sync nvim config from this repo. It can be used separately.
+Run this script to sync Neovim config from this repo. It can be used separately.
 ```bash
 sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fetch-nvim-conf.sh)"
 ```
-Optionally, add a cronjob to keep nvim plugins updated
+Optionally, add a cronjob to keep Neovim plugins updated
 ```bash
 (crontab -l; echo "0 13 * * * nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'" ) | crontab -
 ```

@@ -92,7 +92,25 @@ lspconfig.phpactor.setup {
 	flags = lsp_flags,
 }
 -- markdown, requires ltex-ls
-lspconfig.ltex.setup {}
+lspconfig.ltex.setup {
+	on_attach = on_attach,
+	autostart = true,
+	filetypes = { "markdown" },
+	settings = {
+		ltex = {
+			disabledRules = {
+				["en-US"] = {
+					"ARROWS"
+				},
+			},
+			dictionary = {
+				['en-US'] = {
+					'dotfiles', 'AUR', 'Neovim'
+				},
+			},
+		},
+	},
+}
 -- rust, requires rust_analyzer
 lspconfig.rust_analyzer.setup {
 	on_attach = on_attach,
