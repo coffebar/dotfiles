@@ -43,6 +43,7 @@ return require('packer').startup(function(use)
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 	use("romgrk/nvim-treesitter-context")
 	-- nice highlighting for variables
+	-- has a binding <a-n> <a-p> to move by matching words
 	use 'RRethy/vim-illuminate'
 	-- markdown preview
 	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
