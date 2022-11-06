@@ -42,6 +42,8 @@ return require('packer').startup(function(use)
 	-- treesitter
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 	use("romgrk/nvim-treesitter-context")
+	-- nice highlighting for variables
+	use 'RRethy/vim-illuminate'
 	-- markdown preview
 	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
 		setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
