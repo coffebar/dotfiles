@@ -71,9 +71,9 @@ cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
 ```
 
 ### Neovim plugins and dependencies
-This script can be used to sync nvim config from this repo
+Run this script to sync nvim config from this repo. It can be used separately.
 ```bash
-./fetch-nvim-conf.sh
+sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fetch-nvim-conf.sh)"
 ```
 Optionally, add a cronjob to keep nvim plugins updated
 ```bash
