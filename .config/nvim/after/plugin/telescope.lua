@@ -10,6 +10,9 @@ table.insert(vimgrep_arguments, "--hidden")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!.git/*")
 
+-- integration with ahmedkhalf/project.nvim
+telescope.load_extension('projects')
+
 telescope.setup({
 	defaults = {
 		-- `hidden = true` is not supported in text grep commands.

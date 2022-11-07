@@ -33,6 +33,15 @@ return require('packer').startup(function(use)
 	use 'kyazdani42/nvim-web-devicons'
 	-- start page
 	use 'mhinz/vim-startify'
+	-- project manager
+	use {
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("project_nvim").setup {
+				-- configuration comes here
+			}
+		end
+	}
 	-- search counter
 	use 'google/vim-searchindex'
 	-- commenter (gc)
