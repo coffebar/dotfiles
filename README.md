@@ -71,7 +71,7 @@ cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
 ```
 
 ### Neovim plugins and dependencies
-Run this script to sync Neovim config from this repo. It can be used separately.
+Run this script to sync Neovim config from this repo. It can be used separately on Arch systems.
 ```bash
 sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fetch-nvim-conf.sh)"
 ```
