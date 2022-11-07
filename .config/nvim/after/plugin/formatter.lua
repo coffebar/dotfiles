@@ -8,7 +8,9 @@ end
 
 local stylefmt = function()
 	return {
-		require("formatter.filetypes.css").stylefmt
+		exe = "stylefmt",
+		stdin = true,
+		try_node_modules = true,
 	}
 end
 
