@@ -102,4 +102,6 @@ return require('packer').startup(function(use)
 			"MunifTanjim/nui.nvim",
 		}
 	}
+	-- session manager
+	use 'Shatur/neovim-session-manager'
 end)
