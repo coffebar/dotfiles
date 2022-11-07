@@ -72,6 +72,8 @@ nnoremap('<leader>O', 'O<ESC>')
 
 nnoremap("Q", "<nop>")
 
+nnoremap('<leader>cl', 'let @+=expand("%:p")<cr>')
+
 -- copy current line to system clipboard
 nnoremap('<leader>c', '"+yy')
 
