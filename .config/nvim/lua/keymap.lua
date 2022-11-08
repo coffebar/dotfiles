@@ -92,5 +92,6 @@ nnoremap('<leader>p', ':Telescope projects<cr>')
 -- NeoTree
 nnoremap('<leader>n', ':NeoTreeFocusToggle<cr>')
 -- AsyncTask 
-nnoremap('<f9>', ':AsyncTask project-build<cr>')
-nnoremap('<f12>', ':call asyncrun#quickfix_toggle(8)<cr>')
+nnoremap('<leader>eb', ':AsyncTask project-build<cr>')
+nnoremap('<leader>er', ':AsyncTask project-run<cr>')
+nnoremap('<leader>ee', ':call asyncrun#quickfix_toggle(8)<cr>')
