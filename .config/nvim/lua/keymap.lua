@@ -80,12 +80,13 @@ nnoremap('<leader>c', '"+yy')
 -- append ; to the end of line
 inoremap('<leader>;', '<Esc>A;<Esc>')
 nnoremap('<leader>;', '<Esc>A;<Esc>')
--- Gitsigns
+-- Git
 nnoremap('<leader>gs', ':Gitsigns stage_hunk<cr>')
 nnoremap('<leader>gS', ':Gitsigns stage_buffer<cr>')
 nnoremap('<leader>gr', ':Gitsigns reset_hunk<cr>')
 nnoremap('<leader>gu', ':Gitsigns undo_stage_hunk<cr>')
 nnoremap('<leader>gR', ':Gitsigns reset_buffer<cr>')
+nnoremap('<leader>gp', ':AsyncRun git push<cr>')
 -- Fugitive
 nnoremap('<leader>gg', ':Git<cr>')
 -- Telescope
@@ -95,3 +96,4 @@ nnoremap('<leader>p', ':Telescope projects<cr>')
 nnoremap('<leader>n', ':NeoTreeFocusToggle<cr>')
 -- AsyncTask 
 nnoremap('<f9>', ':AsyncTask project-build<cr>')
+nnoremap('<f12>', ':call asyncrun#quickfix_toggle(8)<cr>')
