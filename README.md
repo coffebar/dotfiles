@@ -1,5 +1,4 @@
-My .dotfiles backup for Arch setup.
-
+# .dotfiles backup for Arch setup
 
 ![Screenshot](https://raw.githubusercontent.com/coffebar/dotfiles/master/screenshot.png)
 
@@ -18,6 +17,8 @@ Requirements listed in pkglist.txt
 
 - Automatic tiling via [autotiling](https://github.com/nwg-piotr/autotiling) script. Split direction depends on the currently focused window dimensions.
 
+- Neovim [opens](https://github.com/coffebar/dotfiles/blob/master/.config/nvim/lua/commands.lua) popular image formats in external viewer ([pix](https://github.com/linuxmint/pix)) instead of binary view.
+
 - Automatic tiling freed up ``Super + H`` shortcut. So I'm using HJKL to navigate inside WM.
 
 - UI scale options depends on current display setup and [autorandr](https://github.com/phillipberndt/autorandr) profile name.
@@ -27,6 +28,10 @@ Requirements listed in pkglist.txt
 - CapsLock is changed to Backspace.
 
 - Nice aliases: i to install package, 'dp' to push dotfiles into this repo, v to open Neovim. 
+
+- Not using Display Managers.
+
+- ``Ctrl + m`` bind simplifies sequence ``Ctrl + l, Ctrl + v, Return`` to interact with file-picker dialog by selecting file from clipboard blazing fast.
 
 
 ## Restore backup:
