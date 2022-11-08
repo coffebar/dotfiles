@@ -31,3 +31,9 @@ opt.updatetime = 350
 
 opt.langremap = true
 opt.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКІЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкіегмцчня;abcdefghijklmnopqrstuvwxyz'
+
+-- show output of asyncrun.vim (0 - hidden)
+g.asyncrun_open = 6
+g.asynctasks_extra_config = {
+	'~/.config/nvim/plugin/asynctasks.ini'
+}

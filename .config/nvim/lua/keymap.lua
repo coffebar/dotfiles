@@ -90,5 +90,8 @@ nnoremap('<leader>gR', ':Gitsigns reset_buffer<cr>')
 nnoremap('<leader>gg', ':Git<cr>')
 -- Telescope
 nnoremap('<leader>F', ':Telescope find_files<cr>')
+nnoremap('<leader>p', ':Telescope projects<cr>')
 -- NeoTree
 nnoremap('<leader>n', ':NeoTreeFocusToggle<cr>')
+-- AsyncTask 
+nnoremap('<f9>', ':AsyncTask project-build<cr>')

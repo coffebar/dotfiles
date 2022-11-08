@@ -90,6 +90,12 @@ return require('packer').startup(function(use)
 			require('nvim-test').setup({})
 		end
 	}
+	-- generic way to handle build/run/test/deploy tasks
+	use {
+		'skywind3000/asynctasks.vim',
+		-- async terminal task runner
+		requires = { 'skywind3000/asyncrun.vim' }
+	}
 	-- telescope fuzzy finder
 	use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
 	-- tree viewer
