@@ -28,9 +28,6 @@ vnoremap('<C-c>', '"+y')
 vnoremap('<C-p>', '"+p')
 nnoremap('<C-p>', '"+p')
 inoremap('<C-p>', '<esc>"+p')
--- copy current line to system clipboard
-nnoremap('<leader>c', '"+yy')
-
 
 -- Close all tabs
 nnoremap('<leader>a', ':qa!<cr>')
@@ -72,10 +69,10 @@ nnoremap('<leader>O', 'O<ESC>')
 
 nnoremap("Q", "<nop>")
 
-nnoremap('<leader>cl', 'let @+=expand("%:p")<cr>')
+nnoremap('<leader>cl', ':let @+=expand("%:p")<cr>')
 
 -- copy current line to system clipboard
-nnoremap('<leader>c', '"+yy')
+nnoremap('<leader>cc', '"+yy')
 
 -- append ; to the end of line
 inoremap('<leader>;', '<Esc>A;<Esc>')
