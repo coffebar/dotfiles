@@ -36,7 +36,10 @@ local on_attach = function(client, bufnr)
 	-- vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 	-- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
-	if client.server_capabilities.documentFormattingProvider then
+	-- force to use Formatter plugin for this client
+	local force_formatter = client.name == "sumneko_lua"
+
+	if client.server_capabilities.documentFormattingProvider and not force_formatter then
 		vim.keymap.set('v', '=', function() vim.lsp.buf.format {}
 		end, { silent = false })
 		vim.keymap.set('n', '=', function() vim.lsp.buf.format {

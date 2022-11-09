@@ -4,8 +4,8 @@ if cat /etc/os-release | grep Ubuntu ; then
 	exit -1
 	sudo apt install -y git rsync npm ripgrep neovim
 	sudo snap install go --classic
-	git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+	git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+		~/.local/share/nvim/site/pack/packer/start/packer.nvim
  	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
 else
@@ -33,7 +33,7 @@ install_packages_if_needed pyright bash-language-server \
 	vscode-langservers-extracted \
 	typescript typescript-language-server \
 	@tailwindcss/language-server \
-	eslint
+	eslint @johnnymorganz/stylua-bin
 
 go version && go install golang.org/x/tools/gopls@latest
 
