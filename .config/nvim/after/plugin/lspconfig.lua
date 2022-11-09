@@ -1,4 +1,7 @@
 local lspconfig = require("lspconfig")
+local saga = require('lspsaga')
+
+saga.init_lsp_saga();
 
 -- load snippets
 require("luasnip.loaders.from_vscode").lazy_load()
@@ -12,20 +15,27 @@ local on_attach = function(client, bufnr)
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+	-- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
 	vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
 	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-	vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+	vim.keymap.set('n', 'gr', ':Lspsaga lsp_finder<cr>', bufopts)
+	vim.keymap.set('n', '<C-k>', ':Lspsaga hover_doc<cr>', bufopts)
+	vim.keymap.set('n', '<leader>rn', ':Lspsaga rename<cr>', bufopts)
+	vim.keymap.set('n', '<leader>ca', ':Lspsaga code_action<cr>', bufopts)
+	vim.keymap.set('n', 'gD', ':Lspsaga peek_definition<cr>', bufopts)
+
+	-- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
 	-- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
 	-- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
 	-- vim.keymap.set('n', '<space>wl', function()
 	-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	-- end, bufopts)
-	vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+	-- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+	-- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+	-- vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 	-- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+
 	if client.server_capabilities.documentFormattingProvider then
 		vim.keymap.set('v', '=', function() vim.lsp.buf.format {}
 		end, { silent = false })

@@ -19,6 +19,8 @@ return require('packer').startup(function(use)
 	use 'justinmk/vim-sneak'
 	-- fuzzy finder
 	use { 'junegunn/fzf.vim', run = ":call fzf#install()" }
+	-- lsp based tools
+	use { "glepnir/lspsaga.nvim", branch = "main", }
 	-- asynchronous completion framework
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/cmp-nvim-lsp'
