@@ -1,4 +1,4 @@
--- Set up nvim-cmp.
+-- Set up nvim-cmp (completion engine plugin)
 local cmp = require("cmp")
 
 cmp.setup({
