@@ -46,7 +46,7 @@
 .steampid
 .wget-hsts
 .zcompdump-*
-.cargo/.package-cache
+.cargo/*
 *.bak
 *.lock
 .Xresources.back
