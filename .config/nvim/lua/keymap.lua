@@ -56,7 +56,7 @@ nmap("<leader>ba", ":bufdo bd<cr>")
 nnoremap("<leader>l", ":bnext<cr>")
 nnoremap("<leader>h", ":bprevious<cr>")
 -- fzf open file and edit
-nnoremap("<leader>f", ":Ffnd<cr>")
+nnoremap("<leader>F", ":Ffnd<cr>")
 
 nnoremap("<leader>T", ":TroubleToggle<cr>")
 
@@ -88,7 +88,8 @@ nnoremap("<leader>gp", ":AsyncRun git push<cr>")
 -- Fugitive
 nnoremap("<leader>gg", ":Git<cr>")
 -- Telescope
-nnoremap("<leader>F", ":Telescope find_files<cr>")
+nnoremap("<leader>ff", ":Telescope find_files<cr>")
+nnoremap("<leader>fb", ":Telescope file_browser<cr>")
 nnoremap("<leader>p", ":Telescope projects<cr>")
 -- NeoTree
 nnoremap("<leader>n", ":NeoTreeFocusToggle<cr>")

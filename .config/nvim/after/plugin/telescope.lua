@@ -10,9 +10,6 @@ table.insert(vimgrep_arguments, "--hidden")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!.git/*")
 
--- integration with ahmedkhalf/project.nvim
-telescope.load_extension("projects")
-
 telescope.setup({
 	defaults = {
 		-- `hidden = true` is not supported in text grep commands.
@@ -24,4 +21,24 @@ telescope.setup({
 			find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
 		},
 	},
+	extensions = {
+		file_browser = {
+			theme = "ivy",
+			mappings = {
+				["i"] = {
+					-- your custom insert mode mappings
+				},
+				["n"] = {
+					-- your custom normal mode mappings
+				},
+			},
+		},
+	},
 })
+
+-- Extensions:
+
+-- nvim-telescope/telescope-file-browser.nvim
+telescope.load_extension("file_browser")
+-- ahmedkhalf/project.nvim
+telescope.load_extension("projects")
