@@ -69,6 +69,7 @@ nnoremap('<leader>O', 'O<ESC>')
 
 nnoremap("Q", "<nop>")
 
+-- copy current buffer's absolute path to clipboard
 nnoremap('<leader>cl', ':let @+=expand("%:p")<cr>')
 
 -- copy current line to system clipboard
