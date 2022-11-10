@@ -95,6 +95,7 @@ nnoremap("<leader>fg", ":Telescope live_grep<cr>")
 nnoremap("<leader>fj", ":Telescope jumplist<cr>")
 nnoremap("<leader>fs", ":Telescope git_status<cr>")
 nnoremap("<leader>fh", ":Telescope command_history<cr>")
+nnoremap("<leader>fr", ":Telescope registers<cr>")
 nnoremap("<leader>p", ":Telescope projects<cr>")
 -- NeoTree
 nnoremap("<leader>n", ":NeoTreeFocusToggle<cr>")
