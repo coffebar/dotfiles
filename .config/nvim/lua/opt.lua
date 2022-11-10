@@ -6,8 +6,8 @@ cmd("colorscheme gruvbox")
 
 g.mapleader = " "
 
-g.gruvbox_contrast_dark = 'hard'
-g.gruvbox_invert_selection = '0'
+g.gruvbox_contrast_dark = "hard"
+g.gruvbox_invert_selection = "0"
 opt.relativenumber = true
 opt.timeoutlen = 500
 opt.errorbells = false
@@ -28,12 +28,12 @@ opt.background = "dark"
 -- delays and poor user experience.
 opt.updatetime = 350
 
-
 opt.langremap = true
-opt.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКІЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкіегмцчня;abcdefghijklmnopqrstuvwxyz'
+opt.langmap =
+	"ФИСВУАПРШОЛДЬТЩЗЙКІЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкіегмцчня;abcdefghijklmnopqrstuvwxyz"
 
 -- show output of asyncrun.vim (0 - hidden)
 g.asyncrun_open = 6
 g.asynctasks_extra_config = {
-	'~/.config/nvim/plugin/asynctasks.ini'
+	"~/.config/nvim/plugin/asynctasks.ini",
 }

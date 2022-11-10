@@ -11,7 +11,7 @@ table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!.git/*")
 
 -- integration with ahmedkhalf/project.nvim
-telescope.load_extension('projects')
+telescope.load_extension("projects")
 
 telescope.setup({
 	defaults = {
