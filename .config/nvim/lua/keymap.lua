@@ -75,6 +75,9 @@ nnoremap('<leader>cl', ':let @+=expand("%:p")<cr>')
 -- copy current line to system clipboard
 nnoremap('<leader>cc', '"+yy')
 
+-- source current buffer
+nnoremap('<leader>cs', ':so %<cr>')
+
 -- append ; to the end of line
 inoremap('<leader>;', '<Esc>A;<Esc>')
 nnoremap('<leader>;', '<Esc>A;<Esc>')
