@@ -93,3 +93,12 @@ vim.api.nvim_create_autocmd("BufReadPre", {
 	desc = "Disable filetype for large files (>50MB)",
 	command = 'let f=expand("<afile>") | if getfsize(f) > 1024*1024*50 | set eventignore+=FileType | else | set eventignore-=FileType | endif',
 })
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+	group = augroup,
+	pattern = { "*.scss", "*.lua", "*.html" },
+	desc = "Format files on write",
+	callback = function()
+		vim.api.nvim_command("FormatWrite")
+	end,
+})
