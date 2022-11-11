@@ -58,14 +58,10 @@ yay -Y --gendb
 yay -S --needed - < pkglist.txt
 
 # enable services
-sudo systemctl enable input-remapper
-sudo systemctl start input-remapper
-sudo systemctl enable docker
-sudo systemctl start docker
-sudo systemctl enable tlp
-sudo systemctl start tlp
-sudo systemctl enable ufw
-sudo systemctl start ufw
+sudo systemctl enable --now input-remapper
+sudo systemctl enable --now docker
+sudo systemctl enable --now tlp
+sudo systemctl enable --now ufw
 
 # install ohmyzsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
