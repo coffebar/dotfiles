@@ -59,6 +59,8 @@ return require("packer").startup(function(use)
 	})
 	-- search counter
 	use("google/vim-searchindex")
+	-- automatically save files
+	use("Pocco81/auto-save.nvim")
 	-- commenter (gc)
 	use("numToStr/Comment.nvim")
 	-- automatically close pairs such as (), {}, ""
