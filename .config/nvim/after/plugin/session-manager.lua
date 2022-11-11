@@ -1,20 +1,34 @@
 local Path = require("plenary.path")
+local Autoload = require("session_manager.config").AutoloadMode
 local session_path = Path:new(vim.fn.stdpath("data"), "sessions")
+
+local function contains(table, element)
+	for _, value in pairs(table) do
+		if value == element then
+			return true
+		end
+	end
+	return false
+end
+
+local mode = Autoload.LastSession -- Possible values: Disabled, CurrentDir, LastSession
+if contains(vim.v.argv, "SearchInHome") then
+	mode = Autoload.Disabled
+end
 
 require("session_manager").setup({
 	sessions_dir = session_path, -- The directory where the session files will be saved.
 	path_replacer = "__", -- The character to which the path separator will be replaced for session files.
 	colon_replacer = "++", -- The character to which the colon symbol will be replaced for session files.
-	autoload_mode = require("session_manager.config").AutoloadMode.LastSession, -- Define what to do when Neovim is started without arguments. Possible values: Disabled, CurrentDir, LastSession
+	autoload_mode = mode, -- Define what to do when Neovim is started without arguments.
 	autosave_last_session = true, -- Automatically save last session on exit and on session switch.
 	autosave_ignore_not_normal = true, -- Plugin will not save a session when no buffers are opened, or all of them aren't writable or listed.
 	autosave_ignore_dirs = {
 		session_path,
-		"~/.local/",
-		"~/.cache/",
-		"~/.cargo/",
-		"~/dotfiles/",
-		".git",
+		vim.fn.expand("~"),
+		vim.fn.expand("~/.local/"),
+		vim.fn.expand("~/.cache/"),
+		vim.fn.expand("~/.cargo/"),
 		"/tmp/",
 	},
 	autosave_ignore_filetypes = { -- All buffers of these file types will be closed before the session is saved.

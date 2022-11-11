@@ -56,7 +56,7 @@ nmap("<leader>ba", ":bufdo bd<cr>")
 nnoremap("<leader>l", ":bnext<cr>")
 nnoremap("<leader>h", ":bprevious<cr>")
 -- fzf open file and edit
-nnoremap("<leader>F", ":Ffnd<cr>")
+nnoremap("<leader>F", ":SearchInHome<cr>")
 
 nnoremap("<leader>T", ":TroubleToggle<cr>")
 

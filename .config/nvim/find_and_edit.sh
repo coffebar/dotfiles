@@ -1,10 +1,3 @@
 #!/bin/bash
-# find file in the home folder using fzf with preview and open it in nvim to edit
-
-PREVIEW='bat --style=numbers --color=always --line-range :500 {}'
-
-export GIT_DIR=$HOME/dotfiles
-export GIT_WORK_TREE=$HOME
-FNAME=$(~/.config/nvim/find_to_edit.sh | fzf --preview "$PREVIEW")
-[ -f "$FNAME" ] && $EDITOR -c 'set autochdir' "$FNAME"
-
+# run (neo)vim to search and open a single file
+GIT_DIR=$HOME/dotfiles GIT_WORK_TREE=$HOME $EDITOR -c 'bd! | SearchInHome' _

@@ -15,7 +15,6 @@ baobab
 barrier
 base
 bash-completion
-bat
 bind
 binutils
 bison
@@ -55,7 +54,6 @@ fuse2
 fuse3
 fuseiso
 fwupd
-fzf
 gawk
 gcc
 gedit
@@ -74,7 +72,6 @@ grep
 groff
 gsfonts
 gst-plugins-good
-gum
 gvfs
 gvfs-gphoto2
 gvfs-mtp
@@ -141,7 +138,7 @@ npm
 ntfs-3g
 ntp
 numlockx
-nvidia-open-dkms
+nvidia-dkms
 nvidia-settings
 nvim-packer-git
 opencl-nvidia

@@ -7,7 +7,7 @@ Requirements listed in pkglist.txt
 
 ## Interesting features
 
-- Some of wm's binds improved by Lua script. Lua has more flexibility than i3config syntax. It is a good practice to automatically switch to the appropriate workspace after opening programs using a keyboard shortcut.
+- Some of wm's binds improved by Lua script. Lua has more flexibility than i3config syntax. I like to switch automatically to the appropriate workspace after opening programs using a keyboard shortcut.
 
 - ``Alt + f`` open a file manager in that directory what was found in clipboard. For example, if you copied a file from some program, you can open its directory just by pressing this shortcut.
 
@@ -27,7 +27,7 @@ Requirements listed in pkglist.txt
 
 - CapsLock is changed to Backspace.
 
-- Nice aliases: i to install package, 'dp' to push dotfiles into this repo, v to open Neovim. 
+- Nice aliases: i to install package, 'md2pdf' to convert markdown file to pdf, v to open Neovim. 
 
 - Not using Display Managers.
 
