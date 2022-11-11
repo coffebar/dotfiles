@@ -3,6 +3,9 @@ local saga = require("lspsaga")
 
 saga.init_lsp_saga()
 
+-- setup nvim-ts-autotag
+require("nvim-ts-autotag").setup()
+
 -- load snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 

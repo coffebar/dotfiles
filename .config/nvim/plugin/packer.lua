@@ -6,7 +6,6 @@ return require("packer").startup(function(use)
 
 	-- plugins here
 
-	use("ap/vim-css-color")
 	-- statusline
 	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
 	use({ "kyazdani42/nvim-web-devicons" })
@@ -23,17 +22,13 @@ return require("packer").startup(function(use)
 	-- lsp based tools
 	use({ "glepnir/lspsaga.nvim", branch = "main" })
 	-- asynchronous completion framework
-	use({
-		"neovim/nvim-lspconfig",
-		requires = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-nvim-lua",
-			"hrsh7th/cmp-cmdline",
-			"hrsh7th/nvim-cmp",
-		},
-	})
+	use("neovim/nvim-lspconfig")
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/cmp-cmdline")
+	use("hrsh7th/nvim-cmp")
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 	-- project manager
@@ -59,6 +54,8 @@ return require("packer").startup(function(use)
 	})
 	-- search counter
 	use("google/vim-searchindex")
+	-- turn off highlighting when you are done searching
+	use("romainl/vim-cool")
 	-- automatically save files
 	use("Pocco81/auto-save.nvim")
 	-- commenter (gc)
@@ -141,4 +138,8 @@ return require("packer").startup(function(use)
 			require("nvim-surround").setup({})
 		end,
 	})
+	-- css color visualization
+	use("ap/vim-css-color")
+	-- auto close tags
+	use("windwp/nvim-ts-autotag")
 end)
