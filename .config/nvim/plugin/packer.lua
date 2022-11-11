@@ -31,6 +31,8 @@ return require("packer").startup(function(use)
 	use("hrsh7th/nvim-cmp")
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
+	-- ripgrep source for completion
+	use("lukas-reineke/cmp-rg")
 	-- project manager
 
 	-- use {

@@ -30,6 +30,11 @@ cmp.setup({
 		{ name = "nvim_lua" }, -- for nvim lua function
 		{ name = "path" }, -- for path completion
 		{ name = "buffer" },
+		{
+			name = "rg",
+			-- Try it when you feel cmp performance is poor
+			-- keyword_length = 3
+		},
 	}),
 })
 
