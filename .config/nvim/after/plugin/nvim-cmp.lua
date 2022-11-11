@@ -29,7 +29,6 @@ cmp.setup({
 		-- { name = 'snippy' }, -- For snippy users.
 		{ name = "nvim_lua" }, -- for nvim lua function
 		{ name = "path" }, -- for path completion
-	}, {
 		{ name = "buffer" },
 	}),
 })
