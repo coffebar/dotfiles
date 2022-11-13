@@ -17,8 +17,6 @@ return require("packer").startup(function(use)
 	use("mhartington/formatter.nvim")
 	-- s-motion to search by 2 characters
 	use("justinmk/vim-sneak")
-	-- fuzzy finder
-	use({ "junegunn/fzf.vim", run = ":call fzf#install()" })
 	-- lsp based tools
 	use({ "glepnir/lspsaga.nvim", branch = "main" })
 	-- asynchronous completion framework
