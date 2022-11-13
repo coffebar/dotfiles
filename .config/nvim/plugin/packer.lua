@@ -6,11 +6,14 @@ return require("packer").startup(function(use)
 
 	-- plugins here
 
+	-- colorschemes
+	use("gruvbox-community/gruvbox")
+	use("navarasu/onedark.nvim")
+	use("Mofiqul/dracula.nvim")
+
 	-- statusline
 	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
 	use({ "kyazdani42/nvim-web-devicons" })
-	-- colorschemes
-	use("gruvbox-community/gruvbox")
 	-- i3 config syntax highlighting
 	use("mboughaba/i3config.vim")
 	-- formatter

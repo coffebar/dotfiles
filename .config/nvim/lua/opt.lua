@@ -1,13 +1,8 @@
 local g = vim.g
 local opt = vim.opt
-local cmd = vim.cmd
-
-cmd("colorscheme gruvbox")
 
 g.mapleader = " "
 
-g.gruvbox_contrast_dark = "hard"
-g.gruvbox_invert_selection = "0"
 opt.relativenumber = true
 opt.timeoutlen = 500
 opt.errorbells = false

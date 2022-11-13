@@ -1,4 +1,4 @@
 require("commands")
 require("opt")
--- keymap goes after mapleader
-require("keymap")
+require("keymap") -- keymap goes after mapleader
+require("colorscheme")
