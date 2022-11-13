@@ -141,6 +141,8 @@ return require("packer").startup(function(use)
 			require("nvim-surround").setup({})
 		end,
 	})
+	-- replace in files with regexp
+	use("nvim-pack/nvim-spectre")
 	-- css color visualization
 	use("ap/vim-css-color")
 	-- auto close tags

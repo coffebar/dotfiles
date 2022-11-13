@@ -55,10 +55,6 @@ nmap("<leader>ba", ":bufdo bd<cr>")
 
 nnoremap("<leader>l", ":bnext<cr>")
 nnoremap("<leader>h", ":bprevious<cr>")
--- fzf open file and edit
-nnoremap("<leader>F", ":SearchInHome<cr>")
-
-nnoremap("<leader>T", ":TroubleToggle<cr>")
 
 nnoremap("0", "^")
 nnoremap("<leader>o", "o<ESC>")
@@ -78,6 +74,8 @@ nnoremap("<leader>cs", ":so %<cr>")
 -- append ; to the end of line
 inoremap("<leader>;", "<Esc>A;<Esc>")
 nnoremap("<leader>;", "<Esc>A;<Esc>")
+-- Diagnostic details
+nnoremap("<leader>T", ":TroubleToggle<cr>")
 -- Git
 nnoremap("<leader>gs", ":Gitsigns stage_hunk<cr>")
 nnoremap("<leader>gS", ":Gitsigns stage_buffer<cr>")
@@ -97,9 +95,22 @@ nnoremap("<leader>fs", ":Telescope git_status<cr>")
 nnoremap("<leader>fh", ":Telescope command_history<cr>")
 nnoremap("<leader>fr", ":Telescope registers<cr>")
 nnoremap("<leader>p", ":Telescope projects<cr>")
+nnoremap("<leader>F", ":SearchInHome<cr>") -- open file and edit
 -- NeoTree
 nnoremap("<leader>n", ":NeoTreeFocusToggle<cr>")
 -- AsyncTask
 nnoremap("<leader>eb", ":AsyncTask project-build<cr>")
 nnoremap("<leader>er", ":AsyncTask project-run<cr>")
 nnoremap("<leader>ee", ":call asyncrun#quickfix_toggle(8)<cr>")
+-- Spectre (search and replace in files)
+local has_spectre, spectre = pcall(require, "spectre")
+if has_spectre then
+	nnoremap("<leader>rr", spectre.open)
+	nnoremap("<leader>rw", function()
+		-- search current word
+		spectre.open_visual({ select_word = true })
+	end)
+	vnoremap("<leader>rr", spectre.open_visual)
+	vnoremap("<leader>rf", spectre.open_file_search)
+	nnoremap("<leader>rf", spectre.open_file_search)
+end
