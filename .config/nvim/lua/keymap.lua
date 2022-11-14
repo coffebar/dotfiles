@@ -1,3 +1,4 @@
+local has_wk, wk = pcall(require, "which-key")
 local function bind(op, outer_opts)
 	outer_opts = outer_opts or { noremap = true }
 	return function(lhs, rhs, opts)
@@ -46,13 +47,8 @@ tnoremap("jk", "<C-\\><C-n><C-w>k")
 -- Ctrl+4 to close terminal window
 tnoremap("<C-\\>", "<C-\\><C-n>:bd!<cr>")
 
--- Close the current buffer
-nmap("<leader>bd", ":bd!<cr>")
 -- Ctrl+4 to close window and keep buffer
 nmap("<C-\\>", ":q<cr>")
--- Close all the buffers
-nmap("<leader>ba", ":bufdo bd<cr>")
-
 nnoremap("<leader>l", ":bnext<cr>")
 nnoremap("<leader>h", ":bprevious<cr>")
 
@@ -61,15 +57,6 @@ nnoremap("<leader>o", "o<ESC>")
 nnoremap("<leader>O", "O<ESC>")
 
 nnoremap("Q", "<nop>")
-
--- copy current buffer's absolute path to clipboard
-nnoremap("<leader>cl", ':let @+=expand("%:p")<cr>')
-
--- copy current line to system clipboard
-nnoremap("<leader>cc", '"+yy')
-
--- source current buffer
-nnoremap("<leader>cs", ":so %<cr>")
 
 -- append ; to the end of line
 inoremap("<leader>;", "<Esc>A;<Esc>")
@@ -104,13 +91,64 @@ nnoremap("<leader>er", ":AsyncTask project-run<cr>")
 nnoremap("<leader>ee", ":call asyncrun#quickfix_toggle(8)<cr>")
 -- Spectre (search and replace in files)
 local has_spectre, spectre = pcall(require, "spectre")
-if has_spectre then
-	nnoremap("<leader>rr", spectre.open)
-	nnoremap("<leader>rw", function()
-		-- search current word
-		spectre.open_visual({ select_word = true })
-	end)
-	vnoremap("<leader>rr", spectre.open_visual)
-	vnoremap("<leader>rf", spectre.open_file_search)
-	nnoremap("<leader>rf", spectre.open_file_search)
+if has_wk then
+	if has_spectre then
+		wk.register({
+			r = {
+				name = "Spectre", -- optional group name
+				r = { spectre.open, "Search and Replace in files" },
+				f = { spectre.open_file_search, "Replace in current file" },
+				w = {
+					function()
+						spectre.open_visual({ select_word = true })
+					end,
+					"Search current word",
+				},
+			},
+		}, { prefix = "<leader>" })
+		wk.register({
+			r = {
+				name = "Spectre", -- optional group name
+				r = { spectre.open_visual, "Replace selection in files" },
+				f = { spectre.open_file_search, "Replace in current file" },
+			},
+		}, { prefix = "<leader>", mode = "v" })
+	end
+	wk.register({
+		b = {
+			name = "Close", -- optional group name
+			a = { ":bufdo bd<cr>", "Close all buffers" },
+			d = { ":bd!<cr>", "Close this buffer" },
+		},
+		c = {
+			name = "Copy", -- optional group name
+			l = { ':let @+=expand("%:p")<cr>', "Copy current buffer's absolute path" },
+			c = { '"+yy', "Copy line to system clipboard" },
+			s = { ":so %<cr>", "Source current buffer" },
+		},
+	}, { prefix = "<leader>" })
+else
+	-- without "which-key" plugin
+
+	-- copy current buffer's absolute path to clipboard
+	nnoremap("<leader>cl", ':let @+=expand("%:p")<cr>')
+	-- copy current line to system clipboard
+	nnoremap("<leader>cc", '"+yy')
+	-- source current buffer
+	nnoremap("<leader>cs", ":so %<cr>")
+	-- search and replace
+	if has_spectre then
+		nnoremap("<leader>rr", spectre.open)
+		nnoremap("<leader>rw", function()
+			-- search current word
+			spectre.open_visual({ select_word = true })
+		end)
+		vnoremap("<leader>rr", spectre.open_visual)
+		vnoremap("<leader>rf", spectre.open_file_search)
+		nnoremap("<leader>rf", spectre.open_file_search)
+	end
+	-- Close all buffers
+	nmap("<leader>ba", ":bufdo bd<cr>")
+	-- Close the current buffer
+	nmap("<leader>bd", ":bd!<cr>")
 end
