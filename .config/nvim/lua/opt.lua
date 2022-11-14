@@ -28,7 +28,9 @@ opt.langmap =
 	"ФИСВУАПРШОЛДЬТЩЗЙКІЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкіегмцчня;abcdefghijklmnopqrstuvwxyz"
 
 -- show output of asyncrun.vim (0 - hidden)
-g.asyncrun_open = 6
+g.asyncrun_open = 5
 g.asynctasks_extra_config = {
 	"~/.config/nvim/plugin/asynctasks.ini",
 }
+-- hide quickfix window after asynctask finished
+g.asyncrun_exit = 'call timer_start(4000, {-> execute("cclose")})'
