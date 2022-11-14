@@ -118,7 +118,7 @@ if has_wk then
 		b = {
 			name = "Close", -- optional group name
 			a = { ":bufdo bd<cr>", "Close all buffers" },
-			d = { ":bd!<cr>", "Close this buffer" },
+			b = { ":bd!<cr>", "Close this buffer" },
 		},
 		c = {
 			name = "Copy", -- optional group name
@@ -150,5 +150,5 @@ else
 	-- Close all buffers
 	nmap("<leader>ba", ":bufdo bd<cr>")
 	-- Close the current buffer
-	nmap("<leader>bd", ":bd!<cr>")
+	nmap("<leader>bb", ":bd!<cr>")
 end
