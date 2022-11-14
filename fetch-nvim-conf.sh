@@ -6,12 +6,11 @@ if cat /etc/os-release | grep Ubuntu ; then
 	sudo snap install go --classic
 	git clone --depth 1 https://github.com/wbthomason/packer.nvim \
 		~/.local/share/nvim/site/pack/packer/start/packer.nvim
- 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-	~/.fzf/install
 else
+	yay --version || exit -1
 	echo "Using yay to install required packages"
 	yay -Sy --needed neovim go npm ltex-ls-bin rust-analyzer phpactor \
-		lua-language-server nvim-packer-git fd ripgrep fzf
+		lua-language-server nvim-packer-git fd ripgrep
 fi
 
 mkdir -p ~/.config/nvim
