@@ -55,6 +55,21 @@ end, {})
 
 local augroup = vim.api.nvim_create_augroup("user_cmds", { clear = true })
 
+vim.api.nvim_create_autocmd("DirChanged", {
+	group = augroup,
+	desc = "Source local nvim config",
+	callback = function()
+		local rc = "localrc.lua"
+		if vim.fn.filereadable(rc) == 1 then
+			local cwd = vim.fn.getcwd()
+			local confirm = "Do you trust " .. cwd .. "/" .. rc .. "?"
+			if vim.fn.confirm(confirm, "Yes\nNo") == 1 then
+				vim.api.nvim_command("source localrc.lua")
+			end
+		end
+	end,
+})
+
 vim.api.nvim_create_autocmd("BufReadPost", {
 	group = augroup,
 	desc = "Return to last edit position when opening files",
