@@ -32,7 +32,8 @@ install_packages_if_needed pyright bash-language-server \
 	vscode-langservers-extracted \
 	typescript typescript-language-server \
 	@tailwindcss/language-server \
-	eslint @johnnymorganz/stylua-bin
+	eslint @johnnymorganz/stylua-bin \
+	emmet-ls
 
 go version && go install golang.org/x/tools/gopls@latest
 
