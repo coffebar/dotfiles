@@ -54,6 +54,7 @@ local on_attach = function(client, bufnr)
 		end, { silent = false })
 	else
 		vim.keymap.set("n", "=", ":Format<cr>", bufopts)
+		vim.keymap.set("v", "=", ":Format<cr>", bufopts)
 	end
 end
 
