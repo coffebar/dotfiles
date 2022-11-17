@@ -168,11 +168,6 @@ lspconfig.jsonls.setup({
 	flags = lsp_flags,
 	provideFormatter = true,
 })
--- css+
-lspconfig.tailwindcss.setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-})
 -- go
 lspconfig.gopls.setup({
 	on_attach = on_attach,
