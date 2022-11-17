@@ -1,5 +1,6 @@
 -- Set up nvim-cmp (completion engine plugin)
 local cmp = require("cmp")
+require("luasnip.loaders.from_lua").lazy_load({ paths = vim.fn.stdpath("config") .. "/snippets/" })
 
 cmp.setup({
 	snippet = {
