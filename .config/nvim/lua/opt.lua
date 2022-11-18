@@ -8,7 +8,8 @@ opt.timeoutlen = 500
 opt.errorbells = false
 opt.number = true
 opt.shiftwidth = 4
-opt.tabstop = 4
+-- show tabs as 2 spaces
+opt.tabstop = 2
 opt.softtabstop = 4
 opt.ignorecase = true
 opt.smartcase = true
