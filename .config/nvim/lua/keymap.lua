@@ -127,8 +127,26 @@ if has_wk then
 			s = { ":so %<cr>", "Source current buffer" },
 		},
 	}, { prefix = "<leader>" })
+	wk.register({
+		g = {
+			c = {
+				function()
+					return vim.v.count == 0 and "<Plug>(comment_toggle_linewise_current)" or "<Plug>(comment_toggle_linewise_count)"
+				end,
+				"Comment line(s)",
+				expr = true,
+				replace_keycodes = true,
+			},
+		},
+	}, { mode = "n" })
+	wk.register({
+		g = {
+			c = { "<Plug>(comment_toggle_linewise_visual)", "Comment line(s)" },
+		},
+	}, { mode = "v" })
 else
 	-- without "which-key" plugin
+	-- just in case I will deside to stop using which-key plugin
 
 	-- copy current buffer's absolute path to clipboard
 	nnoremap("<leader>cl", ':let @+=expand("%:p")<cr>')
@@ -151,4 +169,9 @@ else
 	nmap("<leader>ba", ":bufdo bd<cr>")
 	-- Close the current buffer
 	nmap("<leader>bb", ":bd!<cr>")
+	-- Comment.nvim
+	nnoremap("gcc", function()
+		return vim.v.count == 0 and "<Plug>(comment_toggle_linewise_current)" or "<Plug>(comment_toggle_linewise_count)"
+	end, { expr = true })
+	vnoremap("gc", "<Plug>(comment_toggle_linewise_visual)")
 end
