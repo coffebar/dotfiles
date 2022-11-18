@@ -9,8 +9,12 @@ if cat /etc/os-release | grep Ubuntu ; then
 else
 	yay --version || exit -1
 	echo "Using yay to install required packages"
-	yay -Sy --needed neovim go npm ltex-ls-bin rust-analyzer phpactor \
-		lua-language-server nvim-packer-git fd ripgrep
+	yay -Sy --needed neovim go npm ltex-ls-bin \
+		rust-analyzer phpactor \
+		lua-language-server \
+		nvim-packer-git \
+		fd ripgrep \
+		xclip python-pip
 fi
 
 mkdir -p ~/.config/nvim
@@ -35,6 +39,7 @@ install_packages_if_needed pyright bash-language-server \
 	emmet-ls
 
 go version && go install golang.org/x/tools/gopls@latest
+pip3 install --user pynvim
 
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 nvim -c 'TSInstall! css python php rust javascript sql toml typescript go yaml dockerfile scss html bash json lua c kotlin markdown diff'
