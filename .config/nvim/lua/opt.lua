@@ -19,6 +19,8 @@ opt.undodir = "/tmp/.vim-undodir"
 opt.undofile = true
 opt.termguicolors = true
 opt.background = "dark"
+-- disable displaying current mode second time after statusline
+opt.showmode = false
 
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
