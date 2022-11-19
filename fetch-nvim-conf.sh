@@ -9,12 +9,21 @@ if cat /etc/os-release | grep Ubuntu ; then
 else
 	yay --version || exit -1
 	echo "Using yay to install required packages"
-	yay -Sy --needed neovim go npm ltex-ls-bin \
-		rust-analyzer phpactor \
-		lua-language-server \
-		nvim-packer-git \
-		fd ripgrep \
-		xclip
+	# packages from arch repo
+	PKG=(neovim go npm rust-analyzer lua-language-server fd ripgrep xclip)
+	# packages from AUR
+	PKG_AUR=(ltex-ls-bin phpactor nvim-packer-git)
+	# chech all packages if installed
+	# to avoid asking for sudo if nothing will be installed
+	TO_INSTALL=()
+	for pn in "${PKG[@]}"; do
+		yay -Q | grep "$pn " || TO_INSTALL+=($pn)
+	done
+	for pn in "${PKG_AUR[@]}"; do
+		yay -Qm | grep "$pn " || TO_INSTALL+=($pn)
+	done
+	# install all at once
+	[ "${#TO_INSTALL[@]}" -eq 0 ] || yay -Sy --needed "${TO_INSTALL[@]}"
 fi
 
 mkdir -p ~/.config/nvim
