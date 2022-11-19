@@ -53,8 +53,11 @@ nnoremap("<leader>l", ":bnext<cr>")
 nnoremap("<leader>h", ":bprevious<cr>")
 
 nnoremap("0", "^")
+-- add blank line
 nnoremap("<leader>o", "o<ESC>")
 nnoremap("<leader>O", "O<ESC>")
+-- don't yank when press x
+nnoremap("x", '"_x')
 
 nnoremap("Q", "<nop>")
 
