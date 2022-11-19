@@ -20,8 +20,6 @@ return require("packer").startup(function(use)
 	use("mhartington/formatter.nvim")
 	-- s-motion to search by 2 characters
 	use("justinmk/vim-sneak")
-	-- lsp based tools
-	use({ "glepnir/lspsaga.nvim", branch = "main" })
 	-- asynchronous completion framework
 	use("neovim/nvim-lspconfig")
 	use("hrsh7th/cmp-nvim-lsp")
@@ -34,6 +32,8 @@ return require("packer").startup(function(use)
 	use("saadparwaiz1/cmp_luasnip")
 	-- ripgrep source for completion
 	use("lukas-reineke/cmp-rg")
+	-- ui helper for lsp
+	use("glepnir/lspsaga.nvim")
 	-- project manager
 
 	-- use {
