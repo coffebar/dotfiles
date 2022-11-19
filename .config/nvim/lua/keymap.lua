@@ -129,6 +129,9 @@ if has_wk then
 			c = { '"+yy', "Copy line to system clipboard" },
 			s = { ":so %<cr>", "Source current buffer" },
 		},
+		s = {
+			p = { ":so ~/.config/nvim/plugin/packer.lua<cr>:PackerSync<cr>", "Sync Plugins" },
+		},
 	}, { prefix = "<leader>" })
 	wk.register({
 		g = {
@@ -157,6 +160,8 @@ else
 	nnoremap("<leader>cc", '"+yy')
 	-- source current buffer
 	nnoremap("<leader>cs", ":so %<cr>")
+	-- sorce packer's plugin list file and run PackerSync
+	nnoremap("<leader>sp", ":so ~/.config/nvim/plugin/packer.lua<cr>:PackerSync<cr>")
 	-- search and replace
 	if has_spectre then
 		nnoremap("<leader>rr", spectre.open)
