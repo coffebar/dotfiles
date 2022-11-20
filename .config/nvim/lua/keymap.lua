@@ -144,6 +144,10 @@ if has_wk then
 				replace_keycodes = true,
 			},
 		},
+		["<c-left>"] = { ":vertical resize -5<cr>", "Decrease width" },
+		["<c-right>"] = { ":vertical resize +5<cr>", "Increase width" },
+		["<c-up>"] = { ":resize -5<cr>", "Decrease height" },
+		["<c-down>"] = { ":resize +5<cr>", "Increase height" },
 	}, { mode = "n" })
 	wk.register({
 		g = {
