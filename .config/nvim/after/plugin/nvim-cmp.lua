@@ -1,6 +1,7 @@
 -- Set up nvim-cmp (completion engine plugin)
 local cmp = require("cmp")
 require("luasnip.loaders.from_lua").lazy_load({ paths = vim.fn.stdpath("config") .. "/snippets/" })
+require("cmp-npm").setup({})
 
 local kind_icons = {
 	Text = "",
@@ -59,10 +60,8 @@ cmp.setup({
 		{ name = "nvim_lua" }, -- for nvim lua function
 		{ name = "path" }, -- for path completion
 		{ name = "buffer" },
-		{
-			name = "rg",
-			keyword_length = 3,
-		},
+		{ name = "rg", keyword_length = 3 },
+		{ name = "npm", keyword_length = 1 },
 	}),
 	formatting = {
 		format = function(entry, vim_item)
@@ -83,6 +82,7 @@ cmp.setup({
 				crates = "[Crates]",
 				orgmode = "[ORG]",
 				dap = "[DAP]",
+				npm = "[NPM]",
 			})[entry.source.name]
 			return vim_item
 		end,

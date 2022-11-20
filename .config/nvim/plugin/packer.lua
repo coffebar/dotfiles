@@ -32,6 +32,13 @@ return require("packer").startup(function(use)
 	use("saadparwaiz1/cmp_luasnip")
 	-- ripgrep source for completion
 	use("lukas-reineke/cmp-rg")
+	-- npm packages completion
+	use({
+		"David-Kunz/cmp-npm",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
 	-- ui helper for lsp
 	use("glepnir/lspsaga.nvim")
 	-- project manager
