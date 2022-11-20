@@ -17,6 +17,7 @@ opt.swapfile = false
 opt.backup = false
 opt.undodir = "/tmp/.vim-undodir"
 opt.undofile = true
+opt.undolevels = 200 -- default is 1000
 opt.termguicolors = true
 opt.background = "dark"
 -- disable displaying current mode second time after statusline
