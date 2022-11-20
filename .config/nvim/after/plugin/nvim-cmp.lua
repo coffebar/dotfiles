@@ -1,5 +1,9 @@
 -- Set up nvim-cmp (completion engine plugin)
-local cmp = require("cmp")
+local cmp_installed, cmp = pcall(require, "cmp")
+if not cmp_installed then
+	vim.notify("nvim-cmp isn't installed", vim.log.levels.ERROR)
+	return
+end
 require("luasnip.loaders.from_lua").lazy_load({ paths = vim.fn.stdpath("config") .. "/snippets/" })
 require("cmp-npm").setup({})
 
