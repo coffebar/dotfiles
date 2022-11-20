@@ -117,3 +117,20 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 		vim.api.nvim_command("FormatWrite")
 	end,
 })
+
+-- Highlight yanked text
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = augroup,
+	callback = function()
+		vim.highlight.on_yank({ on_visual = false, timeout = 250 })
+	end,
+})
+
+-- Git commit spell checking
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "gitcommit",
+	group = augroup,
+	callback = function()
+		vim.opt_local.spell = true
+	end,
+})
