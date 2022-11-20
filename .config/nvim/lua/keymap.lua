@@ -95,8 +95,22 @@ nnoremap("<leader>ee", ":call asyncrun#quickfix_toggle(8)<cr>")
 -- Spectre (search and replace in files)
 local has_spectre, spectre = pcall(require, "spectre")
 if has_wk then
-	if has_spectre then
-		wk.register({
+	wk.register({
+		["<leader>"] = {
+			b = {
+				name = "Close", -- optional group name
+				a = { ":bufdo bd<cr>", "Close all buffers" },
+				b = { ":bd!<cr>", "Close this buffer" },
+			},
+			c = {
+				name = "Copy", -- optional group name
+				l = { ':let @+=expand("%:p")<cr>', "Copy current buffer's absolute path" },
+				c = { '"+yy', "Copy line to system clipboard" },
+				s = { ":so %<cr>", "Source current buffer" },
+			},
+			s = {
+				p = { ":so ~/.config/nvim/plugin/packer.lua<cr>:PackerSync<cr>", "Sync Plugins" },
+			},
 			r = {
 				name = "Spectre", -- optional group name
 				r = { spectre.open, "Search and Replace in files" },
@@ -108,32 +122,7 @@ if has_wk then
 					"Search current word",
 				},
 			},
-		}, { prefix = "<leader>" })
-		wk.register({
-			r = {
-				name = "Spectre", -- optional group name
-				r = { spectre.open_visual, "Replace selection in files" },
-				f = { spectre.open_file_search, "Replace in current file" },
-			},
-		}, { prefix = "<leader>", mode = "v" })
-	end
-	wk.register({
-		b = {
-			name = "Close", -- optional group name
-			a = { ":bufdo bd<cr>", "Close all buffers" },
-			b = { ":bd!<cr>", "Close this buffer" },
 		},
-		c = {
-			name = "Copy", -- optional group name
-			l = { ':let @+=expand("%:p")<cr>', "Copy current buffer's absolute path" },
-			c = { '"+yy', "Copy line to system clipboard" },
-			s = { ":so %<cr>", "Source current buffer" },
-		},
-		s = {
-			p = { ":so ~/.config/nvim/plugin/packer.lua<cr>:PackerSync<cr>", "Sync Plugins" },
-		},
-	}, { prefix = "<leader>" })
-	wk.register({
 		g = {
 			c = {
 				function()
@@ -150,6 +139,13 @@ if has_wk then
 		["<c-down>"] = { ":resize +5<cr>", "Increase height" },
 	}, { mode = "n" })
 	wk.register({
+		["<leader>"] = {
+			r = {
+				name = "Spectre", -- optional group name
+				r = { spectre.open_visual, "Replace selection in files" },
+				f = { spectre.open_file_search, "Replace in current file" },
+			},
+		},
 		g = {
 			c = { "<Plug>(comment_toggle_linewise_visual)", "Comment line(s)" },
 		},
