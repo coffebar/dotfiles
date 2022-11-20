@@ -161,4 +161,10 @@ return require("packer").startup(function(use)
 	use("ap/vim-css-color")
 	-- auto close tags
 	use("windwp/nvim-ts-autotag")
+	--
+	-- May be interesting:
+	-- amarakon/nvim-cmp-fonts
+	-- axkirillov/easypick.nvim
+	-- saecki/crates.nvim
+	--
 end)
