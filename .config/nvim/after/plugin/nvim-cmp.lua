@@ -62,6 +62,7 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "rg", keyword_length = 3 },
 		{ name = "npm", keyword_length = 1 },
+		{ name = "emoji" },
 	}),
 	formatting = {
 		format = function(entry, vim_item)
