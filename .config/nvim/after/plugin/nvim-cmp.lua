@@ -60,6 +60,7 @@ cmp.setup({
 		{ name = "nvim_lua" }, -- for nvim lua function
 		{ name = "path" }, -- for path completion
 		{ name = "buffer" },
+		{ name = "calc" },
 		{ name = "rg", keyword_length = 3 },
 		{ name = "npm", keyword_length = 1 },
 		{ name = "emoji" },

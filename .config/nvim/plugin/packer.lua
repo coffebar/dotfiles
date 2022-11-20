@@ -38,6 +38,7 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-emoji")
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
+	use("hrsh7th/cmp-calc")
 	-- ripgrep source for completion
 	use("lukas-reineke/cmp-rg")
 	-- npm packages completion
@@ -165,7 +166,7 @@ return packer.startup(function(use)
 	-- replace in files with regexp
 	use("nvim-pack/nvim-spectre")
 	-- css color visualization
-	use("ap/vim-css-color")
+	use("ap/vim-css-color") -- possible alternative norcalli/nvim-colorizer.lua
 	-- auto close tags
 	use("windwp/nvim-ts-autotag")
 	--
@@ -173,5 +174,7 @@ return packer.startup(function(use)
 	-- amarakon/nvim-cmp-fonts
 	-- axkirillov/easypick.nvim
 	-- saecki/crates.nvim
+	-- mg979/vim-visual-multi
+	-- ThePrimeagen/harpoon
 	--
 end)
