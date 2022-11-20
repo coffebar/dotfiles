@@ -1,3 +1,5 @@
+local augroup = vim.api.nvim_create_augroup("user_cmds", { clear = true })
+
 vim.api.nvim_create_user_command("SearchInHome", function()
 	require("telescope.builtin").find_files({
 		cwd = "~",
@@ -53,8 +55,6 @@ vim.api.nvim_create_user_command("SearchInHome", function()
 	})
 end, {})
 
-local augroup = vim.api.nvim_create_augroup("user_cmds", { clear = true })
-
 vim.api.nvim_create_autocmd("DirChanged", {
 	group = augroup,
 	desc = "Source local nvim config",
@@ -103,12 +103,52 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
+-- Auto change ENV variables to enable
+-- bare git repository for dotfiles after
+-- loading saved session
+local home = vim.fn.expand("~")
+local git_dir = home .. "/dotfiles"
+if vim.fn.isdirectory(git_dir) then
+	local dotfiles_locations = {
+		-- cwd locations in dotfiles
+		home,
+		vim.fn.expand(home .. "/.config/nvim"),
+	}
+	local in_dotfiles = function()
+		local cwd = vim.loop.cwd()
+		for _, p in ipairs(dotfiles_locations) do
+			if p == cwd then
+				return true
+			end
+		end
+		return false
+	end
+	vim.api.nvim_create_autocmd("SessionLoadPost", {
+		group = augroup,
+		callback = function()
+			if vim.env.GIT_DIR == nil and in_dotfiles() then
+				-- export git location into ENV
+				vim.env.GIT_DIR = git_dir
+				vim.env.GIT_WORK_TREE = home
+				return
+			end
+			if vim.env.GIT_DIR == git_dir and not in_dotfiles() then
+				-- unset variables
+				vim.env.GIT_DIR = nil
+				vim.env.GIT_WORK_TREE = nil
+			end
+		end,
+	})
+end
+
+-- Optimize for large files
 vim.api.nvim_create_autocmd("BufReadPre", {
 	group = augroup,
 	desc = "Disable filetype for large files (>50MB)",
 	command = 'let f=expand("<afile>") | if getfsize(f) > 1024*1024*50 | set eventignore+=FileType | else | set eventignore-=FileType | endif',
 })
 
+-- Auto formatting
 vim.api.nvim_create_autocmd("BufWritePost", {
 	group = augroup,
 	pattern = { "*.scss", "*.lua", "*.html" },
