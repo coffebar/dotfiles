@@ -1,6 +1,13 @@
+local packer_ok, packer = pcall(require, "packer")
+if not packer_ok then
+	return function()
+		vim.notify("packer isn't installed", vim.log.levels.ERROR)
+	end
+end
+
 vim.cmd([[packadd packer.nvim]])
 
-return require("packer").startup(function(use)
+return packer.startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
