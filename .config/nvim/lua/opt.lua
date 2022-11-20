@@ -7,10 +7,10 @@ opt.relativenumber = true
 opt.timeoutlen = 500
 opt.errorbells = false
 opt.number = true
-opt.shiftwidth = 4
+opt.shiftwidth = 2
 -- show tabs as 2 spaces
 opt.tabstop = 2
-opt.softtabstop = 4
+opt.softtabstop = 2
 opt.ignorecase = true
 opt.smartcase = true
 opt.swapfile = false
