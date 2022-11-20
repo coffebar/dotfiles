@@ -132,6 +132,7 @@ if has_wk then
 				expr = true,
 				replace_keycodes = true,
 			},
+			l = { ":Git log<cr>", "Git log" },
 		},
 		["<c-left>"] = { ":vertical resize -5<cr>", "Decrease width" },
 		["<c-right>"] = { ":vertical resize +5<cr>", "Increase width" },
