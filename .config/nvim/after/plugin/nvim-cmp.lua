@@ -70,6 +70,17 @@ cmp.setup({
 		{ name = "npm", keyword_length = 1 },
 		{ name = "emoji" },
 	}),
+	sorting = {
+		comparators = {
+			cmp.config.compare.offset,
+			cmp.config.compare.exact,
+			cmp.config.compare.score,
+			cmp.config.compare.kind,
+			cmp.config.compare.sort_text,
+			cmp.config.compare.length,
+			cmp.config.compare.order,
+		},
+	},
 	formatting = {
 		format = function(entry, vim_item)
 			-- Kind icons
@@ -104,6 +115,18 @@ cmp.setup.filetype("gitcommit", {
 		{ name = "path" },
 		{ name = "rg", keyword_length = 3 },
 	}),
+	sorting = {
+		comparators = {
+			cmp.config.compare.offset,
+			cmp.config.compare.exact,
+			cmp.config.compare.sort_text,
+			cmp.config.compare.score,
+			cmp.config.compare.recently_used,
+			cmp.config.compare.kind,
+			cmp.config.compare.length,
+			cmp.config.compare.order,
+		},
+	},
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
