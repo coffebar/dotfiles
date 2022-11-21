@@ -25,6 +25,7 @@ btrfs-progs
 chromium
 copyq
 cronie
+crow-translate
 deepin-icon-theme
 deluge
 deluge-gtk
