@@ -6,6 +6,7 @@ if not cmp_installed then
 end
 require("luasnip.loaders.from_lua").lazy_load({ paths = vim.fn.stdpath("config") .. "/snippets/" })
 require("cmp-npm").setup({})
+require("cmp_git").setup({})
 
 local kind_icons = {
 	Text = "",
@@ -98,9 +99,10 @@ cmp.setup({
 -- Set configuration for specific filetype.
 cmp.setup.filetype("gitcommit", {
 	sources = cmp.config.sources({
-		{ name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
-	}, {
+		{ name = "git" },
 		{ name = "buffer" },
+		{ name = "path" },
+		{ name = "rg", keyword_length = 3 },
 	}),
 })
 

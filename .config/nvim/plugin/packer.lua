@@ -39,6 +39,7 @@ return packer.startup(function(use)
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 	use("hrsh7th/cmp-calc")
+	use("petertriho/cmp-git")
 	-- ripgrep source for completion
 	use("lukas-reineke/cmp-rg")
 	-- npm packages completion
