@@ -75,6 +75,7 @@ cmp.setup({
 		ripgrep,
 		{ name = "npm", keyword_length = 1 },
 		{ name = "emoji", priority = 10 },
+		{ name = "nvim_lsp_signature_help" },
 	}),
 	sorting = {
 		comparators = {
@@ -97,6 +98,7 @@ cmp.setup({
 				nvim_lua = "[Lua]",
 				git = "[G]",
 				latex_symbols = "[LaTeX]",
+				nvim_lsp_signature_help = "[Signature]",
 				gh_issues = "[Issues]",
 				buffer = "[Buf]",
 				nvim_lsp = "[LSP]",
@@ -153,7 +155,6 @@ cmp.setup.cmdline(":", {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
 		{ name = "path" },
-	}, {
 		{ name = "cmdline" },
 	}),
 })
