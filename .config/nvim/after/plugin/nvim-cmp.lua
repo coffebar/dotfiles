@@ -95,6 +95,7 @@ cmp.setup({
 			vim_item.menu = ({
 				luasnip = "[LuaSnip]",
 				nvim_lua = "[Lua]",
+				git = "[G]",
 				latex_symbols = "[LaTeX]",
 				gh_issues = "[Issues]",
 				buffer = "[Buf]",
