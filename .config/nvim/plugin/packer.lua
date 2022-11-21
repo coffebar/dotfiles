@@ -177,5 +177,6 @@ return packer.startup(function(use)
 	-- saecki/crates.nvim
 	-- mg979/vim-visual-multi
 	-- ThePrimeagen/harpoon
+	-- lukas-reineke/cmp-under-comparator
 	--
 end)

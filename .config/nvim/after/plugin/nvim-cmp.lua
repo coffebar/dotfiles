@@ -36,6 +36,15 @@ local kind_icons = {
 	TypeParameter = "",
 }
 
+-- ripgrep source for completion
+local ripgrep = {
+	name = "rg",
+	keyword_length = 3,
+	option = {
+		additional_arguments = "--max-depth 6 --one-file-system --ignore-file ~/.config/nvim/ignore.rg",
+	},
+}
+
 cmp.setup({
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
@@ -63,9 +72,9 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "buffer" },
 		{ name = "calc" },
-		{ name = "rg", keyword_length = 3 },
+		ripgrep,
 		{ name = "npm", keyword_length = 1 },
-		{ name = "emoji" },
+		{ name = "emoji", priority = 10 },
 	}),
 	sorting = {
 		comparators = {
@@ -110,7 +119,7 @@ cmp.setup.filetype("gitcommit", {
 		{ name = "git" },
 		{ name = "buffer" },
 		{ name = "path" },
-		{ name = "rg", keyword_length = 3 },
+		ripgrep,
 	}),
 	sorting = {
 		comparators = {
