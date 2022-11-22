@@ -220,7 +220,9 @@ bindsym $alt+i exec --no-startup-id "~/lua/wm-keymap.lua i"
 bindsym $alt+b exec --no-startup-id "~/lua/wm-keymap.lua b"
 bindsym $alt+v exec --no-startup-id "~/lua/wm-keymap.lua v"
 bindsym $alt+m exec --no-startup-id "~/lua/wm-keymap.lua m"
+bindsym $alt+w exec --no-startup-id "~/lua/wm-keymap.lua w"
 
+# deprecated: Use Alt+c
 bindsym Control+Page_Up exec --no-startup-id copyq show
 
 # workspaces
@@ -265,12 +267,11 @@ bindsym $mod+$alt+Left move workspace to output left
 
 # bind workspaces 
 workspace $ws1 output HDMI-0
-#workspace $ws2 output DP-0.8
-workspace $ws2 output DP-1.1.8
-#workspace $ws3 output DP-0.8
-workspace $ws3 output DP-1.1.8 
+workspace $ws2 output DP-1.8
+workspace $ws3 output DP-1.8 
 workspace $ws4 output HDMI-0
 workspace $ws5 output HDMI-0
+workspace $ws9 output DP-1.8 
 
 # assign apps to workspaces
 assign [class="firefox$"] → $ws1 

@@ -150,6 +150,7 @@ pacman-contrib
 pasystray
 patch
 pavucontrol
+perl-anyevent-i3
 php
 phpactor
 pipewire
