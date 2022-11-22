@@ -13,6 +13,8 @@ if installed then
 	local mode = Autoload.LastSession -- Possible values: Disabled, CurrentDir, LastSession
 	if contains(vim.v.argv, "SearchInHome") then
 		mode = Autoload.Disabled
+	elseif vim.fn.isdirectory(".git") == 1 then
+		mode = Autoload.CurrentDir
 	end
 
 	session_manager.setup({
