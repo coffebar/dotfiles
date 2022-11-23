@@ -40,7 +40,7 @@ local on_attach = function(client, bufnr)
 	-- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
 	-- force to use Formatter plugin for this client
-	local force_formatter = client.name == "sumneko_lua"
+	local force_formatter = client.name == "sumneko_lua" or client.name == "tsserver"
 
 	if client.server_capabilities.documentFormattingProvider and not force_formatter then
 		vim.keymap.set("v", "=", function()
