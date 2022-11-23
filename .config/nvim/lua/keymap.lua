@@ -7,8 +7,8 @@ local function bind(op, outer_opts)
 	end
 end
 
-local nmap = bind("n", { noremap = false })
 local nnoremap = bind("n")
+-- local nmap = bind("n", { noremap = false })
 local vnoremap = bind("v")
 -- local xnoremap = bind("x")
 local inoremap = bind("i")
@@ -31,8 +31,8 @@ inoremap("<C-p>", '<esc>"+p')
 nnoremap("<leader>a", ":qa!<cr>")
 nnoremap("<leader>ф", ":qa!<cr>")
 
-nmap("Ф", "A")
-nmap("Ш", "I")
+nnoremap("Ф", "A")
+nnoremap("Ш", "I")
 
 -- open terminal in split below and start Insert mode
 nnoremap("<leader>t", ":belowright split | resize 10 | terminal<cr>i")
@@ -48,7 +48,7 @@ tnoremap("jk", "<C-\\><C-n><C-w>k")
 tnoremap("<C-\\>", "<C-\\><C-n>:bd!<cr>")
 
 -- Ctrl+4 to close window and keep buffer
-nmap("<C-\\>", ":q<cr>")
+nnoremap("<C-\\>", ":q<cr>")
 nnoremap("<leader>l", ":bnext<cr>")
 nnoremap("<leader>h", ":bprevious<cr>")
 
@@ -175,9 +175,9 @@ else
 		nnoremap("<leader>rf", spectre.open_file_search)
 	end
 	-- Close all buffers
-	nmap("<leader>ba", ":bufdo bd<cr>")
+	nnoremap("<leader>ba", ":bufdo bd<cr>")
 	-- Close the current buffer
-	nmap("<leader>bb", ":bd!<cr>")
+	nnoremap("<leader>bb", ":bd!<cr>")
 	-- Comment.nvim
 	nnoremap("gcc", function()
 		return vim.v.count == 0 and "<Plug>(comment_toggle_linewise_current)" or "<Plug>(comment_toggle_linewise_count)"
