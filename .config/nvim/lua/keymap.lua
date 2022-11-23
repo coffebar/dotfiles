@@ -27,7 +27,7 @@ vnoremap("<C-p>", '"+p')
 nnoremap("<C-p>", '"+p')
 inoremap("<C-p>", '<esc>"+p')
 
--- Close all tabs
+-- quit
 nnoremap("<leader>a", ":qa!<cr>")
 nnoremap("<leader>ф", ":qa!<cr>")
 
