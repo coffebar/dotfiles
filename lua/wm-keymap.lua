@@ -6,26 +6,37 @@ local key = arg[1]
 local home = os.getenv("HOME")
 local desktop_session = os.getenv("XDG_CURRENT_DESKTOP")
 
--- retrieve console command output
-function os.capture(cmd)
+-- retrieve system command output
+local function sys(cmd)
 	local handle = assert(io.popen(cmd, "r"))
 	local output = assert(handle:read("*a"))
 	handle:close()
 	return string.gsub(output, "%s+$", "")
 end
 
+local function dir_exists(path)
+	if not path or path == "" then
+		return false
+	end
+	if not string.match(path, "['#\"]") == nil then
+		-- checked for multiline before this function call
+		return false
+	end
+	return os.execute("test -d '" .. path .. "'")
+end
+
 if key == "f" then
 	-- Open file manager in context of clipboard
 	local dir
 	-- read from clipboard
-	local buff = os.capture("xclip -selection c -o")
+	local buff = sys("xclip -selection c -o")
 	local fch = string.sub(buff, 0, 1)
 	if not string.find(buff, "\n") and (fch == "/" or fch == "~") then
 		-- if clipboard has only 1 line
 		-- try to get directory path from it
-		dir = os.capture(string.format('dirname "%s"', buff))
+		dir = sys(string.format('dirname "%s"', buff))
 	end
-	if not dir or dir == "." or dir == "" then
+	if dir == "." or not dir_exists(dir) then
 		-- default directory to open
 		dir = string.format("%s/Downloads", home)
 	end
