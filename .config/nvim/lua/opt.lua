@@ -10,6 +10,7 @@ opt.number = true
 opt.shiftwidth = 2
 -- show tabs as 2 spaces
 opt.tabstop = 2
+opt.expandtab = false
 opt.softtabstop = 2
 opt.ignorecase = true
 opt.smartcase = true
