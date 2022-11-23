@@ -22,7 +22,7 @@ opt.undolevels = 200 -- default is 1000
 opt.termguicolors = true
 opt.background = "dark"
 -- show file path in the title
-opt.titlestring = "%F"
+opt.titlestring = " %F"
 opt.title = true
 -- disable displaying current mode second time after statusline
 opt.showmode = false
