@@ -30,6 +30,7 @@ require("formatter").setup({
 		javascript = { prettierConfig },
 		typescript = { prettierConfig },
 		typescriptreact = { prettierConfig },
+		sshconfig = { prettierConfig },
 		lua = { stylua },
 	},
 })

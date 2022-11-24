@@ -1,0 +1,11 @@
+{
+	"overrides": [
+		{
+			"files": ".ssh/config",
+			"options": {
+				"parser": "ssh-config",
+				"useTabs": true
+			}
+		}
+	]
+}

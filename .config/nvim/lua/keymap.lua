@@ -88,6 +88,7 @@ nnoremap("<leader>p", ":Telescope projects<cr>")
 nnoremap("<leader>F", ":SearchInHome<cr>") -- open file and edit
 -- NeoTree
 nnoremap("<leader>n", ":NeoTreeFocusToggle<cr>")
+nnoremap("=", ":Format<cr>")
 -- AsyncTask
 nnoremap("<leader>eb", ":AsyncTask project-build<cr>")
 nnoremap("<leader>er", ":AsyncTask project-run<cr>")
