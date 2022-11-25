@@ -6,6 +6,13 @@
 				"parser": "ssh-config",
 				"useTabs": true
 			}
+		},
+		{
+			"files": "*.conf",
+			"options": {
+				"parser": "nginx",
+				"tabWidth": 2
+			}
 		}
 	]
 }

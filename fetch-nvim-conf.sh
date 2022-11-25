@@ -44,6 +44,7 @@ function install_packages_if_needed() {
 install_packages_if_needed pyright bash-language-server \
 	vscode-langservers-extracted \
 	prettier prettier-plugin-ssh-config \
+	prettier-plugin-nginx \
 	typescript typescript-language-server \
 	eslint @johnnymorganz/stylua-bin \
 	emmet-ls
