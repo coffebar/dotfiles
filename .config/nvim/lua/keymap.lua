@@ -73,10 +73,10 @@ nnoremap("<leader>gr", ":Gitsigns reset_hunk<cr>")
 nnoremap("<leader>gu", ":Gitsigns undo_stage_hunk<cr>")
 nnoremap("<leader>gR", ":Gitsigns reset_buffer<cr>")
 nnoremap("<leader>gp", ":AsyncRun git push<cr>")
+nnoremap("<leader>gl", ":Flog -date=short<cr>")
 -- Fugitive
 nnoremap("<leader>gg", ":Git<cr>")
 nnoremap("<leader>gc", ":Git commit -v<cr>")
-nnoremap("<leader>gl", ":Git log --oneline<cr>")
 -- Telescope
 nnoremap("<leader>ff", ":Telescope find_files<cr>")
 nnoremap("<leader>fb", ":Telescope file_browser<cr>")

@@ -126,6 +126,7 @@ return packer.startup(function(use)
 	-- git
 	use({ "lewis6991/gitsigns.nvim" })
 	use({ "tpope/vim-fugitive" })
+	use({ "rbong/vim-flog" })
 	-- snippets
 	use("rafamadriz/friendly-snippets")
 	-- tests
