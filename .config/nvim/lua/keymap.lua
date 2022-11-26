@@ -76,6 +76,7 @@ nnoremap("<leader>gp", ":AsyncRun git push<cr>")
 -- Fugitive
 nnoremap("<leader>gg", ":Git<cr>")
 nnoremap("<leader>gc", ":Git commit -v<cr>")
+nnoremap("<leader>gl", ":Git log --oneline<cr>")
 -- Telescope
 nnoremap("<leader>ff", ":Telescope find_files<cr>")
 nnoremap("<leader>fb", ":Telescope file_browser<cr>")
