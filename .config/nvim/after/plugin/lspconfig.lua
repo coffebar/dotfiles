@@ -128,14 +128,11 @@ lspconfig.ltex.setup({
 			disabledRules = {
 				["en-US"] = {
 					"ARROWS",
+					"MORFOLOGIK_RULE_EN_US", --disable spell
 				},
 			},
 			dictionary = {
-				["en-US"] = {
-					"dotfiles",
-					"AUR",
-					"Neovim",
-				},
+				["en-US"] = ":" .. vim.fn.stdpath("config") .. "/spell/en.utf-8.add", -- doesn't work
 			},
 		},
 	},
