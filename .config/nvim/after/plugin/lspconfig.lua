@@ -1,7 +1,14 @@
 local lspconfig = require("lspconfig")
 local saga = require("lspsaga")
 
-saga.init_lsp_saga()
+saga.init_lsp_saga({
+	code_action_lightbulb = {
+		enable = false,
+		enable_in_insert = true,
+		cache_code_action = true,
+		sign = true,
+	},
+})
 
 -- setup nvim-ts-autotag
 require("nvim-ts-autotag").setup()
