@@ -30,6 +30,8 @@ mkdir -p ~/.config/nvim
 
 git clone --depth=1 https://github.com/coffebar/dotfiles.git /tmp/dotfiles_tmp_nvim
 rsync -rv --delete /tmp/dotfiles_tmp_nvim/.config/nvim/ ~/.config/nvim/
+[ -f ~/.prettierrc.json ] && mv ~/.prettierrc.json ~/.prettierrc.json.bak && echo "~/.prettierrc.json replaced"
+mv /tmp/dotfiles_tmp_nvim/.prettierrc.json ~/.prettierrc.json
 rm -rf /tmp/dotfiles_tmp_nvim/
 
 npm config set prefix ~/.node_modules
