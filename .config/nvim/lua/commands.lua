@@ -129,7 +129,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Git commit spell checking
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "gitcommit",
+	pattern = { "gitcommit", "markdown" },
 	group = augroup,
 	callback = function()
 		vim.opt_local.spell = true
