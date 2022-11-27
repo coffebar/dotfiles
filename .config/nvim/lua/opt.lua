@@ -42,3 +42,10 @@ g.asynctasks_extra_config = {
 }
 -- hide quickfix window after asynctask finished
 g.asyncrun_exit = 'call timer_start(4000, {-> execute("cclose")})'
+
+g.diagnostic_signs = {
+	ERROR = " ",
+	WARN = " ",
+	INFO = " ",
+	HINT = " ",
+}
