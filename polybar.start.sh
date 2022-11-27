@@ -2,7 +2,7 @@
 # start polybar for each monitor
 # starting from the left
 
-if [[ "$XDG_SESSION_OPT" -eq "kindle" ]]; then
+if [[ "$XDG_SESSION_OPT" == "kindle" ]]; then
 	source $HOME/.config/kindle/polybar.sh
 	exit
 else
