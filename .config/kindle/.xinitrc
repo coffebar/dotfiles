@@ -10,6 +10,7 @@ sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
 DEFAULT_SESSION='i3 --shmlog-size 0 -c .config/kindle/i3config'
+export XDG_CURRENT_DESKTOP=i3
 
 # merge in defaults and keymaps
 
