@@ -205,11 +205,6 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-#bindsym $mod+t [class="Telegram"] focus
-
-# start apps for work
-bindsym $mod+w exec --no-startup-id "bash ~/alt_bindkeys.sh b && sleep 1 && bash ~/alt_bindkeys.sh i"
-
 # calculator
 bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
@@ -326,10 +321,17 @@ exec --no-startup-id syncthingtray --wait &
 exec --no-startup-id pasystray &
 # bluetooth
 exec --no-startup-id blueman-applet &
-
+# script to extract zip files after download
+exec --no-startup-id /bin/bash ~/Downloads/Telegram\ Desktop/unzip_here.sh &
+# telegram messanger
+exec --no-startup-id XDG_CURRENT_DESKTOP=gnome telegram-desktop &
+# Start KeePassXC with unlocking password # see https://github.com/keepassxreboot/keepassxc/issues/1267
+exec --no-startup-id /bin/sh -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin ~/Sync/Work/lastpass.kdbx" &
+# remove "urgency" from KeePassXC on startup
+exec --no-startup-id /bin/sh -c 'sleep 5 && wmctrl -r KeePassXC -b remove,demands_attention' &
+# translator
 exec --no-startup-id crow &
 
-# custom startup script (mound disks, run backup, start other apps)
 exec --no-startup-id ~/startup.sh &
 # touchpad gestures: https://github.com/bulletmark/libinput-gestures
 exec --no-startup-id systemctl start --user libinput-gestures.service 
