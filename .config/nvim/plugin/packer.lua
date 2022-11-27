@@ -52,6 +52,7 @@ return packer.startup(function(use)
 	})
 	-- ui helper for lsp
 	use("glepnir/lspsaga.nvim")
+	use("j-hui/fidget.nvim")
 	-- project manager
 
 	-- use {
@@ -180,5 +181,7 @@ return packer.startup(function(use)
 	-- mg979/vim-visual-multi
 	-- ThePrimeagen/harpoon
 	-- lukas-reineke/cmp-under-comparator
+	-- vigoux/ltex-ls.nvim
+	-- vigoux/notifier.nvim
 	--
 end)
