@@ -49,3 +49,7 @@ g.diagnostic_signs = {
 	INFO = " ",
 	HINT = " ",
 }
+
+-- gruvbox colorscheme options
+g.gruvbox_contrast_dark = "hard"
+g.gruvbox_invert_selection = "0"

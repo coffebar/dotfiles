@@ -1,5 +1,4 @@
 local onedark = require("onedark")
-local g = vim.g
 
 onedark.setup({
 	style = "warm",
@@ -26,6 +25,3 @@ onedark.setup({
 	},
 })
 onedark.load()
-
-g.gruvbox_contrast_dark = "hard"
-g.gruvbox_invert_selection = "0"
