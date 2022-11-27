@@ -7,12 +7,14 @@ DocumSync/
 pycharm/
 PycharmProjects/
 PhpStorm/
+Postman/
 go/pkg/
 .node_modules/
 .config/JetBrains/
 .config/google-chrome/
 .config/microsoft-edge/
 .config/microsoft-edge-dev/
+.dropbox/
 .cache/
 .java/
 .mozilla/
