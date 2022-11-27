@@ -43,6 +43,10 @@
 .gtkrc-xfce
 .fehbg
 .steampath
+.mozilla/
+.node_modules/
+.npm/
+.cache/
 .steampid
 .wget-hsts
 .zcompdump-*
