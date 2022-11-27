@@ -219,6 +219,7 @@ bindsym $alt+t exec --no-startup-id "~/lua/wm-keymap.lua t"
 bindsym $alt+i exec --no-startup-id "~/lua/wm-keymap.lua i"
 bindsym $alt+b exec --no-startup-id "~/lua/wm-keymap.lua b"
 bindsym $alt+v exec --no-startup-id "~/lua/wm-keymap.lua v"
+bindsym $alt+m exec --no-startup-id "~/lua/wm-keymap.lua m"
 
 bindsym XF86MonBrightnessUp exec  --no-startup-id sudo light -A 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec  --no-startup-id sudo light -U 10 # decrease screen brightness
