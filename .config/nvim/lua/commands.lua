@@ -1,4 +1,5 @@
 local augroup = vim.api.nvim_create_augroup("user_cmds", { clear = true })
+local au = vim.api.nvim_create_autocmd
 
 vim.api.nvim_create_user_command("SearchInHome", function()
 	require("telescope.builtin").find_files({
@@ -16,7 +17,7 @@ vim.api.nvim_create_user_command("SearchInHome", function()
 	})
 end, {})
 
-vim.api.nvim_create_autocmd("DirChanged", {
+au("DirChanged", {
 	group = augroup,
 	desc = "Source local nvim config",
 	callback = function()
@@ -31,13 +32,13 @@ vim.api.nvim_create_autocmd("DirChanged", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("BufReadPost", {
+au("BufReadPost", {
 	group = augroup,
 	desc = "Return to last edit position when opening files",
 	command = 'if line("\'\\"") > 1 && line("\'\\"") <= line("$") | exe "normal! g\'\\"" | endif',
 })
 
-vim.api.nvim_create_autocmd("BufReadPost", {
+au("BufReadPost", {
 	group = augroup,
 	pattern = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.svg" },
 	desc = "Open images in external viewer-editor",
@@ -84,7 +85,7 @@ if vim.fn.isdirectory(git_dir) then
 		end
 		return false
 	end
-	vim.api.nvim_create_autocmd("SessionLoadPost", {
+	au("SessionLoadPost", {
 		group = augroup,
 		callback = function()
 			if vim.env.GIT_DIR == nil and in_dotfiles() then
@@ -103,14 +104,14 @@ if vim.fn.isdirectory(git_dir) then
 end
 
 -- Optimize for large files
-vim.api.nvim_create_autocmd("BufReadPre", {
+au("BufReadPre", {
 	group = augroup,
 	desc = "Disable filetype for large files (>50MB)",
 	command = 'let f=expand("<afile>") | if getfsize(f) > 1024*1024*50 | set eventignore+=FileType | else | set eventignore-=FileType | endif',
 })
 
 -- Auto formatting
-vim.api.nvim_create_autocmd("BufWritePost", {
+au("BufWritePost", {
 	group = augroup,
 	pattern = { "*.scss", "*.lua", "*.html" },
 	desc = "Format files on write",
@@ -120,7 +121,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 -- Highlight yanked text
-vim.api.nvim_create_autocmd("TextYankPost", {
+au("TextYankPost", {
 	group = augroup,
 	callback = function()
 		vim.highlight.on_yank({ on_visual = false, timeout = 150 })
@@ -128,10 +129,21 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Git commit spell checking
-vim.api.nvim_create_autocmd("FileType", {
+au("FileType", {
 	pattern = { "gitcommit", "markdown" },
 	group = augroup,
 	callback = function()
 		vim.opt_local.spell = true
 	end,
+})
+
+au("FileType", {
+	pattern = { "help", "qf", "fugitive", "git", "fugitiveblame" },
+	callback = function()
+		vim.keymap.set("n", "q", "<Cmd>bdelete<CR>", {
+			buffer = true,
+			silent = true,
+		})
+	end,
+	group = vim.api.nvim_create_augroup("aux_win_close", {}),
 })
