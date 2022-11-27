@@ -3,6 +3,7 @@ Pictures/
 Videos/
 Documents/
 Sync/
+DocumSync/
 pycharm/
 PycharmProjects/
 PhpStorm/
