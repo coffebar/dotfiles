@@ -2,25 +2,10 @@
 # start polybar for each monitor
 # starting from the left
 
-killall polybar
-
-PROF=$(autorandr --current)
-if [ -z $PROF ] && ! [ -z $1 ]; then
-	# try harder to find profile if script called with any arg 
-    PROF=$(autorandr | grep '(detected)')
-	echo $1
-fi
-if [ -z $PROF ]; then
-    exit 0
-fi
-if [[ $PROF == *'dock'* ]]; then
-    FIRST_MONITOR=$(polybar -m | grep "+0+0" | awk -F: '{print $1}')
-    SECOND_MONITOR=$(polybar -m | grep -v "+0+0" | awk -F: '{print $1}')
-
-    MONITOR=$SECOND_MONITOR polybar --config=~/.config/polybar/config2k.ini --reload first &
-    sleep 3
-    MONITOR=$FIRST_MONITOR polybar --config=~/.config/polybar/config2k.ini --reload second &
+if [[ "$XDG_SESSION_OPT" -eq "kindle" ]]; then
+	source $HOME/.config/kindle/polybar.sh
+	exit
 else
-    polybar --reload example &
+	source $HOME/.config/potato/polybar.sh
 fi
 
