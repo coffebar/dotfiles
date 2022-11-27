@@ -1,4 +1,10 @@
+-- keymap documentation plugin
 local has_wk, wk = pcall(require, "which-key")
+-- Spectre (search and replace in files)
+local has_spectre, spectre = pcall(require, "spectre")
+-- git integration
+local _, gs = pcall(require, "gitsigns")
+-- function to shorten mappings
 local function bind(op, outer_opts)
 	outer_opts = outer_opts or { noremap = true }
 	return function(lhs, rhs, opts)
@@ -94,8 +100,6 @@ nnoremap("=", ":Format<cr>")
 nnoremap("<leader>eb", ":AsyncTask project-build<cr>")
 nnoremap("<leader>er", ":AsyncTask project-run<cr>")
 nnoremap("<leader>ee", ":call asyncrun#quickfix_toggle(8)<cr>")
--- Spectre (search and replace in files)
-local has_spectre, spectre = pcall(require, "spectre")
 if has_wk then
 	wk.register({
 		["<leader>"] = {
@@ -109,6 +113,25 @@ if has_wk then
 				l = { ':let @+=expand("%:p")<cr>', "Copy current buffer's absolute path" },
 				c = { '"+yy', "Copy line to system clipboard" },
 				s = { ":so %<cr>", "Source current buffer" },
+			},
+			g = {
+				name = "Git",
+				b = {
+					function()
+						gs.blame_line({ full = true })
+					end,
+					"blame current line",
+				},
+				B = { gs.toggle_current_line_blame, "toggle current line blame" },
+				d = { gs.diffthis, "diffthis" },
+				D = {
+					function()
+						gs.diffthis("~")
+					end,
+					"diffthis ~",
+				},
+				t = { gs.toggle_deleted, "toggle_deleted " },
+				v = { gs.preview_hunk, "preview hunk" },
 			},
 			s = {
 				p = { ":so ~/.config/nvim/plugin/packer.lua<cr>:PackerSync<cr>", "Sync Plugins" },
@@ -140,6 +163,34 @@ if has_wk then
 		["<c-right>"] = { ":vertical resize +5<cr>", "Increase width" },
 		["<c-up>"] = { ":resize -5<cr>", "Decrease height" },
 		["<c-down>"] = { ":resize +5<cr>", "Increase height" },
+		["[c"] = {
+			function()
+				if vim.wo.diff then
+					return "[c"
+				end
+				vim.schedule(function()
+					gs.prev_hunk()
+				end)
+				return "<Ignore>"
+			end,
+			"Previous hunk",
+			expr = true,
+			replace_keycodes = true,
+		},
+		["]c"] = {
+			function()
+				if vim.wo.diff then
+					return "]c"
+				end
+				vim.schedule(function()
+					gs.next_hunk()
+				end)
+				return "<Ignore>"
+			end,
+			"Next hunk",
+			expr = true,
+			replace_keycodes = true,
+		},
 	}, { mode = "n" })
 	wk.register({
 		["<leader>"] = {
