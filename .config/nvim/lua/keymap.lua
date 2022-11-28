@@ -79,6 +79,7 @@ nnoremap("<leader>gr", ":Gitsigns reset_hunk<cr>")
 nnoremap("<leader>gu", ":Gitsigns undo_stage_hunk<cr>")
 nnoremap("<leader>gR", ":Gitsigns reset_buffer<cr>")
 nnoremap("<leader>gp", ":AsyncRun git push<cr>")
+nnoremap("gp", ":AsyncRun git pull<cr>")
 nnoremap("<leader>gl", ":Flog -date=short<cr>")
 -- Fugitive
 nnoremap("<leader>gg", ":Git<cr>")
