@@ -117,6 +117,7 @@ if has_wk then
 			},
 			g = {
 				name = "Git",
+				a = { ":G add -f %<cr>", "Add current file to git" },
 				b = {
 					function()
 						gs.blame_line({ full = true })
