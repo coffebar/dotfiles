@@ -183,5 +183,7 @@ return packer.startup(function(use)
 	-- lukas-reineke/cmp-under-comparator
 	-- vigoux/ltex-ls.nvim
 	-- vigoux/notifier.nvim
+	-- jose-elias-alvarez/null-ls.nvim
+	-- lifepillar/pgsql.vim
 	--
 end)
