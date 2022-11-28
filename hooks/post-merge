@@ -1,2 +1,3 @@
 #!/bin/sh
+# update installed nvim plugins
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
