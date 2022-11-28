@@ -150,6 +150,7 @@ if has_wk then
 			},
 		},
 		g = {
+			aa = { "<cmd>TextCaseOpenTelescope<CR>", "Text Case (Telescope)" },
 			c = {
 				function()
 					return vim.v.count == 0 and "<Plug>(comment_toggle_linewise_current)" or "<Plug>(comment_toggle_linewise_count)"
@@ -202,6 +203,7 @@ if has_wk then
 			},
 		},
 		g = {
+			aa = { "<cmd>TextCaseOpenTelescope<CR>", "Text Case (Telescope)" },
 			c = { "<Plug>(comment_toggle_linewise_visual)", "Comment line(s)" },
 		},
 	}, { mode = "v" })

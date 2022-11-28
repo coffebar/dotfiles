@@ -175,6 +175,8 @@ return packer.startup(function(use)
 			require("nvim-surround").setup({})
 		end,
 	})
+	-- tranform Text Case
+	use("johmsalas/text-case.nvim")
 	-- replace in files with regexp
 	use("nvim-pack/nvim-spectre")
 	-- css color visualization
