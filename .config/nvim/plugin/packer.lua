@@ -114,6 +114,14 @@ return packer.startup(function(use)
 	})
 	-- blank char visualization
 	use("lukas-reineke/indent-blankline.nvim")
+	-- UI replacement for default input,select
+	-- integrated with telescope
+	use({
+		"stevearc/dressing.nvim",
+		config = function()
+			require("dressing").setup({})
+		end,
+	})
 	-- show debug info
 	use({
 		"folke/trouble.nvim",
