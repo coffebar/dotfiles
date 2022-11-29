@@ -54,4 +54,4 @@ install_packages_if_needed pyright bash-language-server \
 go version && go install golang.org/x/tools/gopls@latest
 
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-nvim -c 'TSInstall! css python php rust javascript sql toml typescript go yaml dockerfile scss html bash json lua c kotlin markdown diff'
+nvim -c 'TSInstall! bash json lua markdown diff gitcommit'
