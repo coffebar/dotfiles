@@ -1,4 +1,34 @@
 require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"bash",
+		"c",
+		"css",
+		"diff",
+		"dockerfile",
+		"go",
+		"html",
+		"javascript",
+		"json",
+		"kotlin",
+		"lua",
+		"markdown",
+		"php",
+		"python",
+		"rust",
+		"scss",
+		"sql",
+		"toml",
+		"typescript",
+		"yaml",
+		"gitcommit",
+	},
+	-- Install parsers synchronously (only applied to `ensure_installed`)
+	sync_install = false,
+
+	-- Automatically install missing parsers when entering buffer
+	-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+	auto_install = true,
+
 	playground = {
 		enable = true,
 		disable = {},
