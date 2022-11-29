@@ -21,8 +21,8 @@ local inoremap = bind("i")
 local tnoremap = bind("t")
 
 -- Fast saving
-nnoremap("<leader>w", ":w!<cr>")
-nnoremap("<leader>ц", ":w!<cr>")
+nnoremap("<leader>w", "<cmd>w!<cr>")
+nnoremap("<leader>ц", "<cmd>w!<cr>")
 -- press jk to exit from insert mode
 inoremap("jk", "<Esc>")
 inoremap("kj", "<Esc>")
@@ -34,29 +34,29 @@ nnoremap("<C-p>", '"+p')
 inoremap("<C-p>", '<esc>"+p')
 
 -- quit
-nnoremap("<leader>a", ":qa!<cr>")
-nnoremap("<leader>ф", ":qa!<cr>")
+nnoremap("<leader>a", "<cmd>qa!<cr>")
+nnoremap("<leader>ф", "<cmd>qa!<cr>")
 
 nnoremap("Ф", "A")
 nnoremap("Ш", "I")
 
 -- open terminal in split below and start Insert mode
-nnoremap("<leader>t", ":belowright split | resize 10 | terminal<cr>i")
+nnoremap("<leader>t", "<cmd>belowright split | resize 10 | terminal<cr>i")
 
 -- terminal mode related
 -- close terminal window
-tnoremap("<C-d>", "<C-\\><C-n>:q!<cr>")
+tnoremap("<C-d>", "<C-\\><C-n><cmd>q!<cr>")
 -- exit terminal insert mode
 tnoremap("<Esc>", "<C-\\><C-n>")
 -- exit terminal's insert mode and go to upper window
 tnoremap("jk", "<C-\\><C-n><C-w>k")
 -- Ctrl+4 to close terminal window
-tnoremap("<C-\\>", "<C-\\><C-n>:bd!<cr>")
+tnoremap("<C-\\>", "<C-\\><C-n><cmd>bd!<cr>")
 
 -- Ctrl+4 to close window and keep buffer
-nnoremap("<C-\\>", ":q<cr>")
-nnoremap("<leader>l", ":bnext<cr>")
-nnoremap("<leader>h", ":bprevious<cr>")
+nnoremap("<C-\\>", "<cmd>q<cr>")
+nnoremap("<leader>l", "<cmd>bnext<cr>")
+nnoremap("<leader>h", "<cmd>bprevious<cr>")
 
 nnoremap("0", "^")
 -- add blank line
@@ -71,53 +71,53 @@ nnoremap("Q", "<nop>")
 inoremap("<leader>;", "<Esc>A;<Esc>")
 nnoremap("<leader>;", "<Esc>A;<Esc>")
 -- Diagnostic details
-nnoremap("<leader>T", ":TroubleToggle<cr>")
+nnoremap("<leader>T", "<cmd>TroubleToggle<cr>")
 -- Git
-nnoremap("<leader>gs", ":Gitsigns stage_hunk<cr>")
-nnoremap("<leader>gS", ":Gitsigns stage_buffer<cr>")
-nnoremap("<leader>gr", ":Gitsigns reset_hunk<cr>")
-nnoremap("<leader>gu", ":Gitsigns undo_stage_hunk<cr>")
-nnoremap("<leader>gR", ":Gitsigns reset_buffer<cr>")
-nnoremap("<leader>gp", ":AsyncRun git push<cr>")
-nnoremap("gp", ":AsyncRun git pull<cr>")
-nnoremap("<leader>gl", ":Flog -date=short<cr>")
+nnoremap("<leader>gs", "<cmd>Gitsigns stage_hunk<cr>")
+nnoremap("<leader>gS", "<cmd>Gitsigns stage_buffer<cr>")
+nnoremap("<leader>gr", "<cmd>Gitsigns reset_hunk<cr>")
+nnoremap("<leader>gu", "<cmd>Gitsigns undo_stage_hunk<cr>")
+nnoremap("<leader>gR", "<cmd>Gitsigns reset_buffer<cr>")
+nnoremap("<leader>gp", "<cmd>AsyncRun git push<cr>")
+nnoremap("gp", "<cmd>AsyncRun git pull<cr>")
+nnoremap("<leader>gl", "<cmd>Flog -date=short<cr>")
 -- Fugitive
-nnoremap("<leader>gg", ":vert Git<cr>")
-nnoremap("<leader>gc", ":Git commit -v<cr>")
+nnoremap("<leader>gg", "<cmd>vert Git<cr>")
+nnoremap("<leader>gc", "<cmd>Git commit -v<cr>")
 -- Telescope
-nnoremap("<leader>ff", ":Telescope find_files<cr>")
-nnoremap("<leader>fb", ":Telescope file_browser<cr>")
-nnoremap("<leader>fg", ":Telescope live_grep<cr>")
-nnoremap("<leader>fj", ":Telescope jumplist<cr>")
-nnoremap("<leader>fs", ":Telescope git_status<cr>")
-nnoremap("<leader>fh", ":Telescope command_history<cr>")
-nnoremap("<leader>fr", ":Telescope registers<cr>")
-nnoremap("<leader>p", ":Telescope projects<cr>")
-nnoremap("<leader>F", ":SearchInHome<cr>") -- open file and edit
+nnoremap("<leader>ff", "<cmd>Telescope find_files<cr>")
+nnoremap("<leader>fb", "<cmd>Telescope file_browser<cr>")
+nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
+nnoremap("<leader>fj", "<cmd>Telescope jumplist<cr>")
+nnoremap("<leader>fs", "<cmd>Telescope git_status<cr>")
+nnoremap("<leader>fh", "<cmd>Telescope command_history<cr>")
+nnoremap("<leader>fr", "<cmd>Telescope registers<cr>")
+nnoremap("<leader>p", "<cmd>Telescope projects<cr>")
+nnoremap("<leader>F", "<cmd>SearchInHome<cr>") -- open file and edit
 -- NeoTree
-nnoremap("<leader>n", ":NeoTreeFocusToggle<cr>")
-nnoremap("=", ":Format<cr>")
+nnoremap("<leader>n", "<cmd>NeoTreeFocusToggle<cr>")
+nnoremap("=", "<cmd>Format<cr>")
 -- AsyncTask
-nnoremap("<leader>eb", ":AsyncTask project-build<cr>")
-nnoremap("<leader>er", ":AsyncTask project-run<cr>")
-nnoremap("<leader>ee", ":call asyncrun#quickfix_toggle(8)<cr>")
+nnoremap("<leader>eb", "<cmd>AsyncTask project-build<cr>")
+nnoremap("<leader>er", "<cmd>AsyncTask project-run<cr>")
+nnoremap("<leader>ee", "<cmd>call asyncrun#quickfix_toggle(8)<cr>")
 if has_wk then
 	wk.register({
 		["<leader>"] = {
 			b = {
 				name = "Close", -- optional group name
-				a = { ":bufdo bd<cr>", "Close all buffers" },
-				b = { ":bd!<cr>", "Close this buffer" },
+				a = { "<cmd>bufdo bd<cr>", "Close all buffers" },
+				b = { "<cmd>bd!<cr>", "Close this buffer" },
 			},
 			c = {
 				name = "Copy", -- optional group name
-				l = { ':let @+=expand("%:p")<cr>', "Copy current buffer's absolute path" },
+				l = { '<cmd>let @+=expand("%:p")<cr>', "Copy current buffer's absolute path" },
 				c = { '"+yy', "Copy line to system clipboard" },
-				s = { ":so %<cr>", "Source current buffer" },
+				s = { "<cmd>so %<cr>", "Source current buffer" },
 			},
 			g = {
 				name = "Git",
-				a = { ":G add -f %<cr>", "Add current file to git" },
+				a = { "<cmd>G add -f %<cr>", "Add current file to git" },
 				b = {
 					function()
 						gs.blame_line({ full = true })
@@ -136,7 +136,7 @@ if has_wk then
 				v = { gs.preview_hunk, "preview hunk" },
 			},
 			s = {
-				p = { ":so ~/.config/nvim/plugin/packer.lua<cr>:PackerSync<cr>", "Sync Plugins" },
+				p = { "<cmd>so ~/.config/nvim/plugin/packer.lua<cr><cmd>PackerSync<cr>", "Sync Plugins" },
 			},
 			r = {
 				name = "Spectre", -- optional group name
@@ -160,12 +160,12 @@ if has_wk then
 				expr = true,
 				replace_keycodes = true,
 			},
-			l = { ":Git log<cr>", "Git log" },
+			l = { "<cmd>Git log<cr>", "Git log" },
 		},
-		["<c-left>"] = { ":vertical resize -5<cr>", "Decrease width" },
-		["<c-right>"] = { ":vertical resize +5<cr>", "Increase width" },
-		["<c-up>"] = { ":resize -5<cr>", "Decrease height" },
-		["<c-down>"] = { ":resize +5<cr>", "Increase height" },
+		["<c-left>"] = { "<cmd>vertical resize -5<cr>", "Decrease width" },
+		["<c-right>"] = { "<cmd>vertical resize +5<cr>", "Increase width" },
+		["<c-up>"] = { "<cmd>resize -5<cr>", "Decrease height" },
+		["<c-down>"] = { "<cmd>resize +5<cr>", "Increase height" },
 		["[c"] = {
 			function()
 				if vim.wo.diff then
@@ -213,13 +213,13 @@ else
 	-- just in case I will deside to stop using which-key plugin
 
 	-- copy current buffer's absolute path to clipboard
-	nnoremap("<leader>cl", ':let @+=expand("%:p")<cr>')
+	nnoremap("<leader>cl", '<cmd>let @+=expand("%:p")<cr>')
 	-- copy current line to system clipboard
 	nnoremap("<leader>cc", '"+yy')
 	-- source current buffer
-	nnoremap("<leader>cs", ":so %<cr>")
+	nnoremap("<leader>cs", "<cmd>so %<cr>")
 	-- sorce packer's plugin list file and run PackerSync
-	nnoremap("<leader>sp", ":so ~/.config/nvim/plugin/packer.lua<cr>:PackerSync<cr>")
+	nnoremap("<leader>sp", "<cmd>so ~/.config/nvim/plugin/packer.lua<cr><cmd>PackerSync<cr>")
 	-- search and replace
 	if has_spectre then
 		nnoremap("<leader>rr", spectre.open)
@@ -232,9 +232,9 @@ else
 		nnoremap("<leader>rf", spectre.open_file_search)
 	end
 	-- Close all buffers
-	nnoremap("<leader>ba", ":bufdo bd<cr>")
+	nnoremap("<leader>ba", "<cmd>bufdo bd<cr>")
 	-- Close the current buffer
-	nnoremap("<leader>bb", ":bd!<cr>")
+	nnoremap("<leader>bb", "<cmd>bd!<cr>")
 	-- Comment.nvim
 	nnoremap("gcc", function()
 		return vim.v.count == 0 and "<Plug>(comment_toggle_linewise_current)" or "<Plug>(comment_toggle_linewise_count)"
