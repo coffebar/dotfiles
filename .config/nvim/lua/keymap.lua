@@ -82,7 +82,7 @@ nnoremap("<leader>gp", ":AsyncRun git push<cr>")
 nnoremap("gp", ":AsyncRun git pull<cr>")
 nnoremap("<leader>gl", ":Flog -date=short<cr>")
 -- Fugitive
-nnoremap("<leader>gg", ":Git<cr>")
+nnoremap("<leader>gg", ":vert Git<cr>")
 nnoremap("<leader>gc", ":Git commit -v<cr>")
 -- Telescope
 nnoremap("<leader>ff", ":Telescope find_files<cr>")
