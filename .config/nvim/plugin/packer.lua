@@ -92,6 +92,9 @@ return packer.startup(function(use)
 	use("cohama/lexima.vim")
 	-- treesitter
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+	-- :TSPlaygroundToggle will open treesitter preview split
+	use("nvim-treesitter/playground")
+	-- keep visible current function declaration
 	use("romgrk/nvim-treesitter-context")
 	-- nice highlighting for variables
 	-- has a binding <a-n> <a-p> to move by matching words
