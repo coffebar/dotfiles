@@ -15,6 +15,7 @@ go/pkg/
 .config/microsoft-edge/
 .config/microsoft-edge-dev/
 .dropbox/
+.dropbox-dist/
 .cache/
 .java/
 .mozilla/
@@ -23,3 +24,5 @@ go/pkg/
 .local/
 .npm/
 .cargo/
+.oh-my-zsh/
+.docker/
