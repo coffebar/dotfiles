@@ -58,6 +58,10 @@ nnoremap("<C-\\>", "<cmd>q<cr>")
 nnoremap("<leader>l", "<cmd>bnext<cr>")
 nnoremap("<leader>h", "<cmd>bprevious<cr>")
 
+-- scroll
+nnoremap("<C-n>", "<C-e>")
+nnoremap("<C-p>", "<C-y>")
+
 nnoremap("0", "^")
 -- add blank line
 nnoremap("<leader>o", "o<ESC>")
