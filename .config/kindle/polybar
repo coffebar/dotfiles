@@ -58,7 +58,7 @@ font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
 # /usr/share/fonts/truetype/font-awesome/fontawesome-webfont.ttf
 font-2 = "FontAwesome:pixelsize=13;3"
 
-modules-left = i3 pulseaudio xbacklight memory cpu 
+modules-left = i3 pulseaudio backlight-acpi memory cpu 
 modules-center = xwindow
 modules-right = temperature battery date 
 
@@ -206,6 +206,8 @@ bar-empty-foreground = ${colors.foreground-alt}
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
+enable-scroll = true
+label =  %percentage%%
 
 [module/cpu]
 type = internal/cpu
@@ -282,7 +284,7 @@ label = %date%   %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted =  muted
