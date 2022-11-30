@@ -26,6 +26,8 @@ opt.titlestring = " %F"
 opt.title = true
 -- disable displaying current mode second time after statusline
 opt.showmode = false
+-- don't add EOL to the end of file if missing
+opt.fixendofline = false
 
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
