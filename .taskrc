@@ -11,21 +11,8 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/.task
+data.location=~/dev/.task
 
-# Color theme (uncomment one to use)
-#include /usr/share/taskwarrior/light-16.theme
-#include /usr/share/taskwarrior/light-256.theme
-include /usr/share/taskwarrior/dark-16.theme
-#include /usr/share/taskwarrior/dark-256.theme
-#include /usr/share/taskwarrior/dark-red-256.theme
-#include /usr/share/taskwarrior/dark-green-256.theme
-#include /usr/share/taskwarrior/dark-blue-256.theme
-#include /usr/share/taskwarrior/dark-violets-256.theme
-#include /usr/share/taskwarrior/dark-yellow-green.theme
-#include /usr/share/taskwarrior/dark-gray-256.theme
-#include /usr/share/taskwarrior/dark-gray-blue-256.theme
-#include /usr/share/taskwarrior/solarized-dark-256.theme
-#include /usr/share/taskwarrior/solarized-light-256.theme
-#include /usr/share/taskwarrior/no-color.theme
-
+include holidays.en-US.rc
+include dark-16.theme
+editor=nvim
