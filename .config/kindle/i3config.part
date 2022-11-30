@@ -1,0 +1,33 @@
+# kindle special config
+# Additional Requirements:
+# light
+# numlock
+# pasystray
+# picom
+# xte
+# xxkb
+
+# mouse side buttons to copy & paste on GUI apps
+bindsym --whole-window button8 exec "xte 'keydown Control_L' 'keydown c' 'keyup c' 'keyup Control_L'"
+bindsym --whole-window button9 exec "xte 'keydown Control_L' 'keydown v' 'keyup v' 'keyup Control_L'"
+# screen brightness
+bindsym XF86MonBrightnessUp exec  --no-startup-id sudo light -A 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec  --no-startup-id sudo light -U 10 # decrease screen brightness
+# dell keyboard FN keys
+bindcode 121 exec --no-startup-id amixer -D pulse set Master 1+ toggle
+bindcode --release 248 fullscreen toggle
+
+# window compositor 
+exec --no-startup-id "picom -b --backend glx --vsync --xrender-sync-fence"
+# desktop image
+exec --no-startup-id feh --bg-scale ~/wallpapers/w.jpg ~/wallpapers/elliott-engelmann-DjlKxYFJlTc-unsplash.jpg
+# load pre-saved layout and start browser
+exec --no-startup-id i3-msg "workspace $ws1; exec firefox"
+# pamac software updates 
+exec --no-startup-id pamac-tray
+# Enable numlock
+exec_always --no-startup-id numlockx on
+# xfce-polkit
+exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
+
+# vim:filetype=i3config

@@ -11,6 +11,7 @@ vim.filetype.add({
 		[".eslintrc"] = "json",
 		["go.mod"] = "gomod",
 		["i3config"] = "i3config",
+		["i3config.part"] = "i3config",
 		["ignore.rg"] = "gitignore",
 	},
 	pattern = {

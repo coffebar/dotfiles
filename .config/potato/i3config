@@ -1,31 +1,24 @@
-# i3 config file (v4)
+# ----------------------------------
+# Common section of i3 config
+# Requirements:
 #
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
-# Requirements for my custom config:
-#
-
 # alacritty
 # amixer
 # autotiling
 # copyq
 # dunst
 # feh
-# input-remapper-git
 # kbdd
 # ksnip
 # network-manager-applet
-# numlockx
 # playerctl 
 # polybar
 # rofi
 # syncthingtray
 # ttf-droid
 # ttf-font-awesome-4
-# xcompmgr
 # xsecurelock
 # xss-lock
-#####################
 
 # Mod key = Super key
 set $mod Mod4
@@ -39,19 +32,6 @@ set $rofi_theme "Arc-Dark"
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:'Droid Sans' 12 
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
-
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -63,6 +43,8 @@ bindsym $alt+space kill
 
 # start a program launcher
 bindsym $mod+d exec rofi -show run -theme $rofi_theme -dpi $QT_FONT_DPI
+bindsym $mod+space exec rofi -show drun -theme $rofi_theme -dpi $QT_FONT_DPI
+# bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -96,16 +78,8 @@ bindsym $mod+f fullscreen toggle
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-# - not using this a lot
-#bindsym $mod+space focus mode_toggle
-
 # focus the parent container
 bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -163,14 +137,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-# custom bindings
-
-# Ctrl + Alt + l → lock 
-bindsym $alt+Control+l exec --no-startup-id $Locker
-
 # Move to the next/prev workspace on current monitor
 bindsym $alt+Control+Right workspace next_on_output
 bindsym $alt+Control+Left workspace prev_on_output 
+# move workspace to another display
+bindsym $mod+$alt+Right move workspace to output right
+bindsym $mod+$alt+Left move workspace to output left
 
 # make a screenshot 
 bindsym Print exec --no-startup-id ksnip -r 
@@ -188,10 +160,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioNext exec --no-startup-id playerctl next
-
-# screen brightness
-bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -225,6 +193,9 @@ bindsym $alt+w exec --no-startup-id "~/lua/wm-keymap.lua w"
 # deprecated: Use Alt+c
 bindsym Control+Page_Up exec --no-startup-id copyq show
 
+# todolist
+bindsym $mod+t exec --no-startup-id alacritty -t 'taskwarrior' -o window.opacity=1 -e "taskwarrior-tui"
+
 # workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -237,7 +208,6 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 1
 default_floating_border pixel 1
 
@@ -262,17 +232,6 @@ mode "$mode_system" {
 
 bindsym $mod+Pause mode "$mode_system"
 bindsym $mod+End mode "$mode_system"
-
-bindsym $mod+$alt+Right move workspace to output right
-bindsym $mod+$alt+Left move workspace to output left
-
-# bind workspaces 
-workspace $ws1 output HDMI-0
-workspace $ws2 output DP-1.8
-workspace $ws3 output DP-1.8 
-workspace $ws4 output HDMI-0
-workspace $ws5 output HDMI-0
-workspace $ws9 output DP-1.8 
 
 # assign apps to workspaces
 assign [class="firefox$"] → $ws1 
@@ -300,64 +259,39 @@ for_window [class="^Xreader$"] floating enable, border pixel 0
 for_window [class="^jetbrains" title="^Diff Between '"] floating enable, border pixel 0
 # for_window [class="^Telegram" title="Media viewer"] move window to output left
 for_window [class="^Telegram" title="Save "] move window to workspace "2" 
-
-
 for_window [class="^jetbrains-phpstorm$" title="License Expired"] kill 
-
 # workaround @link https://bugzilla.mozilla.org/show_bug.cgi?id=686747
 for_window [class="firefox"] resize grow height 1 px or 1 ppt
-
-# Apps startup section
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker
 
-# window compositor 
-exec --no-startup-id "xcompmgr -n &"
+exec --no-startup-id nm-applet &
+exec --no-startup-id blueman-applet &
+
+# notifications daemon
+exec --no-startup-id dunst
 
 # start polybar on thr every monitor
 exec --no-startup-id ~/polybar.start.sh
-# desktop image
-exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/bridge.jpg
-# notifications daemon
-exec --no-startup-id dunst
-# keyboard daemon to make per window layout 
-exec_always --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg 'exec --no-startup-id "kbdd"'
-# Enable numlock
-#exec_always --no-startup-id numlockx on
+
 # daemon to make per window layout using xkb
 exec --no-startup-id kbdd
 # syncthing tray
 exec --no-startup-id syncthingtray --wait &
 # clipboard manager
 exec --no-startup-id copyq
-# load pre-saved layout and start browser
-exec --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg "workspace $ws1; append_layout ~/.config/potato/workspace-1.json"
-exec --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg "workspace $ws2; append_layout ~/.config/potato/workspace-2.json"
-# run bash script in terminal and show result
-exec --no-startup-id alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh;zsh"
-# polkit-kde-agent
-exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
+ 
 # autotiling @link https://github.com/nwg-piotr/autotiling
-exec_always --no-startup-id autotiling
+exec_always --no-startup-id autotiling &
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet &
+# touchpad gestures: https://github.com/bulletmark/libinput-gestures
+exec --no-startup-id systemctl start --user libinput-gestures.service 
 
-exec --no-startup-id blueman-applet &
-
-# input-remapper to remap custom mouse buttons and to emulate some keypresses
-# requere: systemctl enable input-remapper
-exec --no-startup-id input-remapper-control --command autoload --config-dir "~/.config/input-remapper/"
-exec --no-startup-id firefox &
-# touchpad 
-exec --no-startup-id libinput-gestures-setup start &
-# audio manger tray icon
+# audio tray icon
 exec --no-startup-id pasystray &
-# fix JetBrains scale options for HDPI
-exec_always --no-startup-id bash ~/.config/JetBrains/fix-vmoptions.sh &
+
 # script to extract zip files after download
 exec --no-startup-id /bin/bash ~/Downloads/Telegram\ Desktop/unzip_here.sh &
 # telegram messanger
@@ -368,5 +302,42 @@ exec --no-startup-id /bin/sh -c "secret-tool lookup 'keepass' 'default' | keepas
 exec --no-startup-id /bin/sh -c 'sleep 5 && wmctrl -r KeePassXC -b remove,demands_attention' &
 # translator
 exec --no-startup-id crow &
+
+# ----------------------------------
+
+# potato special config
+# Additional Requirements:
+# input-remapper-git
+# xcompmgr
+
+# screen brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+# bind workspaces 
+workspace $ws1 output HDMI-0
+workspace $ws2 output DP-1.8
+workspace $ws3 output DP-1.8 
+workspace $ws4 output HDMI-0
+workspace $ws5 output HDMI-0
+workspace $ws9 output DP-1.8 
+
+# window compositor 
+exec --no-startup-id "xcompmgr -n &"
+# input-remapper to remap custom mouse buttons and to emulate some keypresses
+# requere: systemctl enable input-remapper
+exec --no-startup-id input-remapper-control --command autoload --config-dir "~/.config/input-remapper/"
+# desktop image
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/bridge.jpg
+# load pre-saved layout and start browser
+exec --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg "workspace $ws1; append_layout ~/.config/potato/workspace-1.json"
+exec --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg "workspace $ws2; append_layout ~/.config/potato/workspace-2.json"
+# run bash script in terminal and show result
+# todo: hold terminal
+exec --no-startup-id alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh;zsh"
+# polkit-kde-agent
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
+# fix JetBrains scale options for HDPI
+exec_always --no-startup-id bash ~/.config/JetBrains/fix-vmoptions.sh &
+exec --no-startup-id firefox &
 
 # vim:filetype=i3config
