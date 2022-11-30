@@ -16,3 +16,4 @@ data.location=~/dev/.task
 include holidays.en-US.rc
 include dark-16.theme
 editor=nvim
+news.version=2.6.0
