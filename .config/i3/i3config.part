@@ -244,7 +244,6 @@ bindsym $alt+Control+l exec --no-startup-id $Locker
 assign [class="firefox$"] → $ws1 
 assign [class="^TelegramDesktop$"] → $ws2
 assign [class="^Alacritty$" title="Terminal"] → $ws2
-assign [class="^Alacritty$" title="nVim Editor Session"] → $ws2
 assign [class="^jetbrains-phpstorm$"] → $ws3
 assign [class="^Google-chrome$"] → $ws4
 assign [class="^Chromium$"] → $ws4
