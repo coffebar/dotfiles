@@ -196,6 +196,9 @@ bindsym Control+Page_Up exec --no-startup-id copyq show
 # todolist
 bindsym $mod+t exec --no-startup-id alacritty -t 'taskwarrior' -o window.opacity=1 -e "taskwarrior-tui"
 
+# pull dotfiles
+bindsym $mod+p exec --no-startup-id alacritty -t 'dotfiles pull' --class="workspace8floating" -e /usr/bin/zsh -c "git --git-dir=$HOME/dotfiles --work-tree=$HOME pull && dunstify -t 2000 -a dotfiles Updated || dunstify -t 5000 -a 'dotfiles' 'dotf pull - failed'"
+
 # workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -245,6 +248,7 @@ assign [class="^jetbrains-phpstorm$"] → $ws3
 assign [class="^Google-chrome$"] → $ws4
 assign [class="^Chromium$"] → $ws4
 assign [class="^Microsoft-edge$"] → $ws5
+assign [class="^workspace8floating$"] → $ws8
 assign [class="^XXkb$"] → $ws9
 assign [class="^KeePassXC$"] → $ws9
 
@@ -266,6 +270,7 @@ for_window [class="^jetbrains-phpstorm$" title="License Expired"] kill
 # workaround @link https://bugzilla.mozilla.org/show_bug.cgi?id=686747
 for_window [class="firefox"] resize grow height 1 px or 1 ppt
 for_window [class="^Alacritty" title="taskwarrior"] floating enable, move position center
+for_window [class="^workspace8floating$"] floating enable, move position center
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.

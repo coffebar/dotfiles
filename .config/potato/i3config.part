@@ -28,7 +28,7 @@ exec --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg "workspace $ws2; append_l
 exec --no-startup-id alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh;zsh"
 # polkit-kde-agent
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
-# fix JetBrains scale options for HDPI
+# fix JetBrains scale options for HiDPI
 exec_always --no-startup-id bash ~/.config/JetBrains/fix-vmoptions.sh &
 exec --no-startup-id firefox &
 
