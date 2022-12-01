@@ -190,8 +190,7 @@ bindsym $alt+v exec --no-startup-id "~/lua/wm-keymap.lua v"
 bindsym $alt+m exec --no-startup-id "~/lua/wm-keymap.lua m"
 bindsym $alt+w exec --no-startup-id "~/lua/wm-keymap.lua w"
 
-# deprecated: Use Alt+c
-bindsym Control+Page_Up exec --no-startup-id copyq show
+bindsym $alt+c exec --no-startup-id copyq show
 
 # todolist
 bindsym $mod+t exec --no-startup-id alacritty --class="task-floating" -t 'taskwarrior' -o window.opacity=1 -e "taskwarrior-tui"
