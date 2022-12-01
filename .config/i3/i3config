@@ -34,6 +34,9 @@ font pango:'Droid Sans' 12
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Display the popup if it belongs to the fullscreen application only
+popup_during_fullscreen smart
+
 # start a terminal
 bindsym $mod+Return exec alacritty
 
