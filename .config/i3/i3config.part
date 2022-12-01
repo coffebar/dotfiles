@@ -194,10 +194,11 @@ bindsym $alt+w exec --no-startup-id "~/lua/wm-keymap.lua w"
 bindsym Control+Page_Up exec --no-startup-id copyq show
 
 # todolist
-bindsym $mod+t exec --no-startup-id alacritty -t 'taskwarrior' -o window.opacity=1 -e "taskwarrior-tui"
+bindsym $mod+t exec --no-startup-id alacritty --class="task-floating" -t 'taskwarrior' -o window.opacity=1 -e "taskwarrior-tui"
 
 # pull dotfiles
-bindsym $mod+p exec --no-startup-id alacritty -t 'dotfiles pull' --class="workspace8floating" -e /usr/bin/zsh -c "git --git-dir=$HOME/dotfiles --work-tree=$HOME pull && dunstify -t 2000 -a dotfiles Updated || dunstify -t 5000 -a 'dotfiles' 'dotf pull - failed'"
+set $pull_cmd "git --git-dir=$HOME/dotfiles --work-tree=$HOME pull && dunstify -t 2000 -a dotfiles Updated || dunstify -t 5000 -a 'dotfiles' 'dotf pull - failed'"
+bindsym $mod+p exec --no-startup-id alacritty --class="workspace10-floating" -e /usr/bin/zsh -c $pull_cmd
 
 # workspaces
 set $ws1 "1"
@@ -248,9 +249,9 @@ assign [class="^jetbrains-phpstorm$"] → $ws3
 assign [class="^Google-chrome$"] → $ws4
 assign [class="^Chromium$"] → $ws4
 assign [class="^Microsoft-edge$"] → $ws5
-assign [class="^workspace8floating$"] → $ws8
 assign [class="^XXkb$"] → $ws9
 assign [class="^KeePassXC$"] → $ws9
+assign [class="^workspace10"] → $ws10
 
 # per app rules
 for_window [window_role="pop-up"] floating enable
@@ -269,8 +270,15 @@ for_window [class="^Telegram" title="Save "] move window to workspace "2"
 for_window [class="^jetbrains-phpstorm$" title="License Expired"] kill 
 # workaround @link https://bugzilla.mozilla.org/show_bug.cgi?id=686747
 for_window [class="firefox"] resize grow height 1 px or 1 ppt
-for_window [class="^Alacritty" title="taskwarrior"] floating enable, move position center
-for_window [class="^workspace8floating$"] floating enable, move position center
+for_window [class="-floating$"] floating enable, move position center
+
+# colors:
+# class                 border    backgr. text      indicator child_border
+client.focused          #4c789900 #285577 #ffffff   #73C48F90 #73C48F70
+client.focused_inactive #33333300 #5f676a #ffffff   #484e5000 #383c4a
+client.unfocused        #33333300 #222222 #88888800 #292d2e   #4b5162
+client.urgent           #2f343a00 #FFCE51 #ffffff   #FFCE51   #FFCE51
+client.placeholder      #00000000 #4b5162 #ffffff   #000000   #0c0c0c
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.

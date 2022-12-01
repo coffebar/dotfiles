@@ -4,6 +4,7 @@ require("colorizer").setup({
 	"javascript",
 	"yaml",
 	"scss",
+	"i3config",
 	html = {
 		mode = "foreground",
 	},
