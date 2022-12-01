@@ -25,7 +25,6 @@ exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/bridge.jpg
 exec --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg "workspace $ws1; append_layout ~/.config/potato/workspace-1.json"
 exec --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg "workspace $ws2; append_layout ~/.config/potato/workspace-2.json"
 # run bash script in terminal and show result
-# todo: hold terminal
 exec --no-startup-id alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh;zsh"
 # polkit-kde-agent
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
