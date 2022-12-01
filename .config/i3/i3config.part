@@ -1,5 +1,4 @@
-# ----------------------------------
-# Common section of i3 config
+# Common i3 config
 # Requirements:
 #
 # alacritty
@@ -317,6 +316,4 @@ exec --no-startup-id /bin/sh -c "secret-tool lookup 'keepass' 'default' | keepas
 exec --no-startup-id /bin/sh -c 'sleep 5 && wmctrl -r KeePassXC -b remove,demands_attention' &
 # translator
 exec --no-startup-id crow &
-
-# ----------------------------------
 
