@@ -108,7 +108,7 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 # reload the configuration file and restart bar (polybar)
 bindsym $mod+Shift+c exec --no-startup-id i3-msg reload && ./polybar.start.sh &
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r restart && ./polybar.start.sh &
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
