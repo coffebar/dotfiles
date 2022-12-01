@@ -147,3 +147,12 @@ au("FileType", {
 	end,
 	group = vim.api.nvim_create_augroup("aux_win_close", {}),
 })
+
+-- join i3 config parts on edit
+au("BufWritePost", {
+	group = augroup,
+	pattern = { "i3config.part" },
+	callback = function()
+		vim.api.nvim_exec("!. ~/.config/i3/join.sh", true)
+	end,
+})
