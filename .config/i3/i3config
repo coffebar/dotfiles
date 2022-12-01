@@ -298,7 +298,7 @@ exec --no-startup-id syncthingtray --wait &
 exec --no-startup-id copyq
  
 # autotiling @link https://github.com/nwg-piotr/autotiling
-exec_always --no-startup-id autotiling &
+exec --no-startup-id autotiling &
 
 # touchpad gestures: https://github.com/bulletmark/libinput-gestures
 exec --no-startup-id systemctl start --user libinput-gestures.service 

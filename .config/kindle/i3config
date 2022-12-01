@@ -28,7 +28,7 @@ exec --no-startup-id i3-msg "workspace $ws1; exec firefox"
 # pamac software updates 
 exec --no-startup-id pamac-tray
 # Enable numlock
-exec_always --no-startup-id numlockx on
+exec --no-startup-id numlockx on
 # xfce-polkit
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 
