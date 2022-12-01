@@ -183,6 +183,7 @@ swaylock
 syncthing
 syncthingtray
 systemd-resolvconf
+taskwarrior-tui
 telegram-desktop
 texinfo
 texlive-core
