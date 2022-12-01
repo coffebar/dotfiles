@@ -183,7 +183,7 @@ return packer.startup(function(use)
 	-- replace in files with regexp
 	use("nvim-pack/nvim-spectre")
 	-- css color visualization
-	use("ap/vim-css-color") -- possible alternative norcalli/nvim-colorizer.lua
+	use("norcalli/nvim-colorizer.lua")
 	-- auto close tags
 	use("windwp/nvim-ts-autotag")
 	--
