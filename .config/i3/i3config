@@ -199,6 +199,9 @@ bindsym $alt+c exec --no-startup-id copyq show
 bindsym $mod+t exec --no-startup-id alacritty\
  --class="task-floating" -t 'taskwarrior' -o window.opacity=1 -e "taskwarrior-tui"
 
+# editor in terminal
+bindsym $mod+e exec --no-startup-id alacritty --class="nvim" -e "nvim"
+
 # pull dotfiles
 set $pull_cmd "git --git-dir=$HOME/dotfiles --work-tree=$HOME pull && dunstify -t 2000 -a dotfiles Updated || dunstify -t 5000 -a 'dotfiles' 'dotf pull - failed'"
 bindsym $mod+p exec --no-startup-id alacritty\
