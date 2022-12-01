@@ -182,7 +182,8 @@ bindsym $alt+f exec --no-startup-id "~/lua/wm-keymap.lua f"
 bindsym XF86Explorer exec --no-startup-id "~/lua/wm-keymap.lua f"
 
 # super+/ open FZF script to open nvim
-bindcode $mod+51 exec --no-startup-id alacritty -t 'fzf:nvim' -e bash ~/.config/nvim/find_and_edit.sh
+bindcode $mod+51 exec --no-startup-id alacritty -t 'fzf:nvim' -e\
+ bash ~/.config/nvim/find_and_edit.sh
 
 # more apps (can be live changed in lua file)
 bindsym $alt+t exec --no-startup-id "~/lua/wm-keymap.lua t"
@@ -195,11 +196,13 @@ bindsym $alt+w exec --no-startup-id "~/lua/wm-keymap.lua w"
 bindsym $alt+c exec --no-startup-id copyq show
 
 # todolist
-bindsym $mod+t exec --no-startup-id alacritty --class="task-floating" -t 'taskwarrior' -o window.opacity=1 -e "taskwarrior-tui"
+bindsym $mod+t exec --no-startup-id alacritty\
+ --class="task-floating" -t 'taskwarrior' -o window.opacity=1 -e "taskwarrior-tui"
 
 # pull dotfiles
 set $pull_cmd "git --git-dir=$HOME/dotfiles --work-tree=$HOME pull && dunstify -t 2000 -a dotfiles Updated || dunstify -t 5000 -a 'dotfiles' 'dotf pull - failed'"
-bindsym $mod+p exec --no-startup-id alacritty --class="workspace10-floating" -e /usr/bin/zsh -c $pull_cmd
+bindsym $mod+p exec --no-startup-id alacritty\
+ --class="workspace10-floating" -e /usr/bin/zsh -c $pull_cmd
 
 # workspaces
 set $ws1 "1"
