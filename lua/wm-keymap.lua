@@ -5,6 +5,9 @@ local key = arg[1]
 
 local home = os.getenv("HOME")
 local desktop_session = os.getenv("XDG_CURRENT_DESKTOP")
+if desktop_session and string.match(desktop_session, "i3") then
+	desktop_session = "i3"
+end
 
 -- retrieve system command output
 local function sys(cmd)
@@ -38,16 +41,22 @@ if key == "f" then
 	end
 	if dir == "." or not dir_exists(dir) then
 		-- default directory to open
-		dir = string.format("%s/Downloads", home)
+		dir = home .. "/Downloads"
 	end
 	os.execute(string.format('thunar "%s" &', dir))
 elseif key == "t" then
 	-- switch to Telegram or open new instance on fail
 	local cmd = "telegram-desktop &"
 	if desktop_session == "i3" then
-		cmd = string.format("i3-msg workspace 2 & XDG_CURRENT_DESKTOP=gnome %s", cmd)
+		local msg = sys("i3-msg '[class=\"^TelegramDesktop$\"] focus'")
+		if not string.match(msg, '"success":true') then
+			os.execute("i3-msg 'workspace 2'")
+			os.execute("XDG_CURRENT_DESKTOP=gnome " .. cmd)
+			os.execute("sleep 1 && i3-msg '[class=\"^TelegramDesktop$\"] focus'")
+		end
+	else
+		os.execute(string.format("wmctrl -a 'Telegram' || %s", cmd))
 	end
-	os.execute(string.format("wmctrl -a 'Telegram' || %s", cmd))
 elseif key == "i" then
 	-- open PhpStorm IDE
 	os.execute(string.format("GDK_SCALE='' %s/PhpStorm/bin/phpstorm.sh &", home))
@@ -62,7 +71,7 @@ elseif key == "b" then
 	end
 elseif key == "v" then
 	-- toggle VPN
-	local conf = string.format("%s/Sync/Work/vpn/wg0-client-pc.conf", home)
+	local conf = home .. "/Sync/Work/vpn/wg0-client-pc.conf"
 	os.execute(string.format("sudo /usr/bin/wg-quick down %s || sudo /usr/bin/wg-quick up %s", conf, conf))
 elseif key == "m" then
 	os.execute("~/movies.sh")
