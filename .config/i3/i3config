@@ -203,9 +203,9 @@ bindsym $mod+t exec --no-startup-id alacritty\
 bindsym $mod+e exec --no-startup-id alacritty --class="nvim" -e "nvim"
 
 # pull dotfiles
-set $pull_cmd "git --git-dir=$HOME/dotfiles --work-tree=$HOME pull && dunstify -t 2000 -a dotfiles Updated || dunstify -t 5000 -a 'dotfiles' 'dotf pull - failed'"
+set $pull_cmd git --git-dir=$HOME/dotfiles --work-tree=$HOME pull && dunstify -t 2000 -a dotfiles Updated || dunstify -t 5000 -a 'dotfiles' 'dotf pull - failed'
 bindsym $mod+p exec --no-startup-id alacritty\
- --class="workspace10-floating" -e /usr/bin/zsh -c $pull_cmd
+ --class="workspace10-floating" -e /usr/bin/zsh -c "$pull_cmd"
 
 # workspaces
 set $ws1 "1"
@@ -327,4 +327,6 @@ exec --no-startup-id /bin/sh -c "secret-tool lookup 'keepass' 'default' | keepas
 exec --no-startup-id /bin/sh -c 'sleep 5 && wmctrl -r KeePassXC -b remove,demands_attention' &
 # translator
 exec --no-startup-id crow &
+# pull ditfiles from github
+exec --no-startup-id $pull_cmd &
 
