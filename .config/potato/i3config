@@ -8,6 +8,19 @@ include ~/.config/i3/i3config
 # screen brightness
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
 # bind workspaces 
 workspace $ws1 output HDMI-0
 workspace $ws2 output DP-1.8
