@@ -24,7 +24,7 @@ exec --no-startup-id "picom -b --backend glx --vsync --xrender-sync-fence"
 # desktop image
 exec --no-startup-id feh --bg-scale ~/wallpapers/w.jpg ~/wallpapers/elliott-engelmann-DjlKxYFJlTc-unsplash.jpg
 # load pre-saved layout and start browser
-exec --no-startup-id i3-msg "workspace $ws1; exec firefox"
+exec --no-startup-id i3-msg "workspace 1; exec firefox"
 # pamac software updates 
 exec --no-startup-id pamac-tray
 # Enable numlock
