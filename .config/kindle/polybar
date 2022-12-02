@@ -58,7 +58,7 @@ font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
 # /usr/share/fonts/truetype/font-awesome/fontawesome-webfont.ttf
 font-2 = "FontAwesome:pixelsize=13;3"
 
-modules-left = i3 pulseaudio backlight-acpi memory cpu 
+modules-left = i3 pulseaudio backlight-acpi memory cpu
 modules-center = xwindow
 modules-right = temperature battery date 
 
@@ -434,6 +434,13 @@ margin-bottom = 0
 type = custom/script
 exec = docker ps -q | wc -l
 interval = 5
+label =  %output%
+
+[module/updates-pacman]
+type = custom/script
+exec = checkupdates 2> /dev/null | wc -l
+interval = 600
 label =  %output%
+
 ; vim:ft=dosini
 
