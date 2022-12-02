@@ -430,5 +430,10 @@ screenchange-reload = true
 margin-top = 0
 margin-bottom = 0
 
+[module/docker]
+type = custom/script
+exec = docker ps -q | wc -l
+interval = 5
+label =  %output%
 ; vim:ft=dosini
 
