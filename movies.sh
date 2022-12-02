@@ -9,6 +9,9 @@ SELECTED=$(find "$START_PATH" -type f \
 	-theme Arc-Dark -dmenu \
 	-dpi $QT_FONT_DPI -sep '|')
 MOVIE="$START_PATH/$SELECTED" 
-[ -f "$MOVIE" ] && mpv \
+if [ -f "$MOVIE" ]; then
+	killall mpv
+	mpv \
 	-alang="ukr,uk,eng,en" -slang="eng,en,ukr,uk" \
 	--fullscreen "$MOVIE"
+fi
