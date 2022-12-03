@@ -61,6 +61,7 @@ gedit
 gettext
 gimp
 git
+git-delta
 gnome-calculator
 gnome-keyring
 gnome-system-monitor

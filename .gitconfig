@@ -1,0 +1,19 @@
+[user]
+	name = coffeebar
+	email = corp@dev.null
+[init]
+	defaultBranch = master
+[core]
+	autocrlf = input
+	pager = delta
+[push]
+	autoSetupRemote = true
+
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	nflictstyle = diff3
+[diff]
+	colorMoved = default

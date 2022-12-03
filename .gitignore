@@ -58,7 +58,6 @@
 .bash_profile
 .dmrc
 .docker/
-.gitconfig
 .lesshst
 .npmrc
 .oh-my-zsh/
