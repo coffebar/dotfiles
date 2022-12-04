@@ -20,6 +20,7 @@ binutils
 bison
 blueman
 bluez
+brightness-controller-git
 brightnessctl
 btrfs-progs
 chromium
