@@ -20,13 +20,13 @@ binutils
 bison
 blueman
 bluez
-brightness-controller-git
 brightnessctl
 btrfs-progs
 chromium
 copyq
 cronie
 crow-translate
+ddcci-driver-linux-dkms
 deepin-icon-theme
 deluge
 deluge-gtk

@@ -6,11 +6,8 @@ include ~/.config/i3/i3config
 # xcompmgr
 
 # screen brightness
-# bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
-# bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-# temporary, while brightnessctl not working
-bindsym XF86MonBrightnessUp exec pgrep brightness || brightness-controller
-bindsym XF86MonBrightnessDown exec pgrep brightness || brightness-controller
+bindsym XF86MonBrightnessUp exec brightnessctl s 1+
+bindsym XF86MonBrightnessDown exec brightnessctl s 1-
 
 
 # workspaces
