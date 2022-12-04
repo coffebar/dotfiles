@@ -33,6 +33,10 @@ vnoremap("<C-p>", '"+p')
 nnoremap("<C-p>", '"+p')
 inoremap("<C-p>", '<esc>"+p')
 
+-- center cursor on scroll
+nnoremap("<C-d>", "<C-d>zz0")
+nnoremap("<C-u>", "<C-u>zz0")
+
 -- quit
 nnoremap("<leader>a", "<cmd>qa!<cr>")
 nnoremap("<leader>ф", "<cmd>qa!<cr>")
