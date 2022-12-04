@@ -11,7 +11,7 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/dev/.task
+data.location=~/.taskdata
 
 include holidays.en-US.rc
 include dark-16.theme
