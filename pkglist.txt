@@ -140,8 +140,9 @@ npm
 ntfs-3g
 ntp
 numlockx
-nvidia-dkms
+nvidia
 nvidia-settings
+nvidia-utils
 nvim-packer-git
 opencl-nvidia
 openvpn
@@ -178,7 +179,6 @@ simplescreenrecorder
 smartmontools
 sshfs
 sudo
-sway-nvidia
 swaybg
 swaylock
 syncthing
