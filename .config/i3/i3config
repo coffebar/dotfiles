@@ -207,6 +207,9 @@ set $pull_cmd git --git-dir=$HOME/dotfiles --work-tree=$HOME pull && dunstify -t
 bindsym $mod+p exec --no-startup-id alacritty\
  --class="workspace10-floating" -e /usr/bin/zsh -c "$pull_cmd"
 
+# show syncthing web ui
+bindsym $mod+s workspace 7; exec --no-startup-id syncthingtray --webui
+
 # workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -257,7 +260,7 @@ assign [class="^jetbrains-phpstorm$"] → $ws3
 assign [class="^Google-chrome$"] → $ws4
 assign [class="^Chromium$"] → $ws4
 assign [class="^Microsoft-edge$"] → $ws5
-assign [class="^XXkb$"] → $ws9
+assign [class="^syncthingtray$"] → $ws7
 assign [class="^KeePassXC$"] → $ws9
 assign [class="^workspace10"] → $ws10
 
