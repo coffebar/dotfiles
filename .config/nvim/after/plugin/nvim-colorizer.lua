@@ -1,4 +1,3 @@
-require("colorizer.sass")
 require("colorizer").setup({
 	filetypes = { "html", "css", "dosini", "javascript", "yaml", "scss", "i3config" },
 	user_default_options = {
