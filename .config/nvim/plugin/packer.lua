@@ -180,6 +180,8 @@ return packer.startup(function(use)
 	})
 	-- tranform Text Case
 	use("johmsalas/text-case.nvim")
+	-- toggle booleans
+	use("nguyenvukhang/nvim-toggler")
 	-- replace in files with regexp
 	use("nvim-pack/nvim-spectre")
 	-- css color visualization
@@ -189,7 +191,7 @@ return packer.startup(function(use)
 	--
 	-- May be interesting:
 	-- amarakon/nvim-cmp-fonts
-	-- axkirillov/easypick.nvim
+	-- axkirillov/easypick.nvim -- easily create Telescope pickers
 	-- saecki/crates.nvim
 	-- mg979/vim-visual-multi
 	-- ThePrimeagen/harpoon
@@ -198,5 +200,12 @@ return packer.startup(function(use)
 	-- vigoux/notifier.nvim
 	-- jose-elias-alvarez/null-ls.nvim
 	-- lifepillar/pgsql.vim
+	-- ThePrimeagen/vim-be-good -- The Game!
+	-- petertriho/nvim-scrollbar
+	-- sindrets/diffview.nvim -- view changes
+	-- akinsho/git-conflict.nvim -- visualise and resolve conflicts
+	-- kevinhwang91/nvim-ufo -- better folds
+	-- uga-rosa/ccc.nvim -- color piker
+	-- klen/nvim-config-local -- secure local config files
 	--
 end)
