@@ -59,6 +59,7 @@
 .dmrc
 .docker/
 .lesshst
+.taskdata
 .npmrc
 .oh-my-zsh/
 .pulse-cookie
