@@ -50,31 +50,17 @@ elseif key == "t" then
 	if desktop_session == "i3" then
 		local msg = sys("i3-msg '[class=\"^TelegramDesktop$\"] focus'")
 		if not string.match(msg, '"success":true') then
-			os.execute("i3-msg 'workspace 2'")
 			os.execute("XDG_CURRENT_DESKTOP=gnome " .. cmd)
 			os.execute("sleep 1 && i3-msg '[class=\"^TelegramDesktop$\"] focus'")
 		end
 	else
 		os.execute(string.format("wmctrl -a 'Telegram' || %s", cmd))
 	end
-elseif key == "i" then
-	-- open PhpStorm IDE
-	os.execute(string.format("GDK_SCALE='' %s/PhpStorm/bin/phpstorm.sh &", home))
-	if desktop_session == "i3" then
-		os.execute("i3-msg workspace 3")
-	end
 elseif key == "b" then
 	-- secondary browser
 	os.execute("wmctrl -a ' - Google Chrome' || chromium &")
-	if desktop_session == "i3" then
-		os.execute("i3-msg workspace 4")
-	end
 elseif key == "v" then
 	-- toggle VPN
 	local conf = home .. "/Sync/Work/vpn/wg0-client-pc.conf"
 	os.execute(string.format("sudo /usr/bin/wg-quick down %s || sudo /usr/bin/wg-quick up %s", conf, conf))
-elseif key == "m" then
-	os.execute("~/movies.sh")
-elseif key == "w" then
-	os.execute("~/work/restore.sh")
 end

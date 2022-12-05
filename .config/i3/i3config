@@ -96,16 +96,26 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1; workspace 1
-bindsym $mod+Shift+2 move container to workspace 2; workspace 2
-bindsym $mod+Shift+3 move container to workspace 3; workspace 3
-bindsym $mod+Shift+4 move container to workspace 4; workspace 4
-bindsym $mod+Shift+5 move container to workspace 5; workspace 5
-bindsym $mod+Shift+6 move container to workspace 6; workspace 6
-bindsym $mod+Shift+7 move container to workspace 7; workspace 7
-bindsym $mod+Shift+8 move container to workspace 8; workspace 8
-bindsym $mod+Shift+9 move container to workspace 9; workspace 9
-bindsym $mod+Shift+0 move container to workspace 10; workspace 10
+bindsym $mod+Shift+1 move --no-auto-back-and-forth container to workspace 1;\
+ workspace --no-auto-back-and-forth 1
+bindsym $mod+Shift+2 move --no-auto-back-and-forth container to workspace 2;\
+ workspace --no-auto-back-and-forth 2
+bindsym $mod+Shift+3 move --no-auto-back-and-forth container to workspace 3;\
+ workspace --no-auto-back-and-forth 3
+bindsym $mod+Shift+4 move --no-auto-back-and-forth container to workspace 4;\
+ workspace --no-auto-back-and-forth 4
+bindsym $mod+Shift+5 move --no-auto-back-and-forth container to workspace 5;\
+ workspace --no-auto-back-and-forth 5
+bindsym $mod+Shift+6 move --no-auto-back-and-forth container to workspace 6;\
+ workspace --no-auto-back-and-forth 6
+bindsym $mod+Shift+7 move --no-auto-back-and-forth container to workspace 7;\
+ workspace --no-auto-back-and-forth 7
+bindsym $mod+Shift+8 move --no-auto-back-and-forth container to workspace 8;\
+ workspace --no-auto-back-and-forth 8
+bindsym $mod+Shift+9 move --no-auto-back-and-forth container to workspace 9;\
+ workspace --no-auto-back-and-forth 9
+bindsym $mod+Shift+0 move --no-auto-back-and-forth container to workspace 10;\
+ workspace --no-auto-back-and-forth 10
 
 # reload the configuration file and restart bar (polybar)
 bindsym $mod+Shift+c exec --no-startup-id i3-msg reload && ./polybar.start.sh &
@@ -140,11 +150,11 @@ bindsym $mod+r mode "resize"
 
 
 # Move to the next/prev workspace on current monitor
-bindsym $alt+Control+Right workspace next_on_output
-bindsym $alt+Control+Left workspace prev_on_output 
+bindsym $alt+Control+Right workspace --no-auto-back-and-forth next_on_output
+bindsym $alt+Control+Left workspace --no-auto-back-and-forth prev_on_output 
 # move workspace to another display
-bindsym $mod+$alt+Right move workspace to output right
-bindsym $mod+$alt+Left move workspace to output left
+bindsym $mod+$alt+Right move --no-auto-back-and-forth workspace to output right
+bindsym $mod+$alt+Left move --no-auto-back-and-forth workspace to output left
 
 # make a screenshot 
 bindsym Print exec --no-startup-id ksnip -r 
@@ -185,14 +195,16 @@ bindsym XF86Explorer exec --no-startup-id "~/lua/wm-keymap.lua f"
 bindcode $mod+51 exec --no-startup-id alacritty -t 'fzf:nvim' -e\
  bash ~/.config/nvim/find_and_edit.sh
 
-# more apps (can be live changed in lua file)
-bindsym $alt+t exec --no-startup-id "~/lua/wm-keymap.lua t"
-bindsym $alt+i exec --no-startup-id "~/lua/wm-keymap.lua i"
-bindsym $alt+b exec --no-startup-id "~/lua/wm-keymap.lua b"
+# more apps
+bindsym $alt+t workspace --no-auto-back-and-forth $ws2; \
+ exec --no-startup-id "~/lua/wm-keymap.lua t"
+bindsym $alt+i workspace --no-auto-back-and-forth $ws3; \
+ exec --no-startup-id GDK_SCALE='' ~/PhpStorm/bin/phpstorm.sh &
+bindsym $alt+b workspace --no-auto-back-and-forth $ws4; \
+ exec --no-startup-id "~/lua/wm-keymap.lua b"
 bindsym $alt+v exec --no-startup-id "~/lua/wm-keymap.lua v"
-bindsym $alt+m exec --no-startup-id "~/lua/wm-keymap.lua m"
-bindsym $alt+w exec --no-startup-id "~/lua/wm-keymap.lua w"
-
+bindsym $alt+m exec --no-startup-id "~/movies.sh"
+bindsym $alt+w exec --no-startup-id "~/work/restore.sh"
 bindsym $alt+c exec --no-startup-id copyq show
 
 # todolist
@@ -203,12 +215,14 @@ bindsym $mod+t exec --no-startup-id alacritty\
 bindsym $mod+e exec --no-startup-id alacritty --class="nvim" -e "nvim"
 
 # pull dotfiles
-set $pull_cmd git --git-dir=$HOME/dotfiles --work-tree=$HOME pull && dunstify -t 2000 -a dotfiles Updated || dunstify -t 5000 -a 'dotfiles' 'dotf pull - failed'
+set $pull_cmd git --git-dir=$HOME/dotfiles --work-tree=$HOME pull &&\
+ dunstify -t 2000 -a dotfiles Updated || dunstify -t 5000 -a 'dotfiles' 'dotf pull - failed'
 bindsym $mod+p exec --no-startup-id alacritty\
  --class="workspace10-floating" -e /usr/bin/zsh -c "$pull_cmd"
 
 # show syncthing web ui
-bindsym $mod+s workspace 7; exec --no-startup-id syncthingtray --webui
+bindsym $mod+s workspace --no-auto-back-and-forth $ws7;\
+ exec --no-startup-id syncthingtray --webui
 
 # workspaces
 set $ws1 "1"
@@ -277,7 +291,7 @@ for_window [class="^Gnome-calculator$"] floating enable, border pixel 0
 for_window [class="^Xreader$"] floating enable, border pixel 0
 for_window [class="^jetbrains" title="^Diff Between '"] floating enable, border pixel 0
 # for_window [class="^Telegram" title="Media viewer"] move window to output left
-for_window [class="^Telegram" title="Save "] move window to workspace "2" 
+for_window [class="^Telegram" title="Save "] move --no-auto-back-and-forth window to workspace "2" 
 for_window [class="^jetbrains-phpstorm$" title="License Expired"] kill 
 # workaround @link https://bugzilla.mozilla.org/show_bug.cgi?id=686747
 for_window [class="firefox"] resize grow height 1 px or 1 ppt
