@@ -26,7 +26,7 @@ au("DirChanged", {
 			local cwd = vim.fn.getcwd()
 			local confirm = "Do you trust " .. cwd .. "/" .. rc .. "?"
 			if vim.fn.confirm(confirm, "Yes\nNo") == 1 then
-				vim.api.nvim_command("source .vimrc.lua")
+				vim.api.nvim_command("source " .. rc)
 			end
 		end
 	end,
