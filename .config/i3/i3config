@@ -322,7 +322,7 @@ exec --no-startup-id /bin/bash ~/Downloads/Telegram\ Desktop/unzip_here.sh &
 # telegram messanger
 exec --no-startup-id XDG_CURRENT_DESKTOP=gnome telegram-desktop &
 # Start KeePassXC with unlocking password # see https://github.com/keepassxreboot/keepassxc/issues/1267
-exec --no-startup-id /bin/sh -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin ~/Sync/Work/lastpass.kdbx" &
+exec --no-startup-id /bin/sh -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin ~/KeePass/database.kdbx" &
 # remove "urgency" from KeePassXC on startup
 exec --no-startup-id /bin/sh -c 'sleep 5 && wmctrl -r KeePassXC -b remove,demands_attention' &
 # translator
