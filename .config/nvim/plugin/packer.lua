@@ -188,6 +188,8 @@ return packer.startup(function(use)
 	use("NvChad/nvim-colorizer.lua")
 	-- auto close tags
 	use("windwp/nvim-ts-autotag")
+	-- scrollbar, supports gitsigns and custom handlers
+	use("petertriho/nvim-scrollbar")
 	--
 	-- May be interesting:
 	-- amarakon/nvim-cmp-fonts
@@ -201,7 +203,6 @@ return packer.startup(function(use)
 	-- jose-elias-alvarez/null-ls.nvim
 	-- lifepillar/pgsql.vim
 	-- ThePrimeagen/vim-be-good -- The Game!
-	-- petertriho/nvim-scrollbar
 	-- sindrets/diffview.nvim -- view changes
 	-- akinsho/git-conflict.nvim -- visualise and resolve conflicts
 	-- kevinhwang91/nvim-ufo -- better folds
