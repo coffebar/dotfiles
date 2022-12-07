@@ -180,8 +180,6 @@ simplescreenrecorder
 smartmontools
 sshfs
 sudo
-swaybg
-swaylock
 syncthing
 syncthingtray
 systemd-resolvconf
