@@ -147,3 +147,12 @@ au("FileType", {
 	end,
 	group = vim.api.nvim_create_augroup("aux_win_close", {}),
 })
+
+au("TermOpen", {
+	callback = function()
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+	end,
+	desc = "Disable line numbers in terminal",
+	group = augroup,
+})
