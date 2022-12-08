@@ -11,8 +11,10 @@ if installed then
 
 	local Autoload = require("session_manager.config").AutoloadMode
 	local mode = Autoload.LastSession -- Possible values: Disabled, CurrentDir, LastSession
+	local enabled = true
 	if contains(vim.v.argv, "SearchInHome") then
 		mode = Autoload.Disabled
+		enabled = false
 	elseif vim.fn.isdirectory(".git") == 1 then
 		mode = Autoload.CurrentDir
 	end
@@ -21,7 +23,7 @@ if installed then
 		path_replacer = "__", -- The character to which the path separator will be replaced for session files.
 		colon_replacer = "++", -- The character to which the colon symbol will be replaced for session files.
 		autoload_mode = mode, -- Define what to do when Neovim is started without arguments.
-		autosave_last_session = true, -- Automatically save last session on exit and on session switch.
+		autosave_last_session = enabled, -- Automatically save last session on exit and on session switch.
 		autosave_ignore_not_normal = true, -- Plugin will not save a session when no buffers are opened, or all of them aren't writable or listed.
 		autosave_ignore_dirs = {
 			vim.fn.expand("~"),
@@ -32,7 +34,7 @@ if installed then
 			"gitcommit",
 			"qf",
 		},
-		autosave_only_in_session = false, -- Always autosaves session. If true, only autosaves after a session is active.
-		max_path_length = 80, -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
+		autosave_only_in_session = true, -- Always autosaves session. If true, only autosaves after a session is active.
+		max_path_length = 150, -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
 	})
 end
