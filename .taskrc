@@ -20,3 +20,4 @@ news.version=2.6.0
 weekstart=Monday
 calendar.details=full
 calendar.holidays=full
+displayweeknumber=0
