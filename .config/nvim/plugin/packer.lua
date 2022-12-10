@@ -191,7 +191,6 @@ return packer.startup(function(use)
 	-- ThePrimeagen/vim-be-good -- The Game!
 	-- akinsho/git-conflict.nvim -- visualise and resolve conflicts
 	-- kevinhwang91/nvim-ufo -- better folds
-	-- uga-rosa/ccc.nvim -- color piker
 	-- klen/nvim-config-local -- secure local config files
 	--
 end)
