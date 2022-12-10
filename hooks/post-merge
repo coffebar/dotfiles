@@ -8,9 +8,9 @@ PREV_MEGRE_ID=$(dotf reflog -n 2 | tail -1 | rg -oP "^\w+")
 CHANGED_FILES=$(dotf diff --name-only $PREV_MEGRE_ID HEAD)
 
 # install-update hooks
-echo $PREV_MEGRE_ID | rg "^hooks/" && \
+echo $CHANGED_FILES | rg "^hooks/" && \
 	cp -f ~/hooks/* ~/dotfiles/hooks/
 
 # update installed nvim plugins
-echo $PREV_MEGRE_ID | rg "^.config/nvim/plugin/packer.lua" && \
+echo $CHANGED_FILES | rg "^.config/nvim/plugin/packer.lua" && \
 	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
