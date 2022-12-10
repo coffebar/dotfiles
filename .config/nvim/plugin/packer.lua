@@ -122,6 +122,7 @@ return packer.startup(function(use)
 	use({ "lewis6991/gitsigns.nvim" })
 	use({ "tpope/vim-fugitive" })
 	use({ "rbong/vim-flog" })
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	-- snippets
 	use("rafamadriz/friendly-snippets")
 	-- tests
@@ -186,7 +187,6 @@ return packer.startup(function(use)
 	-- jose-elias-alvarez/null-ls.nvim
 	-- lifepillar/pgsql.vim
 	-- ThePrimeagen/vim-be-good -- The Game!
-	-- sindrets/diffview.nvim -- view changes
 	-- akinsho/git-conflict.nvim -- visualise and resolve conflicts
 	-- kevinhwang91/nvim-ufo -- better folds
 	-- uga-rosa/ccc.nvim -- color piker

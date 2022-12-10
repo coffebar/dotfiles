@@ -83,6 +83,10 @@ nnoremap("<leader>gr", "<cmd>Gitsigns reset_hunk<cr>")
 nnoremap("<leader>gu", "<cmd>Gitsigns undo_stage_hunk<cr>")
 nnoremap("<leader>gR", "<cmd>Gitsigns reset_buffer<cr>")
 nnoremap("<leader>gp", "<cmd>AsyncRun git push<cr>")
+-- history for current file
+nnoremap("<leader>gh", "<cmd>DiffviewFileHistory %<cr>")
+-- view history for selection
+vnoremap("<leader>gh", "<cmd>'<,'>DiffviewFileHistory<cr>")
 nnoremap("gp", "<cmd>AsyncRun git pull<cr>")
 nnoremap("<leader>gl", "<cmd>Flog -date=short<cr>")
 -- Fugitive
