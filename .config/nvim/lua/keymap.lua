@@ -121,6 +121,7 @@ if has_wk then
 				name = "Copy", -- optional group name
 				l = { '<cmd>let @+=expand("%:p")<cr>', "Copy current buffer's absolute path" },
 				c = { '"+yy', "Copy line to system clipboard" },
+				p = { "<cmd>CccPick<cr>", "Color picker" },
 				s = { "<cmd>so %<cr>", "Source current buffer" },
 			},
 			g = {

@@ -174,6 +174,8 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag")
 	-- scrollbar, supports gitsigns and custom handlers
 	use("petertriho/nvim-scrollbar")
+	-- color piker
+	use("uga-rosa/ccc.nvim")
 	--
 	-- May be interesting:
 	-- amarakon/nvim-cmp-fonts
