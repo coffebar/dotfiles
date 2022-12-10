@@ -8,4 +8,7 @@ require("project_nvim").setup({
 		"~/.node_modules/*",
 		"~/lua",
 	},
+	ignore_lsp = {
+		"sumneko_lua",
+	},
 })
