@@ -76,6 +76,7 @@ return packer.startup(function(use)
 					"~/.cache/*",
 					"~/.cargo/*",
 					"~/.node_modules/*",
+					"~/lua",
 				},
 			})
 		end,
