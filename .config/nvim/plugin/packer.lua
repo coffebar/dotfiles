@@ -57,29 +57,11 @@ return packer.startup(function(use)
 
 	-- use {
 	-- 	"ahmedkhalf/project.nvim",
-	-- 	config = function()
-	-- 		require("project_nvim").setup {
-	-- 			-- configuration comes here
-	-- 		}
-	-- 	end
 	-- }
 
 	use({
 		"coffebar/project.nvim",
 		branch = "session-manager",
-		config = function()
-			require("project_nvim").setup({
-				session_autoload = true,
-				silent_chdir = false,
-				exclude_dirs = {
-					"~/.local/*",
-					"~/.cache/*",
-					"~/.cargo/*",
-					"~/.node_modules/*",
-					"~/lua",
-				},
-			})
-		end,
 	})
 	-- search counter
 	use("google/vim-searchindex")
