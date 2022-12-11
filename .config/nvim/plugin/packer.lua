@@ -180,7 +180,8 @@ return packer.startup(function(use)
 	-- scrollbar, supports gitsigns and custom handlers
 	use("petertriho/nvim-scrollbar")
 	-- color piker
-	use("uga-rosa/ccc.nvim")
+	use({ "coffebar/ccc.nvim", branch = "session_switching_fix" })
+
 	--
 	-- May be interesting:
 	-- amarakon/nvim-cmp-fonts
