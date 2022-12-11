@@ -172,6 +172,11 @@ return packer.startup(function(use)
 	use("NvChad/nvim-colorizer.lua")
 	-- auto close tags
 	use("windwp/nvim-ts-autotag")
+	-- dim unused variables and functions using lsp and treesitter
+	use({
+		"narutoxy/dim.lua",
+		requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
+	})
 	-- scrollbar, supports gitsigns and custom handlers
 	use("petertriho/nvim-scrollbar")
 	-- color piker
