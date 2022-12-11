@@ -1,8 +1,13 @@
--- add <leader>i to invert values:
--- ['true'] = 'false',
--- ['yes'] = 'no',
--- ['on'] = 'off',
--- ['left'] = 'right',
--- ['up'] = 'down',
--- ['!='] = '==',
-require("nvim-toggler").setup()
+-- add <leader>i to invert values
+require("nvim-toggler").setup({
+	inverses = {
+		["0"] = "1",
+		-- defaults:
+		-- ['true'] = 'false',
+		-- ['yes'] = 'no',
+		-- ['on'] = 'off',
+		-- ['left'] = 'right',
+		-- ['up'] = 'down',
+		-- ['!='] = '==',
+	},
+})
