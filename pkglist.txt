@@ -193,6 +193,7 @@ thunar-volman
 timeshift
 timeshift-autosnap
 tlp
+tp_smapi
 traceroute
 ttf-bitstream-vera
 ttf-dejavu
