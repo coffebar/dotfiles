@@ -170,6 +170,19 @@ if has_wk then
 				replace_keycodes = true,
 			},
 			l = { "<cmd>Git log<cr>", "Git log" },
+			F = {
+				function()
+					local path = vim.fn.expand("<cfile>")
+					if path[0] ~= "/" then
+						-- prepend current file's dir
+						local Path = require("plenary.path")
+						local f = vim.fn.expand("%:h")
+						path = Path:new(f .. "/", path)
+					end
+					vim.api.nvim_command("e " .. tostring(path))
+				end,
+				"Create/Edit a file under cursor",
+			},
 		},
 		["<c-left>"] = { "<cmd>vertical resize -5<cr>", "Decrease width" },
 		["<c-right>"] = { "<cmd>vertical resize +5<cr>", "Increase width" },
