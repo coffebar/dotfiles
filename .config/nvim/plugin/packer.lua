@@ -20,7 +20,7 @@ return packer.startup(function(use)
 
 	-- statusline
 	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
-	use({ "kyazdani42/nvim-web-devicons" })
+	use("kyazdani42/nvim-web-devicons")
 	-- i3 config syntax highlighting
 	use("mboughaba/i3config.vim")
 	-- formatter
@@ -119,9 +119,9 @@ return packer.startup(function(use)
 	-- bufferline - tabs with diagnostics indicator
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
 	-- git
-	use({ "lewis6991/gitsigns.nvim" })
-	use({ "tpope/vim-fugitive" })
-	use({ "rbong/vim-flog" })
+	use("lewis6991/gitsigns.nvim")
+	use("tpope/vim-fugitive")
+	use("rbong/vim-flog")
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	-- snippets
 	use("rafamadriz/friendly-snippets")
