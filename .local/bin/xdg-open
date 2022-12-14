@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -f /usr/bin/figma-linux ]; then
+	# open figma URLs in figma app
+	FIGMA_RG='^https?://www\.figma\.com/file'
+	if echo "$1" | pcregrep -q $FIGMA_RG; then
+		/usr/bin/figma-linux ${*}
+		exit 0
+	fi
+fi
+
+/usr/bin/xdg-open ${*}
