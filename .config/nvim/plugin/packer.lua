@@ -196,7 +196,6 @@ return packer.startup(function(use)
 	-- lifepillar/pgsql.vim
 	-- ThePrimeagen/vim-be-good -- The Game!
 	-- akinsho/git-conflict.nvim -- visualise and resolve conflicts
-	-- kevinhwang91/nvim-ufo -- better folds
 	-- klen/nvim-config-local -- secure local config files
 	-- rcarriga/nvim-notify
 	--
