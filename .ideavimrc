@@ -67,6 +67,20 @@ vmap <leader>u <C-u>
 imap jk <Esc>
 imap kj <Esc>
 
+nmap <leader>bb <Action>(CloseEditor)
+nmap <leader>ba <Action>(CloseAllEditors)
+nmap <leader>a <Action>(CloseProject)
+
+nmap <leader>ga <Action>(Git.Add)
+nmap gp <Action>(Git.Pull)
+
+nmap gcc <Action>(CommentByLineComment)
+vmap gc <Action>(CommentByLineComment)
+
+nmap <leader>t <Action>(ActivateTerminalToolWindow)
+nmap <leader>er <Action>(Run)
+
+
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
 
