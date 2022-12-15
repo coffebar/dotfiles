@@ -48,6 +48,7 @@ install_packages_if_needed pyright bash-language-server \
 	prettier prettier-plugin-ssh-config \
 	prettier-plugin-nginx \
 	typescript typescript-language-server \
+	stylefmt \
 	eslint @johnnymorganz/stylua-bin \
 	emmet-ls
 
