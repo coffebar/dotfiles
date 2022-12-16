@@ -32,4 +32,8 @@ exec --no-startup-id numlockx on
 # xfce-polkit
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 
+# redshift
+exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent &
+exec --no-startup-id redshift-gtk &
+
 # vim:filetype=i3config
