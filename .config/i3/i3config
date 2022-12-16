@@ -342,7 +342,7 @@ exec --no-startup-id XDG_CURRENT_DESKTOP=gnome telegram-desktop &
 # Start KeePassXC with unlocking password # see https://github.com/keepassxreboot/keepassxc/issues/1267
 exec --no-startup-id /bin/sh -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin ~/KeePass/database.kdbx" &
 # remove "urgency" from KeePassXC on startup
-exec --no-startup-id /bin/sh -c 'sleep 5 && wmctrl -r KeePassXC -b remove,demands_attention' &
+exec --no-startup-id /bin/sh -c 'until wmctrl -r KeePassXC -b remove,demands_attention; do sleep 1; done'
 # translator
 exec --no-startup-id crow &
 # pull ditfiles from github
