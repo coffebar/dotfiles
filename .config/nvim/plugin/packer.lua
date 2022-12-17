@@ -190,7 +190,6 @@ return packer.startup(function(use)
 	-- axkirillov/easypick.nvim -- easily create Telescope pickers
 	-- saecki/crates.nvim
 	-- mg979/vim-visual-multi
-	-- ThePrimeagen/harpoon
 	-- lukas-reineke/cmp-under-comparator
 	-- vigoux/ltex-ls.nvim
 	-- vigoux/notifier.nvim
