@@ -16,7 +16,7 @@ end
 local nnoremap = bind("n")
 -- local nmap = bind("n", { noremap = false })
 local vnoremap = bind("v")
--- local xnoremap = bind("x")
+local xnoremap = bind("x")
 local inoremap = bind("i")
 local tnoremap = bind("t")
 
@@ -32,6 +32,9 @@ vnoremap("<C-c>", '"+y')
 vnoremap("<C-p>", '"+p')
 nnoremap("<C-p>", '"+p')
 inoremap("<C-p>", '<esc>"+p')
+
+-- keep yank register untouched when pasting text over selection
+xnoremap("p", '"_dP')
 
 -- center cursor on scroll
 nnoremap("<C-d>", "<C-d>zz0")
