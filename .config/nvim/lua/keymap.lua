@@ -167,6 +167,7 @@ if has_wk then
 					"Search current word",
 				},
 			},
+			x = { "<cmd>!chmod +x %<cr>", "Make file executable" },
 		},
 		["<c-h>"] = { require("harpoon.ui").nav_prev, "Harpoon prev item" },
 		["<c-l>"] = { require("harpoon.ui").nav_next, "Harpoon prev item" },
