@@ -181,6 +181,8 @@ return packer.startup(function(use)
 	use("petertriho/nvim-scrollbar")
 	-- color piker
 	use({ "coffebar/ccc.nvim", branch = "session_switching_fix" })
+	-- bookmarks
+	use("ThePrimeagen/harpoon")
 
 	--
 	-- May be interesting:

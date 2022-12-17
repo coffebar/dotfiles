@@ -110,6 +110,7 @@ nnoremap("<leader>eb", "<cmd>AsyncTask project-build<cr>")
 nnoremap("<leader>er", "<cmd>AsyncTask project-run<cr>")
 nnoremap("<leader>ee", "<cmd>call asyncrun#quickfix_toggle(8)<cr>")
 if has_wk then
+	-- Normal mode
 	wk.register({
 		["<leader>"] = {
 			b = {
@@ -147,6 +148,11 @@ if has_wk then
 			s = {
 				p = { "<cmd>so ~/.config/nvim/plugin/packer.lua<cr><cmd>PackerSync<cr>", "Sync Plugins" },
 			},
+			m = {
+				name = "Harpoon",
+				a = { require("harpoon.mark").add_file, "Add file to Harpoon" },
+				m = { require("harpoon.ui").toggle_quick_menu, "Harpoon quick menu" },
+			},
 			r = {
 				name = "Spectre", -- optional group name
 				r = { spectre.open, "Search and Replace in files" },
@@ -159,6 +165,8 @@ if has_wk then
 				},
 			},
 		},
+		["<c-h>"] = { require("harpoon.ui").nav_prev, "Harpoon prev item" },
+		["<c-l>"] = { require("harpoon.ui").nav_next, "Harpoon prev item" },
 		g = {
 			aa = { "<cmd>TextCaseOpenTelescope<CR>", "Text Case (Telescope)" },
 			c = {
@@ -217,6 +225,7 @@ if has_wk then
 			replace_keycodes = true,
 		},
 	}, { mode = "n" })
+	-- Visual mode
 	wk.register({
 		["<leader>"] = {
 			r = {
