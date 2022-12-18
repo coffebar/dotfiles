@@ -347,4 +347,6 @@ exec --no-startup-id /bin/sh -c 'until wmctrl -r KeePassXC -b remove,demands_att
 exec --no-startup-id crow &
 # pull ditfiles from github
 exec --no-startup-id $pull_cmd &
-
+# redshift
+exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent &
+exec --no-startup-id redshift-gtk &

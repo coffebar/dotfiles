@@ -168,6 +168,7 @@ poedit
 polkit-kde-agent
 polybar
 python-pip
+redshift-gtk-git
 ripgrep
 rofi
 rsibreak
