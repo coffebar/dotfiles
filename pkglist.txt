@@ -146,6 +146,7 @@ nvidia
 nvidia-settings
 nvidia-utils
 nvim-packer-git
+obsidian
 opencl-nvidia
 openvpn
 p7zip
