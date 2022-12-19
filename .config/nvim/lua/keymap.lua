@@ -185,7 +185,7 @@ if has_wk then
 			F = {
 				function()
 					local path = vim.fn.expand("<cfile>")
-					if path[0] ~= "/" then
+					if not string.find(path, "^[~/]") then
 						-- prepend current file's dir
 						local Path = require("plenary.path")
 						local f = vim.fn.expand("%:h")
