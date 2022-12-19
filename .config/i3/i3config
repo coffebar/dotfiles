@@ -148,6 +148,14 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+set $mode_vpn "VPN toggle: 1 - wireguard, 2 - openvpn"
+mode $mode_vpn {
+	bindsym 1 exec --no-startup-id ~/lua/wg.lua , mode "default"
+	bindsym 2 exec --no-startup-id ~/lua/openvpn.lua, mode "default"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
 
 # Move to the next/prev workspace on current monitor
 bindsym $alt+Control+Right workspace --no-auto-back-and-forth next_on_output
@@ -196,16 +204,16 @@ bindcode $mod+51 exec --no-startup-id alacritty -t 'fzf:nvim' -e\
  bash ~/.config/nvim/find_and_edit.sh
 
 # more apps
+bindsym $alt+b workspace --no-auto-back-and-forth $ws4; \
+ exec --no-startup-id "~/lua/wm-keymap.lua b"
+bindsym $alt+c exec --no-startup-id copyq show
 bindsym $alt+t workspace --no-auto-back-and-forth $ws2; \
  exec --no-startup-id "~/lua/wm-keymap.lua t"
 bindsym $alt+i workspace --no-auto-back-and-forth $ws3; \
  exec --no-startup-id GDK_SCALE='' ~/PhpStorm/bin/phpstorm.sh &
-bindsym $alt+b workspace --no-auto-back-and-forth $ws4; \
- exec --no-startup-id "~/lua/wm-keymap.lua b"
-bindsym $alt+v exec --no-startup-id "~/lua/wm-keymap.lua v"
 bindsym $alt+m exec --no-startup-id "~/movies.sh"
+bindsym $alt+v mode $mode_vpn
 bindsym $alt+w exec --no-startup-id "~/work/restore.sh"
-bindsym $alt+c exec --no-startup-id copyq show
 
 # todolist
 bindsym $mod+t exec --no-startup-id alacritty\

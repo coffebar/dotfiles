@@ -59,8 +59,4 @@ elseif key == "t" then
 elseif key == "b" then
 	-- secondary browser
 	os.execute("wmctrl -a ' - Google Chrome' || chromium &")
-elseif key == "v" then
-	-- toggle VPN
-	local conf = home .. "/Sync/Work/vpn/wg0-client-pc.conf"
-	os.execute(string.format("sudo /usr/bin/wg-quick down %s || sudo /usr/bin/wg-quick up %s", conf, conf))
 end
