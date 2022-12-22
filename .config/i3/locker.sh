@@ -1,7 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
-# lock screen with i3lock
-#### i3lock -c000000 --show-failed-attempts && sleep 1
+# exit fullscreen from mpv before lock screen
+/usr/bin/xdotool key \
+	--clearmodifiers \
+	--window "$(/usr/bin/xdotool search --onlyvisible --class mpv)" Escape
+
+# locker
 XSECURELOCK_COMPOSITE_OBSCURER=0 XSECURELOCK_SHOW_USERNAME=0 \
 	XSECURELOCK_SHOW_HOSTNAME=0 XSECURELOCK_SHOW_DATETIME=1 \
 	XSECURELOCK_PASSWORD_PROMPT=kaomoji xsecurelock
