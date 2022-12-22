@@ -1,7 +1,7 @@
 #!/bin/bash
 START_PATH=$HOME/Downloads
 SELECTED=$(find "$START_PATH" -type f \
-	\( -name '*.mp4' -o -name '*.mkv' \) \
+	\( -name '*.mp4' -o -name '*.mkv' -o -name '*.avi' \) \
 	-not -path '*/Telegram Desktop/*' \
 	-size +100M \
 	-printf '%P|' \
