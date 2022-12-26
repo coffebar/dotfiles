@@ -179,6 +179,7 @@ rustup
 sdl_ttf
 seahorse
 sed
+shellcheck
 simplescreenrecorder
 smartmontools
 sshfs
