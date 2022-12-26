@@ -1,5 +1,5 @@
 #!/bin/bash
-START_PATH=$HOME/Downloads
+START_PATH=$HOME/Downloads/Movies/
 SELECTED=$(find "$START_PATH" -type f \
 	\( -name '*.mp4' -o -name '*.mkv' -o -name '*.avi' \) \
 	-not -path '*/Telegram Desktop/*' \
