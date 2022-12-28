@@ -157,7 +157,6 @@ patch
 pavucontrol
 perl-anyevent-i3
 php
-phpactor
 pipewire
 pipewire-alsa
 pipewire-jack

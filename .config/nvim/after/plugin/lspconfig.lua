@@ -116,11 +116,6 @@ lspconfig.pyright.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 })
--- php, requires phpactor
-lspconfig.phpactor.setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-})
 -- markdown, requires ltex-ls
 lspconfig.ltex.setup({
 	on_attach = on_attach,
@@ -178,6 +173,11 @@ lspconfig.jsonls.setup({
 })
 -- go
 lspconfig.gopls.setup({
+	on_attach = on_attach,
+	flags = lsp_flags,
+})
+-- php
+lspconfig.intelephense.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 })

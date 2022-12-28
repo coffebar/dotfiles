@@ -1,26 +1,26 @@
 #!/bin/bash
-if cat /etc/os-release | grep Ubuntu ; then
+if grep Ubuntu /etc/os-release; then
 	echo "Ubuntu is not supported for now. Reason: snap version has broken tree-sitter, apt version is too old for tree-sitter"
-	exit -1
-	sudo apt install -y git rsync npm ripgrep neovim
-	sudo snap install go --classic
-	git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-		~/.local/share/nvim/site/pack/packer/start/packer.nvim
+	exit 1
+	# sudo apt install -y git rsync npm ripgrep neovim
+	# sudo snap install go --classic
+	# git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+	# 	~/.local/share/nvim/site/pack/packer/start/packer.nvim
 else
-	yay --version || exit -1
+	yay --version || exit 1
 	echo "Using yay to install required packages"
 	# packages from arch repo
 	PKG=(neovim go npm rust-analyzer lua-language-server fd ripgrep xclip)
 	# packages from AUR
-	PKG_AUR=(ltex-ls-bin phpactor nvim-packer-git)
+	PKG_AUR=(ltex-ls-bin nvim-packer-git)
 	# chech all packages if installed
 	# to avoid asking for sudo if nothing will be installed
 	TO_INSTALL=()
 	for pn in "${PKG[@]}"; do
-		yay -Q | grep "$pn " || TO_INSTALL+=($pn)
+		yay -Q | grep "$pn " || TO_INSTALL+=("$pn")
 	done
 	for pn in "${PKG_AUR[@]}"; do
-		yay -Qm | grep "$pn " || TO_INSTALL+=($pn)
+		yay -Qm | grep "$pn " || TO_INSTALL+=("$pn")
 	done
 	# install all at once
 	[ "${#TO_INSTALL[@]}" -eq 0 ] || yay -Sy --needed "${TO_INSTALL[@]}"
@@ -48,7 +48,7 @@ install_packages_if_needed pyright bash-language-server \
 	prettier prettier-plugin-ssh-config \
 	prettier-plugin-nginx \
 	typescript typescript-language-server \
-	stylefmt \
+	stylefmt intelephense \
 	eslint @johnnymorganz/stylua-bin \
 	emmet-ls
 
