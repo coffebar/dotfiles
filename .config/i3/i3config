@@ -283,6 +283,7 @@ assign [class="^jetbrains-phpstorm$"] → $ws3
 assign [class="^Google-chrome$"] → $ws4
 assign [class="^Chromium$"] → $ws4
 assign [class="^Microsoft-edge$"] → $ws5
+assign [class="^thunderbird$"] → $ws6
 assign [class="^syncthingtray$"] → $ws7
 assign [class="^KeePassXC$"] → $ws9
 assign [class="^workspace10"] → $ws10
@@ -290,7 +291,6 @@ assign [class="^workspace10"] → $ws10
 # per app rules
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
-for_window [class="Shutter"] floating enable, move position center
 for_window [class="ksnip"] floating enable, move position center
 for_window [class="^copyq$"] floating enable, move position center
 for_window [class="(?i)virtualbox"] floating enable
