@@ -193,6 +193,7 @@ texlive-core
 thunar
 thunar-archive-plugin
 thunar-volman
+thunderbird
 timeshift
 timeshift-autosnap
 tlp
