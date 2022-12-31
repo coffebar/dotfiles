@@ -58,5 +58,5 @@ elseif key == "t" then
 	end
 elseif key == "b" then
 	-- secondary browser
-	os.execute("wmctrl -a ' - Google Chrome' || chromium &")
+	os.execute("wmctrl -a 'Mozilla Firefox' || firefox -P default-release &")
 end

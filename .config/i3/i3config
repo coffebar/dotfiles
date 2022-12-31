@@ -204,7 +204,7 @@ bindcode $mod+51 exec --no-startup-id alacritty -t 'fzf:nvim' -e\
  bash ~/.config/nvim/find_and_edit.sh
 
 # more apps
-bindsym $alt+b workspace --no-auto-back-and-forth $ws4; \
+bindsym $alt+b workspace --no-auto-back-and-forth $ws1; \
  exec --no-startup-id "~/lua/wm-keymap.lua b"
 bindsym $alt+c exec --no-startup-id copyq show
 bindsym $alt+t workspace --no-auto-back-and-forth $ws2; \
