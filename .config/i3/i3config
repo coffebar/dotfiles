@@ -214,8 +214,6 @@ bindsym $alt+i workspace --no-auto-back-and-forth $ws3; \
 bindsym $alt+m exec --no-startup-id "~/movies.sh"
 bindsym $alt+v mode $mode_vpn
 bindsym $alt+w exec --no-startup-id "~/work/restore.sh"
-bindsym $alt+e workspace --no-auto-back-and-forth $ws6; \
- exec --no-startup-id thunderbird &
 
 # todolist
 bindsym $mod+t exec --no-startup-id alacritty\
