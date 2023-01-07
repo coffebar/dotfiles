@@ -33,7 +33,7 @@ workspace $ws9 output DP-1.8
 # window compositor 
 exec --no-startup-id "xcompmgr -n &"
 # input-remapper to remap custom mouse buttons and to emulate some keypresses
-# requere: systemctl enable input-remapper
+# require: systemctl enable input-remapper
 exec --no-startup-id input-remapper-control --command autoload --config-dir "~/.config/input-remapper/"
 # desktop image
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/bridge.jpg
