@@ -1,10 +1,12 @@
 local lspconfig = require("lspconfig")
-local saga = require("lspsaga")
 
-saga.setup({
+require("lspsaga").setup({
 	lightbulb = {
 		enable = false,
 		enable_in_insert = false,
+	},
+	symbol_in_winbar = {
+		enable = false,
 	},
 })
 
