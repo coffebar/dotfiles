@@ -41,10 +41,8 @@ Note: before proceed you need to create or restore ssh keys and install git
 
 ### Download config files and install packages from AUR
 ```bash
-git clone --depth=1 git@github.com:coffebar/dotfiles.git dotfiles_tmp
-rsync -rv --exclude '.git' --exclude 'README.MD' --exclude '.gitignore' ./dotfiles_tmp/ ./ 
-
-rm -rf ./dotfiles_tmp/
+git clone --bare git@github.com:coffebar/dotfiles.git dotfiles
+git --git-dir=$HOME/dotfiles --work-tree=$HOME config --local core.worktree $HOME
 
 # install yay
 pacman -S --needed git base-devel
@@ -58,10 +56,16 @@ yay -Y --gendb
 yay -S --needed - < pkglist.txt
 
 # enable services
-sudo systemctl enable --now input-remapper docker tlp ufw
+sudo systemctl enable --now input-remapper docker tlp ufw bluetooth systemd-resolved.service autorandr
+# add firewall rule
+sudo ufw default deny incoming
+sudo ufw allow syncthing
+sudo ufw enable
 
 # install ohmyzsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 # copy ksnip config
 cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf

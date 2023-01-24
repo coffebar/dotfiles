@@ -1,14 +1,4 @@
-# ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
-# exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
-
-# the default umask is set in /etc/profile; for setting the umask
-# for ssh logins, install and configure the libpam-umask package.
-#umask 022
-
-export XDG_SESSION_OPT="potato"
+export XDG_SESSION_OPT="crab"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -36,3 +26,11 @@ PATH="$HOME/.node/bin:$PATH:$NPM_PACKAGES/bin:$HOME/.node_modules/bin:$HOME/go/b
 NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
 MANPATH="$HOME/.node/share/man:$NPM_PACKAGES/share/man:$MANPATH"
 
+if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+    export MOZ_ENABLE_WAYLAND=1
+    export _JAVA_AWT_WM_NONREPARENTING=1
+    export QT_QPA_PLATFORM=wayland-egl
+    export GDK_BACKEND=wayland,x11
+    export SDL_VIDEODRIVER=wayland
+    export XKB_DEFAULT_OPTIONS=caps:backspace
+fi

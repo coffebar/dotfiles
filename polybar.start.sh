@@ -5,7 +5,11 @@
 if [[ "$XDG_SESSION_OPT" == "kindle" ]]; then
 	source $HOME/.config/kindle/polybar.sh
 	exit
-else
-	source $HOME/.config/potato/polybar.sh
 fi
+if [[ "$XDG_SESSION_OPT" == "crab" ]]; then
+	source $HOME/.config/kindle/polybar.sh
+	exit
+fi
+
+source $HOME/.config/potato/polybar.sh
 

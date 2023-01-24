@@ -6,7 +6,6 @@
 # autotiling
 # copyq
 # dunst
-# feh
 # kbdd
 # ksnip
 # network-manager-applet
@@ -338,7 +337,7 @@ exec --no-startup-id copyq
 exec --no-startup-id autotiling &
 
 # touchpad gestures: https://github.com/bulletmark/libinput-gestures
-exec --no-startup-id systemctl start --user libinput-gestures.service 
+exec --no-startup-id systemctl start --user libinput-gestures.service
 
 # audio tray icon
 exec --no-startup-id pasystray &
