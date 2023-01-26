@@ -5,9 +5,8 @@ include ~/.config/i3/i3config
 # input-remapper-git
 # picom
 
-# screen brightness # fixme!
-bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
-bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl s 10%+
+bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 
 
 # workspaces
@@ -46,7 +45,5 @@ exec --no-startup-id alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 # browser
 exec --no-startup-id firefox &
-# fix brightness control step for fn keys
-exec --no-startup-id intel_backlight_brightness_step &
 
 # vim:filetype=i3config
