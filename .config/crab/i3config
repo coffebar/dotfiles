@@ -44,6 +44,9 @@ exec --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg "workspace --no-auto-back
 exec --no-startup-id alacritty -t Terminal -e bash -c "~/PycharmProjects/desktop-utils/ssl.sh;zsh"
 # polkit-kde-agent
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
+# browser
 exec --no-startup-id firefox &
+# fix brightness control step for fn keys
+exec --no-startup-id intel_backlight_brightness_step &
 
 # vim:filetype=i3config

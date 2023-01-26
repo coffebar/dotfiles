@@ -83,6 +83,7 @@ inotify-tools
 input-remapper-git
 intel-media-driver
 intel-ucode
+intel_backlight_brightness_step
 iwd
 jq
 kbdd-git
