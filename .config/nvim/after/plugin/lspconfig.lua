@@ -52,6 +52,14 @@ local on_attach = function(client, bufnr)
 	-- force to use Formatter plugin for this client
 	local force_formatter = client.name == "sumneko_lua" or client.name == "tsserver"
 
+	if client.name == "intelephense" then
+		-- force use prettier for blade.php files, not for php
+		local bufname = vim.api.nvim_buf_get_name(bufnr)
+		if string.match(bufname, ".blade.php$") then
+			force_formatter = true
+		end
+	end
+
 	if client.server_capabilities.documentFormattingProvider and not force_formatter then
 		vim.keymap.set("v", "=", function()
 			vim.lsp.buf.format({})

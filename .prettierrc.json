@@ -13,6 +13,13 @@
 				"parser": "nginx",
 				"tabWidth": 2
 			}
+		},
+		{
+			"files": "*.blade.php",
+			"options": {
+				"parser": "blade",
+				"tabWidth": 2
+			}
 		}
 	]
 }

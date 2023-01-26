@@ -50,6 +50,7 @@ install_packages_if_needed pyright bash-language-server \
 	typescript typescript-language-server \
 	stylefmt intelephense \
 	eslint @johnnymorganz/stylua-bin \
+	@shufo/prettier-plugin-blade \
 	emmet-ls
 
 go version && go install golang.org/x/tools/gopls@latest
