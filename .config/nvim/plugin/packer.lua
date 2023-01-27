@@ -177,8 +177,6 @@ return packer.startup(function(use)
 		"narutoxy/dim.lua",
 		requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
 	})
-	-- scrollbar, supports gitsigns and custom handlers
-	use("petertriho/nvim-scrollbar")
 	-- color piker
 	use({ "coffebar/ccc.nvim", branch = "session_switching_fix" })
 	-- bookmarks
