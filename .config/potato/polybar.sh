@@ -2,9 +2,8 @@ killall polybar
 
 PROF=$(autorandr --current)
 if [ -z $PROF ] && ! [ -z $1 ]; then
-	# try harder to find profile if script called with any arg 
+    # try harder to find profile if script called with any arg
     PROF=$(autorandr | grep '(detected)')
-	echo $1
 fi
 if [ -z $PROF ]; then
     exit 0
@@ -18,6 +17,6 @@ if [[ $PROF == *'dock'* ]]; then
     sleep 3
     MONITOR=$FIRST_MONITOR polybar --config=$CONF --reload second &
 else
-    polybar --reload --config=~/.config/potato/polybar.ini example &
+    polybar --reload --config=~/.config/potato/polybar.ini potato &
 fi
 
