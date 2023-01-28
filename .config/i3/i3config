@@ -197,6 +197,9 @@ bindsym Control+F12 exec --no-startup-id bash ~/toggle_headphones.sh
 # mute microphone
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+# mute speakers
+bindsym XF86AudioMute exec --no-startup-idpactl set-sink-mute @DEFAULT_SINK@ toggle 
+
 # file browser
 bindsym $alt+f exec --no-startup-id "~/lua/wm-keymap.lua f"
 bindsym XF86Explorer exec --no-startup-id "~/lua/wm-keymap.lua f"
