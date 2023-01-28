@@ -1,11 +1,11 @@
-require("commands")
-require("opt")
-require("keymap") -- keymap goes after mapleader
-require("filetype")
+require("coffebar.commands")
+require("coffebar.opt")
+require("coffebar.keymap") -- keymap goes after mapleader
+require("coffebar.filetype")
 
 if vim.env.TERM == "linux" then
 	-- without GUI
-	require("tty")
+	require("coffebar.tty")
 else
-	require("colorscheme")
+	require("coffebar.colorscheme")
 end
