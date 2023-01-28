@@ -1,5 +1,6 @@
 #!/usr/bin/env lua
 
+local sys = require("lua.coffebar.sys").sys
 -- Alt + key pressed, key passed as arg
 local key = arg[1]
 
@@ -7,14 +8,6 @@ local home = os.getenv("HOME")
 local desktop_session = os.getenv("XDG_CURRENT_DESKTOP")
 if desktop_session and string.match(desktop_session, "i3") then
 	desktop_session = "i3"
-end
-
--- retrieve system command output
-local function sys(cmd)
-	local handle = assert(io.popen(cmd, "r"))
-	local output = assert(handle:read("*a"))
-	handle:close()
-	return string.gsub(output, "%s+$", "")
 end
 
 local function dir_exists(path)
