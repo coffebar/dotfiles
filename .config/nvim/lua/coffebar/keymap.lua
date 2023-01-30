@@ -107,6 +107,7 @@ nnoremap("<leader>p", "<cmd>Telescope projects<cr>")
 nnoremap("<leader>F", "<cmd>SearchInHome<cr>") -- open file and edit
 -- NeoTree
 nnoremap("<leader>n", "<cmd>NeoTreeFocusToggle<cr>")
+nnoremap("<leader>N", "<cmd>Neotree reveal<cr>")
 nnoremap("=", "<cmd>Format<cr>")
 -- AsyncTask
 nnoremap("<leader>eb", "<cmd>AsyncTask project-build<cr>")
