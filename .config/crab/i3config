@@ -23,11 +23,11 @@ set $ws10 "10"
 
 # bind workspaces 
 workspace $ws1 output HDMI1
-workspace $ws2 output DP2.8
-workspace $ws3 output DP2.8 
+workspace $ws2 output DP3.8
+workspace $ws3 output DP3.8 
 workspace $ws4 output HDMI1
 workspace $ws5 output HDMI1
-workspace $ws9 output DP2.8 
+workspace $ws9 output DP3.8 
 
 # window compositor 
 exec --no-startup-id "picom -b --no-fading-openclose --frame-opacity 1 --inactive-opacity 1 --fade-in-step=1 --fade-out-step=1 --fade-delta=0"
