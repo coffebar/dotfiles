@@ -19,7 +19,7 @@ export EDITOR=nvim
 # 	export QT_FONT_DPI=200
 # fi
 
-if [ -f $HOME/.config/potato/.profile ]; then
+if [ -f $HOME/.config/crab/.profile ]; then
 	# env variables ($PATH)
     source $HOME/.config/crab/.profile
 fi
