@@ -19,6 +19,7 @@ bind
 bison
 blueman
 bluez
+breeze
 brightnessctl
 btrfs-progs
 chromium
@@ -55,6 +56,7 @@ fuseiso
 fwupd
 gcc
 gedit
+geoipupdate
 gimp
 git
 git-delta
@@ -128,6 +130,7 @@ neovim
 network-manager-applet
 networkmanager
 networkmanager-openvpn
+nmap
 nodejs
 noise-suppression-for-voice
 noto-fonts
