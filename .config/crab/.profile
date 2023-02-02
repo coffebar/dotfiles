@@ -33,4 +33,5 @@ if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
     export GDK_BACKEND=wayland,x11
     export SDL_VIDEODRIVER=wayland
     export XKB_DEFAULT_OPTIONS=caps:backspace
+    export GTK_THEME=Arc:dark
 fi

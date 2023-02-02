@@ -3,6 +3,7 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
     exec startx > /dev/null
 fi
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 2 ] && [ -f /usr/bin/Hyprland ]; then
+		XDG_SESSION_TYPE="wayland"
 		if [ -f $HOME/.config/crab/.profile ]; then
 				source $HOME/.config/crab/.profile
 		fi
