@@ -164,7 +164,7 @@ bindsym $mod+$alt+Right move --no-auto-back-and-forth workspace to output right
 bindsym $mod+$alt+Left move --no-auto-back-and-forth workspace to output left
 
 # make a screenshot 
-bindsym Print exec --no-startup-id ksnip -r 
+bindsym Print exec --no-startup-id ksnip -r
 # start ksnip or open an editor window
 bindsym $mod+Print exec --no-startup-id ksnip
 

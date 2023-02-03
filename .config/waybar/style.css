@@ -38,7 +38,7 @@
 #workspaces button.visible {
 }
 
-#workspaces button.focused {
+#workspaces button.active {
   border-radius: 4px;
   background-color: @base02;
 }
