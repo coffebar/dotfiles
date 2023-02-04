@@ -15,9 +15,6 @@ bindsym --whole-window button9 exec "xte 'keydown Control_L' 'keydown v' 'keyup 
 # screen brightness
 bindsym XF86MonBrightnessUp exec  --no-startup-id sudo light -A 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec  --no-startup-id sudo light -U 10 # decrease screen brightness
-# dell keyboard FN keys
-bindcode 121 exec --no-startup-id amixer -D pulse set Master 1+ toggle
-bindcode --release 248 fullscreen toggle
 
 # window compositor 
 exec --no-startup-id "picom -b --backend glx --vsync --xrender-sync-fence"
