@@ -4,6 +4,7 @@
 
 export TERMINAL=alacritty
 export EDITOR=nvim
+export WINIT_X11_SCALE_FACTOR=1.3
 
 # if xrandr --listmonitors | grep ' 2560' ; then
 # 	# env for regular displays
@@ -21,7 +22,7 @@ export EDITOR=nvim
 
 if [ -f $HOME/.config/crab/.profile ]; then
 	# env variables ($PATH)
-    source $HOME/.config/crab/.profile
+  source $HOME/.config/crab/.profile
 fi
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then

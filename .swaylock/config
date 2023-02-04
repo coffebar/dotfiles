@@ -1,0 +1,17 @@
+font-size=16
+color=2b2e37
+key-hl-color=4E9A06
+line-color=73C48F
+layout-bg-color=2b2e37
+ring-color=2b2e37
+ring-ver-color=2b2e37
+inside-wrong-color=F15D22
+inside-ver-color=2b2e37
+inside-color=2b2e37
+show-keyboard-layout
+indicator-idle-visible
+indicator-radius=120
+text-color=eeeeee
+daemonize
+ignore-empty-password
+show-failed-attempts
