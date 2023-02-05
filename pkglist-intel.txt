@@ -91,6 +91,7 @@ kdenlive
 keepassxc
 khal
 ksnip
+libappindicator-gtk2
 libdv
 libinput-gestures
 libpulse
@@ -221,8 +222,8 @@ wmctrl
 wofi
 wrk
 xclip
-xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland-git
+xdg-desktop-portal-wlr
 xdg-user-dirs
 xdg-utils
 xdotool
