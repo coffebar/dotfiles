@@ -3,7 +3,7 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
 		echo 'Continue to Hyprland?'
 		# you have 3 seconds to press any key except Return to load i3wm
 		# otherwise Hyprland will be loaded
-    read -t 3 -r -s -k 1 X
+		read -t 3 -r -s -k 1 X
 		if [ -z "$X" ]; then
 			export XDG_SESSION_OPT="crab"
 			export XDG_SESSION_TYPE="wayland"

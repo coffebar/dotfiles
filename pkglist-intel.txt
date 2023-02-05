@@ -9,7 +9,6 @@ arc-gtk-theme
 audacity
 autoconf
 automake
-autorandr
 autotiling-git
 baobab
 barrier
@@ -47,7 +46,6 @@ feh
 figma-linux-bin
 file-roller
 firefox
-flameshot
 flex
 freerdp
 fuse2
@@ -67,6 +65,7 @@ goaccess
 google-chrome
 gparted
 gptfdisk
+grim
 groff
 gsfonts
 gst-plugins-good
@@ -173,11 +172,14 @@ sdl_ttf
 seahorse
 shellcheck
 simplescreenrecorder
+slurp
 smartmontools
 sof-firmware
 sshfs
 sudo
 swaybg
+swayidle
+swaylock
 syncthing
 syncthingtray
 systemd-resolvconf
@@ -214,10 +216,13 @@ which
 wireguard-tools
 wireless_tools
 wireplumber
+wl-clipboard
 wmctrl
 wofi
 wrk
 xclip
+xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland-git
 xdg-user-dirs
 xdg-utils
 xdotool
