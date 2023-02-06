@@ -5,9 +5,9 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces", "custom/media", "pulseaudio", "backlight"],
+    "modules-left": ["wlr/workspaces", "idle_inhibitor", "custom/media", "pulseaudio", "backlight", "network"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["idle_inhibitor", "network", "cpu", "memory", "temperature", "battery", "clock", "tray"],
+    "modules-right": ["cpu", "memory", "temperature", "battery", "tray", "clock"],
     // Modules configuration
      "wlr/workspaces": {
          "disable-scroll": true,
@@ -136,21 +136,21 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        // "scroll-step": 10, // %, can be a float
+        "format": "{volume}%{icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
+            "headphone": "",
             "hands-free": "",
             "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
     },
