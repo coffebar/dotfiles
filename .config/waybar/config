@@ -37,6 +37,10 @@
             "unlocked": ""
         }
     },
+		"hyprland/window": {
+				"max-length": 50,
+				"separate-outputs": true
+		},
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
