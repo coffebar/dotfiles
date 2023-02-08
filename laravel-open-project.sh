@@ -16,32 +16,47 @@ workspace (){
 	hyprctl dispatch workspace "$1" &
 }
 
-# run VM
-ter --class='wp-5' --command ./vendor/bin/sail up &
+tear_up () {
+	# run VM
+	ter --class='wp-5' --command ./vendor/bin/sail up &
 
-# open editor
-ter --class='wp-3' --command nvim &
+	# open editor
+	ter --class='wp-3' --command nvim &
 
-workspace 5
-sleep 3
+	workspace 5
+	sleep 3
 
-# run queue jobs
-ter --class='wp-5' --command ./vendor/bin/sail artisan schedule:run &
-# auto build frontend
-ter --class='wp-5' --command ./vendor/bin/sail npm run dev &
+	# run queue jobs
+	ter --class='wp-5' --command ./vendor/bin/sail artisan schedule:run &
+	# auto build frontend
+	ter --class='wp-5' --command ./vendor/bin/sail npm run dev &
 
-# switch workspaces
-workspace 4 # first display
-workspace 3 # second display
+	# switch workspaces
+	workspace 4 # first display
+	workspace 3 # second display
 
 
-# tail logs
-ter --class='wp-4' --command tail -f storage/logs/laravel.log &
-# run chrome
-google-chrome-stable --ozone-platform=wayland \
-	--profile-directory="$CHROME_PROFILE" &
-sleep 1
-# open terminal
-ter --class='wp-4' &
+	# tail logs
+	ter --class='wp-4' --command tail -f storage/logs/laravel.log &
+	# run chrome
+	google-chrome-stable --ozone-platform=wayland \
+		--profile-directory="$CHROME_PROFILE" > /dev/null 2>&1 &
+	sleep 1
+	# open terminal
+	ter --class='wp-4' &
+
+}
+
+tear_down () {
+	pkill -2 -f "$TERMINAL -o font.size=14 --working-directory=$PROJECT"
+	pkill -f "/opt/google/chrome/chrome" > /dev/null 2>&1
+	ter --class='wp-5' --command ./vendor/bin/sail down &
+}
+
+if pgrep -af "profile-directory=$CHROME_PROFILE"; then
+	tear_down
+else
+	tear_up
+fi
 
 disown
