@@ -76,6 +76,7 @@ haveged
 htop
 hwinfo
 hyprland
+hyprland-per-window-layout
 i3-wm
 i3blocks
 i3lock
@@ -218,6 +219,7 @@ wireguard-tools
 wireless_tools
 wireplumber
 wl-clipboard
+wlroots
 wmctrl
 wofi
 wrk
