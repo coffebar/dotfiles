@@ -31,6 +31,7 @@
 
 
 <details><summary><h2>Interesting features</h2></summary>
+
 - Some of wm's binds improved by Lua script. Lua has more flexibility than i3config syntax. I like to switch automatically to the appropriate workspace after opening programs using a keyboard shortcut.
 
 - ``Alt + f`` open a file manager in that directory what was found in clipboard. For example, if you copied a file from some program, you can open its directory just by pressing this shortcut.
