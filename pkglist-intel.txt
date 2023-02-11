@@ -91,6 +91,7 @@ kbdd-git
 kdenlive
 keepassxc
 khal
+kooha
 ksnip
 libappindicator-gtk2
 libdv
