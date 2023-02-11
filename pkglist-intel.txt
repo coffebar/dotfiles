@@ -66,6 +66,7 @@ google-chrome
 gparted
 gptfdisk
 grim
+grimblast-git
 groff
 gsfonts
 gst-plugins-good
