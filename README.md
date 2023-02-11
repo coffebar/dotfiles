@@ -131,14 +131,6 @@ Run this script to sync Neovim config from this repo. It can be used separately 
 ```bash
 sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fetch-nvim-conf.sh)"
 ```
-Optionally, add a cronjob to keep Neovim plugins updated
-```bash
-(crontab -l; echo "0 13 * * * nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'" ) | crontab -
-```
-
-This [neovim](https://github.com/neovim/neovim) setup supports syntax highlighting and code completion for following languages: 
-
-Bash CSS Go HTML JavaScript Lua PHP Python Rust Typescript
 
 </details>
 
