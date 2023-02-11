@@ -17,7 +17,7 @@
   - [🍚 Hyprland](https://github.com/hyprwm/Hyprland)
   - [🍙 i3](https://i3wm.org/)
 - [👽 Terminal]():
-  - **☄ Emulator**:
+  - :robot: Emulator:
     - [Alacritty](https://alacritty.org/)
   - [🌌 Shell](#shell): Zsh with [OhMyZsh](https://github.com/ohmyzsh/ohmyzsh)
 - [✏️ Code Editors]():
@@ -28,6 +28,10 @@
   - :small_red_triangle: bloom cursor
   - :large_blue_diamond: Neovim: [onedark](https://github.com/navarasu/onedark.nvim)
   - :new_moon_with_face: Telegram: [arcdarkgrey](https://t.me/addtheme/arcdarkgrey)
+
+- [:pushpin: Bars]():
+  - :womans_hat: [waybar](https://github.com/Alexays/Waybar)
+  - :tophat: [polybar](https://github.com/polybar/polybar)
 
 
 <details><summary><h2>Interesting features</h2></summary>
