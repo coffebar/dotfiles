@@ -18,7 +18,7 @@
   - [🍙 i3](https://i3wm.org/)
 - [👽 Terminal]():
   - :robot: Emulator:
-    - [Alacritty](https://alacritty.org/)
+    - [Alacritty](https://alacritty.org/) with *JetBrains Mono* font
   - [🌌 Shell](#shell): Zsh with [OhMyZsh](https://github.com/ohmyzsh/ohmyzsh)
 - [✏️ Code Editors]():
   - [💫 Neovim](https://neovim.io/)
