@@ -1,5 +1,3 @@
-export XDG_SESSION_OPT="crab"
-
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists

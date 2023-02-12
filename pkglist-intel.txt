@@ -76,7 +76,7 @@ gvfs-mtp
 haveged
 htop
 hwinfo
-hyprland
+hyprland-git
 hyprland-per-window-layout
 i3-wm
 i3blocks
