@@ -1,4 +1,4 @@
 #!/bin/sh
 
 export WINIT_X11_SCALE_FACTOR=1.3
-exec i3 -c "$HOME/.config/$XDG_SESSION_OPT/i3config"
+exec i3 -c "$SESSION_CONF/i3config"

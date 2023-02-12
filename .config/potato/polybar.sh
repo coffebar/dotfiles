@@ -1,11 +1,11 @@
 killall polybar
 
 PROF=$(autorandr --current)
-if [ -z $PROF ] && ! [ -z $1 ]; then
+if [ -z "$PROF" ] && [ -n "$1" ]; then
     # try harder to find profile if script called with any arg
     PROF=$(autorandr | grep '(detected)')
 fi
-if [ -z $PROF ]; then
+if [ -z "$PROF" ]; then
     exit 0
 fi
 if [[ $PROF == *'dock'* ]]; then

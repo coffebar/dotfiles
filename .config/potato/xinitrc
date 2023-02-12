@@ -16,4 +16,4 @@ else
 	export QT_FONT_DPI=200
 fi
 
-exec i3 -c $HOME/.config/potato/i3config
+exec i3 -c $SESSION_CONF/i3config
