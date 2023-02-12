@@ -117,9 +117,9 @@ bindsym $mod+Shift+0 move --no-auto-back-and-forth container to workspace 10;\
  workspace --no-auto-back-and-forth 10
 
 # reload the configuration file and restart bar (polybar)
-bindsym $mod+Shift+c exec --no-startup-id i3-msg reload && ./polybar.start.sh &
+bindsym $mod+Shift+c exec --no-startup-id i3-msg reload && ~/.config/$XDG_SESSION_OPT/polybar.sh &
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart && ./polybar.start.sh &
+bindsym $mod+Shift+r restart && ~/.config/$XDG_SESSION_OPT/polybar.sh &
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -330,7 +330,7 @@ exec --no-startup-id blueman-applet &
 exec --no-startup-id dunst
 
 # start polybar on thr every monitor
-exec --no-startup-id ~/polybar.start.sh
+exec --no-startup-id ~/.config/$XDG_SESSION_OPT/polybar.sh
 
 # daemon to make per window layout using xkb
 exec --no-startup-id kbdd
