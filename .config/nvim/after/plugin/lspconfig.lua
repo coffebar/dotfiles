@@ -50,7 +50,7 @@ local on_attach = function(client, bufnr)
 	-- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
 	-- force to use Formatter plugin for this client
-	local force_formatter = client.name == "sumneko_lua" or client.name == "tsserver"
+	local force_formatter = client.name == "lua_ls" or client.name == "tsserver"
 
 	if client.name == "intelephense" then
 		-- force use prettier for blade.php files, not for php
@@ -83,7 +83,7 @@ local lsp_flags = {
 
 -- language servers --
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 	settings = {
