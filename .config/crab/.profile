@@ -23,13 +23,3 @@ NPM_PACKAGES="${HOME}/.npm-packages"
 PATH="$HOME/.node/bin:$PATH:$NPM_PACKAGES/bin:$HOME/.node_modules/bin:$HOME/go/bin"
 NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
 MANPATH="$HOME/.node/share/man:$NPM_PACKAGES/share/man:$MANPATH"
-
-if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
-    export MOZ_ENABLE_WAYLAND=1
-    export _JAVA_AWT_WM_NONREPARENTING=1
-    export QT_QPA_PLATFORM=wayland-egl
-    export GDK_BACKEND=wayland,x11
-    export SDL_VIDEODRIVER=wayland
-    export XKB_DEFAULT_OPTIONS=caps:backspace
-    export GTK_THEME=Arc:dark
-fi
