@@ -138,7 +138,15 @@ au("FileType", {
 })
 
 au("FileType", {
-	pattern = { "help", "qf", "fugitive", "git", "fugitiveblame", "floggraph" },
+	pattern = {
+		"help",
+		"qf",
+		"fugitive",
+		"git",
+		"fugitiveblame",
+		"floggraph",
+		"checkhealth",
+	},
 	callback = function()
 		vim.keymap.set("n", "q", "<Cmd>bdelete<CR>", {
 			buffer = true,
