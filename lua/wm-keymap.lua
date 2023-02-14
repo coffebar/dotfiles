@@ -25,12 +25,21 @@ if key == "f" then
 	-- Open file manager in context of clipboard
 	local dir
 	-- read from clipboard
-	local buff = sys("xclip -selection c -o")
+	local buff
+	if desktop_session == "Hyprland" then
+		buff = sys("wl-paste")
+	else
+		buff = sys("xclip -selection c -o")
+	end
 	local fch = string.sub(buff, 0, 1)
 	if not string.find(buff, "\n") and (fch == "/" or fch == "~") then
 		-- if clipboard has only 1 line
 		-- try to get directory path from it
-		dir = sys(string.format('dirname "%s"', buff))
+		if dir_exists(buff) then
+			dir = buff
+		else
+			dir = sys(string.format('dirname "%s"', buff))
+		end
 	end
 	if dir == "." or not dir_exists(dir) then
 		-- default directory to open
@@ -47,9 +56,16 @@ elseif key == "t" then
 			os.execute("sleep 1 && i3-msg '[class=\"^TelegramDesktop$\"] focus'")
 		end
 	else
-		os.execute(string.format("wmctrl -a 'Telegram' || %s", cmd))
+		if desktop_session == "Hyprland" then
+			os.execute("hyprctl dispatch workspace 2")
+		else
+			os.execute(string.format("wmctrl -a 'Telegram' || %s", cmd))
+		end
 	end
 elseif key == "b" then
-	-- secondary browser
-	os.execute("wmctrl -a 'Mozilla Firefox' || firefox -P default-release &")
+	if desktop_session == "Hyprland" then
+		os.execute("hyprctl dispatch workspace 1 && firefox -P default-release &")
+	else
+		os.execute("wmctrl -a 'Mozilla Firefox' || firefox -P default-release &")
+	end
 end
