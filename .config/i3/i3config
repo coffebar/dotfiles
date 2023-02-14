@@ -292,6 +292,9 @@ assign [class="^thunderbird$"] → $ws6
 assign [class="^syncthingtray$"] → $ws7
 assign [class="^KeePassXC$"] → $ws9
 assign [class="^workspace10"] → $ws10
+assign [class="^wp-3"] → $ws3
+assign [class="^wp-4"] → $ws4
+assign [class="^wp-5"] → $ws5
 
 # per app rules
 for_window [window_role="pop-up"] floating enable
