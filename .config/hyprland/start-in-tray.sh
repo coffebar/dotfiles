@@ -5,5 +5,5 @@ sleep 1
 nm-applet --indicator &
 crow &
 syncthingtray --wait &
-QT_QPA_PLATFORM=xcb copyq &
+env QT_QPA_PLATFORM=xcb copyq &# copyq needs xwayland
 XDG_CURRENT_DESKTOP=gnome telegram-desktop &
