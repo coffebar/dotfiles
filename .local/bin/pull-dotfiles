@@ -1,5 +1,5 @@
 #!/bin/sh
 nm-online
-alacritty --class="workspace10" -e /usr/bin/zsh -c git --git-dir=$HOME/dotfiles --work-tree=$HOME pull && \
+alacritty --class="workspace10" -e /usr/bin/zsh -c "git --git-dir=$HOME/dotfiles --work-tree=$HOME pull" && \
 	dunstify -t 2000 -a 'dotfiles' 'Updated' -i /usr/share/icons/breeze-dark/actions/24/vcs-merge-request.svg || \
 	dunstify -t 5000 -a 'dotfiles' 'dotf pull - failed' -i /usr/share/icons/breeze-dark/actions/24/vcs-branch-delete.svg
