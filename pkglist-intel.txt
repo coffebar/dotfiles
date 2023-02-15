@@ -170,6 +170,7 @@ shellcheck
 simplescreenrecorder
 slurp
 smartmontools
+sof-firmware
 sshfs
 sudo
 swaybg
