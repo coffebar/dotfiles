@@ -121,8 +121,9 @@ Next options will tell GTK-based apps to prefer Dark theme and open file chooser
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gtk.Settings.FileChooser startup-mode cwd
 gsettings set org.gtk.gtk4.Settings.FileChooser startup-mode cwd
-# cursor theme change
+# cursor and icon themes
 gsettings set org.gnome.desktop.interface cursor-theme 'bloom'
+gsettings set org.gnome.desktop.interface icon-theme 'bloom-classic'
 
 ```
 

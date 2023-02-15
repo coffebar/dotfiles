@@ -3,7 +3,7 @@
 
 include "/home/abc/.gtkrc-2.0.mine"
 gtk-theme-name="Arc-Dark"
-gtk-icon-theme-name="breeze-dark"
+gtk-icon-theme-name="bloom-classic"
 gtk-font-name="Droid Sans 12"
 gtk-cursor-theme-name="bloom"
 gtk-cursor-theme-size=0
