@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces", "idle_inhibitor", "custom/media", "pulseaudio", "backlight", "network"],
+    "modules-left": ["wlr/workspaces", "idle_inhibitor", "pulseaudio", "backlight", "network", "custom/updates"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["cpu", "memory", "temperature", "battery", "tray", "clock"],
     // Modules configuration
@@ -158,17 +158,15 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
+    "custom/updates": {
+        "format": "{} {icon}",
+				"restart-iterval": 300,
         "max-length": 40,
         "format-icons": {
-            "spotify": "",
-            "default": "🎜"
+            "default": " "
         },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+        "exec": "$HOME/lua/checkupdates.lua 2> /dev/null",
+				"on-click": "alacritty -o font.size=14"
     }
 }
 
