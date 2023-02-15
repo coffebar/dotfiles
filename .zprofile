@@ -5,8 +5,14 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 	if [ "$XDG_VTNR" -eq 1 ]; then
 		WM=/usr/bin/Hyprland
 		if [ -f "$WM" ]; then
-			echo 'Continue to Hyprland? Or press any key to load i3'
-			read -t 2 -r -s -k 1 XKEY
+			if [[ "$XDG_SESSION_OPT" == "crab" ]]; then
+				# autologin to Hyprland
+				XKEY=''
+			else
+				# give 2 seconds to choose
+				echo 'Continue to Hyprland? Or press any key to load i3'
+				read -t 2 -r -s -k 1 XKEY
+			fi
 			if [ -z "$XKEY" ]; then
 				HYPRLAND_CONFIG="$HOME/.config/hyprland/hyprland.conf"
 				export XDG_SESSION_TYPE="wayland"
