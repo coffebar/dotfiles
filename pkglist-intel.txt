@@ -217,6 +217,7 @@ wlroots
 wmctrl
 wofi
 wrk
+wtype
 xclip
 xdg-desktop-portal-hyprland-git
 xdg-desktop-portal-wlr
