@@ -20,6 +20,7 @@ bluez
 breeze
 brightnessctl
 btrfs-progs
+clipman
 copyq
 cronie
 crow-translate
