@@ -81,7 +81,6 @@ i3blocks
 i3lock
 imagemagick
 inotify-tools
-input-remapper-git
 intel-media-driver
 intel-ucode
 iwd
