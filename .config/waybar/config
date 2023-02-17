@@ -11,12 +11,12 @@
     // Modules configuration
      "wlr/workspaces": {
          "disable-scroll": true,
-				 "on-click": "activate",
+         "on-click": "activate",
          // "all-outputs": false,
          // "format": "{name}: {icon}",
          "format": "{name}",
-				 "on-scroll-up": "hyprctl dispatch workspace m-1",
-				 "on-scroll-down": "hyprctl dispatch workspace m+1",
+         "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
+         "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null",
          "format-icons": {
              "1": "",
              "2": "",
@@ -37,10 +37,10 @@
             "unlocked": ""
         }
     },
-		"hyprland/window": {
-				"max-length": 50,
-				"separate-outputs": true
-		},
+    "hyprland/window": {
+        "max-length": 50,
+        "separate-outputs": true
+    },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -160,13 +160,13 @@
     },
     "custom/updates": {
         "format": "{} {icon}",
-				"restart-iterval": 300,
-        "max-length": 40,
+        "return-type": "json",
         "format-icons": {
-            "default": " "
+            "has-updates": "󱍷",
+            "updated": "󰂪"
         },
-        "exec": "$HOME/lua/checkupdates.lua 2> /dev/null",
-				"on-click": "alacritty -o font.size=14"
+        "exec-if": "which waybar-module-pacman-updates",
+        "exec": "waybar-module-pacman-updates"
     }
 }
 
