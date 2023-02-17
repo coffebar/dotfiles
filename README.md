@@ -1,4 +1,4 @@
-![Screenshot](https://raw.githubusercontent.com/coffebar/dotfiles/master/screenshot.png)
+![Screenshot](/screenshot.png)
 
 <div align="center">
 
