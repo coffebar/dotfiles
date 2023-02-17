@@ -137,7 +137,6 @@ ntfs-3g
 ntp
 nvim-packer-git
 obsidian
-opencl-nvidia
 openssh
 openvpn
 p7zip
