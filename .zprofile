@@ -1,7 +1,25 @@
-if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
-	export XDG_SESSION_OPT=$(cat /etc/hostname)
-	export SESSION_CONF="$HOME/.config/$XDG_SESSION_OPT"
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+if [ -d "$HOME/.cargo/bin" ] ; then
+    PATH="$HOME/.cargo/bin:$PATH"
+fi
+if [ -d "$HOME/go/bin" ] ; then
+    PATH="$HOME/go/bin:$PATH"
+fi
+if [ -d "$HOME/.node_modules/bin" ] ; then
+    PATH="$HOME/.node_modules/bin:$PATH"
+fi
 
+# remove absolute path leaks in release binary (rust)
+export RUSTFLAGS="--remap-path-prefix $HOME=~"
+
+export XDG_SESSION_OPT=$(cat /etc/hostname)
+export SESSION_CONF="$HOME/.config/$XDG_SESSION_OPT"
+
+if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
+	# tty1, start GUI
 	if [ "$XDG_VTNR" -eq 1 ]; then
 		WM=/usr/bin/Hyprland
 		if [ -f "$WM" ]; then
@@ -26,8 +44,6 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 				export SDL_VIDEODRIVER=wayland
 				export XKB_DEFAULT_OPTIONS=caps:backspace
 				export GTK_THEME=Arc:dark
-				# add more envs from config
-				[ -f "$SESSION_CONF/.profile" ] && source "$SESSION_CONF/.profile"
 				# start wayland compositor
 				exec $WM -c "$HYPRLAND_CONFIG" 
 			fi
@@ -36,8 +52,5 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 		# fallback to xorg
 		[[ "$XDG_SESSION_TYPE" == "tty" ]] && exec startx > /dev/null
 
-	else
-		# tty 2+
-		[ -f "$SESSION_CONF/.profile" ] && source "$SESSION_CONF/.profile"
 	fi
 fi
