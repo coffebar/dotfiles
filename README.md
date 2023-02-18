@@ -95,7 +95,7 @@ cd .. && rm -rf yay
 yay -Y --gendb
 
 # install packages
-yay -S --needed - < pkglist.txt
+yay -S --needed - < pkglist-intel.txt
 
 # enable services
 sudo systemctl enable --now input-remapper docker tlp ufw bluetooth systemd-resolved.service autorandr
