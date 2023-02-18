@@ -207,6 +207,7 @@ vim
 vlc
 wavpack
 waybar-hyprland-git
+waybar-module-pacman-updates-git
 wget
 which
 wireguard-tools
