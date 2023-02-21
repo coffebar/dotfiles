@@ -228,8 +228,7 @@ bindsym $mod+t exec --no-startup-id alacritty\
 bindsym $mod+e exec --no-startup-id alacritty --class="nvim" -e "nvim"
 
 # pull dotfiles
-set $pull_cmd git --git-dir=$HOME/dotfiles --work-tree=$HOME pull &&\
- dunstify -t 2000 -a dotfiles Updated || dunstify -t 5000 -a 'dotfiles' 'dotf pull - failed'
+set $pull_cmd pull-dotfiles
 bindsym $mod+p exec --no-startup-id alacritty\
  --class="workspace10-floating" -e /usr/bin/zsh -c "$pull_cmd"
 
