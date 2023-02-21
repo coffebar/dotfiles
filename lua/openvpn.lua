@@ -12,4 +12,8 @@ else
 	e("nmcli connection up " .. conn_name)
 	action = "enabled"
 end
-e("dunstify -t 2500 'OpenVPN " .. action .. "' $(curl -s https://api.ipify.org)")
+e(
+	"notify-send -t 2500 -c vpn -i /usr/share/icons/breeze-dark/apps/48/alienarena.svg -a 'OpenVPN "
+		.. action
+		.. "' $(curl -s https://api.ipify.org)"
+)
