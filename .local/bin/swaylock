@@ -1,0 +1,18 @@
+#!/bin/bash
+# before locking
+# on Hyprland set keyboard layout to default one
+# so I don't need to change layout manually to unlock
+
+switch_xkb_hypr() {
+	local index="$1"
+	local blacklist_mask='^(video-|power-|sleep-|yubico-|integrated-camera|intel-hid-event)'
+	hyprctl devices -j | gojq -r ".keyboards | .[] | .name" |
+		rg -vP "$blacklist_mask" |
+		xargs -I {} hyprctl switchxkblayout "{}" "$index"
+}
+
+if [[ "$XDG_CURRENT_DESKTOP" == 'Hyprland' ]]; then
+	switch_xkb_hypr '0'
+fi
+
+/usr/bin/swaylock $@
