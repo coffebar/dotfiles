@@ -8,16 +8,11 @@ PROJECT=$1
 # second is browser's profile dir, related to default config dir
 CHROME_PROFILE=$2
 
-FONT_SZ='14'
-if [ "$QT_FONT_DPI" -eq 200 ]; then
-	FONT_SZ='10'
-fi
-
-ter (){
-	$TERMINAL -o font.size=$FONT_SZ --working-directory="$PROJECT" "$@"
+ter (){ # open terminal in project directory
+	$TERMINAL --working-directory="$PROJECT" "$@"
 }
 
-workspace () {
+workspace () { # switch to workspace
 	if [ "$XDG_CURRENT_DESKTOP" == "i3" ]; then
 		i3-msg "workspace --no-auto-back-and-forth $1" > /dev/null
 	else
@@ -61,7 +56,7 @@ tear_up () {
 }
 
 tear_down () {
-	pkill -2 -f "$TERMINAL -o font.size=$FONT_SZ --working-directory=$PROJECT"
+	pkill -2 -f "$TERMINAL --working-directory=$PROJECT"
 	pkill -f "/opt/google/chrome/chrome" > /dev/null 2>&1
 	ter --class='wp-5' --command ./vendor/bin/sail down &
 }
