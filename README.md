@@ -18,13 +18,13 @@
   - [🍙 i3](https://i3wm.org/)
 - [👽 Terminal]():
   - :robot: Emulator:
-    - [Alacritty](https://alacritty.org/) with *JetBrains Mono* font
+    - [Alacritty](https://alacritty.org/) with [*JetBrains Mono*](https://www.jetbrains.com/lp/mono/) font
   - [🌌 Shell](#shell): Zsh with [OhMyZsh](https://github.com/ohmyzsh/ohmyzsh)
 - [✏️ Code Editors]():
   - [💫 Neovim](https://neovim.io/)
 - [:art: Themes]():
-  - :desktop_computer: Arc-Dark GTK theme
-  - :basecamp: Breeze Dark Icons
+  - :desktop_computer: [Arc-Dark](https://github.com/horst3180/arc-theme) GTK theme
+  - :basecamp: [bloom-classic](https://github.com/linuxdeepin/deepin-icon-theme) Icons
   - :small_red_triangle: bloom cursor
   - :large_blue_diamond: Neovim: [onedark](https://github.com/navarasu/onedark.nvim)
   - :new_moon_with_face: Telegram: [arcdarkgrey](https://t.me/addtheme/arcdarkgrey)
