@@ -443,4 +443,9 @@
     format = "%b"
     urgency = low
 
+[grimblast]
+    appname = grimblast 
+    timeout = 2
+		new_icon = "/usr/share/icons/bloom-dark/mimetypes/48/image-png.svg"
+
 # vim: ft=cfg
