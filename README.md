@@ -25,13 +25,13 @@
 - [:art: Themes]():
   - :desktop_computer: [Arc-Dark](https://github.com/horst3180/arc-theme) GTK theme
   - :basecamp: [bloom-classic](https://github.com/linuxdeepin/deepin-icon-theme) Icons
-  - :small_red_triangle: bloom cursor
+  - :small_red_triangle: bloom cursor (from deepin)
   - :large_blue_diamond: Neovim: [onedark](https://github.com/navarasu/onedark.nvim)
   - :new_moon_with_face: Telegram: [arcdarkgrey](https://t.me/addtheme/arcdarkgrey)
 
 - [:pushpin: Bars]():
-  - :womans_hat: [waybar](https://github.com/Alexays/Waybar)
-  - :tophat: [polybar](https://github.com/polybar/polybar)
+  - :womans_hat: [waybar](https://github.com/Alexays/Waybar) on Hyprland
+  - :tophat: [polybar](https://github.com/polybar/polybar) on i3
 
 
 <details><summary><h2>Interesting features</h2></summary>
