@@ -75,7 +75,7 @@ gvfs-mtp
 haveged
 htop
 hwinfo
-hyprland-git
+hyprland
 hyprland-per-window-layout
 i3-wm
 i3blocks
@@ -172,6 +172,7 @@ slurp
 smartmontools
 sof-firmware
 sshfs
+sshpass
 sudo
 swaybg
 swayidle
