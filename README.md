@@ -13,23 +13,23 @@
 ## Overview
 
 
-- [🌿 Window Mangers](https://github.com/coffebar/dotfiles/#):
+- [🌿 Window Mangers](https://github.com/coffebar/dotfiles#overview):
   - [🍚 Hyprland](https://github.com/hyprwm/Hyprland)
   - [🍙 i3](https://i3wm.org/)
-- [👽 Terminal](https://github.com/coffebar/dotfiles/#):
+- [👽 Terminal](https://github.com/coffebar/dotfiles#overview):
   - :robot: Emulator:
     - [Alacritty](https://alacritty.org/) with [*JetBrains Mono*](https://www.jetbrains.com/lp/mono/) font
-  - [🌌 Shell](https://github.com/coffebar/dotfiles/#shell): Zsh with [OhMyZsh](https://github.com/ohmyzsh/ohmyzsh)
-- [✏️ Code Editors](https://github.com/coffebar/dotfiles/#):
+  - [🌌 Shell](https://github.com/coffebar/dotfiles#overview): Zsh with [OhMyZsh](https://github.com/ohmyzsh/ohmyzsh)
+- [✏️ Code Editors](https://github.com/coffebar/dotfiles#overview):
   - [💫 Neovim](https://neovim.io/)
-- [:art: Themes](https://github.com/coffebar/dotfiles/#):
+- [:art: Themes](https://github.com/coffebar/dotfiles#overview):
   - :desktop_computer: [Arc-Dark](https://github.com/horst3180/arc-theme) GTK theme
   - :basecamp: [bloom-classic](https://github.com/linuxdeepin/deepin-icon-theme) Icons
   - :small_red_triangle: bloom cursor (from deepin)
   - :large_blue_diamond: Neovim: [onedark](https://github.com/navarasu/onedark.nvim)
   - :new_moon_with_face: Telegram: [arcdarkgrey](https://t.me/addtheme/arcdarkgrey)
 
-- [:pushpin: Bars](https://github.com/coffebar/dotfiles/#):
+- [:pushpin: Bars](https://github.com/coffebar/dotfiles#overview):
   - :womans_hat: [waybar](https://github.com/Alexays/Waybar) on Hyprland
   - :tophat: [polybar](https://github.com/polybar/polybar) on i3
 
