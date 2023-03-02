@@ -1,0 +1,9 @@
+hosts:
+  ".*":
+    +s: zsh
+    +I:
+      - xxh-shell-zsh             # install portable Zsh
+      - xxh-plugin-zsh-ohmyzsh    # install Oh My Zsh plugin for xxh
+    +e:                           # set simple environment variables
+      - ZSH_THEME="agnoster"
+
