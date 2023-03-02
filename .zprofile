@@ -18,6 +18,13 @@ export RUSTFLAGS="--remap-path-prefix $HOME=~"
 export XDG_SESSION_OPT=$(cat /etc/hostname)
 export SESSION_CONF="$HOME/.config/$XDG_SESSION_OPT"
 
+if [ -z "$XDG_CONFIG_HOME" ]; then
+	export XDG_CACHE_HOME=$HOME/.cache
+	export XDG_CONFIG_HOME=$HOME/.config
+	export XDG_DATA_HOME=$HOME/.local/share
+	export XDG_STATE_HOME=$HOME/.local/state
+fi
+
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 	# tty1, start GUI
 	if [ "$XDG_VTNR" -eq 1 ]; then
