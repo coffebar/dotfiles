@@ -6,4 +6,5 @@ hosts:
       - xxh-plugin-zsh-ohmyzsh    # install Oh My Zsh plugin for xxh
     +e:                           # set simple environment variables
       - ZSH_THEME="agnoster"
+      - TERM="xterm-256color"
 
