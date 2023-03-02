@@ -15,6 +15,7 @@
 .npm/
 .oh-my-zsh/
 .rustup/
+.xxh/
 DocumSync/
 Documents/
 PhpStorm/
