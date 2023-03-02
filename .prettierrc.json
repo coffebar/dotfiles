@@ -1,7 +1,7 @@
 {
 	"overrides": [
 		{
-			"files": ".ssh/config",
+			"files": ".ssh/config*",
 			"options": {
 				"parser": "ssh-config",
 				"useTabs": true
