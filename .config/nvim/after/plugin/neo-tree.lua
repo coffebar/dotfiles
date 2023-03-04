@@ -1,4 +1,14 @@
 require("neo-tree").setup({
+	source_selector = {
+		winbar = true,
+		content_layout = "center",
+		tab_labels = {
+			filesystem = " Files",
+			buffers = " Bufs",
+			git_status = " Git",
+			diagnostics = "Diagnostic",
+		},
+	},
 	filesystem = {
 		filtered_items = {
 			visible = false, -- when true, they will just be displayed differently than normal items
