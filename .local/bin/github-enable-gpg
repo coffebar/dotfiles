@@ -1,0 +1,5 @@
+#!/bin/bash
+git config user.email i8ehkvien@mozmail.com
+git config user.signingkey 3670125975082840
+git config commit.gpgsign true
+
