@@ -36,8 +36,30 @@
 
 <details><summary><h2>Interesting features</h2></summary>
 
+
+#### Common
+
+- ``Alt + f`` open a file manager in that directory what was found in clipboard. For example, if you copied a file from some program, you can open its directory just by pressing this shortcut.
+
+- Neovim [opens](https://github.com/coffebar/dotfiles/blob/master/.config/nvim/lua/commands.lua) popular image formats in external viewer ([pix](https://github.com/linuxmint/pix)) instead of binary view. Neovim also has a bunch of customizations and keyboard shortcuts.
+
+- Mouse side buttons bound to copy and paste in graphics applications. Although I try to use the mouse less, it's useful for (web)apps with mouse-centric UI.
+
+- CapsLock is changed to Backspace.
+
+- Nice aliases: **i** to install package, **md2pdf** to convert markdown file to pdf, **v** to open Neovim, **yy** to perform system upgrage. 
+
+- Not using Display Managers.
+
+- ``Ctrl + m`` bind simplifies sequence ``Ctrl + l, Ctrl + v, Return`` to interact with file-picker dialog by selecting file from clipboard blazing fast.
+
+- ``Super + P`` pull dotfiles from this repo and show notification with icon.
+
 #### i3
 
+- UI scale options depends on current display setup and [autorandr](https://github.com/phillipberndt/autorandr) profile name.
+
+- ``Super + \ `` open fuzzy finder to search for local text files in the home directory to edit in Neovim.
 
 - Automatic tiling via [autotiling](https://github.com/nwg-piotr/autotiling) script. Split direction depends on the currently focused window dimensions.
 
@@ -45,30 +67,7 @@
 
 - ``Super + ` `` open ssh servers menu to connect.
 
-- ``Super + \ `` open fuzzy finder to search for local text files in the home directory to edit in Neovim.
-
 - Automatic tiling freed up ``Super + H`` shortcut. So I'm using HJKL to navigate inside WM.
-
-- UI scale options depends on current display setup and [autorandr](https://github.com/phillipberndt/autorandr) profile name.
-
-
-#### Common
-
-- ``Alt + f`` open a file manager in that directory what was found in clipboard. For example, if you copied a file from some program, you can open its directory just by pressing this shortcut.
-
-- Neovim [opens](https://github.com/coffebar/dotfiles/blob/master/.config/nvim/lua/commands.lua) popular image formats in external viewer ([pix](https://github.com/linuxmint/pix)) instead of binary view.
-
-- Mouse side buttons bound to copy and paste in graphics applications. Although I try to use the mouse less, it's useful for (web)apps with mouse-centric UI.
-
-- CapsLock is changed to Backspace.
-
-- Nice aliases: i to install package, 'md2pdf' to convert markdown file to pdf, v to open Neovim. 
-
-- Not using Display Managers.
-
-- ``Ctrl + m`` bind simplifies sequence ``Ctrl + l, Ctrl + v, Return`` to interact with file-picker dialog by selecting file from clipboard blazing fast.
-
-- ``Super + P`` pull dotfiles from this repo and show notification with icon.
 
 </details>
 
