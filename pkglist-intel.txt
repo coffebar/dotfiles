@@ -176,7 +176,6 @@ sof-firmware
 sshfs
 sshpass
 sudo
-swaybg
 swayidle
 swaylock
 syncthing
@@ -211,6 +210,7 @@ vlc
 wavpack
 waybar-hyprland-git
 waybar-module-pacman-updates-git
+wbg
 wget
 which
 wireguard-tools
