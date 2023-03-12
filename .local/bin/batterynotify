@@ -1,5 +1,6 @@
 #!/bin/bash
-# script to notify when battery level is critical
+# script to notify when battery level is low
+# and suspend system if battery level is critical
 # based on https://github.com/ericmurphyxyz/dotfiles/blob/master/.local/bin/batterynotify
 #
 # setup this on cron:
@@ -9,8 +10,8 @@
 export DISPLAY=:0
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
 
-# Battery percentage at which to notify
 WARNING_LEVEL=20
+SUSPEND_LEVEL=9
 BATTERY_PATH=/sys/class/power_supply/BAT0
 BATTERY_STATUS=$(cat $BATTERY_PATH/status)
 BATTERY_LEVEL=$(cat $BATTERY_PATH/capacity)
@@ -36,3 +37,6 @@ elif [ "$BATTERY_LEVEL" -le $WARNING_LEVEL ] && [[ "$BATTERY_STATUS" == "Dischar
     touch $EMPTY_FILE
 fi
 
+if [ "$BATTERY_LEVEL" -le $SUSPEND_LEVEL ] && [[ "$BATTERY_STATUS" == "Discharging" ]]; then
+    systemctl suspend
+fi
