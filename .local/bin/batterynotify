@@ -1,0 +1,38 @@
+#!/bin/bash
+# script to notify when battery level is critical
+# based on https://github.com/ericmurphyxyz/dotfiles/blob/master/.local/bin/batterynotify
+#
+# setup this on cron:
+# */5 * * * * .local/bin/batterynotify
+#
+
+export DISPLAY=:0
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
+
+# Battery percentage at which to notify
+WARNING_LEVEL=20
+BATTERY_PATH=/sys/class/power_supply/BAT0
+BATTERY_STATUS=$(cat $BATTERY_PATH/status)
+BATTERY_LEVEL=$(cat $BATTERY_PATH/capacity)
+
+# Use two files to store whether we've shown a notification or not (to prevent multiple notifications)
+EMPTY_FILE=/tmp/batteryempty
+FULL_FILE=/tmp/batteryfull
+
+# Reset notifications if the computer is charging/discharging
+if [[ "$BATTERY_STATUS" == "Discharging" ]] && [ -f $FULL_FILE ]; then
+    rm $FULL_FILE
+elif [[ "$BATTERY_STATUS" == "Charging" ]] && [ -f $EMPTY_FILE ]; then
+    rm $EMPTY_FILE
+fi
+
+# If the battery is charging and is full (and has not shown notification yet)
+if [ "$BATTERY_LEVEL" -gt 95 ] && [[ "$BATTERY_STATUS" == "Charging" ]] && [ ! -f $FULL_FILE ]; then
+    notify-send "Battery Charged" "Battery is fully charged." -r 9991
+    touch $FULL_FILE
+# If the battery is low and is not charging (and has not shown notification yet)
+elif [ "$BATTERY_LEVEL" -le $WARNING_LEVEL ] && [[ "$BATTERY_STATUS" == "Discharging" ]] && [ ! -f $EMPTY_FILE ]; then
+    notify-send "Low Battery" "${BATTERY_LEVEL}% of battery remaining." -u critical -r 9991
+    touch $EMPTY_FILE
+fi
+
