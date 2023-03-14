@@ -25,7 +25,6 @@ btrfs-progs
 copyq
 cronie
 crow-translate
-ddcci-driver-linux-dkms
 deepin-icon-theme
 deluge
 deluge-gtk
@@ -190,8 +189,6 @@ thunar
 thunar-archive-plugin
 thunar-volman
 thunderbird
-timeshift
-timeshift-autosnap
 tlp
 traceroute
 ttf-bitstream-vera
@@ -217,7 +214,6 @@ wireguard-tools
 wireless_tools
 wireplumber
 wmctrl
-woeusb
 wrk
 xclip
 xcompmgr
