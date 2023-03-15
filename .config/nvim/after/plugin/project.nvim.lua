@@ -11,4 +11,19 @@ require("project_nvim").setup({
 	ignore_lsp = {
 		"lua_ls",
 	},
+	patterns = {
+		"!>home",
+		"!=tmp",
+		".git",
+		".idea",
+		".svn",
+		"PKGBUILD",
+		"composer.json",
+		"package.json",
+		"Makefile",
+		"README.md",
+		"Cargo.toml",
+		">Work",
+		">pets",
+	},
 })
