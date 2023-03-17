@@ -1,5 +1,7 @@
 local telescope = require("telescope")
 local telescopeConfig = require("telescope.config")
+local actions = require("telescope.actions")
+local mappings = require("telescope.mappings")
 
 -- Clone the default Telescope configuration
 local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
@@ -10,6 +12,10 @@ table.insert(vimgrep_arguments, "--hidden")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!.git/*")
 
+local changed_mappings = mappings.default_mappings
+-- map Ctrl+f instead of Ctrl+q, because Ctrl+q will close my terminal
+changed_mappings["i"]["<C-f>"] = actions.send_to_qflist + actions.open_qflist
+
 telescope.setup({
 	defaults = {
 		-- `hidden = true` is not supported in text grep commands.
@@ -17,6 +23,7 @@ telescope.setup({
 	},
 	pickers = {
 		find_files = {
+			mappings = changed_mappings,
 			-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
 			find_command = {
 				"rg",
@@ -28,6 +35,9 @@ telescope.setup({
 				"~/.gitignore",
 			},
 			--
+		},
+		live_grep = {
+			mappings = changed_mappings,
 		},
 	},
 	extensions = {
