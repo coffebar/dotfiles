@@ -54,15 +54,7 @@ return packer.startup(function(use)
 	use("glepnir/lspsaga.nvim")
 	use("j-hui/fidget.nvim")
 	-- project manager
-
-	-- use {
-	-- 	"ahmedkhalf/project.nvim",
-	-- }
-
-	use({
-		"coffebar/project.nvim",
-		branch = "session-manager",
-	})
+	use("coffebar/project.nvim")
 	-- search counter
 	use("google/vim-searchindex")
 	-- turn off highlighting when you are done searching
