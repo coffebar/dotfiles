@@ -127,6 +127,7 @@ if has_wk then
 				l = { '<cmd>let @+=expand("%:p")<cr>', "Copy current buffer's absolute path" },
 				c = { '"+yy', "Copy line to system clipboard" },
 				p = { "<cmd>CccPick<cr>", "Color picker" },
+				r = { "<cmd>Telescope neoclip<cr>", "Neoclip" },
 				s = { "<cmd>so %<cr>", "Source current buffer" },
 			},
 			g = {
@@ -250,6 +251,8 @@ else
 
 	-- copy current buffer's absolute path to clipboard
 	nnoremap("<leader>cl", '<cmd>let @+=expand("%:p")<cr>')
+	-- plugin with Yank history
+	nnoremap("<leader>cr", "<cmd>Telescope neoclip<cr>")
 	-- copy current line to system clipboard
 	nnoremap("<leader>cc", '"+yy')
 	-- source current buffer

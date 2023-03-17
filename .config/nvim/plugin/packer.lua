@@ -173,6 +173,26 @@ return packer.startup(function(use)
 	use({ "coffebar/ccc.nvim", branch = "session_switching_fix" })
 	-- bookmarks
 	use("ThePrimeagen/harpoon")
+	-- yank history
+	use({
+		"AckslD/nvim-neoclip.lua",
+		config = function()
+			require("neoclip").setup({
+				enable_macro_history = false,
+				keys = {
+					telescope = {
+						i = {
+							select = "<cr>",
+							delete = "<c-d>", -- delete an entry
+							edit = "<c-e>", -- edit an entry
+							custom = {},
+						},
+					},
+					fzf = {},
+				},
+			})
+		end,
+	})
 
 	--
 	-- May be interesting:

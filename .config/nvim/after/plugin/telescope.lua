@@ -51,3 +51,5 @@ telescope.setup({
 telescope.load_extension("file_browser")
 -- ahmedkhalf/project.nvim
 telescope.load_extension("projects")
+-- neoclip
+telescope.load_extension("neoclip")
