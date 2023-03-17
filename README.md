@@ -60,6 +60,8 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 - ``Super + P`` pull dotfiles from this repo and show notification with icon.
 
+- Notifications when battery level is low or full changed.
+
 #### i3
 
 - UI scale options depends on current display setup and [autorandr](https://github.com/phillipberndt/autorandr) profile name.
