@@ -78,9 +78,6 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 </details>
 
-<details><summary>
-
-
 <details><summary><h2>Neovim plugins full list</h2></summary>
 
 <!-- plugins list start -->
@@ -154,6 +151,8 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 </details>
 
+
+<details><summary>
 <h2>Restore backup</h2>
 </summary>
 
