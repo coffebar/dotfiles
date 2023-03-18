@@ -44,33 +44,33 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 #### Common for Window managers
 
-- ``Alt + f`` open a file manager in that directory what was found in clipboard. For example, if you copied a file from some program, you can open its directory just by pressing this shortcut.
+- ``Alt + f`` opens a file manager in the directory found in the clipboard. For example, if you copied a file from some program, you can open its directory by pressing this shortcut.
 
-- Neovim [opens](https://github.com/coffebar/dotfiles/blob/master/.config/nvim/lua/commands.lua) popular image formats in external viewer ([pix](https://github.com/linuxmint/pix)) instead of binary view. Neovim also has a bunch of customizations and keyboard shortcuts.
+- Neovim [opens](https://github.com/coffebar/dotfiles/blob/master/.config/nvim/lua/commands.lua) popular image formats in the external viewer ([pix](https://github.com/linuxmint/pix)) instead of binary view. Neovim also has a bunch of customizations and keyboard shortcuts.
 
 - Mouse side buttons bound to copy and paste in graphics applications. Although I try to use the mouse less, it's useful for (web)apps with mouse-centric UI.
 
 - CapsLock's behavior is changed to Backspace.
 
-- Nice aliases: **i** to install package, **md2pdf** to convert markdown file to pdf, **v** to open Neovim, **yy** to perform system upgrage. 
+- Nice aliases: **i** to install package, **md2pdf** to convert markdown file to pdf, **v** to open Neovim, **yy** to perform system upgrade. 
 
 - Not using Display Managers.
 
 - ``Ctrl + m`` bind simplifies sequence ``Ctrl + l, Ctrl + v, Return`` to interact with file-picker dialog by selecting file from clipboard blazing fast.
 
-- ``Super + P`` pull dotfiles from this repo and show notification with icon.
+- ``Super + P`` pull dotfiles from this repo and shows a notification with an icon.
 
-- Notifications when battery level is low or full changed.
+- Notifications when the battery level is low or fully charged.
 
 #### i3
 
-- UI scale options depends on current display setup and [autorandr](https://github.com/phillipberndt/autorandr) profile name.
+- UI scale options depend on the current display setup and [autorandr](https://github.com/phillipberndt/autorandr) profile name.
 
 - ``Super + \ `` open fuzzy finder to search for local text files in the home directory to edit in Neovim.
 
 - Automatic tiling via [autotiling](https://github.com/nwg-piotr/autotiling) script. Split direction depends on the currently focused window dimensions.
 
-- Some of wm's binds improved by Lua script. Lua has more flexibility than i3config syntax. I like to switch automatically to the appropriate workspace after opening programs using a keyboard shortcut.
+- Some of wm's binds were improved by Lua script. Lua has more flexibility than i3config syntax. I like to switch automatically to the appropriate workspace after opening programs using a keyboard shortcut.
 
 - ``Super + ` `` open ssh servers menu to connect.
 
