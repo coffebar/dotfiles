@@ -158,7 +158,7 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 ### Please don't do this without understanding all files and commands! 
 
-Note: before proceed you need to create or restore ssh keys and install git 
+#### Before proceeding you need to create or restore ssh keys and install git
 
 ### Download config files and install packages from AUR
 ```bash
@@ -195,7 +195,8 @@ cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
 
 ### GTK options
 
-Next options will tell GTK-based apps to prefer Dark theme and open file chooser by default in the home directory.
+The next options will tell GTK-based apps to prefer a Dark theme and open file chooser by default in the home directory.
+
 ```bash
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gtk.Settings.FileChooser startup-mode cwd
