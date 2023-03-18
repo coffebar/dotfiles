@@ -1,13 +1,12 @@
 #!/bin/sh
 nm-online
-if alacritty --class="workspace10" -e /usr/bin/zsh \
-	-c "git --git-dir=$HOME/dotfiles --work-tree=$HOME pull"; \
-then
+if result=$(git --git-dir=$HOME/dotfiles --work-tree=$HOME pull 2>&1); then
 	notify-send -t 2000 -a 'dotfiles' \
 		-i /usr/share/icons/breeze-dark/actions/24/vcs-merge-request.svg \
 		'Updated'
 else
+	result=$(echo "$result" | tail -2)
 	notify-send -t 5000 -a 'dotfiles' \
 		-i /usr/share/icons/breeze-dark/actions/24/vcs-branch-delete.svg \
-		'git pull failed'
+		'git pull failed' "$result"
 fi
