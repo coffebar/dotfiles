@@ -11,20 +11,21 @@ if installed then
 
 	local Autoload = require("session_manager.config").AutoloadMode
 	local mode = Autoload.LastSession -- Possible values: Disabled, CurrentDir, LastSession
-	local enabled = true
+	local project_root, _ = require("project_nvim.project").get_project_root()
+	if project_root ~= nil then
+		mode = Autoload.CurrentDir
+	end
 	if contains(vim.v.argv, "SearchInHome") then
 		mode = Autoload.Disabled
-		enabled = false
-	elseif vim.fn.isdirectory(".git") == 1 then
-		mode = Autoload.CurrentDir
 	end
 
 	session_manager.setup({
 		path_replacer = "__", -- The character to which the path separator will be replaced for session files.
 		colon_replacer = "++", -- The character to which the colon symbol will be replaced for session files.
 		autoload_mode = mode, -- Define what to do when Neovim is started without arguments.
-		autosave_last_session = enabled, -- Automatically save last session on exit and on session switch.
-		autosave_ignore_not_normal = true, -- Plugin will not save a session when no buffers are opened, or all of them aren't writable or listed.
+		autosave_last_session = mode ~= Autoload.Disabled, -- Automatically save last session on exit and on session switch.
+		-- I'l keep it false for smooth session switching
+		autosave_ignore_not_normal = false, -- Plugin will not save a session when no buffers are opened, or all of them aren't writable or listed.
 		autosave_ignore_dirs = {
 			vim.fn.expand("~"),
 			vim.fn.expand("~/dev/.task/"),
