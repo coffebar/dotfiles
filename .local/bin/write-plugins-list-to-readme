@@ -1,0 +1,50 @@
+#!/bin/node
+
+// script to update neovim plugins list in my README file for dotfiles repo
+
+const fs = require("fs");
+const os = require("os");
+
+const HOME = os.homedir();
+const readme_path = HOME + "/README.md";
+const packer_compiled_path = HOME + "/.config/nvim/plugin/packer_compiled.lua";
+const plugins = get_plugins(read_file_contents(packer_compiled_path));
+replace_plugins_list_in_readme(plugins);
+
+function replace_plugins_list_in_readme(plugins) {
+  const listHtml = render_html(plugins);
+  let contents = read_file_contents(readme_path).toString();
+  const markerStart = "<!-- plugins list start -->\n";
+  const markerEnd = "<!-- plugins list end -->";
+  const regexp = new RegExp(markerStart + "(.*?)" + markerEnd, "gms");
+  const data = contents.replace(regexp, markerStart + listHtml + markerEnd);
+  fs.writeFileSync(readme_path, data);
+  console.log("Updated list of " + plugins.length + " plugins");
+}
+
+function read_file_contents(path) {
+  try {
+    return fs.readFileSync(path);
+  } catch (err) {
+    console.error(err);
+    return "";
+  }
+}
+
+function get_plugins(file_contents) {
+  // get loaded plugins hosted on github
+  const regexpUrls = new RegExp(
+    'loaded = true,\\s*path = [^\\s]+\\s*url = "https://github\\.com/([^"]+)"',
+    "g"
+  );
+  const match = file_contents.toString().matchAll(regexpUrls);
+  return Array.from(match, (m) => m[1]);
+}
+
+function render_html(plugins) {
+  let html = "";
+  plugins.forEach((plug) => {
+    html = html + "- [" + plug + "](https://github.com/" + plug + ")\n";
+  });
+  return html;
+}

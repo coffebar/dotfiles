@@ -36,8 +36,13 @@
 
 <details><summary><h2>Interesting features</h2></summary>
 
+#### Neovim project management
 
-#### Common
+https://user-images.githubusercontent.com/3100053/225754164-b4141431-29fd-4587-9c2f-f9fc531a6986.mp4
+
+plugin [project.nvim](https://github.com/coffebar/project.nvim)
+
+#### Common for Window managers
 
 - ``Alt + f`` open a file manager in that directory what was found in clipboard. For example, if you copied a file from some program, you can open its directory just by pressing this shortcut.
 
@@ -45,7 +50,7 @@
 
 - Mouse side buttons bound to copy and paste in graphics applications. Although I try to use the mouse less, it's useful for (web)apps with mouse-centric UI.
 
-- CapsLock is changed to Backspace.
+- CapsLock's behavior is changed to Backspace.
 
 - Nice aliases: **i** to install package, **md2pdf** to convert markdown file to pdf, **v** to open Neovim, **yy** to perform system upgrage. 
 
@@ -54,6 +59,8 @@
 - ``Ctrl + m`` bind simplifies sequence ``Ctrl + l, Ctrl + v, Return`` to interact with file-picker dialog by selecting file from clipboard blazing fast.
 
 - ``Super + P`` pull dotfiles from this repo and show notification with icon.
+
+- Notifications when battery level is low or full changed.
 
 #### i3
 
@@ -70,6 +77,79 @@
 - Automatic tiling freed up ``Super + H`` shortcut. So I'm using HJKL to navigate inside WM.
 
 </details>
+
+<details><summary><h2>Neovim plugins full list</h2></summary>
+
+<!-- plugins list start -->
+- [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
+- [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+- [skywind3000/asyncrun.vim](https://github.com/skywind3000/asyncrun.vim)
+- [skywind3000/asynctasks.vim](https://github.com/skywind3000/asynctasks.vim)
+- [Pocco81/auto-save.nvim](https://github.com/Pocco81/auto-save.nvim)
+- [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
+- [coffebar/ccc.nvim](https://github.com/coffebar/ccc.nvim)
+- [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
+- [hrsh7th/cmp-calc](https://github.com/hrsh7th/cmp-calc)
+- [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
+- [hrsh7th/cmp-emoji](https://github.com/hrsh7th/cmp-emoji)
+- [petertriho/cmp-git](https://github.com/petertriho/cmp-git)
+- [David-Kunz/cmp-npm](https://github.com/David-Kunz/cmp-npm)
+- [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+- [hrsh7th/cmp-nvim-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help)
+- [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
+- [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
+- [lukas-reineke/cmp-rg](https://github.com/lukas-reineke/cmp-rg)
+- [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
+- [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim)
+- [narutoxy/dim.lua](https://github.com/narutoxy/dim.lua)
+- [Mofiqul/dracula.nvim](https://github.com/Mofiqul/dracula.nvim)
+- [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
+- [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)
+- [mhartington/formatter.nvim](https://github.com/mhartington/formatter.nvim)
+- [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
+- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [gruvbox-community/gruvbox](https://github.com/gruvbox-community/gruvbox)
+- [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
+- [mboughaba/i3config.vim](https://github.com/mboughaba/i3config.vim)
+- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [cohama/lexima.vim](https://github.com/cohama/lexima.vim)
+- [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
+- [Shatur/neovim-session-manager](https://github.com/Shatur/neovim-session-manager)
+- [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
+- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [NvChad/nvim-colorizer.lua](https://github.com/NvChad/nvim-colorizer.lua)
+- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [AckslD/nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua)
+- [nvim-pack/nvim-spectre](https://github.com/nvim-pack/nvim-spectre)
+- [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
+- [klen/nvim-test](https://github.com/klen/nvim-test)
+- [nguyenvukhang/nvim-toggler](https://github.com/nguyenvukhang/nvim-toggler)
+- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [romgrk/nvim-treesitter-context](https://github.com/romgrk/nvim-treesitter-context)
+- [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
+- [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)
+- [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+- [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- [coffebar/project.nvim](https://github.com/coffebar/project.nvim)
+- [ckipp01/stylua-nvim](https://github.com/ckipp01/stylua-nvim)
+- [nvim-telescope/telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [johmsalas/text-case.nvim](https://github.com/johmsalas/text-case.nvim)
+- [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
+- [romainl/vim-cool](https://github.com/romainl/vim-cool)
+- [rbong/vim-flog](https://github.com/rbong/vim-flog)
+- [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
+- [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
+- [google/vim-searchindex](https://github.com/google/vim-searchindex)
+- [justinmk/vim-sneak](https://github.com/justinmk/vim-sneak)
+- [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+<!-- plugins list end -->
+
+</details>
+
 
 <details><summary>
 <h2>Restore backup</h2>

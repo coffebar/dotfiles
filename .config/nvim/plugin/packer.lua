@@ -54,15 +54,7 @@ return packer.startup(function(use)
 	use("glepnir/lspsaga.nvim")
 	use("j-hui/fidget.nvim")
 	-- project manager
-
-	-- use {
-	-- 	"ahmedkhalf/project.nvim",
-	-- }
-
-	use({
-		"coffebar/project.nvim",
-		branch = "session-manager",
-	})
+	use("coffebar/project.nvim")
 	-- search counter
 	use("google/vim-searchindex")
 	-- turn off highlighting when you are done searching
@@ -76,7 +68,8 @@ return packer.startup(function(use)
 	-- treesitter
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 	-- :TSPlaygroundToggle will open treesitter preview split
-	use("nvim-treesitter/playground")
+	-- use("nvim-treesitter/playground")
+
 	-- keep visible current function declaration
 	use("romgrk/nvim-treesitter-context")
 	-- nice highlighting for variables
@@ -181,6 +174,26 @@ return packer.startup(function(use)
 	use({ "coffebar/ccc.nvim", branch = "session_switching_fix" })
 	-- bookmarks
 	use("ThePrimeagen/harpoon")
+	-- yank history
+	use({
+		"AckslD/nvim-neoclip.lua",
+		config = function()
+			require("neoclip").setup({
+				enable_macro_history = false,
+				keys = {
+					telescope = {
+						i = {
+							select = "<cr>",
+							delete = "<c-d>", -- delete an entry
+							edit = "<c-e>", -- edit an entry
+							custom = {},
+						},
+					},
+					fzf = {},
+				},
+			})
+		end,
+	})
 
 	--
 	-- May be interesting:
