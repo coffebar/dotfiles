@@ -62,6 +62,7 @@
 .taskdata
 .npmrc
 .oh-my-zsh/
+.opencommit
 .pulse-cookie
 .shell.pre-oh-my-zsh
 .viminfo
