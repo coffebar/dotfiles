@@ -244,6 +244,14 @@ if has_wk then
 			aa = { "<cmd>TextCaseOpenTelescope<CR>", "Text Case (Telescope)" },
 			c = { "<Plug>(comment_toggle_linewise_visual)", "Comment line(s)" },
 		},
+		-- leader+s in visual mode to replace selected text with Yanked
+		s = {
+			-- yank selection into register F,
+			-- copy from F to / (search register),
+			-- substitute content of search register to text from the register 0
+			'"fy<esc><cmd>let @/=@f<cr><cmd>%s//\\=@0/g<cr>',
+			"Replace selected text with Yanked",
+		},
 	}, { mode = "v" })
 else
 	-- without "which-key" plugin
