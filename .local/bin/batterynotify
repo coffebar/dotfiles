@@ -29,11 +29,11 @@ fi
 
 # If the battery is charging and is full (and has not shown notification yet)
 if [ "$BATTERY_LEVEL" -gt 95 ] && [[ "$BATTERY_STATUS" == "Charging" ]] && [ ! -f $FULL_FILE ]; then
-    notify-send "Battery Charged" "Battery is fully charged." -r 9991
+    notify-send -a "Battery Charged" "Battery is fully charged." -r 9991
     touch $FULL_FILE
 # If the battery is low and is not charging (and has not shown notification yet)
 elif [ "$BATTERY_LEVEL" -le $WARNING_LEVEL ] && [[ "$BATTERY_STATUS" == "Discharging" ]] && [ ! -f $EMPTY_FILE ]; then
-    notify-send "Low Battery" "${BATTERY_LEVEL}% of battery remaining." -u critical -r 9991
+    notify-send -a "Low Battery" "${BATTERY_LEVEL}% of battery remaining." -u critical -r 9991
     touch $EMPTY_FILE
 fi
 
