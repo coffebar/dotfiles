@@ -174,14 +174,14 @@ cd .. && rm -rf yay
 yay -Y --gendb
 
 # install packages
-yay -S --needed - < pkglist-intel.txt
+mkdir -p /tmp/yay; yay -S --builddir /tmp/yay --needed --nodiffmenu --noeditmenu - < pkglist-intel.txt
 
-# enable services
-sudo systemctl enable --now input-remapper docker tlp ufw bluetooth systemd-resolved.service autorandr
 # add firewall rule
 sudo ufw default deny incoming
 sudo ufw allow syncthing
 sudo ufw enable
+# enable services
+sudo systemctl enable --now input-remapper docker tlp ufw bluetooth
 
 # install ohmyzsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
