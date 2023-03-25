@@ -323,7 +323,8 @@ client.placeholder      #00000000 #4b5162 #ffffff   #000000   #0c0c0c
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker
+exec --no-startup-id xset s 1200 # timeout is 20 minutes and then lock and sleep
+exec --no-startup-id xss-lock --transfer-sleep-lock -- $Locker sleep
 
 exec --no-startup-id nm-applet &
 exec --no-startup-id blueman-applet &
