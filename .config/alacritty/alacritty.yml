@@ -30,9 +30,7 @@ font:
     style: Italic
 
 
-# Colors (based on Pop!_OS)
 colors:
-  # Default colors
   primary:
     background: '#2b2e37'
     foreground: '#F2F2F2'
@@ -40,13 +38,13 @@ colors:
   # Normal colors
   normal:
     black:   '#333333'
+    green:   '#98c379'
+    yellow:  '#d19a66'
+    blue:    '#61afef'
     red:     '#CC0000'
-    green:   '#4E9A06'
-    yellow:  '#C4A000'
-    blue:    '#3465A4'
-    magenta: '#75507B'
-    cyan:    '#06989A'
     white:   '#D3D7CF'
+    magenta: '#c678dd'
+    cyan:    '#56b6c2'
 
   # Bright colors
   bright:
