@@ -224,7 +224,6 @@ wrk
 wtype
 xclip
 xdg-desktop-portal-hyprland-git
-xdg-desktop-portal-wlr
 xdg-user-dirs
 xdg-utils
 xdotool
