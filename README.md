@@ -49,21 +49,19 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 - ``Alt + f`` opens a file manager in the directory found in the clipboard. For example, if you copied a file from some program, you can open its directory by pressing this shortcut.
 
-- Neovim [opens](https://github.com/coffebar/dotfiles/blob/master/.config/nvim/lua/commands.lua) popular image formats in the external viewer ([pix](https://github.com/linuxmint/pix)) instead of binary view. Neovim also has a bunch of customizations and keyboard shortcuts.
-
 - Mouse side buttons bound to copy and paste in graphics applications. Although I try to use the mouse less, it's useful for (web)apps with mouse-centric UI.
 
 - CapsLock's behavior is changed to Backspace.
 
-- Nice aliases: **i** to install package, **md2pdf** to convert markdown file to pdf, **v** to open Neovim, **yy** to perform system upgrade. 
-
-- Not using Display Managers.
+- I'm not using Display Managers (no LightDM or GDM).
 
 - ``Ctrl + m`` bind simplifies sequence ``Ctrl + l, Ctrl + v, Return`` to interact with file-picker dialog by selecting file from clipboard blazing fast.
 
 - ``Super + P`` pull dotfiles from this repo and shows a notification with an icon.
 
 - Notifications when the battery level is low or fully charged.
+
+- ``Alt + Space`` close a focused window.
 
 #### i3
 
@@ -78,6 +76,17 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 - ``Super + ` `` open ssh servers menu to connect.
 
 - Automatic tiling freed up ``Super + H`` shortcut. So I'm using HJKL to navigate inside WM.
+
+#### Terminal
+
+- ``Alt + e`` execute suggested command from zsh-autosuggestions
+
+- ``Command + c`` ``Command + v`` copy & paste. `Ctrl + c` and `Ctrl + p` in neovim.
+
+- Neovim [opens](https://github.com/coffebar/dotfiles/blob/master/.config/nvim/lua/commands.lua) popular image formats in the external viewer ([pix](https://github.com/linuxmint/pix)) instead of binary view. Neovim also has a bunch of customizations and keyboard shortcuts.
+
+- Nice aliases: **i** to install package, **md2pdf** to convert markdown file to pdf, **v** to open Neovim, **yy** to perform system upgrade. 
+
 
 </details>
 
