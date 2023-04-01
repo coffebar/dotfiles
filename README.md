@@ -15,23 +15,26 @@
 
 - [🌿 Window Managers](https://github.com/coffebar/dotfiles#overview):
   - [🍚 Hyprland](https://github.com/hyprwm/Hyprland)
-  - [🍙 i3](https://i3wm.org/)
+  - [🍙 i3](https://i3wm.org/) as fallback
 - [👽 Terminal](https://github.com/coffebar/dotfiles#overview):
-  - :robot: Emulator:
-    - [Alacritty](https://alacritty.org/) with [*JetBrains Mono*](https://www.jetbrains.com/lp/mono/) font
-  - [🌌 Shell](https://github.com/coffebar/dotfiles#overview): Zsh with [OhMyZsh](https://github.com/ohmyzsh/ohmyzsh)
-- [✏️ Code Editors](https://github.com/coffebar/dotfiles#overview):
-  - [💫 Neovim](https://neovim.io/)
+  - :robot: Emulator: [Alacritty](https://alacritty.org/) with [*JetBrains Mono*](https://www.jetbrains.com/lp/mono/) font
+  - [🌌 Shell](https://github.com/coffebar/dotfiles#overview): Zsh with [OhMyZsh](https://github.com/ohmyzsh/ohmyzsh) and `robbyrussell` theme
+- [✏️ Editors](https://github.com/coffebar/dotfiles#overview):
+  - [:green_heart: neovim](https://neovim.io/) :green_heart:
+  - 🦍 obsidian
 - [:art: Themes](https://github.com/coffebar/dotfiles#overview):
   - :desktop_computer: [Arc-Dark](https://github.com/horst3180/arc-theme) GTK theme
-  - :basecamp: [bloom-classic](https://github.com/linuxdeepin/deepin-icon-theme) Icons
-  - :small_red_triangle: bloom cursor (from deepin)
-  - :large_blue_diamond: Neovim: [onedark](https://github.com/navarasu/onedark.nvim)
-  - :new_moon_with_face: Telegram: [arcdarkgrey](https://t.me/addtheme/arcdarkgrey)
+  - :basecamp: [bloom-classic](https://github.com/linuxdeepin/deepin-icon-theme) Icons and bloom cursor (from deepin)
+  - :new_moon_with_face: Telegram theme: [ArcDarkGrey](https://t.me/addtheme/arcdarkgrey)
+  - :green_heart: Neovim: 
+	 - [onedark](https://github.com/navarasu/onedark.nvim) with background color from Arc-Dark 
+	 - [gruvbox](https://github.com/gruvbox-community/gruvbox) - only in TTY
 
 - [:pushpin: Bars](https://github.com/coffebar/dotfiles#overview):
   - :womans_hat: [waybar](https://github.com/Alexays/Waybar) on Hyprland
   - :tophat: [polybar](https://github.com/polybar/polybar) on i3
+- [:brain: Task manager](https://github.com/coffebar/dotfiles#overview):
+  - [:bookmark_tabs: Taskwarrior-tui](https://github.com/kdheepak/taskwarrior-tui) dark themed and configured as floating modal
 
 
 <details><summary><h2>Interesting features</h2></summary>
