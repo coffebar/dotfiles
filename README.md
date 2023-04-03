@@ -55,7 +55,7 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 - I'm not using Display Managers (no LightDM or GDM).
 
-- ``Ctrl + m`` bind simplifies sequence ``Ctrl + l, Ctrl + v, Return`` to interact with file-picker dialog by selecting file from clipboard blazing fast.
+- ``Ctrl + m`` bind simplifies sequence ``Ctrl + l, Ctrl + v, Return`` to interact with file-picker dialog by selecting file from clipboard blazingly fast.
 
 - ``Super + P`` pull dotfiles from this repo and shows a notification with an icon.
 
