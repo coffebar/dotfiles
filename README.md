@@ -13,7 +13,7 @@
 ## Overview
 
 
-- [🌿 Window Managers](https://github.com/coffebar/dotfiles#overview):
+- [🌿 Window Managers / Compositors](https://github.com/coffebar/dotfiles#overview):
   - [🍚 Hyprland](https://github.com/hyprwm/Hyprland)
   - [🍙 i3](https://i3wm.org/) as fallback
 - [👽 Terminal](https://github.com/coffebar/dotfiles#overview):
