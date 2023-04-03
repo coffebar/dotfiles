@@ -128,6 +128,7 @@ neovim
 network-manager-applet
 networkmanager
 networkmanager-openvpn
+nmap
 nodejs
 noise-suppression-for-voice
 noto-fonts
