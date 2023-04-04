@@ -78,6 +78,7 @@ haveged
 htop
 hwinfo
 hyprland
+hyprland-monitor-attached
 hyprland-per-window-layout
 i3-wm
 i3blocks
