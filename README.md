@@ -26,6 +26,7 @@
   - :desktop_computer: [Arc-Dark](https://github.com/horst3180/arc-theme) GTK theme
   - :basecamp: [bloom-classic](https://github.com/linuxdeepin/deepin-icon-theme) Icons and bloom cursor (from deepin)
   - :new_moon_with_face: Telegram theme: [ArcDarkGrey](https://t.me/addtheme/arcdarkgrey)
+  - :robot: Terminal colors: mix of the OneDark, Arc-Dark and PopOS
   - :green_heart: Neovim: 
 	 - [onedark](https://github.com/navarasu/onedark.nvim) with background color from Arc-Dark 
 	 - [gruvbox](https://github.com/gruvbox-community/gruvbox) - only in TTY
