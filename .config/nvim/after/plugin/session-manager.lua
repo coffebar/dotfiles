@@ -15,7 +15,7 @@ if installed then
 	if project_root ~= nil then
 		mode = Autoload.CurrentDir
 	end
-	if contains(vim.v.argv, "SearchInHome") then
+	if contains(vim.v.argv, "--") or contains(vim.v.argv, "SearchInHome") then
 		mode = Autoload.Disabled
 	end
 
