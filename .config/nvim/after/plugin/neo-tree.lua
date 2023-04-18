@@ -2,12 +2,6 @@ require("neo-tree").setup({
 	source_selector = {
 		winbar = true,
 		content_layout = "center",
-		tab_labels = {
-			filesystem = " Files",
-			buffers = " Bufs",
-			git_status = " Git",
-			diagnostics = "Diagnostic",
-		},
 	},
 	filesystem = {
 		filtered_items = {
