@@ -167,7 +167,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag")
 	-- dim unused variables and functions using lsp and treesitter
 	use({
-		"narutoxy/dim.lua",
+		"coffebar/dim.lua",
 		requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
 	})
 	-- color piker
