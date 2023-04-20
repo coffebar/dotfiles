@@ -160,6 +160,7 @@ playerctl
 poedit
 polkit-kde-agent
 polybar
+postman-bin-wayland
 python-pip
 redshift-gtk-git
 ripgrep
