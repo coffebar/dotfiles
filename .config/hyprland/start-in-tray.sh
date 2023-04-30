@@ -6,3 +6,4 @@ nm-applet --indicator &
 crow &
 syncthingtray --wait &
 XDG_CURRENT_DESKTOP=gnome telegram-desktop &
+blueman-applet &
