@@ -18,6 +18,9 @@ return packer.startup(function(use)
 	use("navarasu/onedark.nvim")
 	use("Mofiqul/dracula.nvim")
 
+	-- delete buffers without closing window layout;
+	use("moll/vim-bbye")
+
 	-- statusline
 	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
 	use("kyazdani42/nvim-web-devicons")

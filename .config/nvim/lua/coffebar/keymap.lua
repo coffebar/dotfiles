@@ -120,7 +120,7 @@ if has_wk then
 			b = {
 				name = "Close", -- optional group name
 				a = { "<cmd>bufdo bd<cr>", "Close all buffers" },
-				b = { "<cmd>bd!<cr>", "Close this buffer" },
+				b = { "<cmd>Bdelete<cr>", "Close this buffer" },
 			},
 			c = {
 				name = "Copy", -- optional group name
@@ -281,7 +281,7 @@ else
 	-- Close all buffers
 	nnoremap("<leader>ba", "<cmd>bufdo bd<cr>")
 	-- Close the current buffer
-	nnoremap("<leader>bb", "<cmd>bd!<cr>")
+	nnoremap("<leader>bb", "<cmd>Bdelete<cr>")
 	-- Comment.nvim
 	nnoremap("gcc", function()
 		return vim.v.count == 0 and "<Plug>(comment_toggle_linewise_current)" or "<Plug>(comment_toggle_linewise_count)"
