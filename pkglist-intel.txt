@@ -160,14 +160,13 @@ playerctl
 poedit
 polkit-kde-agent
 polybar
-postman-bin-wayland
+postman-bin
 python-pip
 redshift-gtk-git
 ripgrep
 rofi
 rsibreak
 rsync
-rust-analyzer
 rustup
 seahorse
 shellcheck
@@ -201,7 +200,7 @@ ttf-font-awesome-4
 ttf-jetbrains-mono
 ttf-liberation
 ttf-ms-fonts
-ttf-nerd-fonts-symbols-2048-em
+ttf-nerd-fonts-symbols
 ttf-ubuntu-font-family
 ufw
 unrar
