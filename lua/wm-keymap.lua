@@ -48,15 +48,18 @@ if key == "f" then
 	os.execute(string.format('thunar "%s" &', dir))
 elseif key == "t" then
 	-- switch to Telegram or open new instance on fail
-	local cmd = "telegram-desktop &"
+	local cmd = "XDG_CURRENT_DESKTOP=gnome telegram-desktop &"
 	if desktop_session == "i3" then
 		local msg = sys("i3-msg '[class=\"^TelegramDesktop$\"] focus'")
 		if not string.match(msg, '"success":true') then
-			os.execute("XDG_CURRENT_DESKTOP=gnome " .. cmd)
+			os.execute(cmd)
 			os.execute("sleep 1 && i3-msg '[class=\"^TelegramDesktop$\"] focus'")
 		end
 	else
 		if desktop_session == "Hyprland" then
+			if not os.execute("hyprctl clients | rg org.telegram.desktop") then
+				os.execute(cmd)
+			end
 			os.execute("hyprctl dispatch workspace 2")
 		else
 			os.execute(string.format("wmctrl -a 'Telegram' || %s", cmd))
