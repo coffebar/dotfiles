@@ -61,7 +61,7 @@ tear_down () {
 	ter --class='wp-5' --command ./vendor/bin/sail down &
 }
 
-if pgrep -af "profile-directory=$CHROME_PROFILE"; then
+if pgrep -af "$CHROME_PROFILE"; then
 	tear_down
 else
 	tear_up
