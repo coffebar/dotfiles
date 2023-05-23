@@ -147,10 +147,14 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $mode_vpn "VPN toggle: 1 - wireguard, 2 - openvpn"
+set $mode_vpn "VPN toggle: 1 - wireguard(NL), 2 - openvpn(US), 0 - disable"
 mode $mode_vpn {
-	bindsym 1 exec --no-startup-id ~/lua/wg.lua , mode "default"
-	bindsym 2 exec --no-startup-id ~/lua/openvpn.lua, mode "default"
+	bindsym 1 exec --no-startup-id ~/lua/vpn.lua 1, mode "default"
+	bindsym 2 exec --no-startup-id ~/lua/vpn.lua 2, mode "default"
+	bindsym 3 exec --no-startup-id ~/lua/vpn.lua 3, mode "default"
+	bindsym 4 exec --no-startup-id ~/lua/vpn.lua 4, mode "default"
+	bindsym 5 exec --no-startup-id ~/lua/vpn.lua 5, mode "default"
+	bindsym 0 exec --no-startup-id ~/lua/vpn.lua 0, mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
