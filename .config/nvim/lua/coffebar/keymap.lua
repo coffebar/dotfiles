@@ -117,11 +117,7 @@ if has_wk then
 	-- Normal mode
 	wk.register({
 		["<leader>"] = {
-			b = {
-				name = "Close", -- optional group name
-				a = { "<cmd>bufdo bd<cr>", "Close all buffers" },
-				b = { "<cmd>Bdelete<cr>", "Close this buffer" },
-			},
+			b = { "<cmd>Bdelete<cr>", "Close this buffer" },
 			c = {
 				name = "Copy", -- optional group name
 				l = { '<cmd>let @+=expand("%:p")<cr>', "Copy current buffer's absolute path" },
@@ -278,10 +274,8 @@ else
 		vnoremap("<leader>rf", spectre.open_file_search)
 		nnoremap("<leader>rf", spectre.open_file_search)
 	end
-	-- Close all buffers
-	nnoremap("<leader>ba", "<cmd>bufdo bd<cr>")
 	-- Close the current buffer
-	nnoremap("<leader>bb", "<cmd>Bdelete<cr>")
+	nnoremap("<leader>b", "<cmd>Bdelete<cr>")
 	-- Comment.nvim
 	nnoremap("gcc", function()
 		return vim.v.count == 0 and "<Plug>(comment_toggle_linewise_current)" or "<Plug>(comment_toggle_linewise_count)"
