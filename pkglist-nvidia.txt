@@ -169,7 +169,6 @@ ripgrep
 rofi
 rsibreak
 rsync
-rust-analyzer
 rustup
 sdl_ttf
 seahorse
@@ -200,7 +199,7 @@ ttf-font-awesome-4
 ttf-jetbrains-mono
 ttf-liberation
 ttf-ms-fonts
-ttf-nerd-fonts-symbols-2048-em
+ttf-nerd-fonts-symbols
 ttf-ubuntu-font-family
 ufw
 unrar
