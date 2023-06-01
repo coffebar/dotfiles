@@ -61,9 +61,11 @@ tear_down () {
 	ter --class='wp-5' --command ./vendor/bin/sail down &
 }
 
-if pgrep -af "$CHROME_PROFILE"; then
+if pgrep -af "$CHROME_PROFILE" | grep -v "$0"; then
+	echo "Tear down"
 	tear_down
 else
+	echo "Tear up"
 	tear_up
 fi
 
