@@ -167,6 +167,7 @@ ripgrep
 rofi
 rsibreak
 rsync
+rust-analyzer
 rustup
 seahorse
 shellcheck
