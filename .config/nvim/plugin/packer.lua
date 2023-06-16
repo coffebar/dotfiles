@@ -55,7 +55,7 @@ return packer.startup(function(use)
 	})
 	-- ui helper for lsp
 	use("glepnir/lspsaga.nvim")
-	use("j-hui/fidget.nvim")
+	use({ "j-hui/fidget.nvim", tag = "legacy" })
 	-- project manager
 	use("coffebar/project.nvim")
 	-- search counter
