@@ -143,7 +143,6 @@ nvim-packer-git
 obsidian
 opencl-nvidia
 openvpn
-opera
 p7zip
 pacman
 pacman-contrib
