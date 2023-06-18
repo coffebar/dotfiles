@@ -186,7 +186,7 @@ systemd-resolvconf
 taskwarrior-tui
 telegram-desktop
 texinfo
-texlive-core
+texlive-basic
 thunar
 thunar-archive-plugin
 thunar-volman
