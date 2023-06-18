@@ -64,6 +64,8 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 - ``Alt + Space`` close a focused window.
 
+- Partially different config for each machine depending on hostname.
+
 #### i3
 
 - UI scale options depend on the current display setup and [autorandr](https://github.com/phillipberndt/autorandr) profile name.
