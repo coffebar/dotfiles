@@ -62,6 +62,7 @@ gettext
 gimp
 git
 git-delta
+gnome-boxes
 gnome-calculator
 gnome-keyring
 go
