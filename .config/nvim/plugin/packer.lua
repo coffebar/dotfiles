@@ -73,6 +73,9 @@ return packer.startup(function(use)
 	-- :TSPlaygroundToggle will open treesitter preview split
 	-- use("nvim-treesitter/playground")
 
+	-- python venv manager
+	use("HallerPatrick/py_lsp.nvim")
+
 	-- keep visible current function declaration
 	use("romgrk/nvim-treesitter-context")
 	-- nice highlighting for variables

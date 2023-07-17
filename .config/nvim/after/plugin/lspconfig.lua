@@ -1,4 +1,5 @@
 local lspconfig = require("lspconfig")
+local py_lsp = require("py_lsp")
 
 require("lspsaga").setup({
 	lightbulb = {
@@ -123,6 +124,11 @@ lspconfig.tsserver.setup({
 lspconfig.pyright.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
+})
+-- python, plugin HallerPatrick/py_lsp.nvim
+py_lsp.setup({
+	host_python = "/bin/python3",
+	default_venv_name = ".venv",
 })
 -- markdown, requires ltex-ls
 lspconfig.ltex.setup({
