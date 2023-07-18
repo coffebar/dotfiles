@@ -163,6 +163,7 @@ polkit-kde-agent
 polybar
 postman-bin
 python-pip
+python-virtualenv
 redshift-gtk-git
 ripgrep
 rofi

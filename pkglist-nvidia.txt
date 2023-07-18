@@ -164,6 +164,7 @@ poedit
 polkit-kde-agent
 polybar
 python-pip
+python-virtualenv
 qt5ct
 redshift-gtk-git
 ripgrep
