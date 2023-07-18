@@ -1,5 +1,6 @@
 local lspconfig = require("lspconfig")
 local py_lsp = require("py_lsp")
+local au = vim.api.nvim_create_autocmd
 
 require("lspsaga").setup({
 	lightbulb = {
@@ -120,18 +121,7 @@ lspconfig.tsserver.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 })
--- python, requires pyright
-lspconfig.pyright.setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-})
--- python, plugin HallerPatrick/py_lsp.nvim
-py_lsp.setup({
-	on_attach = on_attach,
-	host_python = "/bin/python3",
-	language_server = "pyright",
-	default_venv_name = "venv",
-})
+
 -- markdown, requires ltex-ls
 lspconfig.ltex.setup({
 	on_attach = on_attach,
@@ -196,4 +186,38 @@ lspconfig.gopls.setup({
 lspconfig.intelephense.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
+})
+-- pyright lsp for python
+lspconfig.pyright.setup({
+	on_attach = on_attach,
+	flags = lsp_flags,
+})
+
+local py_lsp_loaded = false
+local py_cwd = nil
+local augroup = vim.api.nvim_create_augroup("py_lsp", { clear = true })
+au("BufReadPost", {
+	group = augroup,
+	pattern = { "*.py" },
+	desc = "Lazy load py_lsp after *.py file opened and activate venv",
+	callback = function()
+		if not py_lsp_loaded then
+			py_lsp_loaded = true
+			-- python lsp with venv using pyrigth
+			py_lsp.setup({
+				on_attach = on_attach,
+				host_python = "/bin/python3",
+				language_server = "pyright",
+				default_venv_name = "venv",
+			})
+			py_cwd = vim.fn.getcwd()
+		else
+			-- change venv if cwd changed since setup
+			local cwd = vim.fn.getcwd()
+			if cwd ~= py_cwd then
+				vim.api.nvim_command("PyLspActivateVenv")
+				py_cwd = cwd
+			end
+		end
+	end,
 })
