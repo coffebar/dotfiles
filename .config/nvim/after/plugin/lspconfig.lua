@@ -129,7 +129,8 @@ lspconfig.pyright.setup({
 py_lsp.setup({
 	on_attach = on_attach,
 	host_python = "/bin/python3",
-	default_venv_name = ".venv",
+	language_server = "pyright",
+	default_venv_name = "venv",
 })
 -- markdown, requires ltex-ls
 lspconfig.ltex.setup({
