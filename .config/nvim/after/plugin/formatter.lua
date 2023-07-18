@@ -7,6 +7,14 @@ local prettierConfig = function()
 	}
 end
 
+local autopep8Config = function()
+	return {
+		exe = "autopep8",
+		args = { "-" },
+		stdin = true,
+	}
+end
+
 local stylua = function()
 	return { exe = "stylua", stdin = false, try_node_modules = true }
 end
@@ -31,6 +39,7 @@ require("formatter").setup({
 		typescript = { prettierConfig },
 		typescriptreact = { prettierConfig },
 		php = { prettierConfig },
+		python = { autopep8Config },
 		sshconfig = { prettierConfig },
 		nginx = { prettierConfig },
 		lua = { stylua },

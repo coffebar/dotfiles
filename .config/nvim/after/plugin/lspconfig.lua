@@ -51,7 +51,7 @@ local on_attach = function(client, bufnr)
 	-- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
 	-- force to use Formatter plugin for this client
-	local force_formatter = client.name == "lua_ls" or client.name == "tsserver"
+	local force_formatter = client.name == "lua_ls" or client.name == "tsserver" or client.name == "pyright"
 
 	if client.name == "intelephense" then
 		-- force use prettier for blade.php files, not for php
@@ -127,6 +127,7 @@ lspconfig.pyright.setup({
 })
 -- python, plugin HallerPatrick/py_lsp.nvim
 py_lsp.setup({
+	on_attach = on_attach,
 	host_python = "/bin/python3",
 	default_venv_name = ".venv",
 })

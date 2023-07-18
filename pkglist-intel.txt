@@ -10,6 +10,7 @@ arc-gtk-theme
 audacity
 autoconf
 automake
+autopep8
 autotiling-git
 baobab
 base

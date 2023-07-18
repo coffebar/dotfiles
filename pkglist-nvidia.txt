@@ -9,6 +9,7 @@ arandr
 arc-gtk-theme
 autoconf
 automake
+autopep8
 autorandr
 autotiling-git
 baobab
