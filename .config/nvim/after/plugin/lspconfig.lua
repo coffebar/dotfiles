@@ -203,14 +203,16 @@ au("BufReadPost", {
 	callback = function()
 		if not py_lsp_loaded then
 			py_lsp_loaded = true
-			-- python lsp with venv using pyrigth
-			py_lsp.setup({
-				on_attach = on_attach,
-				host_python = "/bin/python3",
-				language_server = "pyright",
-				default_venv_name = "venv",
-			})
 			py_cwd = vim.fn.getcwd()
+			vim.defer_fn(function()
+				-- python lsp with venv using pyrigth
+				py_lsp.setup({
+					on_attach = on_attach,
+					host_python = "/bin/python3",
+					language_server = "pyright",
+					default_venv_name = "venv",
+				})
+			end, 500)
 		else
 			-- change venv if cwd changed since setup
 			local cwd = vim.fn.getcwd()
