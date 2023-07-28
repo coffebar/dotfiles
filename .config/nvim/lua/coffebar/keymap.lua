@@ -148,6 +148,7 @@ if has_wk then
 			},
 			s = {
 				p = { "<cmd>so ~/.config/nvim/plugin/packer.lua<cr><cmd>PackerSync<cr>", "Sync Plugins" },
+				a = { "<cmd>AsyncRun -silent alacritty &<cr>", "New Alacritty Window" },
 			},
 			m = {
 				name = "Harpoon",
