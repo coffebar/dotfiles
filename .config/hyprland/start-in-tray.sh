@@ -8,6 +8,7 @@ waybar_loop() {
 	do
 		waybar
 		let WAYBAR_RESTARTS++
+		notify-send -a "start-in-tray.sh" "Waybar crashed!"
 		sleep 1
 	done
 }
