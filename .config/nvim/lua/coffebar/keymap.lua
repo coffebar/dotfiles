@@ -246,7 +246,8 @@ if has_wk then
 			-- yank selection into register F,
 			-- copy from F to / (search register),
 			-- substitute content of search register to text from the register 0
-			'"fy<esc><cmd>let @/=@f<cr><cmd>%s//\\=@0/g<cr>',
+			-- [:-2] removes last char (2 bytes) from the end of variable
+			'"fy<esc><cmd>let @/=@f[:-2]<cr><cmd>%s//\\=@0/gI<cr>',
 			"Replace selected text with Yanked",
 		},
 	}, { mode = "v" })
