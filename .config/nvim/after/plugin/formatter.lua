@@ -36,6 +36,7 @@ require("formatter").setup({
 		json = { prettierConfig },
 		html = { prettierConfig },
 		javascript = { prettierConfig },
+		javascriptreact = { prettierConfig },
 		typescript = { prettierConfig },
 		typescriptreact = { prettierConfig },
 		php = { prettierConfig },
