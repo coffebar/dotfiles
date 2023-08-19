@@ -172,6 +172,7 @@ rofi
 rsibreak
 rsync
 rustup
+s5cmd-bin
 sdl_ttf
 seahorse
 sed

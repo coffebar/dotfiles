@@ -171,6 +171,7 @@ rsibreak
 rsync
 rust-analyzer
 rustup
+s5cmd-bin
 seahorse
 shellcheck
 simplescreenrecorder
