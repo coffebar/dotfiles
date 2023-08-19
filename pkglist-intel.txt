@@ -90,6 +90,7 @@ intel-media-driver
 intel-ucode
 iwd
 jq
+kate
 kbdd-git
 kdenlive
 keepassxc
