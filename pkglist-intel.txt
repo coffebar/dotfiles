@@ -201,6 +201,7 @@ ttf-dejavu
 ttf-droid
 ttf-font-awesome
 ttf-font-awesome-4
+ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
 ttf-liberation
 ttf-ms-fonts
