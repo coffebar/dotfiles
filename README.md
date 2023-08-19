@@ -17,7 +17,7 @@
   - [🍚 Hyprland](https://github.com/hyprwm/Hyprland)
   - [🍙 i3](https://i3wm.org/) as fallback
 - [👽 Terminal](https://github.com/coffebar/dotfiles#overview):
-  - :robot: Emulator: [Alacritty](https://alacritty.org/) with [*JetBrains Mono*](https://www.jetbrains.com/lp/mono/) font
+  - :robot: Emulator: [Alacritty](https://alacritty.org/) with [*JetBrains Mono*](https://www.jetbrains.com/lp/mono/) font (use Nerd Fonts)
   - [🌌 Shell](https://github.com/coffebar/dotfiles#overview): Zsh with [OhMyZsh](https://github.com/ohmyzsh/ohmyzsh) and `robbyrussell` theme
 - [✏️ Editors](https://github.com/coffebar/dotfiles#overview):
   - [:green_heart: neovim](https://neovim.io/) :green_heart:
