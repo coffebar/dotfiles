@@ -55,9 +55,9 @@ local on_attach = function(client, bufnr)
 	local force_formatter = client.name == "lua_ls" or client.name == "tsserver" or client.name == "pyright"
 
 	if client.name == "intelephense" then
-		-- force use prettier for blade.php files, not for php
+		-- force use prettier for php
 		local bufname = vim.api.nvim_buf_get_name(bufnr)
-		if string.match(bufname, ".blade.php$") then
+		if string.match(bufname, ".php$") then
 			force_formatter = true
 		end
 	end

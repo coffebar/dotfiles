@@ -46,7 +46,7 @@ function install_packages_if_needed() {
 install_packages_if_needed pyright bash-language-server \
 	vscode-langservers-extracted \
 	prettier prettier-plugin-ssh-config \
-	prettier-plugin-nginx \
+	prettier-plugin-nginx @prettier/plugin-php \
 	typescript typescript-language-server \
 	stylefmt intelephense \
 	eslint @johnnymorganz/stylua-bin \

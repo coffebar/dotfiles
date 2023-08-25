@@ -7,6 +7,20 @@ local prettierConfig = function()
 	}
 end
 
+local prettierPHP = function()
+	return {
+		exe = "prettier",
+		args = {
+			"--plugin",
+			vim.fn.expand("~/.node_modules/lib/node_modules/@prettier/plugin-php/src/index.js"),
+			"--stdin-filepath",
+			vim.fn.shellescape(vim.api.nvim_buf_get_name(0)),
+		},
+		stdin = true,
+		try_node_modules = true,
+	}
+end
+
 local autopep8Config = function()
 	return {
 		exe = "autopep8",
@@ -39,7 +53,7 @@ require("formatter").setup({
 		javascriptreact = { prettierConfig },
 		typescript = { prettierConfig },
 		typescriptreact = { prettierConfig },
-		php = { prettierConfig },
+		php = { prettierPHP },
 		python = { autopep8Config },
 		sshconfig = { prettierConfig },
 		nginx = { prettierConfig },
