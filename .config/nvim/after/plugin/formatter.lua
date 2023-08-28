@@ -21,7 +21,7 @@ local prettierPHP = function()
 	}
 end
 
-local autopep8Config = function()
+local pythonConfig = function()
 	return {
 		exe = "autopep8",
 		args = { "-" },
@@ -54,7 +54,7 @@ require("formatter").setup({
 		typescript = { prettierConfig },
 		typescriptreact = { prettierConfig },
 		php = { prettierPHP },
-		python = { autopep8Config },
+		python = { pythonConfig },
 		sshconfig = { prettierConfig },
 		nginx = { prettierConfig },
 		lua = { stylua },
