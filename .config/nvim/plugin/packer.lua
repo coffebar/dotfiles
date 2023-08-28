@@ -216,5 +216,8 @@ return packer.startup(function(use)
 	-- akinsho/git-conflict.nvim -- visualise and resolve conflicts
 	-- klen/nvim-config-local -- secure local config files
 	-- rcarriga/nvim-notify
+	-- dmmulroy/tsc.nvim -- project-wide TypeScript type-checking
+	-- folke/todo-comments.nvim -- show TODOs
+	-- razak17/tailwind-fold.nvim -- fold long html class attr (class="..")
 	--
 end)
