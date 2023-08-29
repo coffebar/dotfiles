@@ -1,27 +1,35 @@
 #!/bin/bash
-START_PATH=$HOME/Downloads
+START_PATH="$HOME/Downloads"
+WATCHED_FILE="$START_PATH/.movies-watched.txt"
+
+RG_OUTPUT=$(rg --files --max-depth=3 -N \
+	--iglob '*.mp4' --iglob '*.mkv' --iglob '*.avi' \
+	--glob '!*Telegram Desktop*' \
+	"$START_PATH" | sed "s+$START_PATH/++g")
+
+# remove watched movies from list
+while IFS= read -r line; do
+  RG_OUTPUT=$(echo "$RG_OUTPUT" | rg --invert-match --fixed-strings "$line")
+done < "$WATCHED_FILE"
 
 if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
-	RG_OUTPUT=$(rg --files --max-depth=3 -N \
-		--iglob '*.mp4' --iglob '*.mkv' --iglob '*.avi' \
-		--glob '!*Telegram Desktop*' \
-		"$START_PATH")
-	SELECTED=$(echo "$RG_OUTPUT" | sed "s+$START_PATH/++g" | wofi --show dmenu)
+	SELECTED=$(echo "$RG_OUTPUT" | \
+		wofi --show dmenu)
 else
-	SELECTED=$(find "$START_PATH" -type f \
-	\( -name '*.mp4' -o -name '*.mkv' -o -name '*.avi' \) \
-	-not -path '*/Telegram Desktop/*' \
-	-size +100M \
-	-printf '%P|' \
-	| rofi -i -font "Droid Sans 16" \
-	-theme Arc-Dark -dmenu \
-	-dpi $QT_FONT_DPI -sep '|')
+	SELECTED=$(echo "$RG_OUTPUT" | \
+		rofi -i -dmenu \
+		-theme Arc-Dark \
+		-font "Droid Sans 15" \
+		-theme-str '#window { fullscreen: true; }' \
+		-dpi $QT_FONT_DPI)
 fi
 
-MOVIE="$START_PATH/$SELECTED" 
+MOVIE="$START_PATH/$SELECTED"
 if [ -f "$MOVIE" ]; then
 	killall mpv
 	mpv \
 	-alang="ukr,uk,eng,en" -slang="eng,en,ukr,uk" \
-	--fullscreen "$MOVIE"
+	--fullscreen "$MOVIE" &
+	# add selected to 'watched'
+	echo "$SELECTED" >> "$WATCHED_FILE"
 fi
