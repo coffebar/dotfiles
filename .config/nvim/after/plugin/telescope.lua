@@ -60,6 +60,9 @@ telescope.setup({
 -- nvim-telescope/telescope-file-browser.nvim
 telescope.load_extension("file_browser")
 -- ahmedkhalf/project.nvim
-telescope.load_extension("projects")
+local pr_installed, _ = pcall(require, "project_nvim")
+if pr_installed then
+	telescope.load_extension("projects")
+end
 -- neoclip
 telescope.load_extension("neoclip")
