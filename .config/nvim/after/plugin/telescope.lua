@@ -65,4 +65,7 @@ if pr_installed then
 	telescope.load_extension("projects")
 end
 -- neoclip
-telescope.load_extension("neoclip")
+local neoclip_installed, _ = pcall(require, "neoclip")
+if neoclip_installed then
+	telescope.load_extension("neoclip")
+end
