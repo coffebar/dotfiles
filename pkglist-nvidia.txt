@@ -57,7 +57,6 @@ fuseiso
 fwupd
 gawk
 gcc
-gedit
 geoipupdate
 gettext
 gimp
@@ -90,6 +89,7 @@ input-remapper-git
 intel-ucode
 iwd
 jq
+kate
 kbdd-git
 kdenlive
 keepassxc
