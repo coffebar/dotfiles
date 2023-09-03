@@ -171,6 +171,7 @@ ripgrep
 rofi
 rsibreak
 rsync
+rust-analyzer
 rustup
 s5cmd-bin
 sdl_ttf
