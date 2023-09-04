@@ -106,6 +106,9 @@ if sm_installed then
 				sm_opt.autoload_mode = Autoload.CurrentDir
 			end
 			session_manager.setup(sm_opt)
+			if project_root ~= nil then
+				session_manager.save_current_session()
+			end
 		end
 	else
 		-- SessionManager is disabled without project_nvim
