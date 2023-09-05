@@ -215,7 +215,7 @@ usbutils
 vim
 vlc
 wavpack
-waybar-hyprland-git
+waybar
 waybar-module-pacman-updates-git
 wbg
 wget
