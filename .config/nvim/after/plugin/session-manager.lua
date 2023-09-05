@@ -71,6 +71,7 @@ if sm_installed then
 			end
 
 			project_nvim.setup({
+				datapath = datapath,
 				session_autoload = true,
 				silent_chdir = false,
 				exclude_dirs = {
@@ -98,7 +99,7 @@ if sm_installed then
 					">Work",
 					">pets",
 				},
-				datapath = datapath,
+				ignore_child_projects = true,
 			})
 
 			local project_root, _ = require("project_nvim.project").get_project_root()
