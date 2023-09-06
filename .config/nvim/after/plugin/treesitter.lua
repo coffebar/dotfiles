@@ -7,6 +7,7 @@ local function disable_all(_, buf)
 	end
 end
 
+---@diagnostic disable-next-line: missing-fields
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
 		"bash",
