@@ -1,3 +1,12 @@
+-- disable slow treesitter for large files
+local function disable_all(_, buf)
+	local max_filesize = 200 * 1024 -- 200 KB
+	local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+	if ok and stats and stats.size > max_filesize then
+		return true
+	end
+end
+
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
 		"bash",
@@ -28,6 +37,9 @@ require("nvim-treesitter.configs").setup({
 	-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
 	auto_install = true,
 
+	-- List of parsers to ignore installing (or "all")
+	ignore_install = {},
+
 	playground = {
 		enable = true,
 		disable = {},
@@ -50,15 +62,7 @@ require("nvim-treesitter.configs").setup({
 		-- `false` will disable the whole extension
 		enable = true,
 
-		-- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-		-- first parameter is lang
-		disable = function(_, buf)
-			local max_filesize = 1024 * 1024 * 10 -- 10 MB
-			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-			if ok and stats and stats.size > max_filesize then
-				return true
-			end
-		end,
+		disable = disable_all,
 
 		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
 		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -68,11 +72,16 @@ require("nvim-treesitter.configs").setup({
 	},
 	incremental_selection = {
 		enable = true,
+		disable = disable_all,
 		keymaps = {
 			init_selection = "<CR>",
 			scope_incremental = "<CR>",
 			node_incremental = "<TAB>",
 			node_decremental = "<S-TAB>",
 		},
+	},
+	indent = {
+		enable = true,
+		disable = disable_all,
 	},
 })

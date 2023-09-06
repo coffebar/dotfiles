@@ -106,8 +106,8 @@ end
 -- Optimize for large files
 au("BufReadPre", {
 	group = augroup,
-	desc = "Disable filetype for large files (>1MB)",
-	command = 'let f=expand("<afile>") | if getfsize(f) > 1024*1024*1 | set eventignore+=FileType | else | set eventignore-=FileType | endif',
+	desc = "Disable filetype for large files (>200KB)",
+	command = 'let f=expand("<afile>") | if getfsize(f) > 200*1024 | set eventignore+=FileType | else | set eventignore-=FileType | endif',
 })
 
 -- Auto formatting
