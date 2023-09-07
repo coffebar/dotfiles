@@ -120,6 +120,7 @@ if has_wk then
 			b = { "<cmd>Bdelete<cr>", "Close this buffer" },
 			c = {
 				name = "Copy", -- optional group name
+				f = { "<cmd>%y+<cr>", "Copy file content to system clipboard" },
 				l = { '<cmd>let @+=expand("%:p")<cr>', "Copy current buffer's absolute path" },
 				c = { '"+yy', "Copy line to system clipboard" },
 				p = { "<cmd>CccPick<cr>", "Color picker" },
@@ -165,6 +166,11 @@ if has_wk then
 					end,
 					"Search current word",
 				},
+			},
+			v = {
+				name = "Paste",
+				-- overwrite entire buffer's content from system clipboard
+				f = { '<cmd>%d<cr>"+p', "Paste file content from system clipboard" },
 			},
 			x = { "<cmd>!chmod +x %<cr>", "Make file executable" },
 		},
