@@ -37,8 +37,7 @@ rm -rf /tmp/dotfiles_tmp_nvim/
 npm config set prefix ~/.node_modules
 
 function install_packages_if_needed() {
-	for p in "$@"
-	do
+	for p in "$@"; do
 		npm list -g "$p" | grep '@' || npm install -g "$p"
 	done
 }
@@ -46,6 +45,7 @@ function install_packages_if_needed() {
 install_packages_if_needed pyright bash-language-server \
 	vscode-langservers-extracted \
 	prettier prettier-plugin-ssh-config \
+	prettier-plugin-sh \
 	prettier-plugin-nginx @prettier/plugin-php \
 	typescript typescript-language-server \
 	stylefmt intelephense \

@@ -52,7 +52,10 @@ local on_attach = function(client, bufnr)
 	-- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
 	-- force to use Formatter plugin for this client
-	local force_formatter = client.name == "lua_ls" or client.name == "tsserver" or client.name == "pyright"
+	local force_formatter = client.name == "lua_ls"
+		or client.name == "tsserver"
+		or client.name == "pyright"
+		or client.name == "bashls"
 
 	if client.name == "intelephense" then
 		-- force use prettier for php

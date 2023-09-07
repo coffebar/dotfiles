@@ -1,24 +1,26 @@
-local prettierConfig = function()
+local prettier = function(plugin)
+	local args
+	if plugin ~= nil then
+		args = { "--plugin", vim.fn.expand(plugin), "--stdin-filepath", vim.fn.shellescape(vim.api.nvim_buf_get_name(0)) }
+	else
+		args = { "--stdin-filepath", vim.fn.shellescape(vim.api.nvim_buf_get_name(0)) }
+	end
 	return {
 		exe = "prettier",
-		args = { "--stdin-filepath", vim.fn.shellescape(vim.api.nvim_buf_get_name(0)) },
+		args = args,
 		stdin = true,
 		try_node_modules = true,
 	}
 end
 
+local node_lib = "~/.node_modules/lib/node_modules/"
+
 local prettierPHP = function()
-	return {
-		exe = "prettier",
-		args = {
-			"--plugin",
-			vim.fn.expand("~/.node_modules/lib/node_modules/@prettier/plugin-php/src/index.js"),
-			"--stdin-filepath",
-			vim.fn.shellescape(vim.api.nvim_buf_get_name(0)),
-		},
-		stdin = true,
-		try_node_modules = true,
-	}
+	return prettier(node_lib .. "@prettier/plugin-php/src/index.js")
+end
+
+local prettierSH = function()
+	return prettier(node_lib .. "prettier-plugin-sh/lib/index.js")
 end
 
 local pythonConfig = function()
@@ -47,16 +49,17 @@ require("formatter").setup({
 	filetype = {
 		scss = { stylefmt },
 		css = { stylefmt },
-		json = { prettierConfig },
-		html = { prettierConfig },
-		javascript = { prettierConfig },
-		javascriptreact = { prettierConfig },
-		typescript = { prettierConfig },
-		typescriptreact = { prettierConfig },
+		json = { prettier },
+		html = { prettier },
+		javascript = { prettier },
+		javascriptreact = { prettier },
+		typescript = { prettier },
+		typescriptreact = { prettier },
 		php = { prettierPHP },
 		python = { pythonConfig },
-		sshconfig = { prettierConfig },
-		nginx = { prettierConfig },
+		sshconfig = { prettier },
+		nginx = { prettier },
+		sh = { prettierSH },
 		lua = { stylua },
 	},
 })
