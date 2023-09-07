@@ -182,8 +182,16 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 git clone --bare git@github.com:coffebar/dotfiles.git dotfiles
 git --git-dir=$HOME/dotfiles --work-tree=$HOME config --local core.worktree $HOME
 
+# Copy custom git hooks to cloned repo.
+# Will sync neovim plugins in background on pull,
+# to avoid errors when missing some plugin.
+cp -f $HOME/hooks/* $HOME/dotfiles/hooks/
+
+# enable GPG for dotfiles repo (commit signature verification)
+./local/bin/github-enable-gpg
+
 # install yay
-pacman -S --needed git base-devel
+pacman -S --needed base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
