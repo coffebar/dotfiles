@@ -1,5 +1,16 @@
 #!/bin/bash
-git config user.email i8ehkvien@mozmail.com
-git config user.signingkey 3670125975082840
-git config commit.gpgsign true
+EMAIL="i8ehkvien@mozmail.com"
+GPG_KEY="3670125975082840"
+
+if ! git rev-parse --git-dir > /dev/null 2>&1; then
+	echo "Not in a git repo"
+	echo "Enabling GPG for dotfiles repo"
+	git --git-dir="$HOME/dotfiles" --work-tree="$HOME" config user.signingkey "$GPG_KEY"
+	git --git-dir="$HOME/dotfiles" --work-tree="$HOME" config user.email "$EMAIL"
+	git --git-dir="$HOME/dotfiles" --work-tree="$HOME" config commit.gpgsign true
+else
+	git config user.signingkey "$GPG_KEY"
+	git config user.email "$EMAIL"
+	git config commit.gpgsign true
+fi
 
