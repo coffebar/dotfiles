@@ -1,6 +1,3 @@
-"" Source your .vimrc
-"source ~/.vimrc
-
 " set leader key
 let mapleader = " "
 " reload config
@@ -36,8 +33,6 @@ map Q gq
 
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" Map \r to the Reformat Code action
-"map \r <Action>(ReformatCode)
 nmap <leader>l <Action>(NextTab)
 nmap <leader>h <Action>(PreviousTab)
 nmap <leader>f <Action>(GotoFile)
@@ -51,7 +46,13 @@ vmap = <Action>(ReformatCode)
 nnoremap <leader>u :action FindUsages<CR>
 
 " copy current line to system clipboard
-nnoremap <leader>c "+yy
+nnoremap <leader>cc "+yy
+"" copy current file to system clipboard
+"" - doen't work
+" nnoremap <leader>cf <CMD>%y+<CR>
+"" paste to the file (replace) from system clipboard
+"" - doen't work
+" nnoremap <leader>vf <CMD>%d<CR>"+p
 
 " append ; to the end of line
 inoremap <leader>; <Esc>A;<Esc>
