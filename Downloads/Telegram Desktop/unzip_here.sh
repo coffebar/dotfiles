@@ -9,8 +9,8 @@ do
 	FILE_EXT=$(echo "$REPLY" | grep --only-matching --ignore-case -P "\.(zip|rar|7z)$")
 	if [ "$FILE_EXT" != "" ]
 	then
-	 DIR_NAME=$(basename "$REPLY" "$FILE_EXT")
-	 OUT_DIR="../$DIR_NAME"
+		DIR_NAME=$(basename "$REPLY" "$FILE_EXT")
+		OUT_DIR="../$DIR_NAME"
 		if [ ! -d "$OUT_DIR" ]; then
 			mkdir "$OUT_DIR"
 			if [ "$FILE_EXT" == ".zip" ] || [ "$FILE_EXT" == ".ZIP" ]; then
