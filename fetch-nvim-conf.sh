@@ -27,6 +27,7 @@ else
 fi
 
 mkdir -p ~/.config/nvim
+mkdir -p ~/.node_modules
 
 git clone --depth=1 https://github.com/coffebar/dotfiles.git /tmp/dotfiles_tmp_nvim
 rsync -rv --delete /tmp/dotfiles_tmp_nvim/.config/nvim/ ~/.config/nvim/
