@@ -1,5 +1,6 @@
 vim.opt.termguicolors = true
 require("bufferline").setup({
+	---@diagnostic disable-next-line: missing-fields
 	options = {
 		mode = "buffers",
 		diagnostics = "nvim_lsp",
