@@ -23,7 +23,7 @@ else
 		yay -Qm | grep "$pn " || TO_INSTALL+=("$pn")
 	done
 	# install all at once
-	[ "${#TO_INSTALL[@]}" -eq 0 ] || yay -Sy --needed "${TO_INSTALL[@]}"
+	[ "${#TO_INSTALL[@]}" -eq 0 ] || yay -Sy --noconfirm --needed "${TO_INSTALL[@]}"
 fi
 
 mkdir -p ~/.config/nvim
