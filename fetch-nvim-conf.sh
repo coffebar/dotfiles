@@ -10,7 +10,7 @@ else
 	yay --version || exit 1
 	echo "Using yay to install required packages"
 	# packages from arch repo
-	PKG=(autopep8 neovim go npm rust-analyzer lua-language-server fd ripgrep xclip python-virtualenv)
+	PKG=(autopep8 neovim go npm rust-analyzer lua-language-server fd ripgrep xclip rsync python-virtualenv)
 	# packages from AUR
 	PKG_AUR=(ltex-ls-bin nvim-packer-git)
 	# chech all packages if installed
