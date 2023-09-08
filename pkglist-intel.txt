@@ -137,6 +137,7 @@ nmap
 nodejs
 noise-suppression-for-voice
 noto-fonts
+noto-fonts-emoji
 npm
 ntfs-3g
 ntp
