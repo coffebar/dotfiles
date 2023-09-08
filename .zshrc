@@ -2,7 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git sudo pip docker zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git sudo pip docker zsh-syntax-highlighting zsh-autosuggestions zsh_codex)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -13,3 +13,5 @@ source ~/.bash_aliases
 bindkey '^[a' autosuggest-accept
 # ALT+e to accept and execute
 bindkey '^[e' autosuggest-execute
+# Ctrl+x to use codex openAI based completion
+bindkey '^X' create_completion

@@ -164,6 +164,7 @@ poedit
 polkit-kde-agent
 polybar
 postman-bin
+python-openai
 python-pip
 python-virtualenv
 redshift-gtk-git
