@@ -1,4 +1,5 @@
 vim.opt.termguicolors = true
+---@diagnostic disable-next-line: missing-fields
 require("bufferline").setup({
 	---@diagnostic disable-next-line: missing-fields
 	options = {
