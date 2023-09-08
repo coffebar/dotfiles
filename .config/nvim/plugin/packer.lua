@@ -158,6 +158,7 @@ return packer.startup(function(use)
 	use({
 		"kylechui/nvim-surround",
 		config = function()
+			---@diagnostic disable-next-line: missing-fields
 			require("nvim-surround").setup({})
 		end,
 	})
