@@ -73,6 +73,16 @@ local function match_img_tag_without_size()
 	return found_width == nil and found_src
 end
 
+local function normalize_path(file)
+	-- if file starts with / or ~, return
+	if string.find(file, "^/") or string.find(file, "^~") then
+		return vim.fn.expand(file)
+	end
+	-- get current vim buffer directory
+	local buf_dir = vim.fn.expand("%:p:h")
+	return buf_dir .. "/" .. vim.fn.expand(file)
+end
+
 -- Snippets for HTML
 return {
 	ls.s(
@@ -83,8 +93,8 @@ return {
 			priority = 2000,
 		},
 		f(function()
-			local src = string.match(last_img_html, "%ssrc=[\"']([^'\"]+)")
-			local cmd = 'identify -format \'width="%w" height="%h"\' "' .. vim.fn.expand(src) .. '"'
+			local src = string.match(tostring(last_img_html), "%ssrc=[\"']([^'\"]+)")
+			local cmd = 'identify -format \'width="%w" height="%h"\' "' .. normalize_path(src) .. '"'
 			local output = system(cmd)
 			if not output or not string.match(output, "height") then
 				return 'width="" height=""'
