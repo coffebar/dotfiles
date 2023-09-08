@@ -1,4 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
 
 ZSH_THEME="robbyrussell"
 
