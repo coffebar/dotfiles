@@ -1,6 +1,11 @@
 #!/bin/sh
 nm-online
-if result=$(git --git-dir=$HOME/dotfiles --work-tree=$HOME pull 2>&1); then
+if result=$(git --git-dir="$HOME/dotfiles" --work-tree="$HOME" pull 2>&1); then
+	# update oh-my-zsh plugins
+	for folder in ~/.oh-my-zsh/custom/plugins/*; do
+		(cd "$folder" && git pull)
+	done
+
 	notify-send -t 2000 -a 'dotfiles' \
 		-i /usr/share/icons/breeze-dark/actions/24/vcs-merge-request.svg \
 		'Updated'
