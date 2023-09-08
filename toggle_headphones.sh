@@ -9,4 +9,3 @@ OTHER_SINK_NAME=$(echo $OTHER_SINK | awk '{print $2}')
 pactl set-default-sink $OTHER_SINK_ID
 
 notify-send "Audio Device" "$OTHER_SINK_NAME" --expire-time=1500
-

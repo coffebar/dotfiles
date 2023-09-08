@@ -1,7 +1,8 @@
 local prettier = function(plugin)
 	local args
 	if plugin ~= nil then
-		args = { "--plugin", vim.fn.expand(plugin), "--stdin-filepath", vim.fn.shellescape(vim.api.nvim_buf_get_name(0)) }
+		args =
+			{ "--plugin", vim.fn.expand(plugin), "--stdin-filepath", vim.fn.shellescape(vim.api.nvim_buf_get_name(0)) }
 	else
 		args = { "--stdin-filepath", vim.fn.shellescape(vim.api.nvim_buf_get_name(0)) }
 	end
@@ -20,7 +21,10 @@ local prettierPHP = function()
 end
 
 local prettierSH = function()
-	return prettier(node_lib .. "prettier-plugin-sh/lib/index.js")
+	local config = prettier(node_lib .. "prettier-plugin-sh/lib/index.js")
+	table.insert(config.args, "--use-tabs")
+	table.insert(config.args, "true")
+	return config
 end
 
 local pythonConfig = function()
@@ -59,6 +63,7 @@ require("formatter").setup({
 		python = { pythonConfig },
 		sshconfig = { prettier },
 		nginx = { prettier },
+		dockerfile = { prettierSH },
 		sh = { prettierSH },
 		lua = { stylua },
 	},
