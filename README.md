@@ -188,7 +188,7 @@ git --git-dir=$HOME/dotfiles --work-tree=$HOME config --local core.worktree $HOM
 cp -f $HOME/hooks/* $HOME/dotfiles/hooks/
 
 # enable GPG for dotfiles repo (commit signature verification)
-./local/bin/github-enable-gpg
+~/.local/bin/github-enable-gpg
 
 # install yay
 pacman -S --needed base-devel
