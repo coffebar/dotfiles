@@ -215,8 +215,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/tom-doerr/zsh_codex.git ~/.oh-my-zsh/custom/plugins/zsh_codex
 # decrypt AI credentials
-gpg -d ~/.config/github-copilot/hosts.json.gpg > ~/.config/github-copilot/hosts.json
-gpg -d ~/.config/openaiapirc.gpg > ~/.config/openaiapirc
+gpg --decrypt --output ~/.config/github-copilot/hosts.json ~/.config/github-copilot/hosts.json.gpg
+gpg --decrypt --output ~/.config/openaiapirc ~/.config/openaiapirc.gpg
 
 # copy ksnip config
 cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
