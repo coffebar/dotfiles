@@ -245,5 +245,16 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fet
 
 </details>
 
+<details><summary><h2>Preview Neovim config in Docker</h2></summary>
 
+Full neovim config can be tested inside docker container.
+
+```bash
+git clone https://github.com/coffebar/docker-test-fetch-nvim-conf.git
+cd docker-test-fetch-nvim-conf && sh ./build.sh
+```
+
+See [docker-test-fetch-nvim-conf](https://github.com/coffebar/docker-test-fetch-nvim-conf) repo for more details.
+
+</details>
 
