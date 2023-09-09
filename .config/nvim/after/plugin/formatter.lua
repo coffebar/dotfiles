@@ -2,13 +2,16 @@ local installed, formatter = pcall(require, "formatter")
 if not installed then
 	return
 end
-local prettier = function(plugin)
-	local args
-	if plugin ~= nil then
-		args = { "--plugin", vim.fn.expand(plugin), "--stdin-filepath", vim.fn.shellescape(vim.api.nvim_buf_get_name(0)) }
+
+local prettier = function(args)
+	local fname = vim.fn.shellescape(vim.api.nvim_buf_get_name(0), true)
+	if args == nil or type(args) ~= "table" then
+		args = { "--stdin-filepath", fname }
 	else
-		args = { "--stdin-filepath", vim.fn.shellescape(vim.api.nvim_buf_get_name(0)) }
+		table.insert(args, "--stdin-filepath")
+		table.insert(args, fname)
 	end
+
 	return {
 		exe = "prettier",
 		args = args,
@@ -17,17 +20,35 @@ local prettier = function(plugin)
 	}
 end
 
-local node_lib = "~/.node_modules/lib/node_modules/"
-
-local prettierPHP = function()
-	return prettier(node_lib .. "@prettier/plugin-php/src/index.js")
+local function nodeModuleLibPath(package, file)
+	-- get the escaped path to the file in the node_modules lib
+	local nodeModulesPath = vim.fn.expand("~/.node_modules") -- possible to use `npm get prefix`, but this path is hardcoded elsewhere
+	local packageDir = nodeModulesPath .. "/lib/node_modules/" .. package .. "/"
+	local fname = packageDir .. file
+	if vim.fn.isdirectory(packageDir) == 0 then
+		-- package is not installed
+		vim.notify("npm package " .. package .. " is not found in " .. nodeModulesPath, vim.log.levels.WARN)
+	else
+		if vim.fn.filereadable(fname) == 0 then
+			-- filename or path changed when package was updated
+			vim.notify(
+				"npm package " .. package .. " version mismatch. Please review ~/.config/nvim/after/plugin/formatter.lua",
+				vim.log.levels.WARN
+			)
+		end
+	end
+	-- return the escaped path to the file
+	return vim.fn.shellescape(fname, true)
 end
 
+local prettierPluginPHP = nodeModuleLibPath("@prettier/plugin-php", "src/index.js")
+local prettierPHP = function()
+	return prettier({ "--plugin", prettierPluginPHP })
+end
+
+local prettierPluginSH = nodeModuleLibPath("prettier-plugin-sh", "lib/index.js")
 local prettierSH = function()
-	local config = prettier(node_lib .. "prettier-plugin-sh/lib/index.js")
-	table.insert(config.args, "--use-tabs")
-	table.insert(config.args, "true")
-	return config
+	return prettier({ "--use-tabs", "true", "--plugin", prettierPluginSH })
 end
 
 local pythonConfig = function()
@@ -49,9 +70,9 @@ end
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 formatter.setup({
 	-- Enable or disable logging
-	logging = false,
+	logging = true,
 	-- Set the log level
-	log_level = vim.log.levels.OFF, -- disabled for auto-save feature
+	log_level = vim.log.levels.ERROR, -- disabled for auto-save feature
 	-- All formatter configurations are opt-in
 	filetype = {
 		scss = { stylefmt },
