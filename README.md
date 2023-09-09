@@ -217,6 +217,7 @@ git clone https://github.com/tom-doerr/zsh_codex.git ~/.oh-my-zsh/custom/plugins
 # decrypt AI credentials
 gpg --decrypt --output ~/.config/github-copilot/hosts.json ~/.config/github-copilot/hosts.json.gpg
 gpg --decrypt --output ~/.config/openaiapirc ~/.config/openaiapirc.gpg
+echo "OCO_OPENAI_API_KEY=$(rg -N 'secret_key=' ~/.config/openaiapirc | sed 's/secret_key=//g')" > ~/.opencommit # opencommit from npm
 
 # copy ksnip config
 cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
