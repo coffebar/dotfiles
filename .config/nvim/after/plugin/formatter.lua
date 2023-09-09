@@ -1,4 +1,4 @@
-local installed, plugin = pcall(require, "formatter")
+local installed, formatter = pcall(require, "formatter")
 if not installed then
 	return
 end
@@ -47,9 +47,9 @@ local stylefmt = function()
 end
 
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
-plugin.setup({
+formatter.setup({
 	-- Enable or disable logging
-	logging = true,
+	logging = false,
 	-- Set the log level
 	log_level = vim.log.levels.OFF, -- disabled for auto-save feature
 	-- All formatter configurations are opt-in
