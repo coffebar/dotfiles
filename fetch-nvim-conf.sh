@@ -56,5 +56,5 @@ install_packages_if_needed pyright bash-language-server \
 
 go version && go install golang.org/x/tools/gopls@latest
 
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' > /dev/null 2>&1
 nvim
