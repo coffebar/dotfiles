@@ -1,4 +1,8 @@
-require("neo-tree").setup({
+local installed, plugin = pcall(require, "neo-tree")
+if not installed then
+	return
+end
+plugin.setup({
 	source_selector = {
 		winbar = true,
 		content_layout = "center",

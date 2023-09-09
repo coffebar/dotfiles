@@ -1,8 +1,11 @@
+local installed, plugin = pcall(require, "formatter")
+if not installed then
+	return
+end
 local prettier = function(plugin)
 	local args
 	if plugin ~= nil then
-		args =
-			{ "--plugin", vim.fn.expand(plugin), "--stdin-filepath", vim.fn.shellescape(vim.api.nvim_buf_get_name(0)) }
+		args = { "--plugin", vim.fn.expand(plugin), "--stdin-filepath", vim.fn.shellescape(vim.api.nvim_buf_get_name(0)) }
 	else
 		args = { "--stdin-filepath", vim.fn.shellescape(vim.api.nvim_buf_get_name(0)) }
 	end
@@ -44,7 +47,7 @@ local stylefmt = function()
 end
 
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
-require("formatter").setup({
+plugin.setup({
 	-- Enable or disable logging
 	logging = true,
 	-- Set the log level

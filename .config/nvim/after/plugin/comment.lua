@@ -1,4 +1,8 @@
-require("Comment").setup({
+local installed, plugin = pcall(require, "Comment")
+if not installed then
+	return
+end
+plugin.setup({
 	---Add a space b/w comment and the line
 	padding = true,
 	---Whether the cursor should stay at its position

@@ -1,4 +1,8 @@
-local onedark = require("onedark")
+local onedark_installed, onedark = pcall(require, "onedark")
+if not onedark_installed then
+	print("onedark not installed")
+	return
+end
 
 onedark.setup({
 	style = "warm",

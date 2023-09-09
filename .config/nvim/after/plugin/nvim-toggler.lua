@@ -1,5 +1,9 @@
+local installed, plugin = pcall(require, "nvim-toggler")
+if not installed then
+	return
+end
 -- add <leader>i to invert values
-require("nvim-toggler").setup({
+plugin.setup({
 	inverses = {
 		["0"] = "1",
 		-- defaults:

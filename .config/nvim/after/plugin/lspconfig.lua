@@ -1,4 +1,7 @@
-local lspconfig = require("lspconfig")
+local lsp_installed, lspconfig = pcall(require, "lspconfig")
+if not lsp_installed then
+	return
+end
 local py_lsp = require("py_lsp")
 local au = vim.api.nvim_create_autocmd
 

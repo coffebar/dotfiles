@@ -1,3 +1,7 @@
+local installed, configs = pcall(require, "nvim-treesitter.configs")
+if not installed then
+	return
+end
 -- disable slow treesitter for large files
 local function disable_all(_, buf)
 	local max_filesize = 200 * 1024 -- 200 KB
@@ -8,7 +12,7 @@ local function disable_all(_, buf)
 end
 
 ---@diagnostic disable-next-line: missing-fields
-require("nvim-treesitter.configs").setup({
+configs.setup({
 	ensure_installed = {
 		"bash",
 		"c",

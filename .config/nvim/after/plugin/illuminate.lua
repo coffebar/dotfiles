@@ -1,5 +1,9 @@
--- default configuration
-require("illuminate").configure({
+local installed, plugin = pcall(require, "illuminate")
+if not installed then
+	return
+end
+-- default config
+plugin.configure({
 	-- providers: provider used to get references in the buffer, ordered by priority
 	providers = {
 		"lsp",

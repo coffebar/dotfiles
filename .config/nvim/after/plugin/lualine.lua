@@ -1,4 +1,8 @@
-require("lualine").setup({
+local installed, plugin = pcall(require, "lualine")
+if not installed then
+	return
+end
+plugin.setup({
 	options = {
 		icons_enabled = true,
 		-- theme = "gruvbox-material",

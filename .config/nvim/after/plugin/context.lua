@@ -1,4 +1,8 @@
-require("treesitter-context").setup({
+local installed, plugin = pcall(require, "treesitter-context")
+if not installed then
+	return
+end
+plugin.setup({
 	enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
 	line_numbers = true, -- Enable/Disable line numbers indicator (enabled by default)
 	multiline_threshold = 20, -- Max lines to show

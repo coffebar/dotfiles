@@ -1,4 +1,7 @@
-local telescope = require("telescope")
+local installed, telescope = pcall(require, "telescope")
+if not installed then
+	return
+end
 local telescopeConfig = require("telescope.config")
 local actions = require("telescope.actions")
 local mappings = require("telescope.mappings")
@@ -68,4 +71,8 @@ end
 local neoclip_installed, _ = pcall(require, "neoclip")
 if neoclip_installed then
 	telescope.load_extension("neoclip")
+end
+local textcase_installed, _ = pcall(require, "textcase")
+if textcase_installed then
+	telescope.load_extension("textcase")
 end

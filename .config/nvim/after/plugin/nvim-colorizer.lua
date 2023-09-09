@@ -1,4 +1,8 @@
-require("colorizer").setup({
+local installed, plugin = pcall(require, "colorizer")
+if not installed then
+	return
+end
+plugin.setup({
 	filetypes = { "html", "css", "dosini", "javascript", "yaml", "scss", "i3config" },
 	user_default_options = {
 		RGB = true, -- #RGB hex codes
