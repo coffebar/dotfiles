@@ -237,7 +237,7 @@ echo "OCO_OPENAI_API_KEY=$(rg -N 'secret_key=' ~/.config/openaiapirc | sed 's/se
 # copy ksnip config
 cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
 
-# setup packman hook to update pkglist file automatically
+# setup pacman hook to update pkglist file automatically
 pacman-setup-hooks
 
 ```
