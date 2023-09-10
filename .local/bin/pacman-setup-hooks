@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Crete a pacman hook to run after a package is installed or deleted
+# to update the list of explicitly installed packages.
+HOOK_DIR="/etc/pacman.d/hooks"
+HOOK_NAME="update-package-list-$USER.hook"
+PATH_TO_HOOK="$HOOK_DIR/$HOOK_NAME"
+sudo mkdir -p "$HOOK_DIR"
+
+if pacman -Qs nvidia > /dev/null; then
+	OUTPUT_FILE="pkglist-nvidia.txt"
+else
+	OUTPUT_FILE="pkglist-intel.txt"
+fi
+
+PKG_LIST="/home/$USER/$OUTPUT_FILE"
+COMMAND="[ -f $PKG_LIST ] && /usr/bin/pacman -Qqe > $PKG_LIST 2> /dev/null"
+
+sudo touch "$PATH_TO_HOOK"
+sudo chmod 777 "$PATH_TO_HOOK"
+if [ -f "$PATH_TO_HOOK" ]; then
+	echo "Hook $HOOK_NAME already exists"
+	echo "Will be overwritten"
+	echo "" > "$PATH_TO_HOOK"
+fi
+{
+	echo "[Trigger]"
+	echo "Operation = Install"
+	echo "Operation = Remove"
+	echo "Type = Package"
+	echo "Target = *"
+	echo "[Action]"
+	echo "Description = Updating $OUTPUT_FILE"
+	echo "When = PostTransaction"
+	echo "Exec = /usr/bin/sh -c '$COMMAND'"
+	echo "NeedsTargets"
+	echo "Depends = pacman"
+	echo "Depends = sh"
+} >> "$PATH_TO_HOOK"
+
+sudo chmod 755 "$PATH_TO_HOOK"
+sudo chown "$USER:$USER" "$PATH_TO_HOOK"
+sudo chown "$USER:$USER" "$HOOK_DIR"
+echo "Hook created at $PATH_TO_HOOK"
