@@ -169,6 +169,20 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 </details>
 
 
+<details><summary><h2>Preview Neovim setup in Docker</h2></summary>
+
+Full neovim setup can be tested inside docker container.
+
+```bash
+git clone https://github.com/coffebar/docker-test-fetch-nvim-conf.git
+cd docker-test-fetch-nvim-conf && sh ./build.sh
+```
+
+See [docker-test-fetch-nvim-conf](https://github.com/coffebar/docker-test-fetch-nvim-conf) repo for more details.
+
+</details>
+
+
 <details><summary>
 <h2>Restore backup</h2>
 </summary>
@@ -246,17 +260,3 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fet
 ```
 
 </details>
-
-<details><summary><h2>Preview Neovim setup in Docker</h2></summary>
-
-Full neovim setup can be tested inside docker container.
-
-```bash
-git clone https://github.com/coffebar/docker-test-fetch-nvim-conf.git
-cd docker-test-fetch-nvim-conf && sh ./build.sh
-```
-
-See [docker-test-fetch-nvim-conf](https://github.com/coffebar/docker-test-fetch-nvim-conf) repo for more details.
-
-</details>
-
