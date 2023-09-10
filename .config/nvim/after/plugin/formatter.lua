@@ -6,10 +6,12 @@ end
 local prettier = function(args)
 	local fname = vim.fn.shellescape(vim.api.nvim_buf_get_name(0), true)
 	if args == nil or type(args) ~= "table" then
-		args = { "--stdin-filepath", fname }
+		args = { "--stdin-filepath", fname, "--ignore-path" }
 	else
 		table.insert(args, "--stdin-filepath")
 		table.insert(args, fname)
+		-- git-ignored files formatting is allowed
+		table.insert(args, "--ignore-path")
 	end
 
 	return {
@@ -75,20 +77,21 @@ formatter.setup({
 	log_level = vim.log.levels.ERROR, -- disabled for auto-save feature
 	-- All formatter configurations are opt-in
 	filetype = {
-		scss = { stylefmt },
 		css = { stylefmt },
-		json = { prettier },
+		dockerfile = { prettierSH },
 		html = { prettier },
 		javascript = { prettier },
 		javascriptreact = { prettier },
-		typescript = { prettier },
-		typescriptreact = { prettier },
+		json = { prettier },
+		lua = { stylua },
+		nginx = { prettier },
 		php = { prettierPHP },
 		python = { pythonConfig },
-		sshconfig = { prettier },
-		nginx = { prettier },
-		dockerfile = { prettierSH },
+		scss = { stylefmt },
 		sh = { prettierSH },
-		lua = { stylua },
+		sshconfig = { prettier },
+		typescript = { prettier },
+		typescriptreact = { prettier },
+		yaml = { prettier },
 	},
 })
