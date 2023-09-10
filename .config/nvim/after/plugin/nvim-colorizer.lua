@@ -3,7 +3,18 @@ if not installed then
 	return
 end
 plugin.setup({
-	filetypes = { "html", "css", "dosini", "javascript", "yaml", "scss", "i3config" },
+	filetypes = {
+		"html",
+		"css",
+		"dosini",
+		"javascript",
+		yaml = {
+			names = false,
+			tailwind = false,
+		},
+		"scss",
+		"i3config",
+	},
 	user_default_options = {
 		RGB = true, -- #RGB hex codes
 		RRGGBB = true, -- #RRGGBB hex codes
