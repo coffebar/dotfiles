@@ -200,76 +200,10 @@ Before proceeding you need to restore SSH and GPG keys.
 
 SSH config must point to the GitHub's private key.
 
+[Review source code](https://github.com/coffebar/dotfiles/blob/master/dotfiles-restore.sh).
+
 ```bash
 sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/dotfiles-restore.sh)"
-```
-
-### Download config files and install packages from AUR
-```bash
-# install Git and OpenSSH to clone repo
-# base-devel is for yay setup
-sudo pacman --needed -Sy git openssh base-devel
-# clone repo
-git clone --bare git@github.com:coffebar/dotfiles.git dotfiles
-# configure work tree path
-git --git-dir=$HOME/dotfiles --work-tree=$HOME config --local core.worktree $HOME
-# checkout files into $HOME
-git --git-dir=$HOME/dotfiles --work-tree=$HOME checkout
-# enable GPG sign for dotfiles repo (commit signature verification)
-~/.local/bin/github-enable-gpg
-# Copy custom git hooks to cloned repo.
-# Will sync neovim plugins in background on pull,
-# to avoid errors when missing some plugin.
-cp -f $HOME/hooks/* $HOME/dotfiles/hooks/
-
-# install yay
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd .. && rm -rf yay
-yay -Y --gendb
-
-# install packages
-mkdir -p /tmp/yay; yay -S --builddir /tmp/yay --needed --nodiffmenu --noeditmenu - < pkglist-intel.txt
-
-# add firewall rule
-sudo ufw default deny incoming
-sudo ufw allow syncthing
-sudo ufw enable
-# enable services
-sudo systemctl enable --now input-remapper docker tlp ufw bluetooth
-
-# install ohmyzsh
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/tom-doerr/zsh_codex.git ~/.oh-my-zsh/custom/plugins/zsh_codex
-
-# decrypt AI credentials
-gpg --decrypt --output ~/.config/github-copilot/hosts.json ~/.config/github-copilot/hosts.json.gpg
-gpg --decrypt --output ~/.config/openaiapirc ~/.config/openaiapirc.gpg
-echo "OCO_OPENAI_API_KEY=$(rg -N 'secret_key=' ~/.config/openaiapirc | sed 's/secret_key=//g')" > ~/.opencommit # opencommit from npm
-
-# copy ksnip config
-cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
-
-# setup pacman hook to update pkglist file automatically
-pacman-setup-hooks
-
-```
-
-### GTK options
-
-The next options will tell GTK-based apps to prefer a Dark theme and open file chooser by default in the home directory.
-
-```bash
-gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-gsettings set org.gtk.Settings.FileChooser startup-mode cwd
-gsettings set org.gtk.gtk4.Settings.FileChooser startup-mode cwd
-# cursor and icon themes
-gsettings set org.gnome.desktop.interface cursor-theme 'bloom'
-gsettings set org.gnome.desktop.interface icon-theme 'bloom-classic'
-
 ```
 
 ### Neovim plugins and dependencies

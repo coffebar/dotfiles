@@ -95,4 +95,15 @@ cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
 # setup pacman hook to update pkglist file automatically
 pacman-setup-hooks
 
+# gtk theme options
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+gsettings set org.gtk.Settings.FileChooser startup-mode cwd
+gsettings set org.gtk.gtk4.Settings.FileChooser startup-mode cwd
+# gtk cursor and icon themes
+gsettings set org.gnome.desktop.interface cursor-theme 'bloom'
+gsettings set org.gnome.desktop.interface icon-theme 'bloom-classic'
+
+echo "Setting up neovim..."
+sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fetch-nvim-conf.sh)"
+
 echo "Done."
