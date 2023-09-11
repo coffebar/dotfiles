@@ -90,6 +90,8 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 - Nice aliases: **i** to install package, **md2pdf** to convert markdown file to pdf, **v** to open Neovim, **yy** to perform system upgrade. 
 
+- Custom pacman hook updates the list of explicitly installed packages (pkglist-intel.txt) when install or remove something.
+
 
 </details>
 
