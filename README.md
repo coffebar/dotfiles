@@ -200,9 +200,13 @@ Before proceeding you need to restore SSH and GPG keys.
 
 SSH config must point to the GitHub's private key.
 
+```bash
+sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/dotfiles-restore.sh)"
+```
+
 ### Download config files and install packages from AUR
 ```bash
-# install git and openssh to clone repo via git ssh
+# install Git and OpenSSH to clone repo
 # base-devel is for yay setup
 sudo pacman --needed -Sy git openssh base-devel
 # clone repo
