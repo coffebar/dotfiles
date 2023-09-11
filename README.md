@@ -66,6 +66,8 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 - Partially different config for each machine depending on hostname.
 
+- ``Super + ` `` open ssh servers menu to connect.
+
 #### i3
 
 - UI scale options depend on the current display setup and [autorandr](https://github.com/phillipberndt/autorandr) profile name.
@@ -76,13 +78,13 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 - Some of wm's binds were improved by Lua script. Lua has more flexibility than i3config syntax. I like to switch automatically to the appropriate workspace after opening programs using a keyboard shortcut.
 
-- ``Super + ` `` open ssh servers menu to connect.
-
 - Automatic tiling freed up ``Super + H`` shortcut. So I'm using HJKL to navigate inside WM.
 
 #### Terminal
 
 - ``Alt + e`` execute suggested command from zsh-autosuggestions
+
+- ``Ctrl + x`` after typing `# comment question` provides OpenAI generated suggestion
 
 - ``Command + c`` ``Command + v`` copy & paste. `Ctrl + c` and `Ctrl + p` in neovim.
 
