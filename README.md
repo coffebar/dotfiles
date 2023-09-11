@@ -194,20 +194,28 @@ See [docker-test-fetch-nvim-conf](https://github.com/coffebar/docker-test-fetch-
 
 ### Please don't do this without understanding all files and commands! 
 
-#### Before proceeding you need to create or restore ssh keys and install git
+**This instruction will work as is for coffebar only!**
+
+Before proceeding you need to restore SSH and GPG keys.
+
+SSH config must point to the GitHub's private key.
 
 ### Download config files and install packages from AUR
 ```bash
+# install git and openssh to clone repo via git ssh
+sudo pacman --needed -Sy git openssh
+# clone repo
 git clone --bare git@github.com:coffebar/dotfiles.git dotfiles
+# configure work tree path
 git --git-dir=$HOME/dotfiles --work-tree=$HOME config --local core.worktree $HOME
-
+# checkout files into $HOME
+git --git-dir=$HOME/dotfiles --work-tree=$HOME checkout
+# enable GPG sign for dotfiles repo (commit signature verification)
+~/.local/bin/github-enable-gpg
 # Copy custom git hooks to cloned repo.
 # Will sync neovim plugins in background on pull,
 # to avoid errors when missing some plugin.
 cp -f $HOME/hooks/* $HOME/dotfiles/hooks/
-
-# enable GPG for dotfiles repo (commit signature verification)
-~/.local/bin/github-enable-gpg
 
 # install yay
 pacman -S --needed base-devel
