@@ -40,12 +40,6 @@
 
 <details><summary><h2>Interesting features</h2></summary>
 
-#### Neovim project management
-
-https://user-images.githubusercontent.com/3100053/225754164-b4141431-29fd-4587-9c2f-f9fc531a6986.mp4
-
-plugin [project.nvim](https://github.com/coffebar/project.nvim)
-
 #### Common for Window managers
 
 - ``Alt + f`` opens a file manager in the directory found in the clipboard. For example, if you copied a file from some program, you can open its directory by pressing this shortcut.
@@ -94,6 +88,12 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 - Custom pacman hook updates the list of explicitly installed packages (pkglist-intel.txt) when install or remove something.
 
+
+#### Neovim project management
+
+https://user-images.githubusercontent.com/3100053/225754164-b4141431-29fd-4587-9c2f-f9fc531a6986.mp4
+
+plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 </details>
 
