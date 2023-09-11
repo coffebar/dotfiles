@@ -203,7 +203,8 @@ SSH config must point to the GitHub's private key.
 ### Download config files and install packages from AUR
 ```bash
 # install git and openssh to clone repo via git ssh
-sudo pacman --needed -Sy git openssh
+# base-devel is for yay setup
+sudo pacman --needed -Sy git openssh base-devel
 # clone repo
 git clone --bare git@github.com:coffebar/dotfiles.git dotfiles
 # configure work tree path
@@ -218,7 +219,6 @@ git --git-dir=$HOME/dotfiles --work-tree=$HOME checkout
 cp -f $HOME/hooks/* $HOME/dotfiles/hooks/
 
 # install yay
-pacman -S --needed base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
