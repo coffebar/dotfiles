@@ -7,7 +7,7 @@ HOOK_NAME="update-package-list-$USER.hook"
 PATH_TO_HOOK="$HOOK_DIR/$HOOK_NAME"
 sudo mkdir -p "$HOOK_DIR"
 
-if pacman -Qs nvidia > /dev/null; then
+if pacman -Qs nvidia | grep nvidia > /dev/null; then
 	OUTPUT_FILE="pkglist-nvidia.txt"
 else
 	OUTPUT_FILE="pkglist-intel.txt"
