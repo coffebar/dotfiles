@@ -30,7 +30,7 @@ else
 	# make sure that key permissions are correct
 	chmod 600 ~/key/ssh/*
 	# clone repo
-	git clone --bare git@github.com:coffebar/dotfiles.git dotfiles
+	git clone --bare git@github.com:coffebar/dotfiles.git dotfiles || exit 1
 	# configure work tree path
 	git --git-dir="$REPO" --work-tree="$HOME" config --local core.worktree "$HOME"
 	# checkout files into $HOME
