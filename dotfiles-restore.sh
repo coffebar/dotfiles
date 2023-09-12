@@ -67,6 +67,7 @@ mkdir -p /tmp/yay
 until yay -S --builddir /tmp/yay --needed --nocleanmenu --nodiffmenu --noeditmenu --noremovemake - < "$PKG_FILE"; do
 	echo "Failed to install packages."
 	confirm "Do you want to retry?" || exit
+	yay -Syu
 done
 
 echo "Packages installed successfully."
