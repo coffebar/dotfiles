@@ -24,8 +24,9 @@ end
 
 local function nodeModuleLibPath(package, file)
 	-- get the escaped path to the file in the node_modules lib
-	local nodeModulesPath = vim.fn.expand("~/.node_modules") -- possible to use `npm get prefix`, but this path is hardcoded elsewhere
-	local packageDir = nodeModulesPath .. "/lib/node_modules/" .. package .. "/"
+
+	local nodeModulesPath = vim.fn.expand("~/.local/share/pnpm/global/5/node_modules/")
+	local packageDir = nodeModulesPath .. package .. "/"
 	local fname = packageDir .. file
 	if vim.fn.isdirectory(packageDir) == 0 then
 		-- package is not installed

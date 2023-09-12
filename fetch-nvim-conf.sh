@@ -36,10 +36,12 @@ mv /tmp/dotfiles_tmp_nvim/.prettierrc.json ~/.prettierrc.json
 rm -rf /tmp/dotfiles_tmp_nvim/
 
 npm config set prefix ~/.node_modules
+# install pnpm for better performance and disk space usage
+npm install -g pnpm
 
 function install_packages_if_needed() {
 	for p in "$@"; do
-		npm list -g "$p" | grep '@' || npm install -g "$p"
+		pnpm list -g "$p" | grep -F "$p" || pnpm install -g "$p"
 	done
 }
 
