@@ -39,7 +39,11 @@ npm config set prefix ~/.node_modules
 # install pnpm for better performance and disk space usage
 npm install -g pnpm
 
+# set pnpm home env variable
+export PNPM_HOME=~/.local/share/pnpm
+
 function install_packages_if_needed() {
+	# install packages if not installed
 	for p in "$@"; do
 		pnpm list -g "$p" | grep -F "$p" || pnpm install -g "$p"
 	done
