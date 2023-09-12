@@ -8,9 +8,9 @@ fi
 if [ -d "$HOME/go/bin" ] ; then
     PATH="$HOME/go/bin:$PATH"
 fi
-if [ -d "$HOME/.node_modules/bin" ] ; then
-    PATH="$HOME/.node_modules/bin:$PATH"
-fi
+
+export PNPM_HOME="$HOME/.local/share/pnpm"
+PATH="$PNPM_HOME:$HOME/.node_modules/bin:$PATH"
 
 # remove absolute path leaks in release binary (rust)
 export RUSTFLAGS="--remap-path-prefix $HOME=~"
