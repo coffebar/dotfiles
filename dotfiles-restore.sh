@@ -62,6 +62,7 @@ confirm "Do you want to install packages from $PKG_FILE?" || exit
 
 # install packages
 # Note: --noconfirm can't be used, because you need to resolve conflicts
+# use /tmp/yay as build directory
 mkdir -p /tmp/yay
 # repeat command until it succeeds
 until yay -S --builddir /tmp/yay --needed --nocleanmenu --nodiffmenu --noeditmenu --noremovemake - < "$PKG_FILE"; do
@@ -77,7 +78,7 @@ sudo ufw default deny incoming
 sudo ufw allow syncthing
 sudo ufw enable
 # enable services
-sudo systemctl enable --now input-remapper docker tlp ufw bluetooth
+sudo systemctl enable --now docker tlp ufw bluetooth
 
 echo "Installing ohmyzsh..."
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -107,4 +108,4 @@ gsettings set org.gnome.desktop.interface icon-theme 'bloom-classic'
 echo "Setting up neovim..."
 sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fetch-nvim-conf.sh)"
 
-echo "Done."
+echo "Done. Consider re-login or reboot to apply all changes."

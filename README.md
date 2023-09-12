@@ -175,7 +175,7 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 <details><summary><h2>Preview Neovim setup in Docker</h2></summary>
 
-Full neovim setup can be tested inside docker container.
+Full Neovim setup can be tested inside docker container.
 
 ```bash
 git clone https://github.com/coffebar/docker-test-fetch-nvim-conf.git
