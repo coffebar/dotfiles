@@ -89,6 +89,7 @@ if sm_installed then
 					"!=tmp",
 					".git",
 					".idea",
+					".obsidian",
 					".svn",
 					"PKGBUILD",
 					"composer.json",
