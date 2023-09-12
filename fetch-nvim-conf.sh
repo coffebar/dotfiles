@@ -42,10 +42,11 @@ npm install -g pnpm
 # set pnpm home env variable
 export PNPM_HOME=~/.local/share/pnpm
 
+_INSTALLED=$(pnpm list -g)
 function install_packages_if_needed() {
 	# install packages if not installed
 	for p in "$@"; do
-		pnpm list -g "$p" | grep -F "$p" || pnpm install -g "$p"
+		echo "$_INSTALLED" | grep -F "$p " > /dev/null || pnpm install -g "$p"
 	done
 }
 
