@@ -112,4 +112,7 @@ gsettings set org.gnome.desktop.interface icon-theme 'bloom-classic'
 echo "Setting up neovim..."
 sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fetch-nvim-conf.sh)"
 
+# install global packages via pnpm
+PNPM_HOME=~/.local/share/pnpm pnpm install -g opencommit uglify-js
+
 echo "Done. Consider re-login or reboot to apply all changes."
