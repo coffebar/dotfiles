@@ -73,6 +73,10 @@ done
 
 echo "Packages installed successfully."
 
+# copy input device configs for xorg
+sudo cp ~/00-keyboard.conf /etc/X11/xorg.conf.d/
+sudo cp ~/30-touchpad.conf /etc/X11/xorg.conf.d/
+
 # add firewall rule
 sudo ufw default deny incoming
 sudo ufw allow syncthing
