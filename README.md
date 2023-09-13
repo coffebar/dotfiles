@@ -209,6 +209,7 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/dot
 ### Neovim plugins and dependencies
 Run this script to sync Neovim config from this repo. It can be used separately on Arch systems.
 ```bash
+export PATH="$PATH:$HOME/.local/share/pnpm:$HOME/.node_modules/bin"
 sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fetch-nvim-conf.sh)"
 ```
 
