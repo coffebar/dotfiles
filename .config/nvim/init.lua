@@ -1,6 +1,9 @@
 require("coffebar.commands")
 require("coffebar.opt")
-require("coffebar.keymap") -- keymap goes after mapleader
+-- plugins
+require("coffebar.lazy")
+-- keymap goes after mapleader and after plugins
+require("coffebar.keymap")
 require("coffebar.filetype")
 
 if vim.env.TERM == "linux" then

@@ -125,7 +125,6 @@ noto-fonts-emoji
 npm
 ntfs-3g
 ntp
-nvim-packer-git
 obsidian
 openssh
 openvpn

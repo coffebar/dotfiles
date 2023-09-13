@@ -77,8 +77,6 @@ nnoremap("Q", "<nop>")
 -- append ; to the end of line
 inoremap("<leader>;", "<Esc>A;<Esc>")
 nnoremap("<leader>;", "<Esc>A;<Esc>")
--- Diagnostic details
-nnoremap("<leader>T", "<cmd>TroubleToggle<cr>")
 -- Git
 nnoremap("<leader>gs", "<cmd>Gitsigns stage_hunk<cr>")
 nnoremap("<leader>gS", "<cmd>Gitsigns stage_buffer<cr>")
@@ -148,7 +146,7 @@ if has_wk then
 				v = { gs.preview_hunk, "preview hunk" },
 			},
 			s = {
-				p = { "<cmd>so ~/.config/nvim/plugin/packer.lua<cr><cmd>PackerSync<cr>", "Sync Plugins" },
+				p = { "<cmd>Lazy sync<cr>", "Sync Plugins" },
 				a = { "<cmd>AsyncRun -silent alacritty &<cr>", "New Alacritty Window" },
 			},
 			m = {
@@ -167,6 +165,7 @@ if has_wk then
 					"Search current word",
 				},
 			},
+			T = { "<cmd>TroubleToggle<cr>", "Trouble" },
 			v = {
 				name = "Paste",
 				-- overwrite entire buffer's content from system clipboard
@@ -269,8 +268,8 @@ else
 	nnoremap("<leader>cc", '"+yy')
 	-- source current buffer
 	nnoremap("<leader>cs", "<cmd>so %<cr>")
-	-- sorce packer's plugin list file and run PackerSync
-	nnoremap("<leader>sp", "<cmd>so ~/.config/nvim/plugin/packer.lua<cr><cmd>PackerSync<cr>")
+	-- install and update plugins
+	nnoremap("<leader>sp", "<cmd>Lazy sync<cr>")
 	-- search and replace
 	if has_spectre then
 		nnoremap("<leader>rr", spectre.open)

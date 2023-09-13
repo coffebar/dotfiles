@@ -7,8 +7,8 @@ const os = require("os");
 
 const HOME = os.homedir();
 const readme_path = HOME + "/README.md";
-const packer_compiled_path = HOME + "/.config/nvim/plugin/packer_compiled.lua";
-const plugins = get_plugins(read_file_contents(packer_compiled_path));
+const plugins_list_path = HOME + "/.config/nvim/lua/coffebar/plugins.lua";
+const plugins = get_plugins(read_file_contents(plugins_list_path));
 replace_plugins_list_in_readme(plugins);
 
 function replace_plugins_list_in_readme(plugins) {
@@ -33,12 +33,12 @@ function read_file_contents(path) {
 
 function get_plugins(file_contents) {
   // get loaded plugins hosted on github
-  const regexpUrls = new RegExp(
-    'loaded = true,\\s*path = [^\\s]+\\s*url = "https://github\\.com/([^"]+)"',
-    "g"
-  );
+  const regexpUrls = new RegExp('"([^"/]+/[^"/]+)"', "g");
   const match = file_contents.toString().matchAll(regexpUrls);
-  return Array.from(match, (m) => m[1]);
+  // remove duplicates and sort
+  return Array.from(match, (m) => m[1])
+    .filter((v, i, a) => a.indexOf(v) === i)
+    .sort();
 }
 
 function render_html(plugins) {

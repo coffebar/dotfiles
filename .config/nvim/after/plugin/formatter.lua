@@ -35,7 +35,9 @@ local function nodeModuleLibPath(package, file)
 		if vim.fn.filereadable(fname) == 0 then
 			-- filename or path changed when package was updated
 			vim.notify(
-				"npm package " .. package .. " version mismatch. Please review ~/.config/nvim/after/plugin/formatter.lua",
+				"npm package "
+					.. package
+					.. " version mismatch. Please review ~/.config/nvim/after/plugin/formatter.lua",
 				vim.log.levels.WARN
 			)
 		end
@@ -73,7 +75,7 @@ end
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 formatter.setup({
 	-- Enable or disable logging
-	logging = true,
+	logging = false,
 	-- Set the log level
 	log_level = vim.log.levels.ERROR, -- disabled for auto-save feature
 	-- All formatter configurations are opt-in

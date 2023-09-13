@@ -12,7 +12,7 @@ else
 	# packages from arch repo
 	PKG=(autopep8 neovim go npm rust-analyzer lua-language-server fd ripgrep xclip rsync python-virtualenv)
 	# packages from AUR
-	PKG_AUR=(ltex-ls-bin nvim-packer-git)
+	PKG_AUR=(ltex-ls-bin)
 	# chech all packages if installed
 	# to avoid asking for sudo if nothing will be installed
 	TO_INSTALL=()
@@ -62,10 +62,11 @@ install_packages_if_needed pyright bash-language-server \
 	prettier-plugin-nginx @prettier/plugin-php \
 	typescript typescript-language-server \
 	stylefmt intelephense \
+	tree-sitter-cli \
 	eslint @johnnymorganz/stylua-bin \
 	@shufo/prettier-plugin-blade \
 	emmet-ls
 
 go version && go install golang.org/x/tools/gopls@latest
 
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' > /dev/null 2>&1
+nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
