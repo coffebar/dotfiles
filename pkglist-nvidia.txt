@@ -14,7 +14,6 @@ autorandr
 autotiling-git
 baobab
 base
-bash-completion
 bind
 binutils
 bison
@@ -80,9 +79,7 @@ gvfs-mtp
 gzip
 haveged
 htop
-hwinfo
 i3-wm
-i3lock
 imagemagick
 inotify-tools
 input-remapper-git
@@ -101,7 +98,6 @@ libinput-gestures
 libpulse
 libreoffice-fresh
 libreoffice-fresh-en-gb
-libreoffice-fresh-ru
 libreoffice-fresh-uk
 libtool
 linux
@@ -113,7 +109,6 @@ lsof
 ltex-ls-bin
 lua-language-server
 lxappearance
-lxqt-policykit
 lzop
 m4
 make
@@ -132,7 +127,6 @@ networkmanager
 networkmanager-openvpn
 nmap
 nodejs
-noise-suppression-for-voice
 noto-fonts
 npm
 ntfs-3g
@@ -170,13 +164,11 @@ qt5ct
 redshift-gtk-git
 ripgrep
 rofi
-rsibreak
 rsync
 rust-analyzer
 rustup
 s5cmd-bin
 sdl_ttf
-seahorse
 sed
 shellcheck
 simplescreenrecorder
