@@ -110,6 +110,8 @@ gsettings set org.gnome.desktop.interface cursor-theme 'bloom'
 gsettings set org.gnome.desktop.interface icon-theme 'bloom-classic'
 
 echo "Setting up neovim..."
+# add node_modules to path
+export PATH="$PATH:$HOME/.local/share/pnpm:$HOME/.node_modules/bin"
 sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fetch-nvim-conf.sh)"
 
 # install global packages via pnpm
