@@ -42,6 +42,11 @@ npm install -g pnpm
 # set pnpm home env variable
 export PNPM_HOME=~/.local/share/pnpm
 
+# if pnpm is not in PATH, add it
+if ! command -v pnpm > /dev/null; then
+	export PATH="$PATH:$HOME/.local/share/pnpm:$HOME/.node_modules/bin"
+fi
+
 _INSTALLED=$(pnpm list -g)
 function install_packages_if_needed() {
 	# install packages if not installed
