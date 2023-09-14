@@ -45,7 +45,7 @@ return {
 	"glepnir/lspsaga.nvim",
 	{ "j-hui/fidget.nvim", lazy = true, priority = 99, tag = "legacy" },
 	-- project manager
-	{ "coffebar/project.nvim", dev = false },
+	{ "coffebar/project.nvim", dev = true },
 	-- search counter
 	{ "google/vim-searchindex", lazy = true, priority = 3, keys = { "n", "N", "/" } },
 	-- turn off highlighting when you are done searching
