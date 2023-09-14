@@ -19,6 +19,13 @@ return {
 		enabled = function()
 			return vim.env.TERM == "linux"
 		end,
+		config = function()
+			vim.o.termguicolors = false
+			vim.o.background = "dark"
+			vim.o.title = false
+			vim.g.indent_blankline_enabled = false
+			vim.cmd("colorscheme gruvbox")
+		end,
 	},
 	{ "Mofiqul/dracula.nvim", priority = 1 },
 
