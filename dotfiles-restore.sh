@@ -37,10 +37,6 @@ else
 	git --git-dir="$REPO" --work-tree="$HOME" checkout -f
 	# enable GPG sign for dotfiles repo (commit signature verification)
 	~/.local/bin/github-enable-gpg
-	# Copy custom git hooks to cloned repo.
-	# Will sync neovim plugins in background on pull,
-	# to avoid errors when missing some plugin.
-	cp -f ~/hooks/* ~/dotfiles/hooks/
 fi
 
 # install yay if not installed
