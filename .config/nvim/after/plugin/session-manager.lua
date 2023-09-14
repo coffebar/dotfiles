@@ -80,6 +80,8 @@ if sm_installed then
 					"~/.cargo/*",
 					"~/.node_modules/*",
 					"~/lua",
+					"~/.pnpm-store/*",
+					"~/.local/share/pnpm/*",
 				},
 				ignore_lsp = {
 					"lua_ls",
