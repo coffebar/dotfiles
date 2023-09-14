@@ -101,7 +101,6 @@ plugin [project.nvim](https://github.com/coffebar/project.nvim)
 
 <!-- plugins list start -->
 - [AckslD/nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua)
-- [David-Kunz/cmp-npm](https://github.com/David-Kunz/cmp-npm)
 - [HallerPatrick/py_lsp.nvim](https://github.com/HallerPatrick/py_lsp.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [Mofiqul/dracula.nvim](https://github.com/Mofiqul/dracula.nvim)
