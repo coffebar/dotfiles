@@ -41,7 +41,7 @@ exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/bridge.jpg
 exec --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg "workspace --no-auto-back-and-forth $ws1; append_layout ~/.config/potato/workspace-1.json"
 exec --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg "workspace --no-auto-back-and-forth $ws2; append_layout ~/.config/potato/workspace-2.json"
 # update nvim plugins and keep terminal
-exec --no-startup-id alacritty -t Terminal -e zsh -c "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' 2&>/dev/null ;zsh"
+exec --no-startup-id alacritty -t Terminal
 # polkit-kde-agent
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 # fix JetBrains scale options for HiDPI
