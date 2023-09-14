@@ -139,7 +139,7 @@ return {
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 		ft = "markdown",
-		lazy = false,
+		lazy = true,
 	},
 	-- cheatsheet
 	{
