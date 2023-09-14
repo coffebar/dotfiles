@@ -68,5 +68,7 @@
 .viminfo
 .yarnrc
 .zshrc.pre-oh-my-zsh
+.pnpm-store/
 go/
 Sync/
+.thunderbird/

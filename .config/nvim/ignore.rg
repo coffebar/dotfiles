@@ -27,3 +27,5 @@ Videos/
 dotfiles/
 go/pkg/
 pycharm/
+.pnpm-store/
+.thunderbird/
