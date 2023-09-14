@@ -199,7 +199,7 @@ Before proceeding you need to restore SSH and GPG keys.
 
 SSH config must point to the GitHub's private key.
 
-[Review source code](https://github.com/coffebar/dotfiles/blob/master/dotfiles-restore.sh).
+[Review source](https://github.com/coffebar/dotfiles/blob/master/dotfiles-restore.sh)
 
 ```bash
 sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/dotfiles-restore.sh)"
@@ -207,9 +207,15 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/dot
 
 ### Neovim plugins and dependencies
 Run this script to sync Neovim config from this repo. It can be used separately on Arch systems.
+
+It will overwrite the entire `~/.config/nvim` folder and `~/.prettierrc.json` file.
+
+This script requires Arch Linux with **yay** and **sudo** installed. It will install required packages, **pnpm** package manager and node modules for LSP & formatting.
+
+[Review source](https://github.com/coffebar/dotfiles/blob/master/fetch-nvim-conf.sh)
+
 ```bash
-export PATH="$PATH:$HOME/.local/share/pnpm:$HOME/.node_modules/bin"
+# export PATH="$PATH:$HOME/.local/share/pnpm:$HOME/.node_modules/bin"
 sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fetch-nvim-conf.sh)"
 ```
-
 </details>
