@@ -1,10 +1,4 @@
-local onedark_installed, onedark = pcall(require, "onedark")
-if not onedark_installed then
-	print("onedark not installed")
-	return
-end
-
-onedark.setup({
+return {
 	style = "warm",
 	transparent = false, -- Show/hide background
 	term_colors = false, -- Change terminal color as per the selected theme style
@@ -27,5 +21,4 @@ onedark.setup({
 		strings = "none",
 		variables = "none",
 	},
-})
-onedark.load()
+}

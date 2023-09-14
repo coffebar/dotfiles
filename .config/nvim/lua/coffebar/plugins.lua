@@ -1,10 +1,27 @@
 return {
 	-- colorschemes
-	{ "navarasu/onedark.nvim", priority = 1000 },
-	{ "gruvbox-community/gruvbox", priority = 2 },
+	{
+		"navarasu/onedark.nvim",
+		priority = 1000,
+		enabled = function()
+			-- not in tty
+			return vim.env.TERM ~= "linux"
+		end,
+		config = function()
+			local onedark = require("onedark")
+			onedark.setup(require("coffebar.plugins.onedark"))
+			onedark.load()
+		end,
+	},
+	{
+		"gruvbox-community/gruvbox",
+		priority = 999,
+		enabled = function()
+			return vim.env.TERM == "linux"
+		end,
+	},
 	{ "Mofiqul/dracula.nvim", priority = 1 },
-	-- delete buffers without closing window layout;
-	"moll/vim-bbye",
+
 	-- statusline
 	{
 		"nvim-lualine/lualine.nvim",
@@ -13,7 +30,7 @@ return {
 		priority = 100,
 	},
 	-- i3 config syntax highlighting
-	{ "mboughaba/i3config.vim", lazy = true, priority = 1, ft = "i3config" },
+	{ "mboughaba/i3config.vim", lazy = true, ft = "i3config" },
 	-- formatter
 	{
 		"mhartington/formatter.nvim",
@@ -21,7 +38,7 @@ return {
 		priority = 20,
 	},
 	-- s-motion to search by 2 characters
-	{ "justinmk/vim-sneak", lazy = true, priority = 10, keys = { "S", "s" } },
+	{ "justinmk/vim-sneak", lazy = true, keys = { "S", "s" } },
 	-- asynchronous completion framework
 	"neovim/nvim-lspconfig",
 	"hrsh7th/cmp-nvim-lsp",
@@ -63,9 +80,9 @@ return {
 	-- project manager
 	{ "coffebar/project.nvim", dev = true },
 	-- search counter
-	{ "google/vim-searchindex", lazy = true, priority = 3, keys = { "n", "N", "/" } },
+	{ "google/vim-searchindex", lazy = true, keys = { "n", "N", "/" } },
 	-- turn off highlighting when you are done searching
-	{ "romainl/vim-cool", lazy = true, priority = 4, keys = { "n", "N", "/" } },
+	{ "romainl/vim-cool", lazy = true, keys = { "n", "N", "/" } },
 	-- automatically save files
 	{ "Pocco81/AutoSave.nvim", opts = require("coffebar.plugins.auto-save"), priority = 40 },
 	-- commenter (gc)
@@ -216,12 +233,11 @@ return {
 	-- session manager
 	{ "Shatur/neovim-session-manager", lazy = false },
 	-- wrapper around the Lua code formatter
-	{ "ckipp01/stylua-nvim", lazy = true, priority = 3, ft = "lua" },
+	{ "ckipp01/stylua-nvim", lazy = true, ft = "lua" },
 	-- add or edit surrounding
 	{
 		"kylechui/nvim-surround",
 		lazy = true,
-		priority = 130,
 		keys = { "cs", "ds", "ys" },
 		config = function()
 			---@diagnostic disable-next-line: missing-fields
@@ -282,7 +298,7 @@ return {
 		dev = false,
 	},
 	-- bookmarks
-	{ "ThePrimeagen/harpoon" },
+	{ "ThePrimeagen/harpoon", priority = 2 },
 	-- copy history
 	{
 		"AckslD/nvim-neoclip.lua",
@@ -304,7 +320,9 @@ return {
 		end,
 	},
 	-- github copilot
-	"github/copilot.vim",
+	{ "github/copilot.vim" },
+	-- delete buffers without closing window layout;
+	{ "moll/vim-bbye", priority = 1 },
 }
 
 ----
