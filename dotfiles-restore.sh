@@ -37,6 +37,8 @@ else
 	git --git-dir="$REPO" --work-tree="$HOME" checkout -f
 	# enable GPG sign for dotfiles repo (commit signature verification)
 	~/.local/bin/github-enable-gpg
+	# set custom gitingore path
+	git --git-dir="$REPO" --work-tree="$HOME" config --local core.excludesFile "$HOME/dotfiles.gitignore"
 fi
 
 # install yay if not installed
