@@ -5,22 +5,6 @@ end
 local py_lsp = require("py_lsp")
 local au = vim.api.nvim_create_autocmd
 
-require("lspsaga").setup({
-	lightbulb = {
-		enable = false,
-		enable_in_insert = false,
-	},
-	symbol_in_winbar = {
-		enable = false,
-	},
-})
-
--- setup nvim-ts-autotag
-require("nvim-ts-autotag").setup()
-
--- fidget - UI for nvim-lsp progress
-require("fidget").setup()
-
 -- load snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 

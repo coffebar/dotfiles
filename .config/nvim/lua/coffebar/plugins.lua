@@ -8,13 +8,18 @@ return {
 	-- statusline
 	{
 		"nvim-lualine/lualine.nvim",
-		priority = 100,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = require("coffebar.plugins.lualine"),
+		priority = 100,
 	},
 	-- i3 config syntax highlighting
 	{ "mboughaba/i3config.vim", lazy = true, priority = 1, ft = "i3config" },
 	-- formatter
-	{ "mhartington/formatter.nvim", priority = 20 },
+	{
+		"mhartington/formatter.nvim",
+		opts = require("coffebar.plugins.formatter"),
+		priority = 20,
+	},
 	-- s-motion to search by 2 characters
 	{ "justinmk/vim-sneak", lazy = true, priority = 10, keys = { "S", "s" } },
 	-- asynchronous completion framework
@@ -33,17 +38,28 @@ return {
 	"petertriho/cmp-git",
 	-- ripgrep source for completion
 	"lukas-reineke/cmp-rg",
-	-- npm packages completion
-	{
-		"David-Kunz/cmp-npm",
-		lazy = true,
-		priority = 2,
-		ft = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json" },
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
 	-- ui helper for lsp
-	"glepnir/lspsaga.nvim",
-	{ "j-hui/fidget.nvim", lazy = true, priority = 99, tag = "legacy" },
+	{
+		"glepnir/lspsaga.nvim",
+		opts = {
+			lightbulb = {
+				enable = false,
+				enable_in_insert = false,
+			},
+			symbol_in_winbar = {
+				enable = false,
+			},
+		},
+	},
+	-- shows nvim-lsp progress
+	{
+		"j-hui/fidget.nvim",
+		tag = "legacy",
+		config = function()
+			require("fidget").setup()
+		end,
+		priority = 9,
+	},
 	-- project manager
 	{ "coffebar/project.nvim", dev = true },
 	-- search counter
@@ -51,7 +67,7 @@ return {
 	-- turn off highlighting when you are done searching
 	{ "romainl/vim-cool", lazy = true, priority = 4, keys = { "n", "N", "/" } },
 	-- automatically save files
-	{ "Pocco81/AutoSave.nvim", priority = 40 },
+	{ "Pocco81/AutoSave.nvim", opts = require("coffebar.plugins.auto-save"), priority = 40 },
 	-- commenter (gc)
 	{
 		"numToStr/Comment.nvim",
@@ -84,7 +100,10 @@ return {
 	-- python venv manager
 	{ "HallerPatrick/py_lsp.nvim", priority = 2 },
 	-- keep visible current function declaration
-	"romgrk/nvim-treesitter-context",
+	{
+		"romgrk/nvim-treesitter-context",
+		opts = require("coffebar.plugins.nvim-treesitter-context"),
+	},
 	-- nice highlighting for variables
 	-- has a binding <a-n> <a-p> to move by matching words
 	{ "RRethy/vim-illuminate" },
@@ -108,7 +127,22 @@ return {
 		end,
 	},
 	-- blank char visualization
-	{ "lukas-reineke/indent-blankline.nvim", priority = 70 },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		init = function()
+			vim.opt.list = true
+			vim.opt.listchars:append("space:⋅")
+			vim.opt.listchars:append("eol:↴")
+		end,
+		enabled = function()
+			return vim.env.TERM ~= "linux"
+		end,
+		opts = {
+			show_end_of_line = true,
+			space_char_blankline = " ",
+		},
+		priority = 70,
+	},
 	-- show debug info
 	{
 		"folke/trouble.nvim",
@@ -118,9 +152,30 @@ return {
 		end,
 	},
 	-- bufferline - tabs with diagnostics indicator
-	{ "akinsho/bufferline.nvim", tag = "v3.7.0", dependencies = { "nvim-tree/nvim-web-devicons" } },
+	{
+		"akinsho/bufferline.nvim",
+		tag = "v3.7.0",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		init = function()
+			vim.o.termguicolors = true
+		end,
+		opts = {
+			options = {
+				mode = "buffers",
+				diagnostics = "nvim_lsp",
+				show_buffer_close_icons = false,
+			},
+		},
+	},
 	-- git
-	"lewis6991/gitsigns.nvim",
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup({})
+		end,
+		lazy = true,
+		event = "BufRead",
+	},
 	"tpope/vim-fugitive",
 	"rbong/vim-flog",
 	{ "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
@@ -150,13 +205,13 @@ return {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
-		lazy = true,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
-		priority = 200,
+		opts = require("coffebar.plugins.neo-tree"),
+		priority = 40,
 	},
 	-- session manager
 	{ "Shatur/neovim-session-manager", lazy = false },
@@ -174,15 +229,44 @@ return {
 		end,
 	},
 	-- tranform Text Case
-	{ "johmsalas/text-case.nvim" },
+	{
+		"johmsalas/text-case.nvim",
+		config = function()
+			require("textcase").setup({})
+		end,
+	},
 	-- toggle booleans
-	{ "nguyenvukhang/nvim-toggler", lazy = true, keys = { "<leader>i" } },
+	{
+		"nguyenvukhang/nvim-toggler",
+		lazy = true,
+		keys = { "<leader>i" },
+		opts = { inverses = { ["0"] = "1" } },
+	},
 	-- replace in files with regexp
-	{ "nvim-pack/nvim-spectre" },
+	{
+		"nvim-pack/nvim-spectre",
+		opts = {
+			highlight = {
+				ui = "String",
+				search = "DiffChange",
+				replace = "DiffDelete",
+			},
+		},
+	},
 	-- css color visualization
-	{ "NvChad/nvim-colorizer.lua" },
+	{
+		"NvChad/nvim-colorizer.lua",
+		lazy = true,
+		opts = require("coffebar.plugins.nvim-colorizer"),
+		ft = { "css", "scss", "sass", "html", "dosini", "yaml", "javascript", "typescript", "i3config" },
+	},
 	-- auto close tags
-	{ "windwp/nvim-ts-autotag" },
+	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+	},
 	-- dim unused variables and functions using lsp and treesitter
 	{
 		"coffebar/dim.lua",

@@ -1,8 +1,4 @@
-local installed, plugin = pcall(require, "lualine")
-if not installed then
-	return
-end
-plugin.setup({
+return {
 	options = {
 		icons_enabled = true,
 		-- theme = "gruvbox-material",
@@ -60,4 +56,4 @@ plugin.setup({
 	winbar = {},
 	inactive_winbar = {},
 	extensions = {},
-})
+}

@@ -1,8 +1,4 @@
-local installed, plugin = pcall(require, "treesitter-context")
-if not installed then
-	return
-end
-plugin.setup({
+return {
 	enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
 	line_numbers = true, -- Enable/Disable line numbers indicator (enabled by default)
 	multiline_threshold = 20, -- Max lines to show
@@ -80,4 +76,4 @@ plugin.setup({
 	-- Separator between context and content. Should be a single character string, like '-'.
 	-- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
 	separator = nil,
-})
+}

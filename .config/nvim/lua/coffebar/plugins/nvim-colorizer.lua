@@ -1,18 +1,16 @@
-local installed, plugin = pcall(require, "colorizer")
-if not installed then
-	return
-end
-plugin.setup({
+return {
 	filetypes = {
 		"html",
 		"css",
 		"dosini",
 		"javascript",
+		"typescript",
 		yaml = {
 			names = false,
 			tailwind = false,
 		},
 		"scss",
+		"sass",
 		"i3config",
 	},
 	user_default_options = {
@@ -34,4 +32,4 @@ plugin.setup({
 	},
 	-- all the sub-options of filetypes apply to buftypes
 	buftypes = {},
-})
+}

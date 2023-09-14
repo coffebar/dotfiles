@@ -1,8 +1,3 @@
-local installed, formatter = pcall(require, "formatter")
-if not installed then
-	return
-end
-
 local prettier = function(args)
 	local fname = vim.fn.shellescape(vim.api.nvim_buf_get_name(0), true)
 	if args == nil or type(args) ~= "table" then
@@ -35,9 +30,7 @@ local function nodeModuleLibPath(package, file)
 		if vim.fn.filereadable(fname) == 0 then
 			-- filename or path changed when package was updated
 			vim.notify(
-				"npm package "
-					.. package
-					.. " version mismatch. Please review ~/.config/nvim/after/plugin/formatter.lua",
+				"npm package " .. package .. " version mismatch. Please review ~/.config/nvim/after/plugin/formatter.lua",
 				vim.log.levels.WARN
 			)
 		end
@@ -73,7 +66,7 @@ local stylefmt = function()
 end
 
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
-formatter.setup({
+return {
 	-- Enable or disable logging
 	logging = false,
 	-- Set the log level
@@ -97,4 +90,4 @@ formatter.setup({
 		typescriptreact = { prettier },
 		yaml = { prettier },
 	},
-})
+}

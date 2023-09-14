@@ -1,8 +1,4 @@
-local installed, plugin = pcall(require, "neo-tree")
-if not installed then
-	return
-end
-plugin.setup({
+return {
 	source_selector = {
 		winbar = true,
 		content_layout = "center",
@@ -106,4 +102,4 @@ plugin.setup({
 			end,
 		},
 	},
-})
+}

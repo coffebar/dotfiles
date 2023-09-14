@@ -1,8 +1,4 @@
-local installed, plugin = pcall(require, "auto-save")
-if not installed then
-	return
-end
-plugin.setup({
+return {
 	enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
 	execution_message = {
 		message = function() -- message to print on save
@@ -36,4 +32,4 @@ plugin.setup({
 		before_saving = nil, -- ran before doing the actual save
 		after_saving = nil, -- ran after doing the actual save
 	},
-})
+}

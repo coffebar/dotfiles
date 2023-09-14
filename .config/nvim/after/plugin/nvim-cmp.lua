@@ -5,7 +5,6 @@ if not cmp_installed then
 	return
 end
 require("luasnip.loaders.from_lua").lazy_load({ paths = vim.fn.stdpath("config") .. "/snippets/" })
-require("cmp-npm").setup({})
 require("cmp_git").setup({})
 
 local kind_icons = {
