@@ -26,6 +26,7 @@ configs.setup({
 		"kotlin",
 		"lua",
 		"markdown",
+		"markdown_inline",
 		"php",
 		"python",
 		"rust",
