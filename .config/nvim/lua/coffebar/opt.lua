@@ -35,21 +35,21 @@ opt.updatetime = 350
 
 opt.langremap = true
 opt.langmap =
-	"ФИСВУАПРШОЛДЬТЩЗЙКІЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкіегмцчня;abcdefghijklmnopqrstuvwxyz"
+  "ФИСВУАПРШОЛДЬТЩЗЙКІЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкіегмцчня;abcdefghijklmnopqrstuvwxyz"
 
 -- show output of asyncrun.vim (0 - hidden)
 g.asyncrun_open = 5
 g.asynctasks_extra_config = {
-	"~/.config/nvim/asynctasks.ini",
+  "~/.config/nvim/asynctasks.ini",
 }
 -- hide quickfix window after asynctask finished
 g.asyncrun_exit = 'call timer_start(4000, {-> execute("cclose")})'
 
 g.diagnostic_signs = {
-	ERROR = " ",
-	WARN = " ",
-	INFO = " ",
-	HINT = " ",
+  ERROR = " ",
+  WARN = " ",
+  INFO = " ",
+  HINT = " ",
 }
 
 -- gruvbox colorscheme options

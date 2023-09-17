@@ -26,6 +26,6 @@ local i = ls.insert_node
 
 -- Snippets for JavaScript
 return {
-	ls.s({ trig = "log", name = "console.log();" }, { t("console.log("), i(1), t(");") }),
-	ls.s({ trig = "warn", name = "console.warn();" }, { t("console.warn("), i(1), t(");") }),
+  ls.s({ trig = "log", name = "console.log();" }, { t("console.log("), i(1), t(");") }),
+  ls.s({ trig = "warn", name = "console.warn();" }, { t("console.warn("), i(1), t(");") }),
 }
