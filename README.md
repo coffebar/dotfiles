@@ -91,9 +91,7 @@
 
 #### Neovim project management
 
-https://user-images.githubusercontent.com/3100053/225754164-b4141431-29fd-4587-9c2f-f9fc531a6986.mp4
-
-plugin [project.nvim](https://github.com/coffebar/project.nvim)
+📦 [neovim-project](https://github.com/coffebar/neovim-project) plugin
 
 </details>
 
