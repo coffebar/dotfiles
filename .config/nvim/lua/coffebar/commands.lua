@@ -85,7 +85,7 @@ if vim.fn.isdirectory(git_dir) then
 		end
 		return false
 	end
-	au("SessionLoadPost", {
+	au("SessionLoadPost,SessionSavePost", {
 		group = augroup,
 		callback = function()
 			if vim.env.GIT_DIR == nil and in_dotfiles() then

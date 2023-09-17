@@ -93,15 +93,7 @@ nnoremap("<leader>gl", "<cmd>Flog -date=short<cr>")
 -- Fugitive
 nnoremap("<leader>gg", "<cmd>vert Git<cr>")
 nnoremap("<leader>gc", "<cmd>Git commit -v<cr>")
--- Telescope
-nnoremap("<leader>ff", "<cmd>Telescope find_files<cr>")
-nnoremap("<leader>fb", "<cmd>Telescope file_browser<cr>")
-nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
-nnoremap("<leader>fj", "<cmd>Telescope jumplist<cr>")
-nnoremap("<leader>fs", "<cmd>Telescope git_status<cr>")
-nnoremap("<leader>fh", "<cmd>Telescope command_history<cr>")
-nnoremap("<leader>fr", "<cmd>Telescope registers<cr>")
-nnoremap("<leader>p", "<cmd>Telescope projects<cr>")
+
 nnoremap("<leader>F", "<cmd>SearchInHome<cr>") -- open file and edit
 -- NeoTree
 nnoremap("<leader>n", "<cmd>Neotree focus toggle<cr>")
@@ -144,6 +136,18 @@ if has_wk then
 				},
 				t = { gs.toggle_deleted, "toggle_deleted " },
 				v = { gs.preview_hunk, "preview hunk" },
+			},
+			p = { "<cmd>Telescope neovim-project history<cr>", "Project history" },
+			P = { "<cmd>Telescope neovim-project discover<cr>", "Find Project " },
+			f = {
+				name = "Telescope",
+				b = { "<cmd>Telescope file_browser<cr>", "Telescope file_browser" },
+				f = { "<cmd>Telescope find_files<cr>", "Telescope find_files" },
+				g = { "<cmd>Telescope live_grep<cr>", "Telescope live_grep" },
+				h = { "<cmd>Telescope command_history<cr>", "Telescope command_history" },
+				j = { "<cmd>Telescope jumplist<cr>", "Telescope jumplist" },
+				r = { "<cmd>Telescope registers<cr>", "Telescope registers" },
+				s = { "<cmd>Telescope git_status<cr>", "Telescope git_status" },
 			},
 			s = {
 				p = { "<cmd>Lazy sync<cr>", "Sync Plugins" },
