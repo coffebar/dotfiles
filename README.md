@@ -100,6 +100,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/c83ae8ab-625e-4a44-88e
 <details><summary><h2>Neovim plugins full list</h2></summary>
 
 <!-- plugins list start -->
+- [0oAstro/dim.lua](https://github.com/0oAstro/dim.lua)
 - [AckslD/nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua)
 - [HallerPatrick/py_lsp.nvim](https://github.com/HallerPatrick/py_lsp.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
@@ -112,7 +113,6 @@ https://github.com/coffebar/neovim-project/assets/3100053/c83ae8ab-625e-4a44-88e
 - [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
 - [ckipp01/stylua-nvim](https://github.com/ckipp01/stylua-nvim)
 - [coffebar/ccc.nvim](https://github.com/coffebar/ccc.nvim)
-- [coffebar/dim.lua](https://github.com/coffebar/dim.lua)
 - [coffebar/neovim-project](https://github.com/coffebar/neovim-project)
 - [cohama/lexima.vim](https://github.com/cohama/lexima.vim)
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)

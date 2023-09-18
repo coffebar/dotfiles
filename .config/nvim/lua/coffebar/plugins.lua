@@ -295,10 +295,9 @@ return {
   },
   -- dim unused variables and functions using lsp and treesitter
   {
-    "coffebar/dim.lua",
-    priority = 2,
-    dev = false,
+    "0oAstro/dim.lua",
     dependencies = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
+    priority = 2,
   },
   -- color piker
   {
