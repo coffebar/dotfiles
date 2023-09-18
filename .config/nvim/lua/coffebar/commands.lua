@@ -17,20 +17,16 @@ vim.api.nvim_create_user_command("SearchInHome", function()
   })
 end, {})
 
-au("DirChanged", {
-  group = augroup,
-  desc = "Source local nvim config",
-  callback = function()
-    local rc = ".vimrc.lua"
-    if vim.fn.filereadable(rc) == 1 then
-      local cwd = vim.fn.getcwd()
-      local confirm = "Do you trust " .. cwd .. "/" .. rc .. "?"
-      if vim.fn.confirm(confirm, "Yes\nNo") == 1 then
-        vim.api.nvim_command("source " .. rc)
-      end
+local function source_local_vimrc()
+  local rc = ".vimrc.lua"
+  if vim.fn.filereadable(rc) == 1 then
+    local cwd = vim.fn.getcwd()
+    local confirm = "Do you trust " .. cwd .. "/" .. rc .. "?"
+    if vim.fn.confirm(confirm, "Yes\nNo") == 1 then
+      vim.api.nvim_command("source " .. rc)
     end
-  end,
-})
+  end
+end
 
 au("BufReadPost", {
   group = augroup,
@@ -65,19 +61,28 @@ au("BufReadPost", {
   end,
 })
 
--- Auto change ENV variables to enable
--- bare git repository for dotfiles after
--- loading saved session
-local home = vim.fn.expand("~")
-local git_dir = home .. "/dotfiles"
-if vim.fn.isdirectory(git_dir) then
-  local dotfiles_locations = {
-    -- cwd locations in dotfiles
-    home,
-    vim.fn.expand(home .. "/.config/nvim"),
-  }
+local function update_git_env_for_dotfiles()
+  -- Auto change ENV variables to enable
+  -- bare git repository for dotfiles after
+  -- loading saved session
+  local home = vim.fn.expand("~")
+  local git_dir = home .. "/dotfiles"
+
+  if vim.env.GIT_DIR ~= nil and vim.env.GIT_DIR ~= git_dir then
+    return
+  end
+
+  if vim.fn.isdirectory(git_dir) ~= 1 then
+    vim.env.GIT_DIR = nil
+    vim.env.GIT_WORK_TREE = nil
+    return
+  end
+
+  -- cwd locations in dotfiles
+  local dotfiles_locations = { home, home .. "/.config/nvim" }
+
+  local cwd = vim.loop.cwd()
   local in_dotfiles = function()
-    local cwd = vim.loop.cwd()
     for _, p in ipairs(dotfiles_locations) do
       if p == cwd then
         return true
@@ -85,22 +90,21 @@ if vim.fn.isdirectory(git_dir) then
     end
     return false
   end
-  au("SessionLoadPost,SessionSavePost", {
-    group = augroup,
-    callback = function()
-      if vim.env.GIT_DIR == nil and in_dotfiles() then
-        -- export git location into ENV
-        vim.env.GIT_DIR = git_dir
-        vim.env.GIT_WORK_TREE = home
-        return
-      end
-      if vim.env.GIT_DIR == git_dir and not in_dotfiles() then
-        -- unset variables
-        vim.env.GIT_DIR = nil
-        vim.env.GIT_WORK_TREE = nil
-      end
-    end,
-  })
+
+  if in_dotfiles() then
+    if vim.env.GIT_DIR == nil then
+      -- export git location into ENV
+      vim.env.GIT_DIR = git_dir
+      vim.env.GIT_WORK_TREE = home
+      return
+    end
+  else
+    if vim.env.GIT_DIR == git_dir then
+      -- unset variables
+      vim.env.GIT_DIR = nil
+      vim.env.GIT_WORK_TREE = nil
+    end
+  end
 end
 
 -- Optimize for large files
@@ -163,4 +167,23 @@ au("TermOpen", {
   end,
   desc = "Disable line numbers in terminal",
   group = augroup,
+})
+
+au("DirChanged", {
+  pattern = { "*" },
+  group = augroup,
+  desc = "defined in lua/coffebar/commands.lua",
+  callback = function()
+    update_git_env_for_dotfiles()
+    source_local_vimrc()
+  end,
+})
+
+au("User", {
+  pattern = { "SessionLoadPost" },
+  group = augroup,
+  desc = "Update git env for dotfiles",
+  callback = function()
+    update_git_env_for_dotfiles()
+  end,
 })
