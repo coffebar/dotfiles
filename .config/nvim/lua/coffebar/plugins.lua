@@ -91,8 +91,6 @@ return {
     dependencies = { "nvim-telescope/telescope.nvim", "Shatur/neovim-session-manager" },
     priority = 100,
   },
-  -- session manager
-  { "Shatur/neovim-session-manager", lazy = true, depenencies = { "nvim-lua/plenary.nvim" } },
   -- telescope fuzzy finder
   {
     "nvim-telescope/telescope.nvim",
