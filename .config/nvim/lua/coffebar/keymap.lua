@@ -195,6 +195,7 @@ if has_wk then
     ["<a-8>"] = { "<cmd>BufferGoto 8<cr>", "Go to 8 tab" },
     ["<a-9>"] = { "<cmd>BufferLast<cr>", "Go to the last tab" },
     ["<a-0>"] = { "<cmd>BufferLast<cr>", "Go to the last tab" },
+    ["<c-b>"] = { "<cmd>BufferPick<cr>", "Go to buffer" },
 
     g = {
       aa = { "<cmd>TextCaseOpenTelescope<CR>", "Text Case (Telescope)" },
