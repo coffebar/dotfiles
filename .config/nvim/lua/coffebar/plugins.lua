@@ -183,21 +183,24 @@ return {
       require("trouble").setup({})
     end,
   },
-  -- bufferline - tabs with diagnostics indicator
+  -- tabline plugin with re-orderable, auto-sizing
   {
-    "akinsho/bufferline.nvim",
-    tag = "v3.7.0",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    init = function()
-      vim.o.termguicolors = true
-    end,
-    opts = {
-      options = {
-        mode = "buffers",
-        diagnostics = "nvim_lsp",
-        show_buffer_close_icons = false,
-      },
+    "romgrk/barbar.nvim",
+    dependencies = {
+      "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+      "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
     },
+    opts = {
+      exclude_ft = {},
+      exclude_name = {},
+      highlight_inactive_file_icons = true,
+    },
+    init = function()
+      vim.g.barbar_auto_setup = false
+      -- session manager will save the tab order along with globals
+      vim.opt.sessionoptions:append("globals")
+    end,
+    version = "^1.0.0", -- optional: only update when a new 1.x version is released
   },
   -- git
   {

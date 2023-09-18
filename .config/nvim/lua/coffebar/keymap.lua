@@ -62,8 +62,8 @@ tnoremap("<C-\\>", "<C-\\><C-n><cmd>bd!<cr>")
 
 -- Ctrl+4 to close window and keep buffer
 nnoremap("<C-\\>", "<cmd>q<cr>")
-nnoremap("<leader>l", "<cmd>bnext<cr>")
-nnoremap("<leader>h", "<cmd>bprevious<cr>")
+-- nnoremap("<leader>l", "<cmd>bnext<cr>")
+-- nnoremap("<leader>h", "<cmd>bprevious<cr>")
 
 nnoremap("0", "^")
 -- add blank line
@@ -139,6 +139,10 @@ if has_wk then
       },
       p = { "<cmd>Telescope neovim-project history<cr>", "Project history" },
       P = { "<cmd>Telescope neovim-project discover<cr>", "Find Project " },
+      h = { "<cmd>BufferPrevious<cr>", "Previous tab (barbar)" },
+      l = { "<cmd>BufferNext<cr>", "Next tab (barbar)" },
+      ["<"] = { "<cmd>BufferMovePrevious<cr>", "Move tab left (barbar)" },
+      [">"] = { "<cmd>BufferMoveNext<cr>", "Move tab right (barbar)" },
       f = {
         name = "Telescope",
         b = { "<cmd>Telescope file_browser<cr>", "Telescope file_browser" },
@@ -179,6 +183,19 @@ if has_wk then
     },
     ["<c-h>"] = { require("harpoon.ui").nav_prev, "Harpoon prev item" },
     ["<c-l>"] = { require("harpoon.ui").nav_next, "Harpoon prev item" },
+
+    -- switch buffers by Alt+num (barbar)
+    ["<a-1>"] = { "<cmd>BufferGoto 1<cr>", "Go to 1 tab" },
+    ["<a-2>"] = { "<cmd>BufferGoto 2<cr>", "Go to 2 tab" },
+    ["<a-3>"] = { "<cmd>BufferGoto 3<cr>", "Go to 3 tab" },
+    ["<a-4>"] = { "<cmd>BufferGoto 4<cr>", "Go to 4 tab" },
+    ["<a-5>"] = { "<cmd>BufferGoto 5<cr>", "Go to 5 tab" },
+    ["<a-6>"] = { "<cmd>BufferGoto 6<cr>", "Go to 6 tab" },
+    ["<a-7>"] = { "<cmd>BufferGoto 7<cr>", "Go to 7 tab" },
+    ["<a-8>"] = { "<cmd>BufferGoto 8<cr>", "Go to 8 tab" },
+    ["<a-9>"] = { "<cmd>BufferLast<cr>", "Go to the last tab" },
+    ["<a-0>"] = { "<cmd>BufferLast<cr>", "Go to the last tab" },
+
     g = {
       aa = { "<cmd>TextCaseOpenTelescope<CR>", "Text Case (Telescope)" },
       c = {
