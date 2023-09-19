@@ -36,7 +36,7 @@ au("BufReadPost", {
 
 au("BufReadPost", {
   group = augroup,
-  pattern = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.svg" },
+  pattern = { "*.png", "*.jpg", "*.jpeg", "*.gif" },
   desc = "Open images in external viewer-editor",
   callback = function()
     local image_viewers = {
