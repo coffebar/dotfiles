@@ -74,6 +74,7 @@ return {
         enable = false,
       },
     },
+    event = "LspAttach",
   },
   -- shows nvim-lsp progress
   {
