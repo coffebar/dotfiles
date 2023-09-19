@@ -34,7 +34,7 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = require("coffebar.plugins.lualine"),
-    priority = 100,
+    event = { "VimEnter" },
   },
   -- i3 config syntax highlighting
   { "mboughaba/i3config.vim", lazy = true, ft = "i3config" },
