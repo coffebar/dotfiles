@@ -119,4 +119,9 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fet
 # install global packages via pnpm
 PNPM_HOME=~/.local/share/pnpm pnpm install -g uglify-js
 
+# upgrade firmware
+echo "Firmware upgrade..."
+sudo fwupdmgr refresh
+sudo fwupdmgr update
+
 echo "Done. Consider re-login or reboot to apply all changes."
