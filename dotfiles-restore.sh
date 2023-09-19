@@ -98,6 +98,11 @@ cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
 # setup pacman hook to update pkglist file automatically
 pacman-setup-hooks
 
+# setup keepassxc password
+echo "Configuring secret-tool for KeePassXC"
+echo "Please enter KeePassXC database.kdbx password:"
+secret-tool store --label='KeePassXC' 'keepass' 'default'
+
 # gtk theme options
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gtk.Settings.FileChooser startup-mode cwd
