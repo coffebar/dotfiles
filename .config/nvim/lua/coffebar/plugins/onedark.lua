@@ -21,4 +21,7 @@ return {
     strings = "none",
     variables = "none",
   },
+  highlights = {
+    TreesitterContext = { fg = "$fg", bg = "$bg2" },
+  },
 }
