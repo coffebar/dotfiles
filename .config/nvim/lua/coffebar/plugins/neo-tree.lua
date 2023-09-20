@@ -1,11 +1,10 @@
 local function context_dir(state)
   -- return the directory of the current neo-tree node
   local node = state.tree:get_node()
-  local path = node.path
-  if vim.fn.isdirectory(path) == 1 then
-    return path
+  if node.type == "directory" then
+    return node.path
   end
-  return path:gsub("/[^/]*$", "") -- go up one level
+  return node.path:gsub("/[^/]*$", "") -- go up one level
 end
 
 return {
@@ -124,14 +123,24 @@ return {
         -- close neo-tree
         vim.cmd("Neotree close")
       end,
-      -- open in Spectre to replace in directory
+      -- open in Spectre to replace here
       ["<c-r>"] = function(state)
-        require("spectre").open({
-          cwd = context_dir(state),
-          is_close = true, -- close an exists instance of spectre and open new
-          is_insert_mode = false,
-          path = "",
-        })
+        local node = state.tree:get_node()
+        if node.type == "directory" then
+          require("spectre").open({
+            cwd = node.path,
+            is_close = true, -- close an exists instance of spectre and open new
+            is_insert_mode = false,
+            path = "",
+          })
+        else
+          require("spectre").open({
+            cwd = context_dir(state),
+            is_close = true, -- close an exists instance of spectre and open new
+            is_insert_mode = false,
+            path = node.path:match("^.+/(.+)$"),
+          })
+        end
         -- close neo-tree
         vim.cmd("Neotree close")
       end,
