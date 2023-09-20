@@ -45,18 +45,15 @@ au("BufReadPost", {
       "feh",
     }
     -- search for installed program
-    local program
-    for _, p in ipairs(image_viewers) do
-      if vim.fn.executable(p) == 1 then
-        program = p
-        break
+    for _, program in ipairs(image_viewers) do
+      if vim.fn.executable(program) == 1 then
+        local file = vim.fn.expand("%:p")
+        vim.fn.jobstart({ program, file }, { detach = true })
+        -- image buffer is not useful in binary representation.
+        -- Will close buffer without closing a window
+        vim.api.nvim_command("bp | sp | bn | bd")
+        return
       end
-    end
-    if program then
-      vim.api.nvim_command("AsyncRun -silent " .. program .. " %:p &")
-      -- image buffer is not useful in binary representation.
-      -- Will close buffer without closing a window
-      vim.api.nvim_command("bp | sp | bn | bd")
     end
   end,
 })
