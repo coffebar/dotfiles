@@ -100,72 +100,72 @@ https://github.com/coffebar/neovim-project/assets/3100053/c83ae8ab-625e-4a44-88e
 <details><summary><h2>Neovim plugins full list</h2></summary>
 
 <!-- plugins list start -->
-- [0oAstro/dim.lua](https://github.com/0oAstro/dim.lua)
-- [AckslD/nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua)
-- [HallerPatrick/py_lsp.nvim](https://github.com/HallerPatrick/py_lsp.nvim)
-- [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
-- [Mofiqul/dracula.nvim](https://github.com/Mofiqul/dracula.nvim)
-- [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
-- [NvChad/nvim-colorizer.lua](https://github.com/NvChad/nvim-colorizer.lua)
-- [Pocco81/AutoSave.nvim](https://github.com/Pocco81/AutoSave.nvim)
-- [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
-- [Shatur/neovim-session-manager](https://github.com/Shatur/neovim-session-manager)
-- [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
-- [ckipp01/stylua-nvim](https://github.com/ckipp01/stylua-nvim)
-- [coffebar/ccc.nvim](https://github.com/coffebar/ccc.nvim)
-- [coffebar/neovim-project](https://github.com/coffebar/neovim-project)
-- [cohama/lexima.vim](https://github.com/cohama/lexima.vim)
-- [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
-- [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
-- [github/copilot.vim](https://github.com/github/copilot.vim)
-- [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
-- [google/vim-searchindex](https://github.com/google/vim-searchindex)
-- [gruvbox-community/gruvbox](https://github.com/gruvbox-community/gruvbox)
-- [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
-- [hrsh7th/cmp-calc](https://github.com/hrsh7th/cmp-calc)
-- [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
-- [hrsh7th/cmp-emoji](https://github.com/hrsh7th/cmp-emoji)
-- [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
-- [hrsh7th/cmp-nvim-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help)
-- [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
-- [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
-- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
-- [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)
-- [johmsalas/text-case.nvim](https://github.com/johmsalas/text-case.nvim)
-- [justinmk/vim-sneak](https://github.com/justinmk/vim-sneak)
-- [klen/nvim-test](https://github.com/klen/nvim-test)
-- [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
-- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- [lukas-reineke/cmp-rg](https://github.com/lukas-reineke/cmp-rg)
-- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-- [mboughaba/i3config.vim](https://github.com/mboughaba/i3config.vim)
-- [mhartington/formatter.nvim](https://github.com/mhartington/formatter.nvim)
-- [moll/vim-bbye](https://github.com/moll/vim-bbye)
-- [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)
-- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- [nguyenvukhang/nvim-toggler](https://github.com/nguyenvukhang/nvim-toggler)
-- [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
-- [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
-- [nvim-pack/nvim-spectre](https://github.com/nvim-pack/nvim-spectre)
-- [nvim-telescope/telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
-- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
-- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- [petertriho/cmp-git](https://github.com/petertriho/cmp-git)
-- [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
-- [rbong/vim-flog](https://github.com/rbong/vim-flog)
-- [romainl/vim-cool](https://github.com/romainl/vim-cool)
-- [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim)
-- [romgrk/nvim-treesitter-context](https://github.com/romgrk/nvim-treesitter-context)
-- [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim)
-- [skywind3000/asyncrun.vim](https://github.com/skywind3000/asyncrun.vim)
-- [skywind3000/asynctasks.vim](https://github.com/skywind3000/asynctasks.vim)
-- [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
-- [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
+- [0oAstro/dim.lua](https://github.com/0oAstro/dim.lua)  Dim unused words in neovim
+- [AckslD/nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua)  Clipboard manager neovim plugin with telescope integration
+- [HallerPatrick/py_lsp.nvim](https://github.com/HallerPatrick/py_lsp.nvim)  Lsp Plugin for working with Python virtual environments
+- [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)  Snippet Engine for Neovim written in Lua.
+- [Mofiqul/dracula.nvim](https://github.com/Mofiqul/dracula.nvim)  Dracula colorscheme for neovim written in Lua
+- [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)  UI Component Library for Neovim.
+- [NvChad/nvim-colorizer.lua](https://github.com/NvChad/nvim-colorizer.lua)  Maintained fork of the fastest Neovim colorizer
+- [Pocco81/AutoSave.nvim](https://github.com/Pocco81/AutoSave.nvim)  🧶 Automatically save your changes in NeoVim
+- [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)  illuminate.vim - (Neo)Vim plugin for automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching.
+- [Shatur/neovim-session-manager](https://github.com/Shatur/neovim-session-manager)  A simple wrapper around :mksession.
+- [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon) ThePrimeagen/harpoon
+- [ckipp01/stylua-nvim](https://github.com/ckipp01/stylua-nvim)  Let&#39;s just use a formatter and never discuss formatting again.
+- [coffebar/ccc.nvim](https://github.com/coffebar/ccc.nvim)  Super powerful color picker / colorizer plugin.
+- [coffebar/neovim-project](https://github.com/coffebar/neovim-project)  Neovim project manager maintains your recent project history and uses Telescope to select from autosaved sessions.
+- [cohama/lexima.vim](https://github.com/cohama/lexima.vim)  Auto close parentheses and repeat by dot dot dot...
+- [folke/trouble.nvim](https://github.com/folke/trouble.nvim)  🚦 A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
+- [folke/which-key.nvim](https://github.com/folke/which-key.nvim)  💥   Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
+- [github/copilot.vim](https://github.com/github/copilot.vim)  Neovim plugin for GitHub Copilot
+- [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)  improve neovim lsp experience
+- [google/vim-searchindex](https://github.com/google/vim-searchindex)  vim-searchindex: display number of search matches &amp; index of a current match
+- [gruvbox-community/gruvbox](https://github.com/gruvbox-community/gruvbox)  Retro groove color scheme for Vim - community maintained edition
+- [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)  nvim-cmp source for buffer words
+- [hrsh7th/cmp-calc](https://github.com/hrsh7th/cmp-calc)  nvim-cmp source for math calculation
+- [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)  nvim-cmp source for vim&#39;s cmdline
+- [hrsh7th/cmp-emoji](https://github.com/hrsh7th/cmp-emoji)  nvim-cmp source for emoji
+- [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)  nvim-cmp source for neovim builtin LSP client
+- [hrsh7th/cmp-nvim-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help)  cmp-nvim-lsp-signature-help
+- [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)  nvim-cmp source for nvim lua
+- [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)  nvim-cmp source for path
+- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)  A completion plugin for neovim coded in Lua.
+- [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)  markdown preview plugin for (neo)vim
+- [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)  Standalone UI for nvim-lsp progress
+- [johmsalas/text-case.nvim](https://github.com/johmsalas/text-case.nvim)  An all in one plugin for converting text case in Neovim
+- [justinmk/vim-sneak](https://github.com/justinmk/vim-sneak)  The missing motion for Vim :athletic_shoe:
+- [klen/nvim-test](https://github.com/klen/nvim-test)  A Neovim wrapper for running tests
+- [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)  Add/change/delete surrounding delimiter pairs with ease. Written with in Lua.
+- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)  Git integration for buffers
+- [lukas-reineke/cmp-rg](https://github.com/lukas-reineke/cmp-rg)  ripgrep source for nvim-cmp
+- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)  Indent guides  for Neovim
+- [mboughaba/i3config.vim](https://github.com/mboughaba/i3config.vim)  Vim syntax highlighting for i3 config :point_left:
+- [mhartington/formatter.nvim](https://github.com/mhartington/formatter.nvim) mhartington/formatter.nvim
+- [moll/vim-bbye](https://github.com/moll/vim-bbye)  Delete buffers and close files in Vim without closing your windows or messing up your layout. Like Bclose.vim, but rewritten and well maintained.
+- [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)  One dark and light colorscheme for neovim &gt;= 0.5.0 written in lua based on Atom&#39;s One Dark and Light theme. Additionally, it comes with 5 color variant styles
+- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)  Quickstart configs for Nvim LSP
+- [nguyenvukhang/nvim-toggler](https://github.com/nguyenvukhang/nvim-toggler)  invert text in vim, purely with lua.
+- [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)  :brain: // Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
+- [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)  plenary: full; complete; entire; absolute; unqualified. All the lua functions I don&#39;t want to write twice.
+- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)  A blazing fast and easy to configure neovim statusline plugin written in pure lua.
+- [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)  Neovim plugin to manage the file system and other tree like structures.
+- [nvim-pack/nvim-spectre](https://github.com/nvim-pack/nvim-spectre)  Find the enemy and replace them with dark power.
+- [nvim-telescope/telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)  File Browser extension for telescope.nvim
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)  Find, Filter, Preview, Pick. All lua, all the time.
+- [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)  lua `fork` of vim-web-devicons for neovim
+- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)  Nvim Treesitter configurations and abstraction layer
+- [petertriho/cmp-git](https://github.com/petertriho/cmp-git)  Git source for nvim-cmp
+- [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)  Set of preconfigured snippets for different languages.
+- [rbong/vim-flog](https://github.com/rbong/vim-flog)  A fast, beautiful, and powerful git branch viewer for vim.
+- [romainl/vim-cool](https://github.com/romainl/vim-cool)  A very simple plugin that makes hlsearch more useful.
+- [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim)  The neovim tabline plugin.
+- [romgrk/nvim-treesitter-context](https://github.com/romgrk/nvim-treesitter-context)  Show code context
+- [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)  luasnip completion source for nvim-cmp
+- [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim)  Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
+- [skywind3000/asyncrun.vim](https://github.com/skywind3000/asyncrun.vim)  :rocket: Run Async Shell Commands in Vim 8.0 / NeoVim and Output to the Quickfix Window !!
+- [skywind3000/asynctasks.vim](https://github.com/skywind3000/asynctasks.vim)  :rocket: Modern Task System for Project Building, Testing and Deploying !!
+- [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)  fugitive.vim: A Git wrapper so awesome, it should be illegal
+- [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)  Use treesitter to auto close and auto rename html tag
 <!-- plugins list end -->
 
 </details>

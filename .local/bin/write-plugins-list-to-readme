@@ -9,10 +9,28 @@ const HOME = os.homedir();
 const readme_path = HOME + "/README.md";
 const plugins_list_path = HOME + "/.config/nvim/lua/coffebar/plugins.lua";
 const plugins = get_plugins(read_file_contents(plugins_list_path));
-replace_plugins_list_in_readme(plugins);
 
-function replace_plugins_list_in_readme(plugins) {
-  const listHtml = render_html(plugins);
+let titles = [];
+(async function () {
+  const requests = await Promise.all(
+    plugins.map((plugin) => fetch("https://github.com/" + plugin)),
+  );
+  const responses = await Promise.all(requests.map((r) => r.text()));
+  titles = responses.map((text) => {
+    const regexp = new RegExp("<title>GitHub - (.+?)</", "g");
+    const match = regexp.exec(text);
+    if (match) {
+      return match[1];
+    } else {
+      return "";
+    }
+  });
+
+  replace_plugins_list_in_readme(plugins);
+})();
+
+function replace_plugins_list_in_readme() {
+  const listHtml = render_html();
   let contents = read_file_contents(readme_path).toString();
   const markerStart = "<!-- plugins list start -->\n";
   const markerEnd = "<!-- plugins list end -->";
@@ -41,10 +59,12 @@ function get_plugins(file_contents) {
     .sort();
 }
 
-function render_html(plugins) {
+function render_html() {
   let html = "";
-  plugins.forEach((plug) => {
-    html = html + "- [" + plug + "](https://github.com/" + plug + ")\n";
+  plugins.forEach((plug, index) => {
+    const text = titles[index] ? titles[index].replace(/^[^:]+:/g, "") : "";
+    html =
+      html + "- [" + plug + "](https://github.com/" + plug + ") " + text + "\n";
   });
   return html;
 }
