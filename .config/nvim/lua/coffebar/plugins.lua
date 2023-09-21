@@ -90,6 +90,10 @@ return {
     "coffebar/neovim-project",
     opts = require("coffebar.plugins.neovim-project"),
     dependencies = { "nvim-telescope/telescope.nvim", "Shatur/neovim-session-manager" },
+    init = function()
+      -- enable saving the state of plugins in the session
+      vim.opt.sessionoptions:append("globals") -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
+    end,
     priority = 100,
   },
   -- telescope fuzzy finder
@@ -198,8 +202,6 @@ return {
     },
     init = function()
       vim.g.barbar_auto_setup = false
-      -- session manager will save the tab order along with globals
-      vim.opt.sessionoptions:append("globals")
     end,
     version = "^1.0.0", -- optional: only update when a new 1.x version is released
   },
