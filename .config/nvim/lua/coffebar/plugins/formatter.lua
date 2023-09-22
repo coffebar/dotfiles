@@ -40,8 +40,14 @@ local function nodeModuleLibPath(package, file)
 end
 
 local prettierPluginPHP = nodeModuleLibPath("@prettier/plugin-php", "src/index.js")
+local prettierPluginBladePHP = nodeModuleLibPath("@shufo/prettier-plugin-blade", "dist/index.js")
 local prettierPHP = function()
-  return prettier({ "--plugin", prettierPluginPHP })
+  return prettier({
+    "--plugin",
+    prettierPluginPHP,
+    "--plugin",
+    prettierPluginBladePHP,
+  })
 end
 
 local prettierPluginSH = nodeModuleLibPath("prettier-plugin-sh", "lib/index.js")
@@ -70,7 +76,7 @@ return {
   -- Enable or disable logging
   logging = false,
   -- Set the log level
-  log_level = vim.log.levels.ERROR, -- disabled for auto-save feature
+  log_level = vim.log.levels.DEBUG, -- disabled for auto-save feature
   -- All formatter configurations are opt-in
   filetype = {
     css = { stylefmt },
