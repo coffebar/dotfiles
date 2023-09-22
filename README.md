@@ -52,7 +52,7 @@
 
 #### Neovim
 
-- PDE with code completion from different sources (including ripgrep, LSP, path and copilot), a bunch of LSP servers, autosaved sessions and files, clipboard history, code formatting, color picker, fuzzy finder, git integration, incremental selection, quick project switching, snippets, syncing of everything across devices.
+- PDE with code completion from many sources (including ripgrep, LSP, path and copilot), a bunch of LSP servers, autosaved sessions and files, clipboard history, code formatting, color picker, fuzzy finder, git integration, incremental selection, quick project switching, snippets, syncing of everything across devices.
 
 - `Super + F` quick search files inside $HOME using ripgrep and custom ignore file.
 
