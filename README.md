@@ -70,50 +70,42 @@
 
 - Neovim opens images in the external viewer instead of binary view.
 
-- Some keybindings for copy-pasting: file path, current line, entire file contents.
+- Extra keybindings for copy-pasting: file path, current line, entire file contents.
 
-- And a bunch of other useful plugins.
+- And a bunch of other useful plugins. See [Neovim plugins full list](#neovim-plugins-full-list).
 
 
 #### Common for Window managers
 
-- ``Alt + f`` opens a file manager in the directory found in the clipboard. For example, if you copied a file from some program, you can open its directory by pressing this shortcut.
-
-- Mouse side buttons bound to copy and paste in graphics applications. Although I try to use the mouse less, it's useful for (web)apps with mouse-centric UI.
-
-- CapsLock's behavior is changed to Backspace.
-
-- I'm not using Display Managers (no LightDM or GDM).
-
-- ``Ctrl + m`` bind simplifies sequence ``Ctrl + l, Ctrl + v, Return`` to interact with file-picker dialog by selecting file from clipboard blazingly fast.
-
-- ``Super + P`` pull dotfiles from this repo and shows a notification with an icon.
-
 - Notifications when the battery level is low or fully charged.
 
-- ``Alt + Space`` close a focused window.
+- ``Alt + f`` opens a file manager in the directory found in the clipboard. For example, if you copied a file from some program, you can open its directory by pressing this shortcut.
 
 - Partially different config for each machine depending on hostname.
 
+- CapsLock's behavior is changed to Backspace.
+
+- ``Super + P`` pull dotfiles from this repo and shows a notification with an icon.
+
 - ``Super + ` `` open ssh servers menu to connect.
 
+- No Display Managers (LightDM or GDM).
+
 #### i3
+
+- Automatic tiling via [autotiling](https://github.com/nwg-piotr/autotiling) script. Split direction depends on the currently focused window dimensions. I'm using vim-style HJKL to navigate inside WM.
 
 - UI scale options depend on the current display setup and [autorandr](https://github.com/phillipberndt/autorandr) profile name.
 
 - ``Super + \ `` open fuzzy finder to search for local text files in the home directory to edit in Neovim.
 
-- Automatic tiling via [autotiling](https://github.com/nwg-piotr/autotiling) script. Split direction depends on the currently focused window dimensions.
-
 - Some of wm's binds were improved by Lua script. Lua has more flexibility than i3config syntax. I like to switch automatically to the appropriate workspace after opening programs using a keyboard shortcut.
-
-- Automatic tiling freed up ``Super + H`` shortcut. So I'm using HJKL to navigate inside WM.
 
 #### Terminal
 
-- ``Alt + e`` execute suggested command from zsh-autosuggestions
+- ``Alt + e`` execute suggested command from zsh-autosuggestions.
 
-- ``Ctrl + x`` after typing `# comment question` provides OpenAI generated suggestion
+- ``Ctrl + x`` after typing `# comment question` provides OpenAI generated suggestion.
 
 - ``Command + c`` ``Command + v`` copy & paste. `Ctrl + c` and `Ctrl + p` in neovim.
 
