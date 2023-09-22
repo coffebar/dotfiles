@@ -18,6 +18,7 @@ return {
     "~/dev/Ch*/*",
     "~/pets/*",
     "~/pets/AU*/*",
+    "~/.local/*",
   },
   -- Path to store history and sessions
   datapath = datapath,

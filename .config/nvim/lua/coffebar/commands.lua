@@ -76,7 +76,20 @@ local function update_git_env_for_dotfiles()
   end
 
   -- cwd locations in dotfiles
-  local dotfiles_locations = { home, home .. "/.config/nvim" }
+  local dotfiles_locations = {
+    home,
+    home .. "/.config/alacritty",
+    home .. "/.config/crab",
+    home .. "/.config/hyprland",
+    home .. "/.config/i3",
+    home .. "/.config/nvim",
+    home .. "/.config/potato",
+    home .. "/.config/sway",
+    home .. "/.config/swaylock",
+    home .. "/.config/waybar",
+    home .. "/.config/xxh",
+    home .. "/.local/bin",
+  }
 
   local cwd = vim.loop.cwd()
   local in_dotfiles = function()
