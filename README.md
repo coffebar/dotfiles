@@ -68,6 +68,8 @@
 
 - Different colorscheme and options for TTY.
 
+- Automated setup with all dependencies from scratch in 10 minutes.
+
 - Neovim opens images in the external viewer instead of binary view.
 
 - Extra keybindings for copy-pasting: file path, current line, entire file contents.
