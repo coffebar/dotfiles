@@ -50,6 +50,31 @@
 
 ## Interesting features
 
+#### Neovim
+
+- PDE with code completion from different sources (including ripgrep and copilot), snippets, code formatting, a bunch of LSP servers, color picker, clipboard history, git, autosaved sessions and files, quick project switching, fuzzy finder, incremental selection, syncing of everything across devices.
+
+- `Super + F` quick search files inside $HOME using ripgrep and custom ignore file.
+
+- Neo-tree has custom mappings: `Y` Copy absolute path, `t` Open directory in Thunar, `<c-r>` Replace in folder via Spectre, `<c-f>` Search with Telescope live grep.
+
+- dotfiles bare repository will be detected by vim-fugitive, because my config updates environment variables on DirChanged event.
+
+- `Super + er` open fuzzy finder to select *.sh script inside project and run it. Useful for build, run, deploy, any automation. Output will be shown in the quickfix window and hidden after timeout if the command ends successfully.
+
+- `Super + t` opens Neovim's builtin Terminal. `Super + sa` opens external Alacritty in the current working directory.
+
+- `Super + b` close editor's buffer or `q` - close any other window (help, fugitive, spectre)
+
+- Different colorscheme and options for TTY.
+
+- Neovim opens images in the external viewer instead of binary view.
+
+- Some keybindings for copy-pasting: file path, current line, entire file contents.
+
+- And a bunch of other useful plugins.
+
+
 #### Common for Window managers
 
 - ``Alt + f`` opens a file manager in the directory found in the clipboard. For example, if you copied a file from some program, you can open its directory by pressing this shortcut.
@@ -91,8 +116,6 @@
 - ``Ctrl + x`` after typing `# comment question` provides OpenAI generated suggestion
 
 - ``Command + c`` ``Command + v`` copy & paste. `Ctrl + c` and `Ctrl + p` in neovim.
-
-- Neovim [opens](https://github.com/coffebar/dotfiles/blob/master/.config/nvim/lua/coffebar/commands.lua) popular image formats in the external viewer ([pix](https://github.com/linuxmint/pix)) instead of binary view. Neovim also has a bunch of customizations and keyboard shortcuts.
 
 - Nice aliases: **i** to install package, **md2pdf** to convert markdown file to pdf, **v** to open Neovim, **yy** to perform system upgrade. 
 
