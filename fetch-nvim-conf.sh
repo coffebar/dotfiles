@@ -4,7 +4,6 @@ if grep Ubuntu /etc/os-release; then
 	exit 1
 else
 	pacman --version || exit 1
-	echo "Using yay to install required packages"
 	# packages from arch repo
 	PKG=(autopep8 neovim go npm rust-analyzer lua-language-server fd ripgrep xclip rsync python-virtualenv)
 	# chech all packages if installed
@@ -22,8 +21,6 @@ mkdir -p ~/.node_modules/lib/node_modules
 
 git clone --depth=1 https://github.com/coffebar/dotfiles.git /tmp/dotfiles_tmp_nvim
 rsync -rv --delete /tmp/dotfiles_tmp_nvim/.config/nvim/ ~/.config/nvim/
-[ -f ~/.prettierrc.json ] && mv ~/.prettierrc.json ~/.prettierrc.json.bak && echo "~/.prettierrc.json replaced"
-mv /tmp/dotfiles_tmp_nvim/.prettierrc.json ~/.prettierrc.json
 rm -rf /tmp/dotfiles_tmp_nvim/
 
 npm config set prefix ~/.node_modules
@@ -58,6 +55,6 @@ install_nodejs_packages_if_needed pyright bash-language-server \
 	@shufo/prettier-plugin-blade \
 	emmet-ls
 
-go version && go install golang.org/x/tools/gopls@latest
+go install golang.org/x/tools/gopls@latest
 
 nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1

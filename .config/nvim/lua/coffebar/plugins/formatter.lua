@@ -8,18 +8,11 @@ local prettier = function(args)
     -- git-ignored files formatting is allowed
     table.insert(args, "--ignore-path")
   end
-
-  return {
-    exe = "prettier",
-    args = args,
-    stdin = true,
-    try_node_modules = true,
-  }
+  return { exe = "prettier", args = args, stdin = true, try_node_modules = true }
 end
 
 local function nodeModuleLibPath(package, file)
   -- get the escaped path to the file in the node_modules lib
-
   local nodeModulesPath = vim.fn.expand("~/.local/share/pnpm/global/5/node_modules/")
   local packageDir = nodeModulesPath .. package .. "/"
   local fname = packageDir .. file
@@ -39,21 +32,36 @@ local function nodeModuleLibPath(package, file)
   return vim.fn.shellescape(fname, true)
 end
 
-local prettierPluginPHP = nodeModuleLibPath("@prettier/plugin-php", "src/index.js")
-local prettierPluginBladePHP = nodeModuleLibPath("@shufo/prettier-plugin-blade", "dist/index.js")
-local prettierPHP = function()
-  return prettier({
-    "--plugin",
-    prettierPluginPHP,
-    "--plugin",
-    prettierPluginBladePHP,
-  })
-end
+-- paths to the prettier plugins
+local plugPath = {
+  blade = nodeModuleLibPath("@shufo/prettier-plugin-blade", "dist/index.js"),
+  nginx = nodeModuleLibPath("prettier-plugin-nginx", "dist/index.js"),
+  php = nodeModuleLibPath("@prettier/plugin-php", "src/index.js"),
+  sh = nodeModuleLibPath("prettier-plugin-sh", "lib/index.js"),
+  ssh = nodeModuleLibPath("prettier-plugin-ssh-config", "lib/index.cjs"),
+}
 
-local prettierPluginSH = nodeModuleLibPath("prettier-plugin-sh", "lib/index.js")
-local prettierSH = function()
-  return prettier({ "--use-tabs", "true", "--plugin", prettierPluginSH })
-end
+local prettify = {
+  nginx = function()
+    return prettier({ "--tab-width", "2", "--parser", "nginx", "--plugin", plugPath.nginx })
+  end,
+  php = function()
+    local fname = vim.api.nvim_buf_get_name(0)
+    local args
+    if string.match(fname, "%.blade%.php") then
+      args = { "--plugin", plugPath.blade, "--parser", "blade", "--tab-width", "2" }
+    else
+      args = { "--plugin", plugPath.php }
+    end
+    return prettier(args)
+  end,
+  sh = function()
+    return prettier({ "--use-tabs", "true", "--plugin", plugPath.sh })
+  end,
+  ssh = function()
+    return prettier({ "--parser", "ssh-config", "--use-tabs", "--plugin", plugPath.ssh })
+  end,
+}
 
 local pythonConfig = function()
   return {
@@ -80,18 +88,18 @@ return {
   -- All formatter configurations are opt-in
   filetype = {
     css = { stylefmt },
-    dockerfile = { prettierSH },
+    dockerfile = { prettify.sh },
     html = { prettier },
     javascript = { prettier },
     javascriptreact = { prettier },
     json = { prettier },
     lua = { stylua },
-    nginx = { prettier },
-    php = { prettierPHP },
+    nginx = { prettify.nginx },
+    php = { prettify.php },
     python = { pythonConfig },
     scss = { stylefmt },
-    sh = { prettierSH },
-    sshconfig = { prettier },
+    sh = { prettify.sh },
+    sshconfig = { prettify.ssh },
     typescript = { prettier },
     typescriptreact = { prettier },
     yaml = { prettier },

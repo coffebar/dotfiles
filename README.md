@@ -212,9 +212,9 @@ See [docker-test-fetch-nvim-conf](https://github.com/coffebar/docker-test-fetch-
 ### Replace config on your machine
 
 `fetch-nvim-conf.sh` script helps me to get my full Neovim config installed on any Arch Linux machine with all dependencies.  
-It's not just clone repo. This script requires Arch Linux with **sudo** installed. It will install required packages, **pnpm** package manager and node modules for LSP & formatting.
+It's not just clone repo. This script requires Arch Linux with **pacman**, **sudo** and **git** installed. It will install required packages, **pnpm** package manager and node modules for LSP & formatting.
 
-It will overwrite the entire `~/.config/nvim` folder and `~/.prettierrc.json` file.
+It will overwrite the entire `~/.config/nvim` folder!
 
 [Review source](https://github.com/coffebar/dotfiles/blob/master/fetch-nvim-conf.sh)
 
