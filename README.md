@@ -38,7 +38,17 @@
   - [:bookmark_tabs: Taskwarrior-tui](https://github.com/kdheepak/taskwarrior-tui) dark themed and configured as floating modal
 
 
-<details><summary><h2>Interesting features</h2></summary>
+## Table of Contents
+- [Overview](#overview)
+- [Interesting features](#interesting-features)
+- [Neovim plugins full list](#neovim-plugins-full-list)
+- [Restore Neovim config and install dependencies on Arch](#restore-neovim-config)
+  - [Preview Neovim setup in Docker](#preview-neovim-setup-in-docker)
+  - [Replace config on your machine](#replace-config-on-your-machine)
+- [Install dotfiles](#install-dotfiles)
+
+
+## Interesting features
 
 #### Common for Window managers
 
@@ -95,9 +105,8 @@ https://github.com/coffebar/neovim-project/assets/3100053/c83ae8ab-625e-4a44-88e
 
 📦 [neovim-project](https://github.com/coffebar/neovim-project) plugin
 
-</details>
 
-<details><summary><h2>Neovim plugins full list</h2></summary>
+## Neovim plugins full list
 
 <!-- plugins list start -->
 - [0oAstro/dim.lua](https://github.com/0oAstro/dim.lua)  Dim unused words in neovim
@@ -168,10 +177,11 @@ https://github.com/coffebar/neovim-project/assets/3100053/c83ae8ab-625e-4a44-88e
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)  Use treesitter to auto close and auto rename html tag
 <!-- plugins list end -->
 
-</details>
 
 
-<details><summary><h2>Preview Neovim setup in Docker</h2></summary>
+## Restore Neovim config
+
+### Preview Neovim setup in Docker
 
 Full Neovim setup can be tested inside docker container.
 
@@ -182,34 +192,12 @@ cd docker-test-fetch-nvim-conf && sh ./build.sh
 
 See [docker-test-fetch-nvim-conf](https://github.com/coffebar/docker-test-fetch-nvim-conf) repo for more details.
 
-</details>
+### Replace config on your machine
 
-
-<details><summary>
-<h2>Restore backup</h2>
-</summary>
-
-
-### Please don't do this without understanding all files and commands! 
-
-**This instruction will work as is for coffebar only!**
-
-Before proceeding you need to restore SSH and GPG keys.
-
-SSH config must point to the GitHub's private key.
-
-[Review source](https://github.com/coffebar/dotfiles/blob/master/dotfiles-restore.sh)
-
-```bash
-sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/dotfiles-restore.sh)"
-```
-
-### Neovim plugins and dependencies
-Run this script to sync Neovim config from this repo. It can be used separately on Arch systems.
+`fetch-nvim-conf.sh` script helps me to get my full Neovim config installed on any Arch Linux machine with all dependencies.  
+It's not just clone repo. This script requires Arch Linux with **yay** and **sudo** installed. It will install required packages, **pnpm** package manager and node modules for LSP & formatting.
 
 It will overwrite the entire `~/.config/nvim` folder and `~/.prettierrc.json` file.
-
-This script requires Arch Linux with **yay** and **sudo** installed. It will install required packages, **pnpm** package manager and node modules for LSP & formatting.
 
 [Review source](https://github.com/coffebar/dotfiles/blob/master/fetch-nvim-conf.sh)
 
@@ -217,4 +205,23 @@ This script requires Arch Linux with **yay** and **sudo** installed. It will ins
 # export PATH="$PATH:$HOME/.local/share/pnpm:$HOME/.node_modules/bin"
 sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fetch-nvim-conf.sh)"
 ```
+
+<details><summary>
+<h2>Install dotfiles</h2>
+</summary>
+
+**Please don't do this if you're not me**
+
+**This instruction will work as is for coffebar only!**
+
+1. Before proceeding you need to restore SSH and GPG keys.
+
+2. SSH config must point to the GitHub's private key.
+
+[Review source](https://github.com/coffebar/dotfiles/blob/master/dotfiles-restore.sh)
+
+```bash
+sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/dotfiles-restore.sh)"
+```
+
 </details>
