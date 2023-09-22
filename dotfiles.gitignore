@@ -60,7 +60,6 @@ Downloads/Telegram\ Desktop/*
 !.config/nvim/lua/coffebar
 !.config/nvim/lua/coffebar/plugins
 !.config/nvim/snippets
-!.config/nvim/spell
 !.config/potato
 !.config/sway
 !.config/swaylock

@@ -1,29 +1,20 @@
 #!/bin/bash
 if grep Ubuntu /etc/os-release; then
-	echo "Ubuntu is not supported for now. Reason: snap version has broken tree-sitter, apt version is too old for tree-sitter"
+	echo "Ubuntu is not supported for now." # maybe someday
 	exit 1
-	# sudo apt install -y git rsync npm ripgrep neovim
-	# sudo snap install go --classic
-	# git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-	# 	~/.local/share/nvim/site/pack/packer/start/packer.nvim
 else
-	yay --version || exit 1
+	pacman --version || exit 1
 	echo "Using yay to install required packages"
 	# packages from arch repo
 	PKG=(autopep8 neovim go npm rust-analyzer lua-language-server fd ripgrep xclip rsync python-virtualenv)
-	# packages from AUR
-	PKG_AUR=(ltex-ls-bin)
 	# chech all packages if installed
 	# to avoid asking for sudo if nothing will be installed
 	TO_INSTALL=()
 	for pn in "${PKG[@]}"; do
-		yay -Q | grep "$pn " || TO_INSTALL+=("$pn")
-	done
-	for pn in "${PKG_AUR[@]}"; do
-		yay -Qm | grep "$pn " || TO_INSTALL+=("$pn")
+		pacman -Q | grep "$pn " || TO_INSTALL+=("$pn")
 	done
 	# install all at once
-	[ "${#TO_INSTALL[@]}" -eq 0 ] || yay -Sy --noconfirm --needed "${TO_INSTALL[@]}"
+	[ "${#TO_INSTALL[@]}" -eq 0 ] || sudo pacman -Sy --noconfirm --needed "${TO_INSTALL[@]}"
 fi
 
 mkdir -p ~/.config/nvim
@@ -48,14 +39,14 @@ if ! command -v pnpm > /dev/null; then
 fi
 
 _INSTALLED=$(pnpm list -g)
-function install_packages_if_needed() {
+function install_nodejs_packages_if_needed() {
 	# install packages if not installed
 	for p in "$@"; do
 		echo "$_INSTALLED" | grep -F "$p " > /dev/null || pnpm install -g "$p"
 	done
 }
 
-install_packages_if_needed pyright bash-language-server \
+install_nodejs_packages_if_needed pyright bash-language-server \
 	vscode-langservers-extracted \
 	prettier prettier-plugin-ssh-config \
 	prettier-plugin-sh \

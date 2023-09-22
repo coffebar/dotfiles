@@ -109,25 +109,6 @@ lspconfig.tsserver.setup({
   flags = lsp_flags,
 })
 
--- markdown, requires ltex-ls
-lspconfig.ltex.setup({
-  on_attach = on_attach,
-  autostart = true,
-  filetypes = { "markdown" },
-  settings = {
-    ltex = {
-      disabledRules = {
-        ["en-US"] = {
-          "ARROWS",
-          "MORFOLOGIK_RULE_EN_US", --disable spell
-        },
-      },
-      dictionary = {
-        ["en-US"] = ":" .. vim.fn.stdpath("config") .. "/spell/en.utf-8.add", -- doesn't work
-      },
-    },
-  },
-})
 -- rust, requires rust_analyzer
 lspconfig.rust_analyzer.setup({
   on_attach = on_attach,

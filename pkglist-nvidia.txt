@@ -106,7 +106,6 @@ linux-headers
 linux-zen
 linux-zen-headers
 lsof
-ltex-ls-bin
 lua-language-server
 lxappearance
 lzop
