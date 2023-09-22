@@ -68,7 +68,7 @@
 
 - Different colorscheme and options for TTY.
 
-- Automated setup with all dependencies from scratch in 10 minutes.
+- Automated [setup with all dependencies](#replace-config-on-your-machine) from scratch in 10 minutes.
 
 - Neovim opens images in the external viewer instead of binary view.
 
