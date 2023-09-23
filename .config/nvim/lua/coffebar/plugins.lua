@@ -243,7 +243,8 @@ return {
       "MunifTanjim/nui.nvim",
     },
     opts = require("coffebar.plugins.neo-tree"),
-    priority = 40,
+    lazy = true,
+    cmd = "Neotree",
   },
   -- wrapper around the Lua code formatter
   { "ckipp01/stylua-nvim", lazy = true, ft = "lua" },
