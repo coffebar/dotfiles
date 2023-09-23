@@ -19,6 +19,7 @@ return {
     "~/pets/*",
     "~/pets/AU*/*",
     "~/.local/*",
+    "~/obsidian/*",
   },
   -- Path to store history and sessions
   datapath = datapath,
