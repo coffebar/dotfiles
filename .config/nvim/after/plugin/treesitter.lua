@@ -9,6 +9,10 @@ local function disable_all(_, buf)
   if ok and stats and stats.size > max_filesize then
     return true
   end
+  -- Disable treesitter for vim command mode (open with `q:`)
+  if vim.api.nvim_get_mode().mode == "c" and vim.api.nvim_buf_get_option(buf, "filetype") == "vim" then
+    return true
+  end
 end
 
 ---@diagnostic disable-next-line: missing-fields
