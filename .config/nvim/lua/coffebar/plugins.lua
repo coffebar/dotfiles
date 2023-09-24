@@ -100,16 +100,10 @@ return {
     end,
     priority = 100,
   },
-  -- telescope fuzzy finder
-  -- {
-  --   "nvim-telescope/telescope.nvim",
-  --   tag = "0.1.0",
-  --   dependencies = { "nvim-lua/plenary.nvim" },
-  -- },
   -- search counter
   { "google/vim-searchindex", lazy = true, keys = { "n", "N", "/" } },
   -- turn off highlighting when you are done searching
-  { "romainl/vim-cool", lazy = true, keys = { "n", "N", "/" } },
+  { "romainl/vim-cool" },
   -- automatically save files
   { "Pocco81/AutoSave.nvim", opts = require("coffebar.plugins.auto-save"), priority = 40 },
   -- commenter (gc)
@@ -218,14 +212,20 @@ return {
     lazy = true,
     event = "BufRead",
   },
-  "tpope/vim-fugitive",
-  "rbong/vim-flog",
-  { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+  { "tpope/vim-fugitive", lazy = true, cmd = { "G", "Git" } },
+  { "rbong/vim-flog", lazy = true, cmd = "Flog" },
+  {
+    "sindrets/diffview.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = true,
+    cmd = { "DiffviewOpen", "DiffviewLog", "DiffviewFileHistory", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+  },
   -- snippets
-  "rafamadriz/friendly-snippets",
+  { "rafamadriz/friendly-snippets" },
   -- tests
   {
     "klen/nvim-test",
+    enabled = false,
     config = function()
       require("nvim-test").setup({})
     end,
@@ -233,6 +233,8 @@ return {
   -- generic way to handle build/run/test/deploy tasks
   {
     "skywind3000/asynctasks.vim",
+    lazy = true,
+    cmd = { "AsyncTask", "AsyncTaskEdit", "AsyncTaskList", "AsyncTaskLog" },
     -- async terminal task runner
     dependencies = { "skywind3000/asyncrun.vim" },
   },
@@ -337,7 +339,7 @@ return {
     end,
   },
   -- github copilot
-  { "github/copilot.vim" },
+  { "github/copilot.vim", lazy = true, event = "VeryLazy" },
   -- delete buffers without closing window layout;
   { "moll/vim-bbye", priority = 1 },
 }
