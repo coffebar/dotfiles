@@ -17,17 +17,6 @@ vim.api.nvim_create_user_command("SearchInHome", function()
   })
 end, {})
 
-local function source_local_vimrc()
-  local rc = ".vimrc.lua"
-  if vim.fn.filereadable(rc) == 1 then
-    local cwd = vim.fn.getcwd()
-    local confirm = "Do you trust " .. cwd .. "/" .. rc .. "?"
-    if vim.fn.confirm(confirm, "Yes\nNo") == 1 then
-      vim.api.nvim_command("source " .. rc)
-    end
-  end
-end
-
 au("BufReadPost", {
   group = augroup,
   desc = "Return to last edit position when opening files",
@@ -186,7 +175,6 @@ au("DirChanged", {
   desc = "defined in lua/coffebar/commands.lua",
   callback = function()
     update_git_env_for_dotfiles()
-    source_local_vimrc()
   end,
 })
 
