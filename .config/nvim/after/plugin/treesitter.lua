@@ -21,10 +21,16 @@ configs.setup({
     "bash",
     "c",
     "css",
+    "csv",
     "diff",
     "dockerfile",
+    "git_config",
+    "gitcommit",
+    "gitignore",
     "go",
+    "gpg",
     "html",
+    "ini",
     "javascript",
     "json",
     "kotlin",
@@ -32,12 +38,16 @@ configs.setup({
     "markdown",
     "markdown_inline",
     "php",
+    "phpdoc",
     "python",
     "rust",
     "scss",
     "sql",
     "toml",
+    "tsx",
     "typescript",
+    "vue",
+    "xml",
     "yaml",
   },
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -51,7 +61,7 @@ configs.setup({
   ignore_install = {},
 
   playground = {
-    enable = true,
+    enable = false,
     disable = {},
     updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
     persist_queries = false, -- Whether the query persists across vim sessions
