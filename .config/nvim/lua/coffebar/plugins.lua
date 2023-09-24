@@ -342,6 +342,8 @@ return {
   { "github/copilot.vim", lazy = true, event = "VeryLazy" },
   -- delete buffers without closing window layout;
   { "moll/vim-bbye", priority = 1 },
+  -- Interactive real time neovim scratchpad
+  { "rafcamlet/nvim-luapad", lazy = true, cmd = "Luapad" },
 }
 
 ----
