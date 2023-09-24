@@ -16,5 +16,8 @@ vim.filetype.add({
   pattern = {
     ["^%.env%."] = "sh",
     ["%.webmanifest$"] = "json",
+    -- ansible
+    [".*/tasks/.*.ya?ml"] = "yaml.ansible",
+    [".*/ansible/.*.ya?ml"] = "yaml.ansible",
   },
 })

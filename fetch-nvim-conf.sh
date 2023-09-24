@@ -5,7 +5,7 @@ if grep Ubuntu /etc/os-release; then
 else
 	pacman --version || exit 1
 	# packages from arch repo
-	PKG=(autopep8 neovim go npm rust-analyzer lua-language-server fd ripgrep xclip rsync python-virtualenv)
+	PKG=(autopep8 ansible-lint neovim go npm rust-analyzer lua-language-server fd ripgrep xclip rsync python-virtualenv)
 	# chech all packages if installed
 	# to avoid asking for sudo if nothing will be installed
 	TO_INSTALL=()
@@ -44,6 +44,7 @@ function install_nodejs_packages_if_needed() {
 }
 
 install_nodejs_packages_if_needed pyright bash-language-server \
+	@ansible/ansible-language-server \
 	vscode-langservers-extracted \
 	prettier prettier-plugin-ssh-config \
 	prettier-plugin-sh \
