@@ -47,9 +47,6 @@ nnoremap("<leader>ф", "<cmd>qa!<cr>")
 nnoremap("Ф", "A")
 nnoremap("Ш", "I")
 
--- open terminal in split below and start Insert mode
-nnoremap("<leader>t", "<cmd>belowright split | resize 10 | terminal<cr>i")
-
 -- terminal mode related
 -- close terminal window
 tnoremap("<C-d>", "<C-\\><C-n><cmd>q!<cr>")
@@ -149,6 +146,8 @@ if has_wk then
       },
       p = { "<cmd>Telescope neovim-project history<cr>", "Project history" },
       P = { "<cmd>Telescope neovim-project discover<cr>", "Find Project " },
+      t = { "<cmd>belowright split | resize 10 | terminal<cr>i", "Builtin terminal" },
+      T = { "<cmd>TroubleToggle<cr>", "Trouble" },
       h = { "<cmd>BufferPrevious<cr>", "Previous tab (barbar)" },
       l = { "<cmd>BufferNext<cr>", "Next tab (barbar)" },
       ["<"] = { "<cmd>BufferMovePrevious<cr>", "Move tab left (barbar)" },
@@ -183,7 +182,6 @@ if has_wk then
           "Search current word",
         },
       },
-      T = { "<cmd>TroubleToggle<cr>", "Trouble" },
       v = {
         name = "Paste",
         -- overwrite entire buffer's content from system clipboard
@@ -193,6 +191,7 @@ if has_wk then
     },
     ["<c-h>"] = { require("harpoon.ui").nav_prev, "Harpoon prev item" },
     ["<c-l>"] = { require("harpoon.ui").nav_next, "Harpoon prev item" },
+    ["<c-e>"] = { "<cmd>Dirbuf<cr>", "Dirbuf" },
 
     -- switch buffers by Alt+num (barbar)
     ["<a-1>"] = { "<cmd>BufferGoto 1<cr>", "Go to 1 tab" },
@@ -325,4 +324,6 @@ else
     return vim.v.count == 0 and "<Plug>(comment_toggle_linewise_current)" or "<Plug>(comment_toggle_linewise_count)"
   end, { expr = true })
   vnoremap("gc", "<Plug>(comment_toggle_linewise_visual)")
+  -- open terminal in split below and start Insert mode
+  nnoremap("<leader>t", "<cmd>belowright split | resize 10 | terminal<cr>i")
 end

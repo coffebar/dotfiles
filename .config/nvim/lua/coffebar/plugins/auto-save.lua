@@ -15,6 +15,7 @@ return {
     local fn = vim.fn
     local utils = require("auto-save.utils.data")
     local exclude = {
+      "dirbuf",
       "gitcommit",
       "html",
     }

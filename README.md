@@ -141,6 +141,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [coffebar/ccc.nvim](https://github.com/coffebar/ccc.nvim)  Super powerful color picker / colorizer plugin.
 - [coffebar/neovim-project](https://github.com/coffebar/neovim-project)  Neovim project manager maintains your recent project history and uses Telescope to select from autosaved sessions.
 - [cohama/lexima.vim](https://github.com/cohama/lexima.vim)  Auto close parentheses and repeat by dot dot dot...
+- [elihunter173/dirbuf.nvim](https://github.com/elihunter173/dirbuf.nvim)  A file manager for Neovim which lets you edit your filesystem like you edit text
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)  🚦 A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)  💥   Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
 - [github/copilot.vim](https://github.com/github/copilot.vim)  Neovim plugin for GitHub Copilot

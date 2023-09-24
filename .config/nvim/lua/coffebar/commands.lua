@@ -143,6 +143,7 @@ au("FileType", {
 au("FileType", {
   pattern = {
     "checkhealth",
+    "dirbuf",
     "floggraph",
     "fugitive",
     "fugitiveblame",

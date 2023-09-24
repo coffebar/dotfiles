@@ -344,6 +344,8 @@ return {
   { "moll/vim-bbye", priority = 1 },
   -- Interactive real time neovim scratchpad
   { "rafcamlet/nvim-luapad", lazy = true, cmd = "Luapad" },
+  -- edit your filesystem like you edit text
+  { "elihunter173/dirbuf.nvim", lazy = true, cmd = "Dirbuf" },
 }
 
 ----
