@@ -99,11 +99,11 @@ nnoremap("<leader>F", "<cmd>SearchInHome<cr>") -- open file and edit
 nnoremap("<leader>n", "<cmd>Neotree focus toggle<cr>")
 nnoremap("<leader>N", "<cmd>Neotree reveal<cr>")
 nnoremap("=", "<cmd>Format<cr>")
--- AsyncTask
-nnoremap("<leader>eb", "<cmd>AsyncTask project-build<cr>")
-nnoremap("<leader>er", "<cmd>AsyncTask project-run<cr>")
-nnoremap("<leader>ee", "<cmd>call asyncrun#quickfix_toggle(8)<cr>")
 if has_wk then
+  local terminal = vim.env.TERMINAL
+  if terminal == nil then
+    terminal = "alacritty"
+  end
   -- Normal mode
   wk.register({
     ["<leader>"] = {
@@ -116,6 +116,16 @@ if has_wk then
         p = { "<cmd>CccPick<cr>", "Color picker" },
         r = { "<cmd>Telescope neoclip<cr>", "Neoclip" },
         s = { "<cmd>so %<cr>", "Source current buffer" },
+      },
+      e = {
+        b = { "<cmd>AsyncTask project-build<cr>", "./build.sh" },
+        d = { "<cmd>AsyncTask project-deploy<cr>", "./deploy.sh" },
+        r = { "<cmd>AsyncTask project-run<cr>", "Run project" },
+        w = {
+          "<cmd>AsyncRun -silent " .. terminal .. " -e ./watch.sh &<cr>",
+          "./watch.sh in `" .. terminal .. "`",
+        },
+        e = { "<cmd>call asyncrun#quickfix_toggle(8)<cr>", "Toggle quickfix" },
       },
       g = {
         name = "Git",
@@ -155,7 +165,7 @@ if has_wk then
       },
       s = {
         p = { "<cmd>Lazy sync<cr>", "Sync Plugins" },
-        a = { "<cmd>AsyncRun -silent alacritty &<cr>", "New Alacritty Window" },
+        a = { "<cmd>AsyncRun -silent " .. terminal .. " &<cr>", "New " .. terminal .. " Window" },
       },
       m = {
         name = "Harpoon",
@@ -304,6 +314,10 @@ else
     vnoremap("<leader>rf", spectre.open_file_search)
     nnoremap("<leader>rf", spectre.open_file_search)
   end
+  -- AsyncTask
+  nnoremap("<leader>eb", "<cmd>AsyncTask project-build<cr>")
+  nnoremap("<leader>er", "<cmd>AsyncTask project-run<cr>")
+  nnoremap("<leader>ee", "<cmd>call asyncrun#quickfix_toggle(8)<cr>")
   -- Close the current buffer
   nnoremap("<leader>b", "<cmd>Bdelete<cr>")
   -- Comment.nvim

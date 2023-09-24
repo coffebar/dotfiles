@@ -60,7 +60,7 @@
 
 - dotfiles bare repository will be detected by vim-fugitive, because my config updates environment variables on DirChanged event.
 
-- `Super + er` open fuzzy finder to select *.sh script inside project and run it. Useful for build, run, deploy, any automation. Output will be shown in the quickfix window and hidden after timeout if the command ends successfully.
+- `Super + er` open fuzzy finder to select *.sh script inside project and run it. Useful for build, run, deploy, any automation. Output will be shown in the quickfix window and hidden after timeout.
 
 - `Super + t` opens Neovim's builtin Terminal. `Super + sa` opens external Alacritty in the current working directory.
 
