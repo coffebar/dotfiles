@@ -234,7 +234,7 @@ return {
   {
     "skywind3000/asynctasks.vim",
     lazy = true,
-    cmd = { "AsyncTask", "AsyncTaskEdit", "AsyncTaskList", "AsyncTaskLog" },
+    cmd = { "AsyncTask", "AsyncRun", "AsyncTaskEdit", "AsyncTaskList", "AsyncTaskLog" },
     -- async terminal task runner
     dependencies = { "skywind3000/asyncrun.vim" },
   },
