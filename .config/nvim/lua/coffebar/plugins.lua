@@ -89,7 +89,11 @@ return {
   {
     "coffebar/neovim-project",
     opts = require("coffebar.plugins.neovim-project"),
-    dependencies = { "nvim-telescope/telescope.nvim", "Shatur/neovim-session-manager" },
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope.nvim", tag = "0.1.0" },
+      { "Shatur/neovim-session-manager" },
+    },
     init = function()
       -- enable saving the state of plugins in the session
       vim.opt.sessionoptions:append("globals") -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
@@ -97,11 +101,11 @@ return {
     priority = 100,
   },
   -- telescope fuzzy finder
-  {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.0",
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
+  -- {
+  --   "nvim-telescope/telescope.nvim",
+  --   tag = "0.1.0",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  -- },
   -- search counter
   { "google/vim-searchindex", lazy = true, keys = { "n", "N", "/" } },
   -- turn off highlighting when you are done searching

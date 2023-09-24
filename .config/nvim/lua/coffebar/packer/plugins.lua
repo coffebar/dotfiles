@@ -59,7 +59,11 @@ return function(use)
       vim.opt.sessionoptions:append("globals") -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
       require("neovim-project").setup(require("coffebar.plugins.neovim-project"))
     end,
-    requires = { "nvim-telescope/telescope.nvim", "Shatur/neovim-session-manager" },
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope.nvim", tag = "0.1.0" },
+      { "Shatur/neovim-session-manager" },
+    },
   })
   -- -- search counter
   -- use("google/vim-searchindex")
@@ -141,7 +145,6 @@ return function(use)
     requires = { "skywind3000/asyncrun.vim" },
   })
   -- -- telescope fuzzy finder
-  use({ "nvim-telescope/telescope.nvim", tag = "0.1.0", requires = { { "nvim-lua/plenary.nvim" } } })
   use({ "nvim-telescope/telescope-file-browser.nvim", requires = { "nvim-telescope/telescope.nvim" } })
   -- -- tree viewer
   use({
