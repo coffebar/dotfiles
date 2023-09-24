@@ -11,14 +11,14 @@ end
 return {
   -- Parent directories for projects
   projects = {
-    "~/.config/*",
-    "~/dev/*",
     "~/dev/Sc*/*",
+    "~/dev/*",
     "~/dev/star*/*",
     "~/dev/Ch*/*",
     "~/pets/*",
     "~/pets/AU*/*",
     "~/.local/*",
+    "~/.config/*",
     "~/obsidian/*",
   },
   -- Path to store history and sessions
