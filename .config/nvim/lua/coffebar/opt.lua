@@ -3,13 +3,16 @@ local opt = vim.opt
 
 g.mapleader = " "
 
-opt.relativenumber = true
-opt.timeoutlen = 500
 opt.errorbells = false
+-- show line numbers
 opt.number = true
+-- relative line numbers
+opt.relativenumber = true
 opt.shiftwidth = 2
 -- show tabs as 2 spaces
 opt.tabstop = 2
+-- highlight current line
+opt.cursorline = true
 opt.expandtab = false
 opt.softtabstop = 2
 opt.ignorecase = true

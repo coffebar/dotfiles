@@ -23,5 +23,6 @@ return {
   },
   highlights = {
     TreesitterContext = { fg = "$fg", bg = "$bg2" },
+    CursorLine = { bg = "#2b3137" },
   },
 }
