@@ -280,6 +280,8 @@ return {
   -- replace in files with regexp
   {
     "nvim-pack/nvim-spectre",
+    lazy = true,
+    cmd = { "Spectre" },
     opts = {
       highlight = {
         ui = "String",
