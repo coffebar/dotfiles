@@ -171,7 +171,12 @@ return function(use)
   -- -- tranform Text Case
   use("johmsalas/text-case.nvim")
   -- -- toggle booleans
-  use("nguyenvukhang/nvim-toggler")
+  use({
+    "nguyenvukhang/nvim-toggler",
+    config = function()
+      require("nvim-toggler").setup({ inverses = { ["0"] = "1" } })
+    end,
+  })
   -- -- replace in files with regexp
   use({ "nvim-pack/nvim-spectre", requires = { "nvim-lua/plenary.nvim" } })
   -- -- css color visualization
