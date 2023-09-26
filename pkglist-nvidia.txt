@@ -173,6 +173,7 @@ shellcheck
 simplescreenrecorder
 smartmontools
 sshfs
+sshpass
 sudo
 syncthing
 syncthingtray
