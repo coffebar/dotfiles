@@ -5,6 +5,7 @@ alsa-plugins
 alsa-utils
 android-tools
 ansible
+ansible-lint
 arc-gtk-theme
 autoconf
 automake
