@@ -108,38 +108,50 @@ end
 
 -- Optimize for large files
 au("BufReadPre", {
-  group = augroup,
   desc = "Disable filetype for large files (>200KB)",
   command = 'let f=expand("<afile>") | if getfsize(f) > 200*1024 | set eventignore+=FileType | else | set eventignore-=FileType | endif',
+  group = augroup,
 })
 
 -- Auto formatting
 au("BufWritePost", {
-  group = augroup,
   pattern = { "*.scss", "*.lua", "*.html" },
   desc = "Format files on write",
   callback = function()
     vim.api.nvim_command("FormatWrite")
   end,
+  group = augroup,
 })
 
 -- Highlight yanked text
 au("TextYankPost", {
-  group = augroup,
+  desc = "Highlight yanked text",
   callback = function()
     vim.highlight.on_yank({ on_visual = false, timeout = 150 })
   end,
+  group = augroup,
 })
 
 -- Git commit spell checking
 au("FileType", {
   pattern = { "gitcommit", "markdown" },
-  group = augroup,
   callback = function()
     vim.opt_local.spell = true
   end,
+  group = augroup,
 })
 
+-- Close diffview on q
+au("FileType", {
+  pattern = { "DiffviewFileHistory" },
+  desc = "Close diffview on q",
+  callback = function()
+    vim.keymap.set("n", "q", "<cmd>DiffviewClose<cr>", { buffer = true, silent = true })
+  end,
+  group = augroup,
+})
+
+-- Close special buffers on q
 au("FileType", {
   pattern = {
     "checkhealth",
@@ -152,13 +164,11 @@ au("FileType", {
     "qf",
     "spectre_panel",
   },
+  desc = "Close buffers on q",
   callback = function()
-    vim.keymap.set("n", "q", "<cmd>bdelete<cr>", {
-      buffer = true,
-      silent = true,
-    })
+    vim.keymap.set("n", "q", "<cmd>bdelete<cr>", { buffer = true, silent = true })
   end,
-  group = vim.api.nvim_create_augroup("aux_win_close", {}),
+  group = augroup,
 })
 
 au("TermOpen", {
