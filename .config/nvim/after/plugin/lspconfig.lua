@@ -155,6 +155,21 @@ lspconfig.gopls.setup({
 })
 -- php
 lspconfig.intelephense.setup({
+  settings = {
+    intelephense = {
+      environment = {
+        includePaths = {
+          vim.fn.expand("~") .. "/.local/share/phpstorm-stubs",
+          vim.fn.expand("~") .. "/.local/share/wordpress-stubs",
+        },
+        phpVersion = "8.2.0",
+      },
+      files = {
+        maxSize = 5000000, -- 5MB for stubs
+      },
+      clearCache = true,
+    },
+  },
   on_attach = on_attach,
   flags = lsp_flags,
 })

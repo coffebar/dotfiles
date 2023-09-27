@@ -177,5 +177,7 @@ au("User", {
   desc = "Update git env for dotfiles",
   callback = function()
     update_git_env_for_dotfiles()
+    -- restart lsp server for PHP to reload includePaths
+    vim.api.nvim_command("silent! LspRestart intelephense")
   end,
 })
