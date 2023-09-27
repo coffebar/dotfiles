@@ -5,7 +5,7 @@ if grep Ubuntu /etc/os-release; then
 else
 	pacman --version || exit 1
 	# packages from arch repo
-	PKG=(autopep8 ansible-lint neovim go npm rust-analyzer lua-language-server fd ripgrep xclip rsync python-virtualenv)
+	PKG=(autopep8 ansible-lint neovim go npm rust-analyzer lua-language-server fd ripgrep xclip rsync python-virtualenv wget)
 	# chech all packages if installed
 	# to avoid asking for sudo if nothing will be installed
 	TO_INSTALL=()
