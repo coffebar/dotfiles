@@ -72,7 +72,7 @@ gvfs-mtp
 haveged
 htop
 hwinfo
-hyprland
+hyprland-git
 hyprland-monitor-attached
 hyprland-per-window-layout
 imagemagick
@@ -208,7 +208,7 @@ wmctrl
 wofi
 wrk
 wtype
-xdg-desktop-portal-hyprland
+xdg-desktop-portal-hyprland-git
 xdg-user-dirs
 xdg-utils
 xf86-input-synaptics
