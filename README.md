@@ -54,13 +54,13 @@
 
 - PDE with code completion from many sources (including ripgrep, LSP, path and copilot), a bunch of LSP servers, autosave sessions and files, clipboard history, code formatting, color picker, fuzzy finder, git integration, incremental selection, quick project switching, code snippets, syncing of everything across devices.
 
-- `Super + F` quick search files inside $HOME using ripgrep and custom ignore file.
+- `Super + F` quick search files inside $HOME using ripgrep with a custom ignore file.
 
 - Neo-tree has custom mappings: `Y` Copy absolute path, `t` Open directory in Thunar, `<c-r>` Replace in folder via Spectre, `<c-f>` Search with Telescope live grep.
 
 - dotfiles bare repository will be detected by vim-fugitive, because my config updates environment variables on DirChanged event.
 
-- `Super + er` open fuzzy finder to select *.sh script inside project and run it. Useful for build, run, deploy, any automation. Output will be shown in the quickfix window and hidden after timeout.
+- `Super + er` open Telescope to select *.sh script inside project and run it. Useful for build, run, deploy, any automation. Output will be shown in the quickfix window and hidden after timeout.
 
 - `Super + t` opens Neovim's builtin Terminal. `Super + sa` opens external Alacritty in the current working directory.
 
