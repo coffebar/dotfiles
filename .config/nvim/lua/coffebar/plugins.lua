@@ -163,6 +163,7 @@ return {
   -- blank char visualization
   {
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     init = function()
       vim.opt.list = true
       vim.opt.listchars:append("space:⋅")
@@ -172,8 +173,10 @@ return {
       return vim.env.TERM ~= "linux"
     end,
     opts = {
-      show_end_of_line = true,
-      space_char_blankline = " ",
+      indent = { char = "▏" },
+      -- whitespace = { highlight = { "Whitespace", "NonText" } },
+      -- show_end_of_line = true,
+      -- space_char_blankline = " ",
     },
     priority = 70,
   },
