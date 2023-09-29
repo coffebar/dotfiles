@@ -350,6 +350,8 @@ return {
   { "rafcamlet/nvim-luapad", lazy = true, cmd = "Luapad" },
   -- edit your filesystem like you edit text
   { "elihunter173/dirbuf.nvim", lazy = true, cmd = "Dirbuf" },
+  -- highlight arguments
+  { "m-demare/hlargs.nvim", main = "hlargs", opts = { color = "#ef9062" } },
 }
 
 ----

@@ -166,6 +166,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)  Git integration for buffers
 - [lukas-reineke/cmp-rg](https://github.com/lukas-reineke/cmp-rg)  ripgrep source for nvim-cmp
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)  Indent guides  for Neovim
+- [m-demare/hlargs.nvim](https://github.com/m-demare/hlargs.nvim)  Highlight arguments&#39; definitions and usages, using Treesitter
 - [mboughaba/i3config.vim](https://github.com/mboughaba/i3config.vim)  Vim syntax highlighting for i3 config :point_left:
 - [mhartington/formatter.nvim](https://github.com/mhartington/formatter.nvim) mhartington/formatter.nvim
 - [moll/vim-bbye](https://github.com/moll/vim-bbye)  Delete buffers and close files in Vim without closing your windows or messing up your layout. Like Bclose.vim, but rewritten and well maintained.
