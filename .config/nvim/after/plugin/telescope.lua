@@ -71,3 +71,6 @@ local textcase_installed, _ = pcall(require, "textcase")
 if textcase_installed then
   telescope.load_extension("textcase")
 end
+-- custom extension to run shell scripts in project
+-- output goes to quickfix list via AsyncRun
+telescope.load_extension("run-sh")

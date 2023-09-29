@@ -45,12 +45,12 @@ if has_wk then
         name = "Run",
         b = { "<cmd>AsyncTask project-build<cr>", "./build.sh" },
         d = { "<cmd>AsyncTask project-deploy<cr>", "./deploy.sh" },
-        r = { "<cmd>AsyncTask project-run<cr>", "Run project" },
+        r = { "<cmd>Telescope run-sh<cr>", "Run sh script in the project dir" },
         w = {
           "<cmd>AsyncRun -silent " .. terminal .. " -e ./watch.sh &<cr>",
           "./watch.sh in `" .. terminal .. "`",
         },
-        e = { "<cmd>call asyncrun#quickfix_toggle(8)<cr>", "Toggle quickfix" },
+        e = { "<cmd>copen 15<cr>", "Show quickfix" },
       },
       -- mapped by "nguyenvukhang/nvim-toggler"
       i = { "Toggle boolean" },
