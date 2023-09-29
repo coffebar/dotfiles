@@ -30,10 +30,12 @@ if has_wk then
 
     -- Leader
     ["<leader>"] = {
+      -- close all buffers and quit, session will be saved by "neovim-project"
       a = { "<cmd>qa!<cr>", "Quit" },
+      -- say bye to the current buffer
       b = { "<cmd>Bdelete<cr>", "Close this buffer" },
       c = {
-        name = "Copy", -- optional group name
+        name = "Copy", -- group name
         f = { "<cmd>%y+<cr>", "Copy file content to system clipboard" },
         l = { '<cmd>let @+=expand("%:p")<cr>', "Copy current buffer's absolute path" },
         c = { '"+yy', "Copy line to system clipboard" },
@@ -45,12 +47,13 @@ if has_wk then
         name = "Run",
         b = { "<cmd>AsyncTask project-build<cr>", "./build.sh" },
         d = { "<cmd>AsyncTask project-deploy<cr>", "./deploy.sh" },
+        e = { "<cmd>copen 15<cr>", "Show quickfix" },
+        -- see lua/telescope/_extensions/run-sh.lua
         r = { "<cmd>Telescope run-sh<cr>", "Run sh script in the project dir" },
         w = {
           "<cmd>AsyncRun -silent " .. terminal .. " -e ./watch.sh &<cr>",
           "./watch.sh in `" .. terminal .. "`",
         },
-        e = { "<cmd>copen 15<cr>", "Show quickfix" },
       },
       -- mapped by "nguyenvukhang/nvim-toggler"
       i = { "Toggle boolean" },
@@ -61,16 +64,16 @@ if has_wk then
           function()
             gitsigns.blame_line({ full = true })
           end,
-          "blame current line",
+          "Show blame for current line",
         },
-        B = { gitsigns.toggle_current_line_blame, "toggle current line blame" },
+        B = { gitsigns.toggle_current_line_blame, "Toggle current line blame" },
         c = { "<cmd>Git commit -v<cr>", "Git commit" },
-        d = { gitsigns.diffthis, "diffthis" },
+        d = { gitsigns.diffthis, "Diff this" },
         D = {
           function()
             gitsigns.diffthis("~")
           end,
-          "diffthis ~",
+          "Diff this with ~",
         },
         h = { "<cmd>DiffviewFileHistory %<cr>", "History for current file" },
         g = { "<cmd>vert Git<cr>", "Git" },
