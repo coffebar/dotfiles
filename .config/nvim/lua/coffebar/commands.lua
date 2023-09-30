@@ -1,5 +1,4 @@
 local augroup = vim.api.nvim_create_augroup("user_cmds", { clear = true })
-local au = vim.api.nvim_create_autocmd
 
 vim.api.nvim_create_user_command("SearchInHome", function()
   require("telescope.builtin").find_files({
@@ -17,13 +16,13 @@ vim.api.nvim_create_user_command("SearchInHome", function()
   })
 end, {})
 
-au("BufReadPost", {
+vim.api.nvim_create_autocmd("BufReadPost", {
   group = augroup,
   desc = "Return to last edit position when opening files",
   command = 'if line("\'\\"") > 1 && line("\'\\"") <= line("$") | exe "normal! g\'\\"" | endif',
 })
 
-au("BufReadPost", {
+vim.api.nvim_create_autocmd("BufReadPost", {
   group = augroup,
   pattern = { "*.png", "*.jpg", "*.jpeg", "*.gif" },
   desc = "Open images in external viewer-editor",
@@ -89,14 +88,14 @@ local function update_git_env_for_dotfiles()
 end
 
 -- Optimize for large files
-au("BufReadPre", {
+vim.api.nvim_create_autocmd("BufReadPre", {
   desc = "Disable filetype for large files (>200KB)",
   command = 'let f=expand("<afile>") | if getfsize(f) > 200*1024 | set eventignore+=FileType | else | set eventignore-=FileType | endif',
   group = augroup,
 })
 
 -- Auto formatting
-au("BufWritePost", {
+vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "*.scss", "*.lua", "*.html" },
   desc = "Format files on write",
   callback = function()
@@ -106,7 +105,7 @@ au("BufWritePost", {
 })
 
 -- Highlight yanked text
-au("TextYankPost", {
+vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight yanked text",
   callback = function()
     vim.highlight.on_yank({ on_visual = false, timeout = 150 })
@@ -115,7 +114,7 @@ au("TextYankPost", {
 })
 
 -- Git commit spell checking
-au("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   pattern = { "gitcommit", "markdown" },
   callback = function()
     vim.opt_local.spell = true
@@ -124,7 +123,7 @@ au("FileType", {
 })
 
 -- Close diffview on q
-au("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   pattern = { "DiffviewFileHistory" },
   desc = "Close diffview on q",
   callback = function()
@@ -134,7 +133,7 @@ au("FileType", {
 })
 
 -- Close special buffers on q
-au("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "checkhealth",
     "dirbuf",
@@ -153,7 +152,7 @@ au("FileType", {
   group = augroup,
 })
 
-au("TermOpen", {
+vim.api.nvim_create_autocmd("TermOpen", {
   callback = function()
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
@@ -162,19 +161,19 @@ au("TermOpen", {
   group = augroup,
 })
 
-au("DirChanged", {
+vim.api.nvim_create_autocmd("DirChanged", {
   pattern = { "*" },
   group = augroup,
-  desc = "defined in lua/coffebar/commands.lua",
+  desc = "Update git env for dotfiles after changing directory",
   callback = function()
     update_git_env_for_dotfiles()
   end,
 })
 
-au("User", {
+vim.api.nvim_create_autocmd("User", {
   pattern = { "SessionLoadPost" },
   group = augroup,
-  desc = "Update git env for dotfiles",
+  desc = "Update git env for dotfiles after loading session",
   callback = function()
     update_git_env_for_dotfiles()
     -- restart lsp server for PHP to reload includePaths
