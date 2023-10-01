@@ -47,7 +47,14 @@ return {
   -- s-motion to search by 2 characters
   { "justinmk/vim-sneak", lazy = true, keys = { "S", "s" } },
   -- asynchronous completion framework
-  "neovim/nvim-lspconfig",
+  {
+    "neovim/nvim-lspconfig",
+    lazy = true,
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require("coffebar.plugins.lspconfig")
+    end,
+  },
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-buffer",
   "hrsh7th/cmp-path",
@@ -80,10 +87,8 @@ return {
   {
     "j-hui/fidget.nvim",
     tag = "legacy",
-    config = function()
-      require("fidget").setup()
-    end,
-    priority = 9,
+    event = "LspAttach",
+    lazy = true,
   },
   -- project manager
   {
@@ -311,17 +316,19 @@ return {
   {
     "0oAstro/dim.lua",
     dependencies = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
-    priority = 2,
+    lazy = true,
+    event = { "BufReadPost", "BufNewFile" },
   },
   -- color piker
   {
     "coffebar/ccc.nvim",
     branch = "session_switching_fix",
-    priority = 1,
+    lazy = true,
+    event = { "BufReadPost", "BufNewFile" },
     dev = false,
   },
   -- bookmarks
-  { "ThePrimeagen/harpoon", priority = 2 },
+  { "ThePrimeagen/harpoon", lazy = true },
   -- copy history
   {
     "AckslD/nvim-neoclip.lua",

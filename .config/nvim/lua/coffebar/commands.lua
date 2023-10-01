@@ -174,3 +174,67 @@ vim.api.nvim_create_autocmd("User", {
     vim.api.nvim_command("silent! LspRestart intelephense")
   end,
 })
+
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = augroup,
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { noremap = true, silent = true, buffer = ev.buf }
+    -- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+    vim.keymap.set("n", "gD", ":Lspsaga peek_definition<cr>", opts)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+    vim.keymap.set("n", "<C-k>", ":Lspsaga hover_doc<cr>", opts)
+    vim.keymap.set("n", "<leader>rn", ":Lspsaga rename<cr>", opts)
+    vim.keymap.set("n", "gr", ":Lspsaga finder<cr>", opts)
+    vim.keymap.set({ "n", "v" }, "<leader>ca", ":Lspsaga code_action<cr>", opts)
+
+    -- get client name by id ev.data.client_id
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+    local force_formatter = not client.server_capabilities.documentFormattingProvider
+
+    if not force_formatter then
+      -- force to use Formatter plugin for this client
+      force_formatter = client.name == "lua_ls"
+        or client.name == "tsserver"
+        or client.name == "pyright"
+        or client.name == "ansiblels"
+
+      if client.name == "intelephense" then
+        -- force use prettier for php
+        local bufname = vim.api.nvim_buf_get_name(ev.buf)
+        if string.match(bufname, ".php$") then
+          force_formatter = true
+        end
+      end
+    end
+
+    if force_formatter then
+      vim.keymap.set({ "n", "v" }, "=", ":Format<cr>", opts)
+    else
+      vim.keymap.set({ "n", "v" }, "=", function()
+        vim.lsp.buf.format({ async = true })
+      end, opts)
+    end
+
+    -- Inlay Hints
+    if vim.lsp.inlay_hint then
+      if client.server_capabilities.inlayHintProvider == true then
+        vim.lsp.inlay_hint(ev.buf, true)
+        vim.keymap.set("n", "<leader>I", function()
+          vim.lsp.inlay_hint(0, nil)
+        end, opts)
+      else
+        vim.lsp.inlay_hint(ev.buf, false)
+      end
+    end
+  end,
+})

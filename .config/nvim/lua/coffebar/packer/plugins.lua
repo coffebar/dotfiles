@@ -26,7 +26,12 @@ return function(use)
   -- -- s-motion to search by 2 characters
   -- use("justinmk/vim-sneak")
   -- -- asynchronous completion framework
-  use("neovim/nvim-lspconfig")
+  use({
+    "neovim/nvim-lspconfig",
+    setup = function()
+      require("coffebar.plugins.nvim-lspconfig")
+    end,
+  })
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/cmp-path")
