@@ -75,6 +75,7 @@ hwinfo
 hyprland-git
 hyprland-monitor-attached
 hyprland-per-window-layout
+hyprpicker-git
 imagemagick
 inotify-tools
 intel-media-driver
