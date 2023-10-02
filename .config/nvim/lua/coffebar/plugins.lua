@@ -217,7 +217,6 @@ return {
       require("gitsigns").setup({})
     end,
     lazy = true,
-    commit = "badaef04f845828652a13493a5f5f237682763f7",
     event = "BufRead",
   },
   { "tpope/vim-fugitive", lazy = true, cmd = { "G", "Git" } },
