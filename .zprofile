@@ -1,12 +1,12 @@
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/.local/bin" ]; then
+	PATH="$HOME/.local/bin:$PATH"
 fi
-if [ -d "$HOME/.cargo/bin" ] ; then
-    PATH="$HOME/.cargo/bin:$PATH"
+if [ -d "$HOME/.cargo/bin" ]; then
+	PATH="$HOME/.cargo/bin:$PATH"
 fi
-if [ -d "$HOME/go/bin" ] ; then
-    PATH="$HOME/go/bin:$PATH"
+if [ -d "$HOME/go/bin" ]; then
+	PATH="$HOME/go/bin:$PATH"
 fi
 
 export PNPM_HOME="$HOME/.local/share/pnpm"
@@ -43,7 +43,7 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 			export XKB_DEFAULT_OPTIONS=caps:backspace
 			export GTK_THEME=Arc:dark
 			# start wayland compositor
-			exec $WM -c "$HYPRLAND_CONFIG" 
+			exec $WM -c "$HYPRLAND_CONFIG"
 		else
 			# fallback to xorg
 			exec startx > /dev/null
