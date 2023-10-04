@@ -90,6 +90,13 @@ return {
     event = "LspAttach",
     lazy = true,
   },
+  -- show notifications in the right bottom corner
+  {
+    "vigoux/notifier.nvim",
+    config = function()
+      require("notifier").setup()
+    end,
+  },
   -- project manager
   {
     "coffebar/neovim-project",
