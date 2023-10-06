@@ -21,7 +21,7 @@ else
 			-theme Arc-Dark \
 			-font "Droid Sans 15" \
 			-theme-str '#window { fullscreen: true; }' \
-			-dpi $QT_FONT_DPI)
+			-dpi "$QT_FONT_DPI")
 fi
 
 MOVIE="$START_PATH/$SELECTED"
