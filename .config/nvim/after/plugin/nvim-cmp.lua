@@ -122,6 +122,7 @@ cmp.setup({
 -- Set configuration for specific filetype.
 cmp.setup.filetype("gitcommit", {
   sources = cmp.config.sources({
+    { name = "luasnip" },
     { name = "git" },
     { name = "buffer" },
     { name = "path" },
