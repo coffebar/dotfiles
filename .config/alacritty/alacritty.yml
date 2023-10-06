@@ -9,14 +9,13 @@ padding:
   x: 0
   y: 0
 
-
 decorations: none
 
-# Font configuration 
+# Font configuration
 font:
   size: 14.0
   # Normal (roman) font face
-  normal: 
+  normal:
     family: JetBrains Mono
     style: Regular
 
@@ -29,36 +28,33 @@ font:
     family: JetBrains Mono
     style: Italic
 
-
 colors:
   primary:
-    background: '#2b2e37'
-    foreground: '#F2F2F2'
+    background: "#2b2e37"
+    foreground: "#F2F2F2"
 
   # Normal colors
   normal:
-    black:   '#202020'
-    green:   '#98c379'
-    yellow:  '#d19a66'
-    blue:    '#61afef'
-    red:     '#CC0000'
-    white:   '#D3D7CF'
-    magenta: '#c678dd'
-    cyan:    '#56b6c2'
+    black: "#202020"
+    green: "#98c379"
+    yellow: "#d19a66"
+    blue: "#61afef"
+    red: "#CC0000"
+    white: "#D3D7CF"
+    magenta: "#c678dd"
+    cyan: "#56b6c2"
 
   # Bright colors
   bright:
-    black:   '#88807C'
-    red:     '#F15D22'
-    green:   '#73C48F'
-    yellow:  '#FFCE51'
-    blue:    '#48B9C7'
-    magenta: '#AD7FA8'
-    cyan:    '#34E2E2'
-    white:   '#EEEEEC'
-
+    black: "#88807C"
+    red: "#F15D22"
+    green: "#73C48F"
+    yellow: "#FFCE51"
+    blue: "#48B9C7"
+    magenta: "#AD7FA8"
+    cyan: "#34E2E2"
+    white: "#EEEEEC"
 
 key_bindings:
-  - { key: V,        mods: Command,       action: Paste                        }
-  - { key: C,        mods: Command,       action: Copy                         }
-  - { key: Q,        mods: Control,       action: Quit                         }
+  - { key: V, mods: Command, action: Paste }
+  - { key: C, mods: Command, action: Copy }
