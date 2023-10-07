@@ -39,6 +39,7 @@ opt.updatetime = 350
 opt.langremap = true
 opt.langmap =
   "ʼЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ;~QWERTYUIOP{}ASDFGHJKL:\\\"ZXCVBNM<>,'йцукенгшщзхїфівапролджєячсмить;`qwertyuiop[]asdfghjkl\\;'zxcvbnm"
+opt.spelllang = "en_us,uk"
 
 -- show output of asyncrun.vim (0 - hidden)
 g.asyncrun_open = 5
