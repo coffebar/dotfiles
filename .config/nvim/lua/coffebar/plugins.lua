@@ -366,6 +366,16 @@ return {
   { "elihunter173/dirbuf.nvim", lazy = true, cmd = "Dirbuf" },
   -- highlight arguments
   { "m-demare/hlargs.nvim", main = "hlargs", opts = { color = "#ef9062" } },
+  -- highlight changed text after Undo / Redo operations
+  {
+    "tzachar/highlight-undo.nvim",
+    opts = {
+      duration = 200,
+      undo = { hlgroup = "HighlightUndo", mode = "n", lhs = "u", map = "undo", opts = {} },
+      redo = { hlgroup = "HighlightUndo", mode = "n", lhs = "<C-r>", map = "redo", opts = {} },
+      highlight_for_count = true,
+    },
+  },
 }
 
 ----

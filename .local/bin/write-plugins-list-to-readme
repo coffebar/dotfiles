@@ -51,7 +51,7 @@ function read_file_contents(path) {
 
 function get_plugins(file_contents) {
   // get loaded plugins hosted on github
-  const regexpUrls = new RegExp('"([^"/]+/[^"/]+)"', "g");
+  const regexpUrls = new RegExp('"([^"/{}]+/[^"/{}]+)"', "g");
   const match = file_contents.toString().matchAll(regexpUrls);
   // remove duplicates and sort
   return Array.from(match, (m) => m[1])
