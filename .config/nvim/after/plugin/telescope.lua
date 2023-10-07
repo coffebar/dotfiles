@@ -43,25 +43,10 @@ telescope.setup({
       mappings = changed_mappings,
     },
   },
-  extensions = {
-    file_browser = {
-      theme = "ivy",
-      mappings = {
-        ["i"] = {
-          -- your custom insert mode mappings
-        },
-        ["n"] = {
-          -- your custom normal mode mappings
-        },
-      },
-    },
-  },
 })
 
 -- Extensions:
 
--- nvim-telescope/telescope-file-browser.nvim
-telescope.load_extension("file_browser")
 -- neoclip
 local neoclip_installed, _ = pcall(require, "neoclip")
 if neoclip_installed then

@@ -252,7 +252,13 @@ return {
     -- async terminal task runner
     dependencies = { "skywind3000/asyncrun.vim" },
   },
-  { "nvim-telescope/telescope-file-browser.nvim", lazy = true },
+  -- telescope related plugin
+  {
+    "nvim-telescope/telescope-live-grep-args.nvim",
+    config = function()
+      require("telescope").load_extension("live_grep_args")
+    end,
+  },
   -- tree viewer
   {
     "nvim-neo-tree/neo-tree.nvim",
