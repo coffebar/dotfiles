@@ -103,7 +103,7 @@ return {
     opts = require("coffebar.plugins.neovim-project"),
     dependencies = {
       { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope.nvim" },
+      { "nvim-telescope/telescope.nvim", tag = "0.1.3" },
       { "Shatur/neovim-session-manager" },
     },
     init = function()
