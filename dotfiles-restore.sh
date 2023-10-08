@@ -80,7 +80,7 @@ sudo ufw default deny incoming
 sudo ufw allow syncthing
 sudo ufw enable
 # enable services
-sudo systemctl enable --now docker tlp ufw bluetooth
+sudo systemctl enable --now cronie bluetooth docker tlp ufw
 
 echo "Installing ohmyzsh..."
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -118,6 +118,9 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fet
 
 # install global packages via pnpm
 PNPM_HOME=~/.local/share/pnpm pnpm install -g uglify-js
+
+# setup cronjob
+crontab -l | { cat; echo "*/5 * * * * .local/bin/batterynotify"; } | crontab -
 
 # restore license for intelephense
 test -f ~/dev/Scripts/intelephense-licence.sh && sh ~/dev/Scripts/intelephense-licence.sh
