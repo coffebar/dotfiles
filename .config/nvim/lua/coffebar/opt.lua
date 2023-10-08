@@ -59,3 +59,6 @@ g.diagnostic_signs = {
 -- gruvbox colorscheme options
 g.gruvbox_contrast_dark = "hard"
 g.gruvbox_invert_selection = "0"
+
+-- enable copilot on gitcommit and markdown
+g.copilot_filetypes = { gitcommit = true, markdown = true }
