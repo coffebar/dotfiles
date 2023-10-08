@@ -72,7 +72,6 @@ cmp.setup({
     { name = "buffer" },
     { name = "calc" },
     ripgrep,
-    { name = "npm", keyword_length = 1 },
     { name = "emoji", priority = 10 },
     { name = "nvim_lsp_signature_help" },
   }),
@@ -124,6 +123,7 @@ cmp.setup.filetype("gitcommit", {
   sources = cmp.config.sources({
     { name = "luasnip" },
     { name = "git" },
+    { name = "nvim_lsp" },
     { name = "buffer" },
     { name = "path" },
     ripgrep,
