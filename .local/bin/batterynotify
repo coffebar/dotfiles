@@ -22,21 +22,21 @@ FULL_FILE=/tmp/batteryfull
 
 # Reset notifications if the computer is charging/discharging
 if [[ "$BATTERY_STATUS" == "Discharging" ]] && [ -f $FULL_FILE ]; then
-    rm $FULL_FILE
+	rm $FULL_FILE
 elif [[ "$BATTERY_STATUS" == "Charging" ]] && [ -f $EMPTY_FILE ]; then
-    rm $EMPTY_FILE
+	rm $EMPTY_FILE
 fi
 
 # If the battery is charging and is full (and has not shown notification yet)
 if [ "$BATTERY_LEVEL" -gt 95 ] && [[ "$BATTERY_STATUS" == "Charging" ]] && [ ! -f $FULL_FILE ]; then
-    notify-send -a "Battery Charged" "Battery is fully charged." -r 9991
-    touch $FULL_FILE
+	notify-send -a "Battery Charged" "Battery is fully charged." -r 9991
+	touch $FULL_FILE
 # If the battery is low and is not charging (and has not shown notification yet)
 elif [ "$BATTERY_LEVEL" -le $WARNING_LEVEL ] && [[ "$BATTERY_STATUS" == "Discharging" ]] && [ ! -f $EMPTY_FILE ]; then
-    notify-send -a "Low Battery" "${BATTERY_LEVEL}% of battery remaining." -u critical -r 9991
-    touch $EMPTY_FILE
+	notify-send -a "Low Battery" "${BATTERY_LEVEL}% of battery remaining." -u critical -r 9991
+	touch $EMPTY_FILE
 fi
 
 if [ "$BATTERY_LEVEL" -le $SUSPEND_LEVEL ] && [[ "$BATTERY_STATUS" == "Discharging" ]]; then
-    systemctl suspend
+	systemctl suspend
 fi
