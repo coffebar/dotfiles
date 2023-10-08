@@ -48,5 +48,7 @@ exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 exec --no-startup-id bash ~/.config/JetBrains/fix-vmoptions.sh &
 exec --no-startup-id firefox &
 exec --no-startup-id thunar --daemon
+# change brightness to 85%
+exec --no-startup-id brightnessctl s 85
 
 # vim:filetype=i3config
