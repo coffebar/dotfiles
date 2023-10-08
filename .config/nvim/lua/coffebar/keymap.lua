@@ -76,7 +76,7 @@ if has_wk then
           "Diff this with ~",
         },
         h = { "<cmd>DiffviewFileHistory %<cr>", "History for current file" },
-        g = { "<cmd>vert Git<cr>", "Git" },
+        g = { "<cmd>Neogit kind=auto<cr>", "NeoGit" },
         l = { "<cmd>Flog -date=short<cr>", "Git log (Flog)" },
         r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset hunk" },
         R = { "<cmd>Gitsigns reset_buffer<cr>", "Reset buffer" },
