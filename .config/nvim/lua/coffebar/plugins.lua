@@ -227,6 +227,15 @@ return {
     event = "BufRead",
   },
   { "tpope/vim-fugitive", lazy = true, cmd = { "G", "Git" } },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "nvim-telescope/telescope.nvim", -- optional
+      "sindrets/diffview.nvim", -- optional
+    },
+    config = true,
+  },
   { "rbong/vim-flog", lazy = true, cmd = "Flog" },
   {
     "sindrets/diffview.nvim",

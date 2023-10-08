@@ -132,6 +132,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)  Snippet Engine for Neovim written in Lua.
 - [Mofiqul/dracula.nvim](https://github.com/Mofiqul/dracula.nvim)  Dracula colorscheme for neovim written in Lua
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)  UI Component Library for Neovim.
+- [NeogitOrg/neogit](https://github.com/NeogitOrg/neogit)  magit for neovim
 - [NvChad/nvim-colorizer.lua](https://github.com/NvChad/nvim-colorizer.lua)  Maintained fork of the fastest Neovim colorizer
 - [Pocco81/AutoSave.nvim](https://github.com/Pocco81/AutoSave.nvim)  🧶 Automatically save your changes in NeoVim
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)  illuminate.vim - (Neo)Vim plugin for automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching.
