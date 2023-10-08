@@ -235,6 +235,12 @@ return {
       "sindrets/diffview.nvim", -- optional
     },
     config = true,
+    opts = {
+      integrations = {
+        telescope = false,
+        diffview = true,
+      },
+    },
   },
   { "rbong/vim-flog", lazy = true, cmd = "Flog" },
   {
