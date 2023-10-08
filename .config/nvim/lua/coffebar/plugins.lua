@@ -398,24 +398,3 @@ return {
     },
   },
 }
-
-----
--- May be interesting:
--- amarakon/nvim-cmp-fonts
--- axkirillov/easypick.nvim -- easily create Telescope pickers
--- saecki/crates.nvim
--- mg979/vim-visual-multi
--- lukas-reineke/cmp-under-comparator
--- vigoux/ltex-ls.nvim
--- vigoux/notifier.nvim
--- jose-elias-alvarez/null-ls.nvim
--- lifepillar/pgsql.vim
--- ThePrimeagen/vim-be-good -- The Game!
--- akinsho/git-conflict.nvim -- visualise and resolve conflicts
--- klen/nvim-config-local -- secure local config files
--- rcarriga/nvim-notify
--- dmmulroy/tsc.nvim -- project-wide TypeScript type-checking
--- folke/todo-comments.nvim -- show TODOs
--- razak17/tailwind-fold.nvim -- fold long html class attr (class="..")
--- stevearc/dressing.nvim -- UI replacement for default input,select
---
