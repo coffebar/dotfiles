@@ -12,13 +12,18 @@ if has_wk then
       vim.notify("gitsigns is not installed or loaded", vim.log.levels.WARN)
     end
     gitsigns = {
-      toggle_current_line_blame = gitsigns_is_not_installed,
-      diffthis = gitsigns_is_not_installed,
-      toggle_deleted = gitsigns_is_not_installed,
-      prev_hunk = gitsigns_is_not_installed,
-      next_hunk = gitsigns_is_not_installed,
       blame_line = gitsigns_is_not_installed,
+      diffthis = gitsigns_is_not_installed,
+      next_hunk = gitsigns_is_not_installed,
+      prev_hunk = gitsigns_is_not_installed,
       preview_hunk = gitsigns_is_not_installed,
+      reset_buffer = gitsigns_is_not_installed,
+      reset_hunk = gitsigns_is_not_installed,
+      stage_buffer = gitsigns_is_not_installed,
+      stage_hunk = gitsigns_is_not_installed,
+      toggle_current_line_blame = gitsigns_is_not_installed,
+      toggle_deleted = gitsigns_is_not_installed,
+      undo_stage_hunk = gitsigns_is_not_installed,
     }
   end
 
@@ -78,13 +83,13 @@ if has_wk then
         h = { "<cmd>DiffviewFileHistory %<cr>", "History for current file" },
         g = { "<cmd>Neogit kind=auto<cr>", "NeoGit" },
         l = { "<cmd>Flog -date=short<cr>", "Git log (Flog)" },
-        r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset hunk" },
-        R = { "<cmd>Gitsigns reset_buffer<cr>", "Reset buffer" },
-        u = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo stage hunk" },
+        r = { gitsigns.reset_hunk, "Reset hunk" },
+        R = { gitsigns.reset_buffer, "Reset buffer" },
+        u = { gitsigns.undo_stage_hunk, "Undo stage hunk" },
         p = { "<cmd>AsyncRun git push<cr>", "Push" },
         t = { gitsigns.toggle_deleted, "toggle_deleted " },
-        s = { "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk" },
-        S = { "<cmd>Gitsigns stage_buffer<cr>", "Stage buffer" },
+        s = { gitsigns.stage_hunk, "Stage hunk" },
+        S = { gitsigns.stage_buffer, "Stage buffer" },
         v = { gitsigns.preview_hunk, "preview hunk" },
       },
       n = { "<cmd>Neotree focus toggle<cr>", "Toggle Neotree" },
