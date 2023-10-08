@@ -1,8 +1,8 @@
 [user]
-	name = coffeebar
+	name = Saltaformajo
 	email = corp@dev.null
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [core]
 	autocrlf = input
 	pager = delta
