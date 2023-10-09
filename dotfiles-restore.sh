@@ -125,6 +125,10 @@ crontab -l | { cat; echo "*/5 * * * * .local/bin/batterynotify"; } | crontab -
 # restore license for intelephense
 test -f ~/dev/Scripts/intelephense-licence.sh && sh ~/dev/Scripts/intelephense-licence.sh
 
+# set charge threshold to 80% to prolong battery life
+echo "Setting charge threshold..."
+sudo tlp setcharge 60 80 BAT0
+
 # upgrade firmware
 echo "Firmware upgrade..."
 sudo fwupdmgr refresh
