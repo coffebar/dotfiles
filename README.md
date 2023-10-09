@@ -12,24 +12,24 @@
 
 ## Overview
 
-
 - [🌿 Window Managers / Compositors](https://github.com/coffebar/dotfiles#overview):
   - [🍚 Hyprland](https://github.com/hyprwm/Hyprland)
   - [🍙 i3](https://i3wm.org/) as fallback
 - [👽 Terminal](https://github.com/coffebar/dotfiles#overview):
-  - :robot: Emulator: [Alacritty](https://alacritty.org/) with [*JetBrains Mono*](https://www.jetbrains.com/lp/mono/) font (use Nerd Fonts)
+  - :robot: Emulator: [Alacritty](https://alacritty.org/) with [_JetBrains Mono_](https://www.jetbrains.com/lp/mono/) font (use Nerd Fonts)
   - [🌌 Shell](https://github.com/coffebar/dotfiles#overview): Zsh with [OhMyZsh](https://github.com/ohmyzsh/ohmyzsh) and `robbyrussell` theme
 - [✏️ Editors](https://github.com/coffebar/dotfiles#overview):
   - [:green_heart: neovim](https://neovim.io/) :green_heart:
   - 🦍 obsidian
 - [:art: Themes](https://github.com/coffebar/dotfiles#overview):
+
   - :desktop_computer: [Arc-Dark](https://github.com/horst3180/arc-theme) GTK theme
   - :basecamp: [bloom-classic](https://github.com/linuxdeepin/deepin-icon-theme) Icons and bloom cursor (from deepin)
   - :new_moon_with_face: Telegram theme: [ArcDarkGrey](https://t.me/addtheme/arcdarkgrey)
   - :robot: Terminal colors: mix of the OneDark, Arc-Dark and PopOS
-  - :green_heart: Neovim: 
-	 - [onedark](https://github.com/navarasu/onedark.nvim) with background color from Arc-Dark 
-	 - [gruvbox](https://github.com/gruvbox-community/gruvbox) - only in TTY
+  - :green_heart: Neovim:
+  - [onedark](https://github.com/navarasu/onedark.nvim) with background color from Arc-Dark
+  - [gruvbox](https://github.com/gruvbox-community/gruvbox) - only in TTY
 
 - [:pushpin: Bars](https://github.com/coffebar/dotfiles#overview):
   - :womans_hat: [waybar](https://github.com/Alexays/Waybar) on Hyprland
@@ -37,8 +37,8 @@
 - [:brain: Task manager](https://github.com/coffebar/dotfiles#overview):
   - [:bookmark_tabs: Taskwarrior-tui](https://github.com/kdheepak/taskwarrior-tui) dark themed and configured as floating modal
 
-
 ## Table of Contents
+
 - [Overview](#overview)
 - [Interesting features](#interesting-features)
 - [Neovim plugins full list](#neovim-plugins-full-list)
@@ -46,7 +46,6 @@
   - [Preview Neovim setup in Docker](#preview-neovim-setup-in-docker)
   - [Replace config on your machine](#replace-config-on-your-machine)
 - [Install dotfiles](#install-dotfiles)
-
 
 ## Interesting features
 
@@ -60,7 +59,7 @@
 
 - dotfiles bare repository will be detected by vim-fugitive, because my config updates environment variables on DirChanged event.
 
-- `Super + er` open Telescope to select *.sh script inside project and run it. Useful for build, run, deploy, any automation. Output will be shown in the quickfix window and hidden after timeout.
+- `Super + er` open Telescope to select \*.sh script inside project and run it. Useful for build, run, deploy, any automation. Output will be shown in the quickfix window and hidden after timeout.
 
 - `Super + t` opens Neovim's builtin Terminal. `Super + sa` opens external Alacritty in the current working directory.
 
@@ -76,18 +75,17 @@
 
 - And a bunch of other useful plugins. See [Neovim plugins full list](#neovim-plugins-full-list).
 
-
 #### Common for Window managers
 
 - Notifications when the battery level is low or fully charged.
 
-- ``Alt + f`` opens a file manager in the directory found in the clipboard. For example, if you copied a file from some program, you can open its directory by pressing this shortcut.
+- `Alt + f` opens a file manager in the directory found in the clipboard. For example, if you copied a file from some program, you can open its directory by pressing this shortcut.
 
 - Partially different config for each machine depending on hostname.
 
 - CapsLock's behavior is changed to Backspace.
 
-- ``Super + P`` pull dotfiles from this repo and shows a notification with an icon.
+- `Super + P` pull dotfiles from this repo and shows a notification with an icon.
 
 - ``Super + ` `` open ssh servers menu to connect.
 

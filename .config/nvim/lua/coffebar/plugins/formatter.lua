@@ -94,6 +94,7 @@ return {
     javascriptreact = { prettier },
     json = { prettier },
     lua = { stylua },
+    markdown = { prettier },
     nginx = { prettify.nginx },
     php = { prettify.php },
     python = { pythonConfig },
