@@ -237,31 +237,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
     vim.notify("LspAttach " .. client.name)
-    local force_formatter = not client.server_capabilities.documentFormattingProvider
-
-    if not force_formatter then
-      -- force to use Formatter plugin for this client
-      force_formatter = client.name == "lua_ls"
-        or client.name == "tsserver"
-        or client.name == "pyright"
-        or client.name == "ansiblels"
-
-      if client.name == "intelephense" then
-        -- force use prettier for php
-        local bufname = vim.api.nvim_buf_get_name(ev.buf)
-        if string.match(bufname, ".php$") then
-          force_formatter = true
-        end
-      end
-    end
-
-    if force_formatter then
-      vim.keymap.set({ "n", "v" }, "=", ":Format<cr>", opts)
-    else
-      vim.keymap.set({ "n", "v" }, "=", function()
-        vim.lsp.buf.format({ async = true })
-      end, opts)
-    end
 
     -- Inlay Hints
     if vim.lsp.inlay_hint then

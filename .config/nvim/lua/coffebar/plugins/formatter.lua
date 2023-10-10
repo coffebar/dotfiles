@@ -105,5 +105,26 @@ return {
     typescriptreact = { prettier },
     yaml = { prettier },
     ["yaml.ansible"] = { prettier },
+
+    -- Format with LSP if there are not other formatters
+    -- or format with prettier if there are no LSP formatters
+    ["*"] = {
+      function()
+        local formatters = require("formatter.util").get_available_formatters_for_ft(vim.bo.filetype)
+        if #formatters > 0 then
+          return
+        end
+        -- check if there are any LSP formatters
+        for _, client in pairs(vim.lsp.buf_get_clients()) do
+          if client.server_capabilities.document_formatting then
+            -- format with LSP
+            vim.lsp.buf.formatting()
+            return
+          end
+        end
+        -- default to prettier
+        return prettier()
+      end,
+    },
   },
 }
