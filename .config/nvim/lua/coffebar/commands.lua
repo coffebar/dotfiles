@@ -24,6 +24,17 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = augroup,
+  desc = "Set expandtab false if file has tabs or filetype is sh",
+  callback = function()
+    local filetype = vim.bo.filetype
+    if vim.fn.search("\t", "nw") > 0 or filetype == "sh" then
+      vim.opt_local.expandtab = false
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+  group = augroup,
   pattern = { "*.png", "*.jpg", "*.jpeg", "*.gif" },
   desc = "Open images in external viewer-editor",
   callback = function()

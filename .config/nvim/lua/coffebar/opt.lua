@@ -13,7 +13,8 @@ opt.shiftwidth = 2
 opt.tabstop = 2
 -- highlight current line
 opt.cursorline = true
-opt.expandtab = false
+opt.expandtab = true
+opt.smartindent = true
 opt.softtabstop = 2
 opt.ignorecase = true
 opt.smartcase = true

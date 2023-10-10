@@ -101,7 +101,7 @@ configs.setup({
     },
   },
   indent = {
-    enable = true,
-    disable = disable_all,
+    enable = false,
+    -- disable = disable_all,
   },
 })
