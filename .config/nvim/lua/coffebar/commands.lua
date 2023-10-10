@@ -22,13 +22,39 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   command = 'if line("\'\\"") > 1 && line("\'\\"") <= line("$") | exe "normal! g\'\\"" | endif',
 })
 
-vim.api.nvim_create_autocmd("BufReadPost", {
+vim.api.nvim_create_autocmd("FileType", {
   group = augroup,
   desc = "Set expandtab false if file has tabs or filetype is sh",
-  callback = function()
-    local filetype = vim.bo.filetype
-    if vim.fn.search("\t", "nw") > 0 or filetype == "sh" then
-      vim.opt_local.expandtab = false
+  callback = function(arg)
+    -- smart indenting
+    -- don't expand tabs for these filetypes
+    local format_with_tabs = { "sh", "sshconfig", "dockerfile" }
+    -- check if file has tabs for other filetypes
+
+    local has_tabs = function(bufnr)
+      -- Search for tabs in buffer
+      if vim.fn.executable("rg") == 0 then
+        return false
+      end
+      local result = vim.fn.systemlist({
+        "rg", -- Note: just changing `rg` to `grep` will not work
+        "--only-matching",
+        "--no-heading",
+        "--max-count",
+        "1",
+        "\t",
+      }, bufnr)
+      return #result > 0
+    end
+
+    local filetype = vim.api.nvim_buf_get_option(arg.buf, "filetype")
+    -- skip if filetype is binary or buffer is invalid
+    if filetype == "binary" or not vim.api.nvim_buf_is_valid(arg.buf) then
+      return
+    end
+
+    if vim.tbl_contains(format_with_tabs, filetype) or has_tabs(arg.buf) then
+      vim.api.nvim_buf_set_option(arg.buf, "expandtab", false)
     end
   end,
 })
