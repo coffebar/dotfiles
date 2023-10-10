@@ -55,5 +55,10 @@ return {
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions = { "neo-tree", "fugitive", "quickfix", "trouble" },
+  extensions = {
+    "neo-tree",
+    "fugitive",
+    "trouble",
+    -- "quickfix", -- https://github.com/nvim-lualine/lualine.nvim/issues/1029
+  },
 }
