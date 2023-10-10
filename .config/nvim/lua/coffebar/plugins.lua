@@ -397,4 +397,12 @@ return {
       highlight_for_count = true,
     },
   },
+  -- more features for the built-in terminal
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
+      shade_terminals = false, -- disable shading because it breaks the background consistency
+    },
+  },
 }

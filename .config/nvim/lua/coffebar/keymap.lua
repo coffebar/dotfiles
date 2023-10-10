@@ -96,7 +96,7 @@ if has_wk then
       N = { "<cmd>Neotree reveal<cr>", "Reveal Neotree" },
       p = { "<cmd>Telescope neovim-project history<cr>", "Project from history" },
       P = { "<cmd>Telescope neovim-project discover<cr>", "Discover Project" },
-      t = { "<cmd>belowright split | resize 10 | terminal<cr>i", "Builtin terminal" },
+      t = { "<cmd>ToggleTerm<cr>", "Terminal" },
       T = { "<cmd>TroubleToggle<cr>", "Trouble" },
       F = { "<cmd>SearchInHome<cr>", "Search files in $HOME" },
       h = { "<cmd>BufferPrevious<cr>", "Previous tab (barbar)" },
