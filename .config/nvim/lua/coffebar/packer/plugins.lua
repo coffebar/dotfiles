@@ -29,7 +29,7 @@ return function(use)
   use({
     "neovim/nvim-lspconfig",
     setup = function()
-      require("coffebar.plugins.nvim-lspconfig")
+      require("coffebar.plugins.lspconfig")
     end,
   })
   use("hrsh7th/cmp-nvim-lsp")
