@@ -24,6 +24,8 @@ if [ -d "$REPO" ]; then
 	echo "Dotfiles repo already exists."
 	confirm "Do you want to proceed?" || exit
 else
+	# enable colors for pacman
+	sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 	# install git and openssh to clone repo via git ssh
 	# base-devel is for yay setup
 	sudo pacman --needed --noconfirm -Sy git openssh base-devel
@@ -128,9 +130,6 @@ test -f ~/dev/Scripts/intelephense-licence.sh && sh ~/dev/Scripts/intelephense-l
 # set charge threshold to 80% to prolong battery life
 echo "Setting charge threshold..."
 sudo tlp setcharge 60 80 BAT0
-
-# enable colors for pacman
-sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 
 # upgrade firmware
 echo "Firmware upgrade..."
