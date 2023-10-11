@@ -110,7 +110,7 @@ if has_wk then
         h = { "<cmd>Telescope command_history<cr>", "Command_history" },
         j = { "<cmd>Telescope jumplist<cr>", "Jumplist" },
         r = { "<cmd>Telescope registers<cr>", "Registers" },
-        s = { "<cmd>Telescope git_status<cr>", "Git status" },
+        s = { "<cmd>Telescope git_files<cr>", "Git status" },
       },
       s = {
         name = "...",
