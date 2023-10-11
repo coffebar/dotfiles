@@ -129,6 +129,9 @@ test -f ~/dev/Scripts/intelephense-licence.sh && sh ~/dev/Scripts/intelephense-l
 echo "Setting charge threshold..."
 sudo tlp setcharge 60 80 BAT0
 
+# enable colors for pacman
+sudo sed -i 's/#Color/Color/' /etc/pacman.conf
+
 # upgrade firmware
 echo "Firmware upgrade..."
 sudo fwupdmgr refresh
