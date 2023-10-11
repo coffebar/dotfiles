@@ -241,6 +241,8 @@ return {
         diffview = true,
       },
     },
+    lazy = true,
+    event = "VeryLazy",
   },
   { "rbong/vim-flog", lazy = true, cmd = "Flog" },
   {
