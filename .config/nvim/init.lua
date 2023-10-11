@@ -10,6 +10,8 @@ plugins_manager = "coffebar.packer.packer"
 plugins_manager = "coffebar.lazy"
 
 if plugins_manager ~= "coffebar.packer.packer" then
+  -- TODO: remove ~/.local/share/nvim/site/pack/packer
+  -- TODO: othewise, delete dirs of other plugin managers
   local remove_file = vim.fn.expand("~/.config/nvim/plugin/packer_compiled.lua")
   if vim.fn.filereadable(remove_file) == 1 then
     vim.cmd("silent !rm -f " .. remove_file)
