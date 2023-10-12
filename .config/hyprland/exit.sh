@@ -6,4 +6,4 @@ hyprctl dispatch exit &
 
 sleep 10
 echo "Hyprland failed to exit" | systemd-cat -t coffebar -p err
-killall Hyprland
+killall -9 Hyprland
