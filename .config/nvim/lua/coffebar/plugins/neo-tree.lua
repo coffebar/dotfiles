@@ -123,6 +123,24 @@ return {
         -- close neo-tree
         vim.cmd("Neotree close")
       end,
+      -- paste from the system clipboard
+      ["<c-p>"] = function(state)
+        local dest_dir = context_dir(state)
+        local source = vim.fn.getreg("+")
+        if vim.fn.isdirectory(source) == 1 or vim.fn.filereadable(source) == 1 then
+          vim.fn.jobstart({ "cp", "-r", source, dest_dir }, {
+            detach = true,
+            on_exit = function()
+              state.commands["refresh"](state)
+            end,
+            on_stderr = function(_, data)
+              vim.notify(data[1], vim.log.levels.ERROR)
+            end,
+          })
+        else
+          vim.notify("No file or directory to paste from the system clipboard", vim.log.levels.WARN)
+        end
+      end,
       -- open in Spectre to replace here
       ["<c-r>"] = function(state)
         local node = state.tree:get_node()
