@@ -14,7 +14,70 @@ vim.api.nvim_create_user_command("SearchInHome", function()
       "7",
     },
   })
-end, {})
+end, { nargs = 0 })
+
+local function get_visual_selection()
+  local a_orig = vim.fn.getreg("a")
+  local mode = vim.fn.mode()
+  if mode ~= "v" and mode ~= "V" then
+    vim.cmd([[normal! gv]])
+  end
+  vim.cmd([[silent! normal! "aygv]])
+  local text = vim.fn.getreg("a")
+  vim.fn.setreg("a", a_orig)
+  return text
+end
+
+-- Translate for Visual mode: replace selected text with translation
+vim.api.nvim_create_user_command("CrowTranslate", function()
+  local selected = get_visual_selection()
+  if #selected == 0 then
+    return
+  end
+  local multiline = string.match(selected, "\n") ~= nil
+  local direction = "en"
+  if string.match(selected, "[а-яА-Я]") == nil then
+    direction = "uk"
+  end
+  local stdout = ""
+  -- pass the text via stdin, otherwise crow will take the quotes as part of the text
+  vim.fn.jobstart("echo " .. vim.fn.shellescape(selected) .. " | crow -i -b -t " .. direction, {
+    on_stdout = function(_, data)
+      for _, v in ipairs(data) do
+        if multiline then
+          if stdout == "" then
+            stdout = v
+          else
+            stdout = stdout .. "\n" .. v
+          end
+        else
+          stdout = stdout .. v
+        end
+      end
+    end,
+    on_exit = function(_, code)
+      if code == 0 then
+        local start_newlines = string.match(selected, "^\n*")
+        local end_newlines = string.match(selected, "\n*$")
+        stdout = stdout:gsub("^\n*", "")
+        stdout = stdout:gsub("\n*$", "")
+        if start_newlines ~= nil then
+          stdout = start_newlines .. stdout
+        end
+        if end_newlines ~= nil then
+          stdout = stdout .. end_newlines
+        end
+        local b_orig = vim.fn.getreg("b")
+        vim.fn.setreg("b", stdout)
+        vim.cmd('normal! "bp')
+        vim.fn.setreg("b", b_orig)
+      end
+    end,
+    on_stderr = function(_, data)
+      vim.notify(table.concat(data, "\n"), vim.log.levels.ERROR)
+    end,
+  })
+end, { range = true, nargs = 0 })
 
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = augroup,

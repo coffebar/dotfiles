@@ -252,6 +252,7 @@ if has_wk then
         f = { '<cmd>lua require("spectre").open_file_search()<cr>', "Replace in current file" },
       },
     },
+    -- T = { "<cmd>CrowTranslate<cr>", "Translate selected text" },
     g = {
       aa = { "<cmd>TextCaseOpenTelescope<cr>", "Text Case (Telescope)" },
       c = { "<Plug>(comment_toggle_linewise_visual)", "Comment line(s)" },
@@ -297,6 +298,7 @@ if has_wk then
   wk.register({
     -- Keep yank register untouched when pasting text over selection
     p = { '"_dP', "Paste over selection" },
+    T = { "<cmd>CrowTranslate<cr>", "Translate selected text" },
   }, { mode = "x" })
 else
   -- without "which-key" plugin
