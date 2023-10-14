@@ -16,6 +16,15 @@ vim.api.nvim_create_user_command("SearchInHome", function()
   })
 end, { nargs = 0 })
 
+vim.api.nvim_create_user_command("DiffRemote", function()
+  local deployment = require("coffebar.deployment")
+  local remote_path = deployment.get_remote_path()
+  if remote_path == nil then
+    return
+  end
+  vim.api.nvim_command("silent! diffsplit " .. remote_path)
+end, { nargs = 0 })
+
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = augroup,
   desc = "Return to last edit position when opening files",
