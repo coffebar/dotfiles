@@ -112,6 +112,18 @@ return {
     end,
     priority = 100,
   },
+  -- translator
+  {
+    "coffebar/crowtranslate.nvim",
+    lazy = true,
+    cmd = { "CrowTranslate" },
+    opts = {
+      language = "uk",
+      mask = "[а-яА-Я]",
+      default = "en",
+      engine = "google", -- google, bing, libretranslate, lingva, yandex
+    },
+  },
   -- search counter
   { "google/vim-searchindex", lazy = true, keys = { "n", "N", "/" } },
   -- turn off highlighting when you are done searching

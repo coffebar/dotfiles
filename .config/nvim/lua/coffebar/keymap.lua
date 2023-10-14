@@ -252,7 +252,6 @@ if has_wk then
         f = { '<cmd>lua require("spectre").open_file_search()<cr>', "Replace in current file" },
       },
     },
-    -- T = { "<cmd>CrowTranslate<cr>", "Translate selected text" },
     g = {
       aa = { "<cmd>TextCaseOpenTelescope<cr>", "Text Case (Telescope)" },
       c = { "<Plug>(comment_toggle_linewise_visual)", "Comment line(s)" },
