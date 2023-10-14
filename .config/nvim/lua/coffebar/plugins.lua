@@ -361,14 +361,6 @@ return {
     lazy = true,
     event = { "BufReadPost", "BufNewFile" },
   },
-  -- color piker
-  {
-    "coffebar/ccc.nvim",
-    branch = "session_switching_fix",
-    lazy = true,
-    event = { "BufReadPost", "BufNewFile" },
-    dev = false,
-  },
   -- bookmarks
   { "ThePrimeagen/harpoon", lazy = true },
   -- copy history

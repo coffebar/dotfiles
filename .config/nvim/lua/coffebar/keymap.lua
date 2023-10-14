@@ -44,7 +44,6 @@ if has_wk then
         f = { "<cmd>%y+<cr>", "Copy file content to system clipboard" },
         l = { '<cmd>let @+=expand("%:p")<cr>', "Copy current buffer's absolute path" },
         c = { '"+yy', "Copy line to system clipboard" },
-        p = { "<cmd>CccPick<cr>", "Color picker" },
         r = { "<cmd>Telescope neoclip<cr>", "Neoclip" },
         s = { "<cmd>so %<cr>", "Source current buffer" },
       },
