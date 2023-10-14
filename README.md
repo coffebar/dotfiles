@@ -139,6 +139,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)  A neovim lua plugin to help easily manage multiple terminal windows
 - [ckipp01/stylua-nvim](https://github.com/ckipp01/stylua-nvim)  Let&#39;s just use a formatter and never discuss formatting again.
 - [coffebar/ccc.nvim](https://github.com/coffebar/ccc.nvim)  Super powerful color picker / colorizer plugin.
+- [coffebar/crowtranslate.nvim](https://github.com/coffebar/crowtranslate.nvim)  Translate the visually selected text in Neovim.
 - [coffebar/neovim-project](https://github.com/coffebar/neovim-project)  Neovim project manager maintains your recent project history and uses Telescope to select from autosaved sessions.
 - [cohama/lexima.vim](https://github.com/cohama/lexima.vim)  Auto close parentheses and repeat by dot dot dot...
 - [elihunter173/dirbuf.nvim](https://github.com/elihunter173/dirbuf.nvim)  A file manager for Neovim which lets you edit your filesystem like you edit text
