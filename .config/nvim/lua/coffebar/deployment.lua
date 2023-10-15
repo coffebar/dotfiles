@@ -15,11 +15,11 @@ function M.get_remote_path()
   -- remove cwd from local file path
   local_file = local_file:gsub(cwd, ""):gsub("^/", "")
 
-  for _, deployment in pairs(config) do
+  for name, deployment in pairs(config) do
     local skip = false
     for _, excluded in pairs(deployment.excludedPaths) do
       if string.find(local_file, excluded, 1, true) then
-        vim.notify("File is excluded from deployment on " .. deployment.host)
+        vim.notify("File is excluded from deployment on " .. name .. " by rule: " .. excluded)
         skip = true
       end
     end

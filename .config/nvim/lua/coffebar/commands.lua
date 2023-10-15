@@ -22,7 +22,71 @@ vim.api.nvim_create_user_command("DiffRemote", function()
   if remote_path == nil then
     return
   end
+
+  vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = { remote_path },
+    desc = "Add mapping to close diffview",
+    once = true,
+    callback = function()
+      vim.keymap.set("n", "<leader>b", "<cmd>diffoff | bd!<cr>", { buffer = true })
+    end,
+    group = augroup,
+  })
+
   vim.api.nvim_command("silent! diffsplit " .. remote_path)
+end, { nargs = 0 })
+
+vim.api.nvim_create_user_command("CopyToRemote", function()
+  local deployment = require("coffebar.deployment")
+  local remote_path = deployment.get_remote_path()
+  if remote_path == nil then
+    return
+  end
+  vim.fn.jobstart({ "scp", vim.fn.expand("%:p"), remote_path }, {
+    on_stderr = function(_, data, _)
+      vim.notify(table.concat(data, "\n"))
+    end,
+    on_stdout = function(_, data, _)
+      vim.notify(table.concat(data, "\n"))
+    end,
+    on_exit = function(_, code, _)
+      if code == 0 then
+        print("Uploaded: " .. remote_path)
+      else
+        vim.notify("Error uploading " .. remote_path, vim.log.levels.ERROR)
+      end
+    end,
+  })
+end, { nargs = 0 })
+
+vim.api.nvim_create_user_command("CopyFromRemote", function()
+  local deployment = require("coffebar.deployment")
+  local remote_path = deployment.get_remote_path()
+  if remote_path == nil then
+    return
+  end
+  local bufnr = vim.api.nvim_get_current_buf()
+  vim.fn.jobstart({ "scp", remote_path, vim.fn.expand("%:p") }, {
+    on_stderr = function(_, data, _)
+      vim.notify(table.concat(data, "\n"))
+    end,
+    on_stdout = function(_, data, _)
+      vim.notify(table.concat(data, "\n"))
+    end,
+    on_exit = function(_, code, _)
+      if code == 0 then
+        print("Downloaded: " .. remote_path)
+        -- reload buffer
+        if vim.api.nvim_buf_is_valid(bufnr) then
+          vim.api.nvim_buf_call(bufnr, function()
+            vim.api.nvim_command("edit")
+          end)
+        end
+      else
+        vim.notify("Error downloading " .. remote_path, vim.log.levels.ERROR)
+      end
+    end,
+  })
 end, { nargs = 0 })
 
 vim.api.nvim_create_autocmd("BufReadPost", {
