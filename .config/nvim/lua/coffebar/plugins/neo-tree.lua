@@ -117,6 +117,11 @@ return {
         vim.fn.setreg("1", content)
         vim.fn.setreg("+", content)
       end,
+      -- diff with remote
+      ["<c-d>"] = function(state)
+        require("coffebar.deployment").show_dir_diff(context_dir(state))
+        vim.cmd("Neotree close")
+      end,
       -- open in telescope live grep
       ["<c-f>"] = function(state)
         require("telescope.builtin").live_grep({ cwd = context_dir(state) })

@@ -138,4 +138,62 @@ function M.download_file()
   })
 end
 
+-- Show list of different local-remote files in the quickfix list
+function M.show_dir_diff(dir)
+  local remote_path = M.get_remote_path(dir)
+  if remote_path == nil then
+    return
+  end
+  -- remove scp:// prefix from path
+  remote_path = remote_path:gsub("^scp://", "")
+  -- replace only the first occurence of / with :
+  remote_path = remote_path:gsub("/", ":", 1)
+
+  local cmd = { "rsync", "-rlzi", "--dry-run", "--checksum", "--out-format=%n" }
+  local lines = { " " .. table.concat(cmd, " ") }
+  vim.list_extend(cmd, { dir .. "/", remote_path .. "/" })
+
+  -- remove cwd from dir path to show in short format
+  dir = dir:gsub(vim.loop.cwd(), ""):gsub("^/", "")
+
+  vim.notify("rsync", vim.log.levels.INFO, {
+    title = " Diff started...",
+    timeout = 3500,
+  })
+  vim.list_extend(lines, { dir, remote_path, "------" })
+  local output = {}
+  vim.fn.jobstart(cmd, {
+    on_stderr = function(_, data, _)
+      vim.notify(table.concat(data, "\n"), vim.log.levels.ERROR, {
+        timeout = 10000,
+      })
+    end,
+    on_stdout = function(_, data, _)
+      for _, line in pairs(data) do
+        if line ~= "" then
+          table.insert(output, line)
+        end
+      end
+    end,
+    on_exit = function(_, code, _)
+      if code ~= 0 then
+        vim.notify("Error running rsync", vim.log.levels.ERROR, {
+          timeout = 10000,
+        })
+        return
+      end
+      if #output == 0 then
+        table.insert(lines, " No differences found")
+      else
+        for _, line in pairs(output) do
+          table.insert(lines, line)
+        end
+      end
+      -- show quickfix list
+      vim.fn.setqflist({}, "r", { title = "Diff: " .. dir, lines = lines })
+      vim.api.nvim_command("copen")
+    end,
+  })
+end
+
 return M
