@@ -91,6 +91,12 @@ if has_wk then
         S = { gitsigns.stage_buffer, "Stage buffer" },
         v = { gitsigns.preview_hunk, "preview hunk" },
       },
+      u = {
+        name = "Upload / Download",
+        d = { "<cmd>CopyFromRemote<cr>", "Download from remote server (scp)" },
+        u = { "<cmd>CopyToRemote<cr>", "Upload to remote server (scp)" },
+        f = { "<cmd>DiffRemote<cr>", "Diff file with remote server (scp)" },
+      },
       n = { "<cmd>Neotree focus toggle<cr>", "Toggle Neotree" },
       N = { "<cmd>Neotree reveal<cr>", "Reveal Neotree" },
       p = { "<cmd>Telescope neovim-project history<cr>", "Project from history" },
