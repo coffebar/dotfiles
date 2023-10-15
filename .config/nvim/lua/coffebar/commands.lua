@@ -18,7 +18,7 @@ end, { nargs = 0 })
 
 vim.api.nvim_create_user_command("DiffRemote", function()
   local deployment = require("coffebar.deployment")
-  local remote_path = deployment.get_remote_path()
+  local remote_path = deployment.get_remote_path(vim.fn.expand("%:p"))
   if remote_path == nil then
     return
   end
@@ -38,7 +38,7 @@ end, { nargs = 0 })
 
 vim.api.nvim_create_user_command("CopyToRemote", function()
   local deployment = require("coffebar.deployment")
-  local remote_path = deployment.get_remote_path()
+  local remote_path = deployment.get_remote_path(vim.fn.expand("%:p"))
   if remote_path == nil then
     return
   end
@@ -61,7 +61,7 @@ end, { nargs = 0 })
 
 vim.api.nvim_create_user_command("CopyFromRemote", function()
   local deployment = require("coffebar.deployment")
-  local remote_path = deployment.get_remote_path()
+  local remote_path = deployment.get_remote_path(vim.fn.expand("%:p"))
   if remote_path == nil then
     return
   end
