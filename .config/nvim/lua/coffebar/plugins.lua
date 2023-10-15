@@ -198,6 +198,15 @@ return {
     end,
     opts = {
       indent = { char = "▏" },
+      exclude = {
+        buftypes = {
+          "help",
+          "nofile",
+          "prompt",
+          "quickfix", -- TODO: this is not working
+          "terminal",
+        },
+      },
       -- whitespace = { highlight = { "Whitespace", "NonText" } },
       -- show_end_of_line = true,
       -- space_char_blankline = " ",
