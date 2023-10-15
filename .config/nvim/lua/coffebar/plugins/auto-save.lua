@@ -13,6 +13,10 @@ return {
   -- return false: if it's not ok to be saved
   condition = function(buf)
     local fn = vim.fn
+    if fn.stridx(fn.expand("%:p"), "scp://") ~= -1 then
+      -- remote buffer
+      return false -- disable auto-save
+    end
     local utils = require("auto-save.utils.data")
     local exclude = {
       "dirbuf",
