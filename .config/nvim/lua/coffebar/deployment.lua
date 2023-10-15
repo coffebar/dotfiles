@@ -1,6 +1,24 @@
 local M = {}
 
--- This is in development
+-- Deployment config example
+--`.nvim/deployment.lua`
+--
+-- return {
+--   ["server1"] = {
+--     host = "server1",
+--     username = "web", -- optional
+--     port = 9202, -- optional
+--     mappings = {
+--       {
+--         ["local"] = "domains/example.com",
+--         ["remote"] = "/var/www/example.com",
+--       },
+--     },
+--     excludedPaths = {
+--       "src",
+--     },
+--   },
+-- }
 
 function M.get_remote_path(path)
   local cwd = vim.loop.cwd()
@@ -30,11 +48,11 @@ function M.get_remote_path(path)
           remote_file = mapping["remote"] .. remote_file
           remote_file = remote_file:gsub("^//", "/")
           local remote_path = "scp://"
-          if deployment.user then
-            remote_path = remote_path .. deployment.user .. "@"
+          if deployment.username then
+            remote_path = remote_path .. deployment.username .. "@"
           end
           remote_path = remote_path .. deployment.host
-          if deployment.port then
+          if deployment.port and deployment.port ~= 22 then
             remote_path = remote_path .. ":" .. deployment.port
           end
           remote_path = remote_path .. "/" .. remote_file
