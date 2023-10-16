@@ -101,7 +101,10 @@ configs.setup({
     },
   },
   indent = {
-    enable = false,
-    -- disable = disable_all,
+    enable = true,
+    disable = function(_, buf)
+      local ftype = vim.api.nvim_buf_get_option(buf, "filetype")
+      return ftype ~= "php"
+    end,
   },
 })
