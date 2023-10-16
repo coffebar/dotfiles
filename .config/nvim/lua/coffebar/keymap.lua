@@ -282,7 +282,6 @@ if has_wk then
       [";"] = { "<esc>A;<esc>", "Add ';' to the end of line" },
     },
     ["<c-v>"] = { '<esc>"+p', "Paste from the system clipboard" },
-    ["<tab>"] = { "<cmd>lua require'luasnip'.jump(1)<cr>", "Next snippet" },
   }, { mode = "i" })
 
   -- Terminal mode -------------------------------------
