@@ -189,9 +189,9 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     init = function()
-      vim.opt.list = true
-      vim.opt.listchars:append("space:⋅")
-      vim.opt.listchars:append("eol:↴")
+      -- vim.opt.list = true
+      -- vim.opt.listchars:append("space:⋅")
+      -- vim.opt.listchars:append("eol:↴")
     end,
     enabled = function()
       return vim.env.TERM ~= "linux"
@@ -203,7 +203,7 @@ return {
           "help",
           "nofile",
           "prompt",
-          "quickfix", -- TODO: this is not working
+          "quickfix",
           "terminal",
         },
       },
