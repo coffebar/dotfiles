@@ -138,7 +138,7 @@ function M.download_file()
   })
 end
 
--- Show list of different local-remote files in the quickfix list
+-- Show list of different [local/remote] files in the quickfix list
 function M.show_dir_diff(dir)
   local remote_path = M.get_remote_path(dir)
   if remote_path == nil then
@@ -146,7 +146,7 @@ function M.show_dir_diff(dir)
   end
   -- remove scp:// prefix from path
   remote_path = remote_path:gsub("^scp://", "")
-  -- replace only the first occurence of / with :
+  -- replace only the first occurrence of / with :
   remote_path = remote_path:gsub("/", ":", 1)
 
   local cmd = { "rsync", "-rlzi", "--dry-run", "--checksum", "--out-format=%n" }

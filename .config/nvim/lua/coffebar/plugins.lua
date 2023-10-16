@@ -4,7 +4,7 @@ return {
     "navarasu/onedark.nvim",
     priority = 1000,
     enabled = function()
-      -- not in tty
+      -- not in TTY
       return vim.env.TERM ~= "linux"
     end,
     config = function()
@@ -29,7 +29,7 @@ return {
   },
   { "Mofiqul/dracula.nvim", priority = 1 },
 
-  -- statusline
+  -- status line
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -69,7 +69,7 @@ return {
   "petertriho/cmp-git",
   -- ripgrep source for completion
   "lukas-reineke/cmp-rg",
-  -- ui helper for lsp
+  -- UI helper for LSP
   {
     "glepnir/lspsaga.nvim",
     opts = {
@@ -83,7 +83,7 @@ return {
     },
     event = "LspAttach",
   },
-  -- shows nvim-lsp progress
+  -- shows LSP progress
   {
     "j-hui/fidget.nvim",
     tag = "legacy",
@@ -176,7 +176,7 @@ return {
     ft = "markdown",
     lazy = true,
   },
-  -- cheatsheet
+  -- cheat sheet
   {
     "folke/which-key.nvim",
     init = function()
@@ -322,14 +322,14 @@ return {
       require("nvim-surround").setup({})
     end,
   },
-  -- tranform Text Case
+  -- transform Text Case
   {
     "johmsalas/text-case.nvim",
     config = function()
       require("textcase").setup({})
     end,
   },
-  -- toggle booleans
+  -- toggle Boolean
   {
     "nguyenvukhang/nvim-toggler",
     lazy = true,
@@ -349,7 +349,7 @@ return {
       },
     },
   },
-  -- css color visualization
+  -- CSS color visualization
   {
     "NvChad/nvim-colorizer.lua",
     lazy = true,
@@ -363,7 +363,7 @@ return {
       require("nvim-ts-autotag").setup()
     end,
   },
-  -- dim unused variables and functions using lsp and treesitter
+  -- dim unused variables and functions using LSP and treesitter
   {
     "0oAstro/dim.lua",
     dependencies = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
@@ -392,11 +392,11 @@ return {
       })
     end,
   },
-  -- github copilot
+  -- Github copilot
   { "github/copilot.vim", lazy = true, event = "VeryLazy" },
   -- delete buffers without closing window layout;
   { "moll/vim-bbye", priority = 1 },
-  -- Interactive real time neovim scratchpad
+  -- Interactive real time Neovim scratchpad
   { "rafcamlet/nvim-luapad", lazy = true, cmd = "Luapad" },
   -- edit your filesystem like you edit text
   { "elihunter173/dirbuf.nvim", lazy = true, cmd = "Dirbuf" },

@@ -84,7 +84,7 @@ configs.setup({
 
     disable = disable_all,
 
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Setting this to true will run `:h syntax` and treesitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
