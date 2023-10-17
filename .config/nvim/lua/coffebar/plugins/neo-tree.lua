@@ -110,7 +110,7 @@ return {
           -- close neo-tree
           vim.cmd("Neotree close")
         end,
-        config = { label = "thunar" },
+        label = "thunar",
       },
       -- copy absolute path to clipboard
       ["Y"] = {
@@ -121,7 +121,7 @@ return {
           vim.fn.setreg("1", content)
           vim.fn.setreg("+", content)
         end,
-        config = { label = "copy abs path" },
+        label = "copy abs path",
       },
       -- diff with remote
       ["<c-d>"] = {
@@ -129,7 +129,7 @@ return {
           require("coffebar.deployment").show_dir_diff(context_dir(state))
           vim.cmd("Neotree close")
         end,
-        config = { label = "diff with remote" },
+        label = "diff with remote",
       },
       -- open in telescope live grep
       ["<c-f>"] = {
@@ -138,7 +138,7 @@ return {
           -- close neo-tree
           vim.cmd("Neotree close")
         end,
-        config = { label = "live grep" },
+        label = "live grep",
       },
       -- paste from the system clipboard
       ["<c-p>"] = {
@@ -183,7 +183,7 @@ return {
           -- close neo-tree
           vim.cmd("Neotree close")
         end,
-        config = { label = "replace here" },
+        label = "replace here",
       },
       -- git add
       ga = {
@@ -195,9 +195,7 @@ return {
             end,
           })
         end,
-        config = {
-          label = "git add",
-        },
+        label = "git add",
       },
     },
   },
