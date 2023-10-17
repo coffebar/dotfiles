@@ -103,70 +103,102 @@ return {
       -- custom mapping ---
 
       -- open in the Thunar file manager
-      ["t"] = function(state)
-        local node = state.tree:get_node()
-        vim.fn.jobstart({ "thunar", node.path }, { detach = true })
-        -- close neo-tree
-        vim.cmd("Neotree close")
-      end,
+      ["t"] = {
+        function(state)
+          local node = state.tree:get_node()
+          vim.fn.jobstart({ "thunar", node.path }, { detach = true })
+          -- close neo-tree
+          vim.cmd("Neotree close")
+        end,
+        config = { text = "thunar" },
+      },
       -- copy absolute path to clipboard
-      ["Y"] = function(state)
-        local node = state.tree:get_node()
-        local content = node.path
-        vim.fn.setreg('"', content)
-        vim.fn.setreg("1", content)
-        vim.fn.setreg("+", content)
-      end,
+      ["Y"] = {
+        function(state)
+          local node = state.tree:get_node()
+          local content = node.path
+          vim.fn.setreg('"', content)
+          vim.fn.setreg("1", content)
+          vim.fn.setreg("+", content)
+        end,
+        config = { text = "copy abs path" },
+      },
       -- diff with remote
-      ["<c-d>"] = function(state)
-        require("coffebar.deployment").show_dir_diff(context_dir(state))
-        vim.cmd("Neotree close")
-      end,
+      ["<c-d>"] = {
+        function(state)
+          require("coffebar.deployment").show_dir_diff(context_dir(state))
+          vim.cmd("Neotree close")
+        end,
+        config = { text = "diff with remote" },
+      },
       -- open in telescope live grep
-      ["<c-f>"] = function(state)
-        require("telescope.builtin").live_grep({ cwd = context_dir(state) })
-        -- close neo-tree
-        vim.cmd("Neotree close")
-      end,
+      ["<c-f>"] = {
+        function(state)
+          require("telescope.builtin").live_grep({ cwd = context_dir(state) })
+          -- close neo-tree
+          vim.cmd("Neotree close")
+        end,
+        config = { text = "live grep" },
+      },
       -- paste from the system clipboard
-      ["<c-p>"] = function(state)
-        local dest_dir = context_dir(state)
-        local source = vim.fn.getreg("+")
-        if vim.fn.isdirectory(source) == 1 or vim.fn.filereadable(source) == 1 then
-          vim.fn.jobstart({ "cp", "-r", source, dest_dir }, {
-            detach = true,
+      ["<c-p>"] = {
+        function(state)
+          local dest_dir = context_dir(state)
+          local source = vim.fn.getreg("+")
+          if vim.fn.isdirectory(source) == 1 or vim.fn.filereadable(source) == 1 then
+            vim.fn.jobstart({ "cp", "-r", source, dest_dir }, {
+              detach = true,
+              on_exit = function()
+                state.commands["refresh"](state)
+              end,
+              on_stderr = function(_, data)
+                vim.notify(data[1], vim.log.levels.ERROR)
+              end,
+            })
+          else
+            vim.notify("No file or directory to paste from the system clipboard", vim.log.levels.WARN)
+          end
+        end,
+        config = { text = "paste from clipboard" },
+      },
+      -- open in Spectre to replace here
+      ["<c-r>"] = {
+        function(state)
+          local node = state.tree:get_node()
+          if node.type == "directory" then
+            require("spectre").open({
+              cwd = node.path,
+              is_close = true, -- close an exists instance of spectre and open new
+              is_insert_mode = false,
+              path = "",
+            })
+          else
+            require("spectre").open({
+              cwd = context_dir(state),
+              is_close = true, -- close an exists instance of spectre and open new
+              is_insert_mode = false,
+              path = node.path:match("^.+/(.+)$"),
+            })
+          end
+          -- close neo-tree
+          vim.cmd("Neotree close")
+        end,
+        config = { text = "replace here" },
+      },
+      -- git add
+      ga = {
+        function(state)
+          local node = state.tree:get_node()
+          vim.fn.jobstart({ "git", "add", node.path }, {
             on_exit = function()
               state.commands["refresh"](state)
             end,
-            on_stderr = function(_, data)
-              vim.notify(data[1], vim.log.levels.ERROR)
-            end,
           })
-        else
-          vim.notify("No file or directory to paste from the system clipboard", vim.log.levels.WARN)
-        end
-      end,
-      -- open in Spectre to replace here
-      ["<c-r>"] = function(state)
-        local node = state.tree:get_node()
-        if node.type == "directory" then
-          require("spectre").open({
-            cwd = node.path,
-            is_close = true, -- close an exists instance of spectre and open new
-            is_insert_mode = false,
-            path = "",
-          })
-        else
-          require("spectre").open({
-            cwd = context_dir(state),
-            is_close = true, -- close an exists instance of spectre and open new
-            is_insert_mode = false,
-            path = node.path:match("^.+/(.+)$"),
-          })
-        end
-        -- close neo-tree
-        vim.cmd("Neotree close")
-      end,
+        end,
+        config = {
+          text = "git add",
+        },
+      },
     },
   },
 }
