@@ -18,13 +18,16 @@ local function nodeModuleLibPath(package, file)
   local fname = packageDir .. file
   if vim.fn.isdirectory(packageDir) == 0 then
     -- package is not installed
-    vim.notify("npm package " .. package .. " is not found in " .. nodeModulesPath, vim.log.levels.WARN)
+    vim.notify("npm package " .. package .. " is not found in " .. nodeModulesPath, vim.log.levels.WARN, {
+      title = "formatter",
+    })
   else
     if vim.fn.filereadable(fname) == 0 then
       -- filename or path changed when package was updated
       vim.notify(
         "npm package " .. package .. " version mismatch. Please review ~/.config/nvim/after/plugin/formatter.lua",
-        vim.log.levels.WARN
+        vim.log.levels.WARN,
+        { title = "formatter" }
       )
     end
   end
