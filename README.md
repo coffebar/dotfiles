@@ -221,11 +221,11 @@ It's not just clone repo. This script requires Arch Linux with **pacman**, **sud
 
 It will overwrite the entire `~/.config/nvim` folder!
 
-[Review source](https://github.com/coffebar/dotfiles/blob/master/fetch-nvim-conf.sh)
+[Review source](https://github.com/coffebar/dotfiles/blob/main/fetch-nvim-conf.sh)
 
 ```bash
 # export PATH="$PATH:$HOME/.local/share/pnpm:$HOME/.node_modules/bin"
-sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fetch-nvim-conf.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/main/fetch-nvim-conf.sh)"
 ```
 
 <details><summary>
@@ -240,10 +240,10 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fet
 
 2. SSH config must point to the GitHub's private key.
 
-[Review source](https://github.com/coffebar/dotfiles/blob/master/dotfiles-restore.sh)
+[Review source](https://github.com/coffebar/dotfiles/blob/main/dotfiles-restore.sh)
 
 ```bash
-sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/dotfiles-restore.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/main/dotfiles-restore.sh)"
 ```
 
 </details>

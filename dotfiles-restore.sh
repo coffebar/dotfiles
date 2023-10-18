@@ -85,7 +85,7 @@ sudo ufw enable
 sudo systemctl enable --now cronie bluetooth docker tlp ufw
 
 echo "Installing ohmyzsh..."
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/main/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/tom-doerr/zsh_codex.git ~/.oh-my-zsh/custom/plugins/zsh_codex
@@ -116,7 +116,7 @@ gsettings set org.gnome.desktop.interface icon-theme 'bloom-classic'
 echo "Setting up neovim..."
 # add node_modules to path
 export PATH="$PATH:$HOME/.local/share/pnpm:$HOME/.node_modules/bin"
-sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/master/fetch-nvim-conf.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/coffebar/dotfiles/main/fetch-nvim-conf.sh)"
 
 # install global packages via pnpm
 PNPM_HOME=~/.local/share/pnpm pnpm install -g uglify-js
