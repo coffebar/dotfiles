@@ -59,6 +59,6 @@ return {
     "neo-tree",
     "fugitive",
     "trouble",
-    -- "quickfix", -- https://github.com/nvim-lualine/lualine.nvim/issues/1029
+    "quickfix",
   },
 }
