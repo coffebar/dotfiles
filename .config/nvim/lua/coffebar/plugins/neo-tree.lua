@@ -111,6 +111,7 @@ return {
           vim.cmd("Neotree close")
         end,
         label = "thunar",
+        nowait = true,
       },
       -- copy absolute path to clipboard
       ["Y"] = {
@@ -122,6 +123,7 @@ return {
           vim.fn.setreg("+", content)
         end,
         label = "copy abs path",
+        nowait = true,
       },
       -- diff with remote
       ["<c-d>"] = {
@@ -139,6 +141,7 @@ return {
           vim.cmd("Neotree close")
         end,
         label = "live grep",
+        nowait = true,
       },
       -- paste from the system clipboard
       ["<c-p>"] = {
@@ -160,6 +163,7 @@ return {
           end
         end,
         config = { label = "paste from clipboard" },
+        nowait = true,
       },
       -- open in Spectre to replace here
       ["<c-r>"] = {
@@ -184,6 +188,7 @@ return {
           vim.cmd("Neotree close")
         end,
         label = "replace here",
+        nowait = true,
       },
       -- git add
       ga = {
@@ -196,6 +201,7 @@ return {
           })
         end,
         label = "git add",
+        nowait = true,
       },
     },
   },
