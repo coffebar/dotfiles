@@ -90,11 +90,11 @@ return {
     event = "LspAttach",
     lazy = true,
   },
-  -- show notifications in the right bottom corner
+  -- show notifications in the corner of the screen
   {
-    "vigoux/notifier.nvim",
-    config = function()
-      require("notifier").setup()
+    "rcarriga/nvim-notify",
+    init = function()
+      vim.notify = require("notify")
     end,
   },
   -- project manager

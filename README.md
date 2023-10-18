@@ -186,6 +186,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)  Set of preconfigured snippets for different languages.
 - [rafcamlet/nvim-luapad](https://github.com/rafcamlet/nvim-luapad)  Interactive real time neovim scratchpad for embedded lua engine - type and watch!
 - [rbong/vim-flog](https://github.com/rbong/vim-flog)  A fast, beautiful, and powerful git branch viewer for vim.
+- [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)  A fancy, configurable, notification manager for NeoVim
 - [romainl/vim-cool](https://github.com/romainl/vim-cool)  A very simple plugin that makes hlsearch more useful.
 - [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim)  The neovim tabline plugin.
 - [romgrk/nvim-treesitter-context](https://github.com/romgrk/nvim-treesitter-context)  Show code context
@@ -195,7 +196,6 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [skywind3000/asynctasks.vim](https://github.com/skywind3000/asynctasks.vim)  :rocket: Modern Task System for Project Building, Testing and Deploying !!
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)  fugitive.vim: A Git wrapper so awesome, it should be illegal
 - [tzachar/highlight-undo.nvim](https://github.com/tzachar/highlight-undo.nvim)  Highlight changed text after Undo / Redo operations
-- [vigoux/notifier.nvim](https://github.com/vigoux/notifier.nvim)  Non-intrusive notification system for neovim
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)  Use treesitter to auto close and auto rename html tag
 <!-- plugins list end -->
 
