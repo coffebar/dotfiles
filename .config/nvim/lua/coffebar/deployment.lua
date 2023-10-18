@@ -149,7 +149,7 @@ function M.show_dir_diff(dir)
   -- replace only the first occurrence of / with :
   remote_path = remote_path:gsub("/", ":", 1)
 
-  local cmd = { "rsync", "-rlzi", "--dry-run", "--checksum", "--out-format=%n" }
+  local cmd = { "rsync", "-rlzi", "--dry-run", "--checksum", "--delete", "--out-format=%n" }
   local lines = { " " .. table.concat(cmd, " ") }
   vim.list_extend(cmd, { dir .. "/", remote_path .. "/" })
 
@@ -171,6 +171,7 @@ function M.show_dir_diff(dir)
     on_stdout = function(_, data, _)
       for _, line in pairs(data) do
         if line ~= "" then
+          line = line:gsub("^deleting ", " ")
           table.insert(output, line)
         end
       end
