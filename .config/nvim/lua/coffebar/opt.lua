@@ -33,6 +33,15 @@ opt.showmode = false
 -- don't add EOL to the end of file if missing
 opt.fixendofline = false
 
+-- show listchars
+opt.list = true
+opt.listchars = {
+  -- show tabs as ▸
+  tab = "▸ ",
+  -- show tailing spaces as ·
+  trail = "·",
+}
+
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
 opt.updatetime = 350
