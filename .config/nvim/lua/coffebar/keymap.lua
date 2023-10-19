@@ -101,7 +101,15 @@ if has_wk then
       N = { "<cmd>Neotree reveal<cr>", "Reveal Neotree" },
       p = { "<cmd>Telescope neovim-project history<cr>", "Project from history" },
       P = { "<cmd>Telescope neovim-project discover<cr>", "Discover Project" },
-      t = { "<cmd>ToggleTerm<cr>", "Terminal" },
+      t = {
+        name = "Tab / Terminal",
+        a = { "<cmd>AsyncRun -silent " .. terminal .. " &<cr>", "New " .. terminal .. " Window" },
+        n = { "<cmd>tabnew<cr>", "New tab" },
+        c = { "<cmd>tabclose<cr>", "Close tab" },
+        j = { "<cmd>tabprev<cr>", "Previous tab" },
+        k = { "<cmd>tabnext<cr>", "Next tab" },
+        t = { "<cmd>ToggleTerm<cr>", "Terminal" },
+      },
       T = { "<cmd>TroubleToggle<cr>", "Trouble" },
       F = { "<cmd>SearchInHome<cr>", "Search files in $HOME" },
       h = { "<cmd>BufferPrevious<cr>", "Previous tab (barbar)" },
@@ -120,7 +128,7 @@ if has_wk then
       s = {
         name = "...",
         p = { "<cmd>Lazy sync<cr>", "Sync Plugins" },
-        a = { "<cmd>AsyncRun -silent " .. terminal .. " &<cr>", "New " .. terminal .. " Window" },
+        l = { "<cmd>Lazy<cr>", "Lazy" },
       },
       m = {
         name = "Harpoon",
