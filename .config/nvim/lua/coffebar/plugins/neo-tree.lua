@@ -110,7 +110,7 @@ return {
           -- close neo-tree
           vim.cmd("Neotree close")
         end,
-        label = "thunar",
+        desc = "thunar",
         nowait = true,
       },
       -- copy absolute path to clipboard
@@ -122,7 +122,7 @@ return {
           vim.fn.setreg("1", content)
           vim.fn.setreg("+", content)
         end,
-        label = "copy abs path",
+        desc = "copy abs path",
         nowait = true,
       },
       -- diff with remote
@@ -131,7 +131,7 @@ return {
           require("coffebar.deployment").show_dir_diff(context_dir(state))
           vim.cmd("Neotree close")
         end,
-        label = "diff with remote",
+        desc = "diff with remote",
       },
       -- open in telescope live grep
       ["<c-f>"] = {
@@ -140,7 +140,7 @@ return {
           -- close neo-tree
           vim.cmd("Neotree close")
         end,
-        label = "live grep",
+        desc = "live grep",
         nowait = true,
       },
       -- paste from the system clipboard
@@ -162,7 +162,7 @@ return {
             vim.notify("No file or directory to paste from the system clipboard", vim.log.levels.WARN)
           end
         end,
-        config = { label = "paste from clipboard" },
+        desc = "paste from clipboard",
         nowait = true,
       },
       -- open in Spectre to replace here
@@ -187,7 +187,7 @@ return {
           -- close neo-tree
           vim.cmd("Neotree close")
         end,
-        label = "replace here",
+        desc = "replace here",
         nowait = true,
       },
       -- git add
@@ -200,7 +200,7 @@ return {
             end,
           })
         end,
-        label = "git add",
+        desc = "git add",
         nowait = true,
       },
     },

@@ -299,8 +299,8 @@ return {
   },
   -- tree viewer
   {
-    "coffebar/neo-tree.nvim",
-    -- branch = "v3.x",
+    "mehalter/neo-tree.nvim",
+    branch = "main",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
