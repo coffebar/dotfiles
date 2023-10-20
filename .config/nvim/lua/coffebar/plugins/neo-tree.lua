@@ -149,15 +149,31 @@ return {
           local dest_dir = context_dir(state)
           local files = vim.split(vim.fn.getreg("+"), "\n")
           for _, file in ipairs(files) do
+            local filename = file:gsub("^.*/", "")
+            local dest = dest_dir .. "/" .. filename
+            -- run `git add` afterwards if the file will not be overwriten and `.git` dir found in CWD
+            local git_add = vim.fn.filereadable(file) == 1
+              and vim.fn.filereadable(dest) == 0
+              and vim.fn.isdirectory(".git") == 1
+
             if vim.fn.isdirectory(file) == 1 or vim.fn.filereadable(file) == 1 then
               vim.fn.jobstart({ "cp", "-r", file, dest_dir }, {
                 detach = true,
                 on_exit = function()
-                  vim.notify("Paste " .. vim.fn.shellescape(file:gsub("^.*/", "")), vim.log.levels.INFO, {
+                  vim.notify("Paste " .. vim.fn.shellescape(filename), vim.log.levels.INFO, {
                     title = "neo-tree",
                     timeout = 500,
                   })
-                  state.commands["refresh"](state)
+                  -- if file is not in the ignored path and not overwriten, then `git add`
+                  if git_add then
+                    vim.fn.jobstart({ "git", "add", dest }, {
+                      on_exit = function()
+                        state.commands["refresh"](state)
+                      end,
+                    })
+                  else
+                    state.commands["refresh"](state)
+                  end
                 end,
                 on_stderr = function(_, data)
                   if data[1] ~= "" then
