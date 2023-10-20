@@ -147,21 +147,25 @@ return {
       ["<c-p>"] = {
         function(state)
           local dest_dir = context_dir(state)
-          local source = vim.fn.getreg("+")
-          if vim.fn.isdirectory(source) == 1 or vim.fn.filereadable(source) == 1 then
-            vim.fn.jobstart({ "cp", "-r", source, dest_dir }, {
-              detach = true,
-              on_exit = function()
-                state.commands["refresh"](state)
-              end,
-              on_stderr = function(_, data)
-                if data[1] ~= "" then
-                  vim.notify(data[1], vim.log.levels.ERROR)
-                end
-              end,
-            })
-          else
-            vim.notify("No file or directory to paste from the system clipboard", vim.log.levels.WARN)
+          local files = vim.split(vim.fn.getreg("+"), "\n")
+          for _, file in ipairs(files) do
+            if vim.fn.isdirectory(file) == 1 or vim.fn.filereadable(file) == 1 then
+              vim.fn.jobstart({ "cp", "-r", file, dest_dir }, {
+                detach = true,
+                on_exit = function()
+                  vim.notify("Paste " .. vim.fn.shellescape(file:gsub("^.*/", "")), vim.log.levels.INFO, {
+                    title = "neo-tree",
+                    timeout = 500,
+                  })
+                  state.commands["refresh"](state)
+                end,
+                on_stderr = function(_, data)
+                  if data[1] ~= "" then
+                    vim.notify(data[1], vim.log.levels.ERROR)
+                  end
+                end,
+              })
+            end
           end
         end,
         desc = "paste from clipboard",
