@@ -155,7 +155,9 @@ return {
                 state.commands["refresh"](state)
               end,
               on_stderr = function(_, data)
-                vim.notify(data[1], vim.log.levels.ERROR)
+                if data[1] ~= "" then
+                  vim.notify(data[1], vim.log.levels.ERROR)
+                end
               end,
             })
           else
