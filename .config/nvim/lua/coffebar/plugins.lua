@@ -299,7 +299,7 @@ return {
   },
   -- tree viewer
   {
-    "mehalter/neo-tree.nvim",
+    "nvim-neo-tree/neo-tree.nvim",
     branch = "main",
     dependencies = {
       "nvim-lua/plenary.nvim",
