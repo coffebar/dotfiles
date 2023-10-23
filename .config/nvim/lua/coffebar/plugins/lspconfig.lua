@@ -66,7 +66,7 @@ lspconfig.cssls.setup({ capabilities = capabilities })
 lspconfig.html.setup({ capabilities = capabilities })
 lspconfig.emmet_ls.setup({
   capabilities = capabilities,
-  filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
+  filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "php" },
   init_options = {
     -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts
   },
