@@ -247,7 +247,14 @@ return {
     lazy = true,
     event = "BufRead",
   },
-  { "tpope/vim-fugitive", lazy = true, cmd = { "G", "Git" } },
+  {
+    "rbong/vim-flog",
+    lazy = true,
+    cmd = { "G", "Git", "Flog" },
+    dependencies = {
+      "tpope/vim-fugitive",
+    },
+  },
   {
     "NeogitOrg/neogit",
     dependencies = {
@@ -265,7 +272,6 @@ return {
     lazy = true,
     event = "VeryLazy",
   },
-  { "rbong/vim-flog", lazy = true, cmd = "Flog" },
   {
     "sindrets/diffview.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
