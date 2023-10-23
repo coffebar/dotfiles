@@ -250,7 +250,7 @@ return {
   {
     "rbong/vim-flog",
     lazy = true,
-    cmd = { "G", "Git", "Flog", "Flogsplit" },
+    cmd = { "G", "Git", "Flog", "Flogsplit", "Floggit" },
     dependencies = {
       "tpope/vim-fugitive",
     },
