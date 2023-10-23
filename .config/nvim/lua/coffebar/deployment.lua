@@ -91,18 +91,37 @@ function M.upload_file()
   if remote_path == nil then
     return
   end
+  local stderr = {}
+  local notification = vim.notify(vim.fn.expand("%:~"):gsub(".*/", ""), vim.log.levels.INFO, {
+    title = "Uploading file...",
+    timeout = 0,
+    icon = "󱕌 ",
+  })
+  local replace
+  if notification ~= nil and notification.Record then
+    replace = notification.Record
+  end
   vim.fn.jobstart({ "scp", vim.fn.expand("%:p"), remote_path }, {
     on_stderr = function(_, data, _)
-      vim.notify(table.concat(data, "\n"))
-    end,
-    on_stdout = function(_, data, _)
-      vim.notify(table.concat(data, "\n"))
+      if data == nil or #data == 0 then
+        return
+      end
+      vim.list_extend(stderr, data)
     end,
     on_exit = function(_, code, _)
       if code == 0 then
-        print("Uploaded: " .. remote_path)
+        vim.notify(remote_path, vim.log.levels.INFO, {
+          title = "File uploaded",
+          icon = "",
+          timeout = 3000,
+          replace = replace,
+        })
       else
-        vim.notify("Error uploading " .. remote_path, vim.log.levels.ERROR)
+        vim.notify(table.concat(stderr, "\n"), vim.log.levels.ERROR, {
+          title = "Error uploading file",
+          timeout = 4000,
+          replace = replace,
+        })
       end
     end,
   })
@@ -115,16 +134,32 @@ function M.download_file()
     return
   end
   local bufnr = vim.api.nvim_get_current_buf()
+  local stderr = {}
+
+  local notification = vim.notify(vim.fn.expand("%:~"):gsub(".*/", ""), vim.log.levels.INFO, {
+    title = "Downloading file...",
+    timeout = 0,
+    icon = "󱕉 ",
+  })
+  local replace
+  if notification ~= nil and notification.Record then
+    replace = notification.Record
+  end
   vim.fn.jobstart({ "scp", remote_path, vim.fn.expand("%:p") }, {
     on_stderr = function(_, data, _)
-      vim.notify(table.concat(data, "\n"))
-    end,
-    on_stdout = function(_, data, _)
-      vim.notify(table.concat(data, "\n"))
+      if data == nil or #data == 0 then
+        return
+      end
+      vim.list_extend(stderr, data)
     end,
     on_exit = function(_, code, _)
       if code == 0 then
-        print("Downloaded: " .. remote_path)
+        vim.notify(remote_path, vim.log.levels.INFO, {
+          title = "Remote file downloaded",
+          icon = "",
+          timeout = 1000,
+          replace = replace,
+        })
         -- reload buffer
         if vim.api.nvim_buf_is_valid(bufnr) then
           vim.api.nvim_buf_call(bufnr, function()
@@ -132,7 +167,11 @@ function M.download_file()
           end)
         end
       else
-        vim.notify("Error downloading " .. remote_path, vim.log.levels.ERROR)
+        vim.notify(table.concat(stderr, "\n"), vim.log.levels.ERROR, {
+          title = "Error downloading file",
+          timeout = 4000,
+          replace = replace,
+        })
       end
     end,
   })
