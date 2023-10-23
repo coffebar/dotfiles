@@ -43,20 +43,19 @@ vim.api.nvim_create_autocmd("FileType", {
     local format_with_tabs = { "sh", "sshconfig", "dockerfile" }
     -- check if file has tabs for other filetypes
 
-    local has_tabs = function(bufnr)
-      -- Search for tabs in buffer
-      if vim.fn.executable("rg") == 0 then
-        return false
+    local function has_tabs(bufnr)
+      local max_lines = 500
+      local buffer_lines = vim.api.nvim_buf_line_count(bufnr)
+      if buffer_lines < max_lines then
+        max_lines = buffer_lines
       end
-      local result = vim.fn.systemlist({
-        "rg", -- Note: just changing `rg` to `grep` will not work
-        "--only-matching",
-        "--no-heading",
-        "--max-count",
-        "1",
-        "\t",
-      }, bufnr)
-      return #result > 0
+      local lines = vim.api.nvim_buf_get_lines(bufnr, 0, max_lines, false)
+      for _, line in ipairs(lines) do
+        if vim.startswith(line, "\t") then
+          return true
+        end
+      end
+      return false
     end
 
     local filetype = vim.api.nvim_buf_get_option(arg.buf, "filetype")
