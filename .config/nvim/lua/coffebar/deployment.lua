@@ -195,17 +195,23 @@ function M.show_dir_diff(dir)
   -- remove cwd from dir path to show in short format
   dir = dir:gsub(vim.loop.cwd(), ""):gsub("^/", "")
 
-  vim.notify("rsync", vim.log.levels.INFO, {
+  local notification = vim.notify("rsync -rlzi --dry-run --checksum --delete", vim.log.levels.INFO, {
     title = " Diff started...",
     timeout = 3500,
   })
+  local replace
+  if notification ~= nil and notification.Record then
+    replace = notification.Record
+  end
   vim.list_extend(lines, { dir, remote_path, "------" })
   local output = {}
+  local stderr = {}
   vim.fn.jobstart(cmd, {
     on_stderr = function(_, data, _)
-      vim.notify(table.concat(data, "\n"), vim.log.levels.ERROR, {
-        timeout = 10000,
-      })
+      if data == nil or #data == 0 then
+        return
+      end
+      vim.list_extend(stderr, data)
     end,
     on_stdout = function(_, data, _)
       for _, line in pairs(data) do
@@ -217,8 +223,10 @@ function M.show_dir_diff(dir)
     end,
     on_exit = function(_, code, _)
       if code ~= 0 then
-        vim.notify("Error running rsync", vim.log.levels.ERROR, {
+        vim.notify(table.concat(stderr, "\n"), vim.log.levels.ERROR, {
           timeout = 10000,
+          title = "Error running rsync",
+          replace = replace,
         })
         return
       end
