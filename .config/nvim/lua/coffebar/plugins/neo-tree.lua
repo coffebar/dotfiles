@@ -225,6 +225,30 @@ return {
         desc = "git add",
         nowait = true,
       },
+      uu = {
+        function(state)
+          local node = state.tree:get_node()
+          if node.type == "directory" then
+            require("coffebar.deployment").sync_dir(node.path, true)
+            return
+          end
+          require("coffebar.deployment").upload_file(node.path)
+        end,
+        desc = "upload file or directory",
+        nowait = true,
+      },
+      ud = {
+        function(state)
+          local node = state.tree:get_node()
+          if node.type == "directory" then
+            require("coffebar.deployment").sync_dir(node.path, false)
+            return
+          end
+          require("coffebar.deployment").download_file(node.path)
+        end,
+        desc = "download file or directory",
+        nowait = true,
+      },
     },
   },
 }

@@ -20,13 +20,21 @@ vim.api.nvim_create_user_command("DiffRemote", function()
   require("coffebar.deployment").open_diff()
 end, { nargs = 0 })
 
-vim.api.nvim_create_user_command("CopyToRemote", function()
-  require("coffebar.deployment").upload_file()
-end, { nargs = 0 })
+vim.api.nvim_create_user_command("CopyToRemote", function(opts)
+  local path
+  if opts ~= nil and opts.args then
+    path = opts.args
+  end
+  require("coffebar.deployment").upload_file(path)
+end, { nargs = "?" })
 
-vim.api.nvim_create_user_command("CopyFromRemote", function()
-  require("coffebar.deployment").download_file()
-end, { nargs = 0 })
+vim.api.nvim_create_user_command("CopyFromRemote", function(opts)
+  local path
+  if opts ~= nil and opts.args then
+    path = opts.args
+  end
+  require("coffebar.deployment").download_file(path)
+end, { nargs = "?" })
 
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = augroup,
