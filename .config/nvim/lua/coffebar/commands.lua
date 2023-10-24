@@ -16,10 +16,6 @@ vim.api.nvim_create_user_command("SearchInHome", function()
   })
 end, { nargs = 0 })
 
-vim.api.nvim_create_user_command("DiffRemote", function()
-  require("coffebar.deployment").open_diff()
-end, { nargs = 0 })
-
 vim.api.nvim_create_user_command("CopyToRemote", function(opts)
   local path
   if opts ~= nil and opts.args then
