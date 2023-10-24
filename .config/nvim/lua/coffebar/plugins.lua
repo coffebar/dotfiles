@@ -426,4 +426,11 @@ return {
       shade_terminals = false, -- disable shading because it breaks the background consistency
     },
   },
+  -- deployment via ssh
+  {
+    "coffebar/transfer.nvim",
+    lazy = false,
+    cmd = { "TransferInit" },
+    opts = {},
+  },
 }
