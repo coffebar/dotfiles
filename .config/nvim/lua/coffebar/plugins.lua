@@ -426,7 +426,7 @@ return {
       shade_terminals = false, -- disable shading because it breaks the background consistency
     },
   },
-  -- deployment via ssh
+  -- deployment via rsync and OpenSSH
   {
     "coffebar/transfer.nvim",
     lazy = true,
