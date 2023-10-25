@@ -429,8 +429,8 @@ return {
   -- deployment via ssh
   {
     "coffebar/transfer.nvim",
-    lazy = false,
-    cmd = { "TransferInit" },
+    lazy = true,
+    cmd = { "TransferInit", "DiffRemote", "TransferUpload", "TransferDownload", "TransferDirDiff" },
     opts = {},
   },
 }
