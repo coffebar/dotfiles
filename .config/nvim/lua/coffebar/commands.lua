@@ -16,6 +16,22 @@ vim.api.nvim_create_user_command("SearchInHome", function()
   })
 end, { nargs = 0 })
 
+vim.api.nvim_create_user_command("Spaces", function()
+  -- replace tabs with spaces in current buffer
+  vim.bo.expandtab = true
+  -- if filetype is lua, and .stylua.toml is not exists in cwd then create it
+  if vim.bo.filetype == "lua" then
+    local cwd = vim.loop.cwd()
+    local stylua_config = cwd .. "/.stylua.toml"
+    if vim.fn.filereadable(stylua_config) ~= 1 then
+      vim.fn.writefile({ 'indent_type = "Spaces"', "indent_width = 2" }, stylua_config)
+      vim.cmd("w")
+      return
+    end
+  end
+  vim.api.nvim_command("retab")
+end, { nargs = 0 })
+
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = augroup,
   desc = "Return to last edit position when opening files",
