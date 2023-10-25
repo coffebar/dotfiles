@@ -125,14 +125,6 @@ return {
         desc = "copy abs path",
         nowait = true,
       },
-      -- diff with remote
-      ["<c-d>"] = {
-        function(state)
-          vim.cmd("TransferDirDiff " .. context_dir(state))
-          vim.cmd("Neotree close")
-        end,
-        desc = "diff with remote",
-      },
       -- open in telescope live grep
       ["<c-f>"] = {
         function(state)
@@ -225,6 +217,15 @@ return {
         desc = "git add",
         nowait = true,
       },
+      -- diff directory with remote
+      ["<c-d>"] = {
+        function(state)
+          vim.cmd("TransferDirDiff " .. context_dir(state))
+          vim.cmd("Neotree close")
+        end,
+        desc = "diff with remote",
+      },
+      -- upload (sync files)
       uu = {
         function(state)
           vim.cmd("TransferUpload " .. state.tree:get_node().path)
@@ -232,6 +233,7 @@ return {
         desc = "upload file or directory",
         nowait = true,
       },
+      -- download (sync files)
       ud = {
         function(state)
           vim.cmd("TransferDownload" .. state.tree:get_node().path)
