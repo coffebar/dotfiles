@@ -93,9 +93,10 @@ if has_wk then
       },
       u = {
         name = "Upload / Download",
-        d = { "<cmd>CopyFromRemote<cr>", "Download from remote server (scp)" },
-        u = { "<cmd>CopyToRemote<cr>", "Upload to remote server (scp)" },
+        d = { "<cmd>TransferDownload<cr>", "Download from remote server (scp)" },
+        u = { "<cmd>TransferUpload<cr>", "Upload to remote server (scp)" },
         f = { "<cmd>DiffRemote<cr>", "Diff file with remote server (scp)" },
+        i = { "<cmd>TransferInit<cr>", "Init/Edit Deployment config" },
       },
       n = { "<cmd>Neotree focus toggle<cr>", "Toggle Neotree" },
       N = { "<cmd>Neotree reveal<cr>", "Reveal Neotree" },

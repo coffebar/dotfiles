@@ -16,22 +16,6 @@ vim.api.nvim_create_user_command("SearchInHome", function()
   })
 end, { nargs = 0 })
 
-vim.api.nvim_create_user_command("CopyToRemote", function(opts)
-  local path
-  if opts ~= nil and opts.args then
-    path = opts.args
-  end
-  require("coffebar.deployment").upload_file(path)
-end, { nargs = "?" })
-
-vim.api.nvim_create_user_command("CopyFromRemote", function(opts)
-  local path
-  if opts ~= nil and opts.args then
-    path = opts.args
-  end
-  require("coffebar.deployment").download_file(path)
-end, { nargs = "?" })
-
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = augroup,
   desc = "Return to last edit position when opening files",

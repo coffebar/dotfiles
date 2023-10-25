@@ -128,7 +128,7 @@ return {
       -- diff with remote
       ["<c-d>"] = {
         function(state)
-          require("coffebar.deployment").show_dir_diff(context_dir(state))
+          vim.cmd("TransferDirDiff " .. context_dir(state))
           vim.cmd("Neotree close")
         end,
         desc = "diff with remote",
@@ -227,24 +227,14 @@ return {
       },
       uu = {
         function(state)
-          local node = state.tree:get_node()
-          if node.type == "directory" then
-            require("coffebar.deployment").sync_dir(node.path, true)
-            return
-          end
-          require("coffebar.deployment").upload_file(node.path)
+          vim.cmd("TransferUpload " .. state.tree:get_node().path)
         end,
         desc = "upload file or directory",
         nowait = true,
       },
       ud = {
         function(state)
-          local node = state.tree:get_node()
-          if node.type == "directory" then
-            require("coffebar.deployment").sync_dir(node.path, false)
-            return
-          end
-          require("coffebar.deployment").download_file(node.path)
+          vim.cmd("TransferDownload" .. state.tree:get_node().path)
         end,
         desc = "download file or directory",
         nowait = true,
