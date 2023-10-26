@@ -141,14 +141,22 @@ vim.api.nvim_create_autocmd("BufReadPre", {
 })
 
 -- Auto formatting
+-- can be disabled manually with :FormatWriteToggle
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "*.scss", "*.lua", "*.html" },
   desc = "Format files on write",
   callback = function()
+    if vim.g.format_write_disabled == true then
+      return
+    end
     vim.api.nvim_command("FormatWrite")
   end,
   group = augroup,
 })
+
+vim.api.nvim_create_user_command("FormatWriteToggle", function()
+  vim.g.format_write_disabled = not vim.g.format_write_disabled
+end, { nargs = 0 })
 
 -- Highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
