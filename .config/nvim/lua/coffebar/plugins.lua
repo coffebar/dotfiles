@@ -433,4 +433,6 @@ return {
     cmd = { "TransferInit", "DiffRemote", "TransferUpload", "TransferDownload", "TransferDirDiff" },
     opts = {},
   },
+  -- change line number color based on the current Vim mode
+  { "mawkler/modicator.nvim", opts = {} },
 }
