@@ -217,14 +217,6 @@ return {
         desc = "git add",
         nowait = true,
       },
-      -- diff directory with remote
-      ["<c-d>"] = {
-        function(state)
-          vim.cmd("TransferDirDiff " .. context_dir(state))
-          vim.cmd("Neotree close")
-        end,
-        desc = "diff with remote",
-      },
       -- upload (sync files)
       uu = {
         function(state)
@@ -240,6 +232,14 @@ return {
         end,
         desc = "download file or directory",
         nowait = true,
+      },
+      -- diff directory with remote
+      uf = {
+        function(state)
+          vim.cmd("TransferDirDiff " .. context_dir(state))
+          vim.cmd("Neotree close")
+        end,
+        desc = "diff with remote",
       },
     },
   },
