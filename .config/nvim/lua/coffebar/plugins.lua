@@ -430,7 +430,7 @@ return {
   {
     "coffebar/transfer.nvim",
     lazy = true,
-    cmd = { "TransferInit", "DiffRemote", "TransferUpload", "TransferDownload", "TransferDirDiff" },
+    cmd = { "TransferInit", "TransferRepeat", "DiffRemote", "TransferUpload", "TransferDownload", "TransferDirDiff" },
     opts = {},
   },
   -- change line number color based on the current Vim mode

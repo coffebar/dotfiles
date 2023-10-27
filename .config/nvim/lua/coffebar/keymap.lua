@@ -97,6 +97,7 @@ if has_wk then
         u = { "<cmd>TransferUpload<cr>", "Upload to remote server (scp)" },
         f = { "<cmd>DiffRemote<cr>", "Diff file with remote server (scp)" },
         i = { "<cmd>TransferInit<cr>", "Init/Edit Deployment config" },
+        r = { "<cmd>TransferRepeat<cr>", "Repeat transfer command" },
       },
       n = { "<cmd>Neotree focus toggle<cr>", "Toggle Neotree" },
       N = { "<cmd>Neotree reveal<cr>", "Reveal Neotree" },
