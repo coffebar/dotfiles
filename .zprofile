@@ -29,7 +29,7 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 	# tty1, start GUI
 	if [ "$XDG_VTNR" -eq 1 ]; then
 		WM=/usr/bin/Hyprland
-		if [ -f "$WM" ]; then
+		if [ -f "$WM" ] && [ "$XDG_SESSION_OPT" != "potato" ]; then
 			HYPRLAND_CONFIG="$HOME/.config/hyprland/hyprland.conf"
 			export XDG_SESSION_TYPE="wayland"
 			# Log WLR errors and logs to the hyprland log
