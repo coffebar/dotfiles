@@ -31,14 +31,14 @@ function M.run(opts)
     end,
     on_exit = function(_, code)
       if code == 0 then
-        vim.notify(table.concat(output, "\n"), vim.log.levels.INFO, {
+        vim.notify(vim.trim(table.concat(output, "\n")), vim.log.levels.INFO, {
           title = opts.success_title,
           icon = opts.success_icon,
           timeout = opts.success_timeout,
           replace = started,
         })
       else
-        vim.notify(table.concat(output, "\n"), vim.log.levels.ERROR, {
+        vim.notify(vim.trim(table.concat(output, "\n")), vim.log.levels.ERROR, {
           title = opts.error_title,
           icon = opts.error_icon,
           timeout = opts.error_timeout,
