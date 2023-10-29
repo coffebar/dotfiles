@@ -85,7 +85,23 @@ if has_wk then
         r = { gitsigns.reset_hunk, "Reset hunk" },
         R = { gitsigns.reset_buffer, "Reset buffer" },
         u = { gitsigns.undo_stage_hunk, "Undo stage hunk" },
-        p = { "<cmd>AsyncRun git push<cr>", "Push" },
+        p = {
+          function()
+            require("coffebar.jobstart").run({
+              cmd = "git push",
+              start_title = "Pushing",
+              start_message = "Loading...",
+              start_icon = " ",
+              success_title = "Pushed successfully",
+              success_icon = " ",
+              success_timeout = 1500,
+              error_title = "Push failed",
+              error_icon = " ",
+              error_timeout = 7000,
+            })
+          end,
+          "Push",
+        },
         t = { gitsigns.toggle_deleted, "toggle_deleted " },
         s = { gitsigns.stage_hunk, "Stage hunk" },
         S = { gitsigns.stage_buffer, "Stage buffer" },
@@ -197,7 +213,23 @@ if has_wk then
         replace_keycodes = true,
       },
       l = { "<cmd>Git log<cr>", "Git log" },
-      p = { "<cmd>AsyncRun git pull<cr>", "Pull" },
+      p = {
+        function()
+          require("coffebar.jobstart").run({
+            cmd = "git pull",
+            start_title = "Pulling",
+            start_message = "Loading...",
+            start_icon = " ",
+            success_title = "git pull finished",
+            success_icon = " ",
+            success_timeout = 1500,
+            error_title = "Pull failed",
+            error_icon = " ",
+            error_timeout = 7000,
+          })
+        end,
+        "Pull",
+      },
       F = {
         function()
           local path = vim.fn.expand("<cfile>")
