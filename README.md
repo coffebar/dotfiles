@@ -159,6 +159,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)  nvim-cmp source for path
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)  A completion plugin for neovim coded in Lua.
 - [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)  markdown preview plugin for (neo)vim
+- [ibutra/checkbox.nvim](https://github.com/ibutra/checkbox.nvim)  Simple checkbox handling for neovim
 - [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)  Standalone UI for nvim-lsp progress
 - [johmsalas/text-case.nvim](https://github.com/johmsalas/text-case.nvim)  An all in one plugin for converting text case in Neovim
 - [justinmk/vim-sneak](https://github.com/justinmk/vim-sneak)  The missing motion for Vim :athletic_shoe:

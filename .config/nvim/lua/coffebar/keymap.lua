@@ -59,8 +59,10 @@ if has_wk then
           "./watch.sh in `" .. terminal .. "`",
         },
       },
-      -- mapped by "nguyenvukhang/nvim-toggler"
+      -- mapped by nguyenvukhang/nvim-toggler
       i = { "Toggle boolean" },
+      -- mapped by ibutra/checkbox.nvim
+      I = { "Toggle checkbox" },
       g = {
         name = "Git",
         a = { "<cmd>G add -f %<cr>", "Add current file to git" },

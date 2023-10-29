@@ -342,6 +342,15 @@ return {
     keys = { "<leader>i" },
     opts = { inverses = { ["0"] = "1" } },
   },
+  -- toggle checkbox [X]
+  {
+    "ibutra/checkbox.nvim",
+    lazy = true,
+    keys = { "<leader>I" },
+    config = function()
+      vim.keymap.set("n", "<leader>I", require("checkbox").checkbox)
+    end,
+  },
   -- replace in files with regexp
   {
     "nvim-pack/nvim-spectre",
