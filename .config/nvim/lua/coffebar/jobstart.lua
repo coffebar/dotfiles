@@ -22,10 +22,6 @@ function M.run(opts)
     icon = opts.start_icon,
     timeout = 0,
   })
-  local replace
-  if started ~= nil and started.Record then
-    replace = started.Record
-  end
   vim.fn.jobstart(opts.cmd, {
     on_stderr = function(_, data)
       vim.list_extend(output, data)
@@ -39,14 +35,14 @@ function M.run(opts)
           title = opts.success_title,
           icon = opts.success_icon,
           timeout = opts.success_timeout,
-          replace = replace,
+          replace = started,
         })
       else
         vim.notify(table.concat(output, "\n"), vim.log.levels.ERROR, {
           title = opts.error_title,
           icon = opts.error_icon,
           timeout = opts.error_timeout,
-          replace = replace,
+          replace = started,
         })
       end
     end,
