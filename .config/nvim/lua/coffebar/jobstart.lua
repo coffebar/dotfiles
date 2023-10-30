@@ -17,11 +17,15 @@ local M = {}
 ---@return nil
 function M.run(opts)
   local output = {}
-  local started = vim.notify(opts.start_message, vim.log.levels.INFO, {
+  local notification = vim.notify(opts.start_message, vim.log.levels.INFO, {
     title = opts.start_title,
     icon = opts.start_icon,
     timeout = 0,
   })
+  local replace
+  if notification ~= nil and notification.Record then
+    replace = notification.Record
+  end
   vim.fn.jobstart(opts.cmd, {
     on_stderr = function(_, data)
       vim.list_extend(output, data)
@@ -35,14 +39,14 @@ function M.run(opts)
           title = opts.success_title,
           icon = opts.success_icon,
           timeout = opts.success_timeout,
-          replace = started,
+          replace = replace,
         })
       else
         vim.notify(vim.trim(table.concat(output, "\n")), vim.log.levels.ERROR, {
           title = opts.error_title,
           icon = opts.error_icon,
           timeout = opts.error_timeout,
-          replace = started,
+          replace = replace,
         })
       end
     end,
