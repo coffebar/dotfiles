@@ -278,3 +278,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end,
 })
+
+-- Switch to insert mode when open commit message
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "gitcommit" },
+  desc = "Switch to insert mode when open commit message",
+  callback = function()
+    vim.api.nvim_command("startinsert")
+  end,
+  group = augroup,
+})
