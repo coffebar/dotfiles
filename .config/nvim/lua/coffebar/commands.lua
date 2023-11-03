@@ -259,12 +259,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- get client name by id ev.data.client_id
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
-    -- local filename = vim.fn.bufname(ev.buf):gsub("^.*/", "")
-    -- vim.notify("'" .. client.name .. "' to " .. filename, vim.log.levels.INFO, {
-    --   title = "LSP Attach",
-    --   timeout = 1000,
-    -- })
-
     -- Inlay Hints
     if vim.lsp.inlay_hint then
       if client.server_capabilities.inlayHintProvider == true then
