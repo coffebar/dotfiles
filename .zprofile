@@ -29,7 +29,20 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 	# tty1, start GUI
 	if [ "$XDG_VTNR" -eq 1 ]; then
 		WM=/usr/bin/Hyprland
-		if [ -f "$WM" ] && [ "$XDG_SESSION_OPT" != "potato" ]; then
+
+		USE_HYPRLAND=0
+		if [ -f "$WM" ]; then
+			if [ "$XDG_SESSION_OPT" = "potato" ]; then
+				# check if nvidia is installed
+				if ! [ -f "/usr/bin/nvidia-smi" ]; then
+					USE_HYPRLAND=1
+				fi
+			else
+				USE_HYPRLAND=1
+			fi
+		fi
+
+		if [ "$USE_HYPRLAND" -eq 1 ]; then
 			HYPRLAND_CONFIG="$HOME/.config/hyprland/hyprland.conf"
 			export XDG_SESSION_TYPE="wayland"
 			# Log WLR errors and logs to the hyprland log
