@@ -347,6 +347,15 @@ if has_wk then
     p = { '"_dP', "Paste over selection" },
     T = { "<cmd>CrowTranslate<cr>", "Translate selected text" },
   }, { mode = "x" })
+
+  local lvg_args_installed, shortcuts = pcall(require, "telescope-live-grep-args.shortcuts")
+  if lvg_args_installed then
+    wk.register({
+      ["<leader>"] = {
+        fg = { shortcuts.grep_visual_selection, "Grep search for selection" },
+      },
+    }, { mode = "x" })
+  end
 else
   -- without "which-key" plugin
   -- if it fails to load for some reason
