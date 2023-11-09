@@ -140,9 +140,6 @@ npm
 ntfs-3g
 ntp
 numlockx
-nvidia
-nvidia-settings
-nvidia-utils
 obsidian
 opencl-nvidia
 openvpn
