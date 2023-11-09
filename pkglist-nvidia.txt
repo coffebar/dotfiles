@@ -56,6 +56,7 @@ fuse2
 fuse3
 fuseiso
 fwupd
+gammastep
 gawk
 gcc
 geoipupdate
