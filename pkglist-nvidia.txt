@@ -92,6 +92,7 @@ i3-wm
 imagemagick
 inotify-tools
 input-remapper-git
+intel-media-driver
 intel-ucode
 iwd
 jq
