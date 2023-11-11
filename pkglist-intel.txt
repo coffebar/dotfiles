@@ -10,6 +10,7 @@ arc-gtk-theme
 autoconf
 automake
 autopep8
+baloo5
 baobab
 base
 bind
@@ -23,7 +24,6 @@ clipman
 copyq
 cronie
 crow-translate
-debugedit
 deepin-icon-theme
 deluge
 deluge-gtk
@@ -72,7 +72,6 @@ gvfs-gphoto2
 gvfs-mtp
 haveged
 htop
-hwinfo
 hyprland-git
 hyprland-monitor-attached
 hyprland-per-window-layout
