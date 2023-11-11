@@ -49,6 +49,7 @@ fuse2
 fuse3
 fuseiso
 fwupd
+gammastep
 gcc
 geoipupdate
 gimp
