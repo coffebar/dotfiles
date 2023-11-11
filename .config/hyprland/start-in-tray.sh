@@ -15,6 +15,9 @@ waybar_loop() {
 # wait for xdg-desktop-portal-hyprland to start
 until pgrep -f 'xdg-desktop-portal-hyprland'; do sleep 2; done
 
+# override monitor for workspace 2 and 4 with eDP-2
+hyprctl monitors | grep eDP-2 && \
+	hyprctl --batch "keyword workspace 2,monitor:eDP-2 ; keyword workspace 4,monitor:eDP-2"
 
 waybar_loop &
 firefox &
@@ -28,3 +31,4 @@ XDG_CURRENT_DESKTOP=gnome telegram-desktop &
 blueman-applet &
 
 hyprctl dispatch workspace 1
+hyprctl dispatch moveworkspacetomonitor 2 0
