@@ -29,7 +29,7 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 	# tty1, start GUI
 	if [ "$XDG_VTNR" -eq 1 ]; then
 		WM=/usr/bin/Hyprland
-		if [ "$XDG_SESSION_OPT" = "crab" ] && [ -f "$HOME/pets/Hyprland/build/Hyprland" ]; then
+		if [ -f "$HOME/pets/Hyprland/build/Hyprland" ]; then
 			WM=$HOME/pets/Hyprland/build/Hyprland
 		fi
 
