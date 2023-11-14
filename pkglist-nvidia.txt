@@ -45,7 +45,6 @@ faac
 fakeroot
 fd
 feh
-figma-linux-bin
 file
 file-roller
 findutils
