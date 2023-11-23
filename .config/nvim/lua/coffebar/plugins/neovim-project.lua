@@ -20,6 +20,7 @@ return {
     "~/.local/*",
     "~/.config/*",
     "~/obsidian/*",
+    "~/Downloads/*",
   },
   -- Path to store history and sessions
   datapath = datapath,
