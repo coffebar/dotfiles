@@ -65,7 +65,7 @@ confirm "Do you want to install packages from $PKG_FILE?" || exit
 # use /tmp/yay as build directory
 mkdir -p /tmp/yay
 # repeat command until it succeeds
-until yay -S --builddir /tmp/yay --needed --nocleanmenu --nodiffmenu --noeditmenu --noremovemake - < "$PKG_FILE"; do
+until yay -S --builddir /tmp/yay --needed --cleanmenu=false --diffmenu=false --editmenu=false --removemake=false - < "$PKG_FILE"; do
 	echo "Failed to install packages."
 	confirm "Do you want to retry?" || exit
 	yay -Syu
