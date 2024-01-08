@@ -82,6 +82,10 @@ local stylefmt = function()
   return { exe = "stylefmt", stdin = true, try_node_modules = true }
 end
 
+local rustfmt = function()
+  return { exe = "rustfmt", stdin = true, try_node_modules = false }
+end
+
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 return {
   -- Enable or disable logging
@@ -101,6 +105,7 @@ return {
     nginx = { prettify.nginx },
     php = { prettify.php },
     python = { pythonConfig },
+    rust = { rustfmt },
     scss = { stylefmt },
     sh = { prettify.sh },
     sshconfig = { prettify.ssh },
