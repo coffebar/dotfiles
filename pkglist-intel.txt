@@ -75,6 +75,7 @@ htop
 hyprland-git
 hyprland-monitor-attached
 hyprland-per-window-layout
+hyprlang
 hyprpicker-git
 imagemagick
 inotify-tools
@@ -209,7 +210,7 @@ wmctrl
 wofi
 wrk
 wtype
-xdg-desktop-portal-hyprland-git
+xdg-desktop-portal-hyprland
 xdg-user-dirs
 xdg-utils
 xf86-input-synaptics
