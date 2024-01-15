@@ -151,6 +151,7 @@ postman-bin
 python-openai
 python-pip
 python-virtualenv
+remmina
 ripgrep
 rsync
 rust-analyzer
