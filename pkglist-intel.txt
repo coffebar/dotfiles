@@ -158,6 +158,7 @@ rust-analyzer
 rustup
 s5cmd-bin
 shellcheck
+signal-desktop
 slurp
 smartmontools
 sof-firmware

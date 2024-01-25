@@ -29,8 +29,8 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 	# tty1, start GUI
 	if [ "$XDG_VTNR" -eq 1 ]; then
 		WM=/usr/bin/Hyprland
-		if [ -f "$HOME/pets/Hyprland/build/Hyprland" ]; then
-			WM=$HOME/pets/Hyprland/build/Hyprland
+		if [ -f "$HOME/pets/Hyprland/build/src/Hyprland" ]; then
+			WM=$HOME/pets/Hyprland/build/src/Hyprland
 		fi
 
 		USE_HYPRLAND=0
