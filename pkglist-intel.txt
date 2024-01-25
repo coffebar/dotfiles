@@ -179,6 +179,7 @@ thunar-archive-plugin
 thunar-volman
 thunderbird
 tlp
+tomlplusplus
 traceroute
 ttf-bitstream-vera
 ttf-dejavu
