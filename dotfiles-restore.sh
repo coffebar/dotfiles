@@ -84,7 +84,7 @@ sudo ufw default deny incoming
 sudo ufw allow syncthing
 sudo ufw enable
 # enable services
-sudo systemctl enable --now cronie bluetooth docker tlp ufw
+sudo systemctl enable --now cronie bluetooth docker tlp ufw systemd-timesyncd.service
 
 echo "Installing ohmyzsh..."
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/main/tools/install.sh)"
