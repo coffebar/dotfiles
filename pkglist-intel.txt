@@ -162,6 +162,7 @@ signal-desktop
 slurp
 smartmontools
 sof-firmware
+speech-dispatcher
 sshfs
 sshpass
 sudo
