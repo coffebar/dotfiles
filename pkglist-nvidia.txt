@@ -40,7 +40,6 @@ dunst
 ecryptfs-utils
 efibootmgr
 electrum
-ell
 exfat-utils
 faac
 fakeroot
@@ -178,6 +177,7 @@ s5cmd-bin
 sdl_ttf
 sed
 shellcheck
+signal-desktop
 simplescreenrecorder
 slurp
 smartmontools
