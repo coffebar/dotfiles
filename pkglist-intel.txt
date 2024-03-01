@@ -203,6 +203,7 @@ wavpack
 waybar
 waybar-module-pacman-updates-git
 wbg
+wbg-debug
 wget
 which
 wireguard-tools
