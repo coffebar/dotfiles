@@ -1,4 +1,5 @@
 -- keymap documentation plugin
+--
 local has_wk, wk = pcall(require, "which-key")
 if has_wk then
   local terminal = vim.env.TERMINAL
@@ -63,6 +64,21 @@ if has_wk then
       i = { "Toggle boolean" },
       -- mapped by ibutra/checkbox.nvim
       I = { "Toggle checkbox" },
+      j = {
+        name = "Jump",
+        j = {
+          function()
+            require("before").jump_to_last_edit()
+          end,
+          "Jump to last edit",
+        },
+        k = {
+          function()
+            require("before").jump_to_next_edit()
+          end,
+          "Jump to last edit (reverse)",
+        },
+      },
       g = {
         name = "Git",
         a = { "<cmd>G add -f %<cr>", "Add current file to git" },
@@ -83,6 +99,7 @@ if has_wk then
         },
         h = { "<cmd>DiffviewFileHistory %<cr>", "History for current file" },
         g = { "<cmd>vert Git<cr>", "Git" },
+
         l = { "<cmd>Flog -date=short<cr>", "Git log (Flog)" },
         r = { gitsigns.reset_hunk, "Reset hunk" },
         R = { gitsigns.reset_buffer, "Reset buffer" },

@@ -444,4 +444,6 @@ return {
   },
   -- change line number color based on the current Vim mode
   { "mawkler/modicator.nvim", opts = {} },
+  -- jump through the changes in multiple files
+  { "bloznelis/before.nvim", lazy = true, opts = { history_size = 10 }, event = "VeryLazy" },
 }
