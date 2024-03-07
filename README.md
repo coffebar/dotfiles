@@ -130,13 +130,14 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)  Snippet Engine for Neovim written in Lua.
 - [Mofiqul/dracula.nvim](https://github.com/Mofiqul/dracula.nvim)  Dracula colorscheme for neovim written in Lua
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)  UI Component Library for Neovim.
-- [NeogitOrg/neogit](https://github.com/NeogitOrg/neogit)  magit for neovim
+- [NeogitOrg/neogit](https://github.com/NeogitOrg/neogit)  An interactive and powerful Git interface for Neovim, inspired by Magit
 - [NvChad/nvim-colorizer.lua](https://github.com/NvChad/nvim-colorizer.lua)  Maintained fork of the fastest Neovim colorizer
 - [Pocco81/AutoSave.nvim](https://github.com/Pocco81/AutoSave.nvim)  🧶 Automatically save your changes in NeoVim
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)  illuminate.vim - (Neo)Vim plugin for automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching.
 - [Shatur/neovim-session-manager](https://github.com/Shatur/neovim-session-manager)  A simple wrapper around :mksession.
 - [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon) ThePrimeagen/harpoon
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)  A neovim lua plugin to help easily manage multiple terminal windows
+- [bloznelis/before.nvim](https://github.com/bloznelis/before.nvim)  Plugin for Neovim which tracks edit locations
 - [ckipp01/stylua-nvim](https://github.com/ckipp01/stylua-nvim)  Let&#39;s just use a formatter and never discuss formatting again.
 - [coffebar/crowtranslate.nvim](https://github.com/coffebar/crowtranslate.nvim)  Translate the visually selected text in Neovim.
 - [coffebar/neovim-project](https://github.com/coffebar/neovim-project)  Neovim project manager maintains your recent project history and uses Telescope to select from autosaved sessions.
@@ -160,7 +161,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)  A completion plugin for neovim coded in Lua.
 - [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)  markdown preview plugin for (neo)vim
 - [ibutra/checkbox.nvim](https://github.com/ibutra/checkbox.nvim)  Simple checkbox handling for neovim
-- [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)  Standalone UI for nvim-lsp progress
+- [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)  💫  Extensible UI for Neovim notifications and LSP progress messages.
 - [johmsalas/text-case.nvim](https://github.com/johmsalas/text-case.nvim)  An all in one plugin for converting text case in Neovim
 - [justinmk/vim-sneak](https://github.com/justinmk/vim-sneak)  The missing motion for Vim :athletic_shoe:
 - [klen/nvim-test](https://github.com/klen/nvim-test)  A Neovim wrapper for running tests
@@ -169,7 +170,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [lukas-reineke/cmp-rg](https://github.com/lukas-reineke/cmp-rg)  ripgrep source for nvim-cmp
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)  Indent guides  for Neovim
 - [m-demare/hlargs.nvim](https://github.com/m-demare/hlargs.nvim)  Highlight arguments&#39; definitions and usages, using Treesitter
-- [mawkler/modicator.nvim](https://github.com/mawkler/modicator.nvim)  Cursor line number mode indicator
+- [mawkler/modicator.nvim](https://github.com/mawkler/modicator.nvim)  Cursor line number mode indicator plugin for Neovim
 - [mboughaba/i3config.vim](https://github.com/mboughaba/i3config.vim)  Vim syntax highlighting for i3 config :point_left:
 - [mhartington/formatter.nvim](https://github.com/mhartington/formatter.nvim) mhartington/formatter.nvim
 - [moll/vim-bbye](https://github.com/moll/vim-bbye)  Delete buffers and close files in Vim without closing your windows or messing up your layout. Like Bclose.vim, but rewritten and well maintained.
