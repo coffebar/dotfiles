@@ -10,14 +10,14 @@ arc-gtk-theme
 autoconf
 automake
 autopep8
-baloo5
+baloo
 baobab
 base
 bind
 bison
 blueman
 bluez
-breeze
+breeze5
 brightnessctl
 btrfs-progs
 clipman
@@ -193,6 +193,7 @@ ttf-liberation
 ttf-ms-fonts
 ttf-nerd-fonts-symbols
 ttf-ubuntu-font-family
+tumbler
 ufw
 unrar
 unzip
