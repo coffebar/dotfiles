@@ -13,6 +13,7 @@ autopep8
 baloo
 baobab
 base
+base-devel
 bind
 bison
 blueman
