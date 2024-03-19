@@ -73,7 +73,7 @@ gvfs-gphoto2
 gvfs-mtp
 haveged
 htop
-hyprland-git
+hyprland
 hyprland-monitor-attached
 hyprland-per-window-layout
 hyprlang
