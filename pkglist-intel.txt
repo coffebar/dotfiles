@@ -155,7 +155,6 @@ python-virtualenv
 remmina
 ripgrep
 rofi-lbonn-wayland
-rofi-lbonn-wayland-debug
 rsync
 rust-analyzer
 rustup
