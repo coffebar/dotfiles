@@ -15,12 +15,13 @@ autotiling-git
 avahi
 baobab
 base
+base-devel
 bind
 binutils
 bison
 blueman
 bluez
-breeze
+breeze5
 brightnessctl
 btrfs-progs
 clipman
@@ -134,7 +135,6 @@ network-manager-applet
 networkmanager
 networkmanager-openvpn
 nmap
-nodejs
 noto-fonts
 noto-fonts-emoji
 npm
@@ -249,6 +249,7 @@ xss-lock
 xterm
 yarn
 yay
+yay-debug
 zip
 zram-generator
 zsh
