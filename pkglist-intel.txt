@@ -78,7 +78,6 @@ hyprland-monitor-attached
 hyprland-per-window-layout
 hyprlang
 hyprpicker-git
-hyprpicker-git-debug
 imagemagick
 inotify-tools
 intel-media-driver
