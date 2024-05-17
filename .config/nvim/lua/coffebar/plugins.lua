@@ -188,6 +188,7 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
+    tag = "v3.5.4",
     init = function()
       -- vim.opt.list = true
       -- vim.opt.listchars:append("space:⋅")
