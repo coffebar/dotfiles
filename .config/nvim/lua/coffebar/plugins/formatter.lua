@@ -123,7 +123,7 @@ return {
           return
         end
         -- check if there are any LSP formatters
-        for _, client in pairs(vim.lsp.buf_get_clients()) do
+        for _, client in pairs(vim.lsp.get_clients({ bufnr = 0 })) do
           if client.server_capabilities.document_formatting then
             -- format with LSP
             vim.lsp.buf.formatting()

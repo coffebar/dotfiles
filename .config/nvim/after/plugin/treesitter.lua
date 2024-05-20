@@ -10,7 +10,7 @@ local function disable_all(_, buf)
     return true
   end
   -- Disable treesitter for vim command mode (open with `q:`)
-  if vim.api.nvim_get_mode().mode == "c" and vim.api.nvim_buf_get_option(buf, "filetype") == "vim" then
+  if vim.api.nvim_get_mode().mode == "c" and vim.api.nvim_get_option_value("filetype", { buf = buf }) == "vim" then
     return true
   end
 end
@@ -103,7 +103,7 @@ configs.setup({
   indent = {
     enable = true,
     disable = function(_, buf)
-      local ftype = vim.api.nvim_buf_get_option(buf, "filetype")
+      local ftype = vim.api.nvim_get_option_value("filetype", { buf = buf })
       return ftype ~= "php" and ftype ~= "yaml.ansible"
     end,
   },

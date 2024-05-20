@@ -62,14 +62,14 @@ vim.api.nvim_create_autocmd("FileType", {
       return false
     end
 
-    local filetype = vim.api.nvim_buf_get_option(arg.buf, "filetype")
+    local filetype = vim.api.nvim_get_option_value("filetype", { buf = arg.buf })
     -- skip if filetype is binary or buffer is invalid
     if filetype == "binary" or not vim.api.nvim_buf_is_valid(arg.buf) then
       return
     end
 
     if vim.tbl_contains(format_with_tabs, filetype) or has_tabs(arg.buf) then
-      vim.api.nvim_buf_set_option(arg.buf, "expandtab", false)
+      vim.api.nvim_set_option_value("expandtab", false, { buf = arg.buf })
     end
   end,
 })
