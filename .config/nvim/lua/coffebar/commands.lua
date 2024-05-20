@@ -255,21 +255,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<leader>rn", ":Lspsaga rename<cr>", opts)
     vim.keymap.set("n", "gr", ":Lspsaga finder<cr>", opts)
     vim.keymap.set({ "n", "v" }, "<leader>ca", ":Lspsaga code_action<cr>", opts)
-
-    -- get client name by id ev.data.client_id
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-
-    -- Inlay Hints
-    if vim.lsp.inlay_hint then
-      if client.server_capabilities.inlayHintProvider == true then
-        vim.lsp.inlay_hint(ev.buf, true)
-        vim.keymap.set("n", "<leader>I", function()
-          vim.lsp.inlay_hint(0, nil)
-        end, opts)
-      else
-        vim.lsp.inlay_hint(ev.buf, false)
-      end
-    end
   end,
 })
 
