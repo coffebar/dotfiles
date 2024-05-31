@@ -40,7 +40,11 @@ tear_up() {
 	sleep 3
 
 	# run queue jobs
-	ter --class='wp-5' --command ./vendor/bin/sail artisan schedule:run &
+	if [ -f "$PROJECT/ecosystem.config.cjs" ] && [ -f "$PROJECT/node_modules/.bin/pm2" ]; then
+		ter --class='wp-5' --command ./vendor/bin/sail bin '../../node_modules/.bin/pm2' restart ecosystem.config.cjs
+	else
+		ter --class='wp-5' --command ./vendor/bin/sail artisan schedule:run &
+	fi
 	# auto build frontend
 	ter --class='wp-5' --command ./vendor/bin/sail npm run dev &
 	# tail logs
