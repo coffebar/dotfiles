@@ -54,7 +54,8 @@ install_nodejs_packages_if_needed pyright bash-language-server \
 	tree-sitter-cli \
 	eslint @johnnymorganz/stylua-bin \
 	@shufo/prettier-plugin-blade \
-	emmet-ls
+	emmet-ls \
+	@vue/language-server @vue/typescript-plugin
 
 go install golang.org/x/tools/gopls@latest
 

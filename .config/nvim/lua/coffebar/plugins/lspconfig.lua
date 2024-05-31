@@ -3,6 +3,8 @@ if not lsp_installed then
   return
 end
 
+local util = require("lspconfig.util")
+
 -- enable logging
 -- vim.lsp.set_log_level("info")
 
@@ -19,7 +21,31 @@ lspconfig.ansiblels.setup({})
 lspconfig.bashls.setup({})
 -- javascript linter, requires vscode-langservers-extracted
 lspconfig.eslint.setup({})
-lspconfig.tsserver.setup({})
+lspconfig.tsserver.setup({
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
+    "vue",
+  },
+  -- plugin for vue ts
+  init_options = {
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        languages = { "vue" },
+        location = vim.fn.expand("~/.local/share/pnpm/global/5/node_modules/@vue/typescript-plugin"),
+      },
+    },
+  },
+})
+-- vue js from @vue/language-server
+lspconfig.volar.setup({
+  filetypes = { "vue" },
+})
 -- lua, requires lua-language-server
 lspconfig.lua_ls.setup({})
 -- css, html
