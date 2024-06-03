@@ -55,6 +55,7 @@ install_nodejs_packages_if_needed pyright bash-language-server \
 	eslint @johnnymorganz/stylua-bin \
 	@shufo/prettier-plugin-blade \
 	emmet-ls \
+	neovim \
 	@vue/language-server @vue/typescript-plugin
 
 go install golang.org/x/tools/gopls@latest
