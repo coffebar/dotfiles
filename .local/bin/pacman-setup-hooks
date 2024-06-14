@@ -1,6 +1,7 @@
 #!/bin/bash
+# This script installs 2 pacman hooks.
 
-# Crete a pacman hook to run after a package is installed or deleted
+# 1. Crete a pacman hook to run after a package is installed or deleted
 # to update the list of explicitly installed packages.
 HOOK_DIR="/etc/pacman.d/hooks"
 HOOK_NAME="update-package-list-$USER.hook"
@@ -36,6 +37,37 @@ fi
 	echo "NeedsTargets"
 	echo "Depends = pacman"
 	echo "Depends = sh"
+} >> "$PATH_TO_HOOK"
+
+sudo chmod 755 "$PATH_TO_HOOK"
+sudo chown "$USER:$USER" "$PATH_TO_HOOK"
+sudo chown "$USER:$USER" "$HOOK_DIR"
+echo "Hook created at $PATH_TO_HOOK"
+
+# 2. Create a hook to clean the package cache
+# keeping only the last 3 versions of each package
+HOOK_NAME="clean_package_cache.hook"
+PATH_TO_HOOK="$HOOK_DIR/$HOOK_NAME"
+COMMAND="/usr/bin/paccache -rk3"
+
+sudo touch "$PATH_TO_HOOK"
+sudo chmod 777 "$PATH_TO_HOOK"
+if [ -f "$PATH_TO_HOOK" ]; then
+	echo "Hook $HOOK_NAME already exists"
+	echo "Will be overwritten"
+	echo "" > "$PATH_TO_HOOK"
+fi
+{
+	echo "[Trigger]"
+	echo "Operation = Install"
+	echo "Operation = Upgrade"
+	echo "Operation = Remove"
+	echo "Type = Package"
+	echo "Target = *"
+	echo "[Action]"
+	echo "Description = Cleaning package cache"
+	echo "When = PostTransaction"
+	echo "Exec = $COMMAND"
 } >> "$PATH_TO_HOOK"
 
 sudo chmod 755 "$PATH_TO_HOOK"
