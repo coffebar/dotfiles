@@ -9,6 +9,7 @@ hyprctl dispatch moveworkspacetomonitor 3 $MON2
 hyprctl dispatch workspace 1
 
 # switch audio output to speakers
-ALT_SINK=$(pactl list short sinks | tail -2 | head -1 | awk '{print $1}')
+ALT_SINK=$(pactl list short sinks | grep --invert-match "easyeffects_sink" \
+	| tail -2 | head -1 | awk '{print $1}')
 pactl set-default-sink "$ALT_SINK"
 notify-send "Audio Device" "switched from monadd.sh" --expire-time=1500

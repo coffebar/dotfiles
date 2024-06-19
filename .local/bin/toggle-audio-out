@@ -4,7 +4,8 @@
 # get the default sink name
 DEFAULT_SINK_NAME=$(pactl get-default-sink)
 # get the other sink id and name
-OTHER_SINK=$(pactl list short sinks | grep --invert-match "$DEFAULT_SINK_NAME" | tail -1)
+OTHER_SINK=$(pactl list short sinks | grep --invert-match "easyeffects_sink" \
+	| grep --invert-match "$DEFAULT_SINK_NAME" | tail -1)
 OTHER_SINK_ID=$(echo "$OTHER_SINK" | awk '{print $1}')
 OTHER_SINK_NAME=$(echo "$OTHER_SINK" | awk '{print $2}')
 
