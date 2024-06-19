@@ -74,6 +74,7 @@ gvfs-gphoto2
 gvfs-mtp
 haveged
 htop
+hugo
 hyprland
 hyprland-monitor-attached
 hyprland-per-window-layout
