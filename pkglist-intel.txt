@@ -35,6 +35,7 @@ docker-buildx
 docker-compose
 dosfstools
 dunst
+easyeffects
 ecryptfs-utils
 efibootmgr
 electrum
