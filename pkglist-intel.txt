@@ -57,6 +57,7 @@ geoipupdate
 gimp
 git
 git-delta
+git-lfs
 gnome-calculator
 gnome-keyring
 gnome-system-monitor
