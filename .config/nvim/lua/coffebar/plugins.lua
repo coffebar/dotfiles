@@ -386,8 +386,6 @@ return {
     lazy = true,
     event = { "BufReadPost", "BufNewFile" },
   },
-  -- bookmarks
-  { "ThePrimeagen/harpoon", lazy = true },
   -- copy history
   {
     "AckslD/nvim-neoclip.lua",
