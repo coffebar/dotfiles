@@ -12,4 +12,4 @@ hyprctl dispatch workspace 1
 ALT_SINK=$(pactl list short sinks | grep --invert-match "easyeffects_sink" \
 	| tail -2 | head -1 | awk '{print $1}')
 pactl set-default-sink "$ALT_SINK"
-notify-send "Audio Device" "switched from monadd.sh" --expire-time=1500
+hyprctl notify 1 4000 0 "Monitor attached: Audio sink changed"
