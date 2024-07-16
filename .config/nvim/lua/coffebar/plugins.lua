@@ -272,6 +272,7 @@ return {
     },
     lazy = true,
     event = "VeryLazy",
+    enabled = false,
   },
   {
     "sindrets/diffview.nvim",
