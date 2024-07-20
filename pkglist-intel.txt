@@ -76,10 +76,9 @@ gvfs-mtp
 haveged
 htop
 hugo
-hyprland
+hyprland-git
 hyprland-monitor-attached
 hyprland-per-window-layout
-hyprlang
 hyprpicker-git
 imagemagick
 inotify-tools
