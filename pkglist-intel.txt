@@ -156,7 +156,6 @@ python-pip
 python-virtualenv
 remmina
 ripgrep
-rofi-lbonn-wayland
 rsync
 rust-analyzer
 rustup
