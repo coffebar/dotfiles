@@ -112,7 +112,7 @@ gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gtk.Settings.FileChooser startup-mode cwd
 gsettings set org.gtk.gtk4.Settings.FileChooser startup-mode cwd
 # gtk cursor and icon themes
-gsettings set org.gnome.desktop.interface cursor-theme 'bloom'
+gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic
 gsettings set org.gnome.desktop.interface icon-theme 'bloom-classic'
 
 echo "Setting up neovim..."
