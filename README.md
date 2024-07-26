@@ -24,7 +24,7 @@
 - [:art: Themes](https://github.com/coffebar/dotfiles#overview):
 
   - :desktop_computer: [Arc-Dark](https://github.com/horst3180/arc-theme) GTK theme
-  - :basecamp: [bloom-classic](https://github.com/linuxdeepin/deepin-icon-theme) Icons and [bibata_cursor](https://github.com/rtgiskard/bibata_cursor)
+  - :basecamp: [bloom-classic](https://github.com/linuxdeepin/deepin-icon-theme) Icons and [RosePine](https://github.com/rose-pine/cursor) cursor
   - :new_moon_with_face: Telegram theme: [ArcDarkGrey](https://t.me/addtheme/arcdarkgrey)
   - :robot: Terminal colors: mix of the OneDark, Arc-Dark and PopOS
   - :green_heart: Neovim:

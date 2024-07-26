@@ -14,7 +14,6 @@ baloo
 baobab
 base
 base-devel
-bibata-cursor-git
 bind
 bison
 blueman
@@ -157,6 +156,8 @@ python-pip
 python-virtualenv
 remmina
 ripgrep
+rose-pine-cursor
+rose-pine-hyprcursor
 rsync
 rust-analyzer
 rustup
@@ -214,7 +215,6 @@ wireguard-tools
 wireless_tools
 wireplumber
 wl-clipboard
-wlroots
 wmctrl
 wofi
 wrk
