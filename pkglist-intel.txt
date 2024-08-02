@@ -10,6 +10,7 @@ arc-gtk-theme
 autoconf
 automake
 autopep8
+aws-cli
 baloo
 baobab
 base
@@ -59,6 +60,7 @@ git
 git-delta
 git-lfs
 gnome-calculator
+gnome-disk-utility
 gnome-keyring
 gnome-system-monitor
 goaccess
@@ -219,7 +221,7 @@ wmctrl
 wofi
 wrk
 wtype
-xdg-desktop-portal-hyprland
+xdg-desktop-portal-hyprland-git
 xdg-user-dirs
 xdg-utils
 xf86-input-synaptics
