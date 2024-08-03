@@ -13,6 +13,7 @@ autopep8
 autorandr
 autotiling-git
 avahi
+aws-cli
 baobab
 base
 base-devel
@@ -84,10 +85,11 @@ gvfs-mtp
 gzip
 haveged
 htop
-hyprland-git
+hyprland
 hyprland-monitor-attached
 hyprland-per-window-layout
 hyprpicker-git
+hyprutils-git
 i3-wm
 imagemagick
 inotify-tools
@@ -170,6 +172,8 @@ qt5ct
 redshift-gtk-git
 ripgrep
 rofi
+rose-pine-cursor
+rose-pine-hyprcursor
 rsync
 rust-analyzer
 rustup
