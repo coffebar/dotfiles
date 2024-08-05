@@ -1,6 +1,6 @@
 #!/bin/sh
 nm-online
-if result=$(git --git-dir="$HOME/dotfiles" --work-tree="$HOME" pull 2>&1); then
+if result=$(git --git-dir="$HOME/dotfiles" --work-tree="$HOME" pull -r --autostash 2>&1); then
 	# update oh-my-zsh plugins
 	for folder in "$HOME/.oh-my-zsh/custom/plugins/"*; do
 		(cd "$folder" && git pull 2>&1)
