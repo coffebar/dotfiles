@@ -170,6 +170,7 @@ slurp
 smartmontools
 sof-firmware
 speech-dispatcher
+sqlitebrowser
 sshfs
 sshpass
 sudo
