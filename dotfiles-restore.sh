@@ -94,7 +94,6 @@ git clone https://github.com/tom-doerr/zsh_codex.git ~/.oh-my-zsh/custom/plugins
 
 echo "Decrypting AI credentials..."
 gpg --decrypt --output ~/.config/github-copilot/hosts.json ~/.config/github-copilot/hosts.json.gpg
-gpg --decrypt --output ~/.config/openaiapirc ~/.config/openaiapirc.gpg
 
 # copy ksnip config
 cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
