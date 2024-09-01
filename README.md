@@ -135,17 +135,17 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [Pocco81/AutoSave.nvim](https://github.com/Pocco81/AutoSave.nvim)  🧶 Automatically save your changes in NeoVim
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)  illuminate.vim - (Neo)Vim plugin for automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching.
 - [Shatur/neovim-session-manager](https://github.com/Shatur/neovim-session-manager)  A simple wrapper around :mksession.
-- [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon) ThePrimeagen/harpoon
+- [adalessa/laravel.nvim](https://github.com/adalessa/laravel.nvim)  Plugin for Nvim to work with laravel projects.
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)  A neovim lua plugin to help easily manage multiple terminal windows
 - [bloznelis/before.nvim](https://github.com/bloznelis/before.nvim)  Jump to the last edit in Neovim
 - [ckipp01/stylua-nvim](https://github.com/ckipp01/stylua-nvim)  Let&#39;s just use a formatter and never discuss formatting again.
 - [coffebar/crowtranslate.nvim](https://github.com/coffebar/crowtranslate.nvim)  Translate the visually selected text in Neovim.
-- [coffebar/neovim-project](https://github.com/coffebar/neovim-project)  Neovim project manager maintains your recent project history and uses Telescope to select from autosaved sessions.
+- [coffebar/neovim-project](https://github.com/coffebar/neovim-project)  Neovim project plugin simplifies project management by maintaining project history and providing quick access to projects via Telescope.
 - [coffebar/transfer.nvim](https://github.com/coffebar/transfer.nvim)  Syncing files with remote server using rsync and OpenSSH
 - [cohama/lexima.vim](https://github.com/cohama/lexima.vim)  Auto close parentheses and repeat by dot dot dot...
 - [elihunter173/dirbuf.nvim](https://github.com/elihunter173/dirbuf.nvim)  A file manager for Neovim which lets you edit your filesystem like you edit text
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)  🚦 A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
-- [folke/which-key.nvim](https://github.com/folke/which-key.nvim)  💥   Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
+- [folke/which-key.nvim](https://github.com/folke/which-key.nvim)  💥   Create key bindings that stick. WhichKey helps you remember your Neovim keymaps, by showing available keybindings in a popup as you type.
 - [github/copilot.vim](https://github.com/github/copilot.vim)  Neovim plugin for GitHub Copilot
 - [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)  improve neovim lsp experience
 - [google/vim-searchindex](https://github.com/google/vim-searchindex)  vim-searchindex: display number of search matches &amp; index of a current match
@@ -186,11 +186,12 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)  Find, Filter, Preview, Pick. All lua, all the time.
 - [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)  lua `fork` of vim-web-devicons for neovim
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)  Nvim Treesitter configurations and abstraction layer
+- [nvimtools/none-ls.nvim](https://github.com/nvimtools/none-ls.nvim)  null-ls.nvim reloaded / Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 - [petertriho/cmp-git](https://github.com/petertriho/cmp-git)  Git source for nvim-cmp
 - [phelipetls/vim-hugo](https://github.com/phelipetls/vim-hugo)  Vim plugin for web development with static site generator Hugo
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)  Set of preconfigured snippets for different languages.
 - [rafcamlet/nvim-luapad](https://github.com/rafcamlet/nvim-luapad)  Interactive real time neovim scratchpad for embedded lua engine - type and watch!
-- [rbong/vim-flog](https://github.com/rbong/vim-flog)  A fast, beautiful, and powerful git branch viewer for vim.
+- [rbong/vim-flog](https://github.com/rbong/vim-flog)  A blazingly fast, stunningly beautiful, exceptionally powerful git branch viewer for Vim/Neovim.
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)  A fancy, configurable, notification manager for NeoVim
 - [romainl/vim-cool](https://github.com/romainl/vim-cool)  A very simple plugin that makes hlsearch more useful.
 - [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim)  The neovim tabline plugin.
@@ -199,6 +200,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim)  Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
 - [skywind3000/asyncrun.vim](https://github.com/skywind3000/asyncrun.vim)  :rocket: Run Async Shell Commands in Vim 8.0 / NeoVim and Output to the Quickfix Window !!
 - [skywind3000/asynctasks.vim](https://github.com/skywind3000/asynctasks.vim)  :rocket: Modern Task System for Project Building, Testing and Deploying !!
+- [tpope/vim-dotenv](https://github.com/tpope/vim-dotenv)  dotenv.vim: Basic support for .env and Procfile
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)  fugitive.vim: A Git wrapper so awesome, it should be illegal
 - [tzachar/highlight-undo.nvim](https://github.com/tzachar/highlight-undo.nvim)  Highlight changed text after Undo / Redo operations
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)  Use treesitter to auto close and auto rename html tag
