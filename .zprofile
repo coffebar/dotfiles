@@ -31,6 +31,8 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 		WM=/usr/bin/Hyprland
 		if [ -f "$HOME/pets/Hyprland/build/src/Hyprland" ]; then
 			WM=$HOME/pets/Hyprland/build/src/Hyprland
+			export HYPRLAND_TRACE=1
+			export AQ_TRACE=1
 		fi
 
 		USE_HYPRLAND=0
