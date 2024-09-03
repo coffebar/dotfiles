@@ -106,11 +106,9 @@ khal
 kooha
 ksnip
 lib32-opencl-nvidia
-libcmis
 libdv
 libinput-gestures
 libpulse
-libreoffice-fresh
 libreoffice-fresh-en-gb
 libreoffice-fresh-uk
 libtool
