@@ -21,7 +21,7 @@ lspconfig.ansiblels.setup({})
 lspconfig.bashls.setup({})
 -- javascript linter, requires vscode-langservers-extracted
 lspconfig.eslint.setup({})
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
   filetypes = {
     "javascript",
     "javascriptreact",
