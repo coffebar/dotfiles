@@ -3,8 +3,6 @@ if not lsp_installed then
   return
 end
 
-local util = require("lspconfig.util")
-
 -- enable logging
 -- vim.lsp.set_log_level("info")
 
