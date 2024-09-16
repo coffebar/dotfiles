@@ -35,6 +35,7 @@ docker
 docker-buildx
 docker-compose
 dosfstools
+downgrade
 dunst
 easyeffects
 ecryptfs-utils
