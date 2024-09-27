@@ -19,6 +19,7 @@ bind
 bison
 blueman
 bluez
+bluez-utils
 breeze5
 brightnessctl
 btrfs-progs

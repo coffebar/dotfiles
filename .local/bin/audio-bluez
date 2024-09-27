@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# check if bluetoothctl command is available
+if ! test -f /usr/bin/bluetoothctl; then
+	echo "bluetoothctl command not found"
+	exit 1
+fi
+
+# turn on bluetooth
+bluetooth on
+# wait for bluetooth to turn on
+while [ "$(bluetoothctl show | grep "Powered: yes")" = "" ]; do
+	sleep 1
+done
+# connect to any paired bluetooth device
+bluetoothctl devices | awk '{print $2}' | xargs -I{} bluetoothctl connect {}
+# switch audio output to bluetooth
+pactl list short sinks | grep bluez | awk '{print $1}' | xargs -I{} pactl set-default-sink {}
