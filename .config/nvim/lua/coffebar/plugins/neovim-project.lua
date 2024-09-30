@@ -14,6 +14,7 @@ return {
     "~/dev/Sc*/*",
     "~/dev/*",
     "~/dev/star*/*",
+    "~/dev/Go/*",
     "~/dev/Ch*/*",
     "~/pets/*",
     "~/pets/AU*/*",
