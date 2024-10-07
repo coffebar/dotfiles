@@ -58,6 +58,9 @@ local prettify = {
     end
     return prettier(args)
   end,
+  blade = function()
+    return prettier({ "--plugin", plugPath.blade, "--parser", "blade", "--tab-width", "2" })
+  end,
   sh = function()
     return prettier({ "--use-tabs", "true", "--plugin", plugPath.sh })
   end,
@@ -104,6 +107,7 @@ return {
     markdown = { prettier },
     nginx = { prettify.nginx },
     php = { prettify.php },
+    blade = { prettify.blade },
     python = { pythonConfig },
     rust = { rustfmt },
     scss = { stylefmt },
