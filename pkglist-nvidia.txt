@@ -85,11 +85,12 @@ gvfs-mtp
 gzip
 haveged
 htop
+hyprcursor
 hyprland
 hyprland-monitor-attached
 hyprland-per-window-layout
 hyprpicker-git
-hyprutils-git
+hyprutils
 i3-wm
 imagemagick
 inotify-tools
@@ -251,7 +252,6 @@ xss-lock
 xterm
 yarn
 yay
-yay-debug
 zip
 zram-generator
 zsh
