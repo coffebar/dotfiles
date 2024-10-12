@@ -46,7 +46,6 @@ exfat-utils
 faac
 fakeroot
 fd
-figma-linux-bin
 file-roller
 firefox
 freerdp
