@@ -452,6 +452,7 @@ return {
   -- Laravel support
   {
     "adalessa/laravel.nvim",
+    tag = "v2.2.1",
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "tpope/vim-dotenv",
