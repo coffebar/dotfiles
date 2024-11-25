@@ -76,7 +76,7 @@ lspconfig.intelephense.setup({
           vim.fn.expand("~") .. "/.local/share/phpstorm-stubs",
           vim.fn.expand("~") .. "/.local/share/wordpress-stubs",
         },
-        phpVersion = "8.2.0",
+        phpVersion = "8.3.0",
       },
       files = {
         maxSize = 5000000, -- 5MB for stubs
