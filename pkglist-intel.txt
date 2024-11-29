@@ -26,7 +26,6 @@ btrfs-progs
 clipman
 copyq
 cronie
-crow-translate
 deepin-icon-theme
 deluge
 deluge-gtk
@@ -155,6 +154,7 @@ polkit-kde-agent
 polybar
 postman-bin
 python-openai
+python-passlib
 python-pip
 python-virtualenv
 remmina
