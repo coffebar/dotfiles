@@ -231,7 +231,15 @@ vim.api.nvim_create_autocmd("User", {
   callback = function()
     update_git_env_for_dotfiles()
     -- restart LSP server for PHP to reload includePaths
-    vim.api.nvim_command("silent! LspRestart intelephense")
+    local servers = vim.lsp.get_clients()
+    if servers ~= nil then
+      for _, server in ipairs(servers) do
+        if server.name == "intelephense" then
+          vim.lsp.stop_client(server.id)
+          break
+        end
+      end
+    end
   end,
 })
 

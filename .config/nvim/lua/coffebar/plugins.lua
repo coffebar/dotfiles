@@ -469,7 +469,7 @@ return {
     opts = {
       features = {
         null_ls = {
-          enable = true,
+          enable = false,
         },
         route_info = {
           enable = true, --- to enable the laravel.nvim virtual text
