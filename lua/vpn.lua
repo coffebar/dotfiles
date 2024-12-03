@@ -3,6 +3,8 @@
 local e = os.execute
 
 -- wireguard config
+-- REQUIRED: run `sudo visudo` and add the following line
+-- user_name ALL=(root) NOPASSWD:/usr/bin/wg-quick
 local conf = "~/dev/vpn/wg1-client.conf"
 local wg = "sudo /usr/bin/wg-quick "
 -- openvpn connection name
