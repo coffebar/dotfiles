@@ -39,7 +39,7 @@ end
 local plugPath = {
   blade = nodeModuleLibPath("@shufo/prettier-plugin-blade", "dist/index.js"),
   nginx = nodeModuleLibPath("prettier-plugin-nginx", "dist/index.js"),
-  php = nodeModuleLibPath("@prettier/plugin-php", "src/index.js"),
+  php = nodeModuleLibPath("@prettier/plugin-php", "src/index.mjs"),
   sh = nodeModuleLibPath("prettier-plugin-sh", "lib/index.js"),
   ssh = nodeModuleLibPath("prettier-plugin-ssh-config", "lib/index.cjs"),
 }
