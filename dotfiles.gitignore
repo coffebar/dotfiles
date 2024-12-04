@@ -123,4 +123,8 @@ Downloads/Telegram\ Desktop/*
 go/
 Sync/
 .thunderbird/
+.Xresources
+.histfile
+.nvidia-settings-rc
+.zcompdump
 
