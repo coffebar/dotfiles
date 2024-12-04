@@ -1,5 +1,5 @@
 #!/bin/sh
 # wofi\rofi dmenu mode, depending on wayland\xorg
 DMENU="wofi -theme Arc-Dark -dpi $QT_FONT_DPI -dmenu"
-# [ "$XDG_SESSION_TYPE" = "wayland" ] && DMENU='wofi --show dmenu'
+[ "$GDK_BACKEND" = "x11" ] && DMENU='rofi -dmenu -dpi '$QT_FONT_DPI' -theme Arc-Dark'
 $DMENU $@
