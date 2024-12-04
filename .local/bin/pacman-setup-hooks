@@ -8,13 +8,16 @@ HOOK_NAME="update-package-list-$USER.hook"
 PATH_TO_HOOK="$HOOK_DIR/$HOOK_NAME"
 sudo mkdir -p "$HOOK_DIR"
 
-if pacman -Qs nvidia | grep nvidia > /dev/null; then
-	OUTPUT_FILE="pkglist-nvidia.txt"
+# check if the user provided a file to store the package list
+if [ -z "$1" ]; then
+	echo "Error: No file provided for pacman hook"
+	echo "Usage: $0 <file>"
+	echo "Where <file> is the path to store the package list"
+	exit 1
 else
-	OUTPUT_FILE="pkglist-intel.txt"
+	PKG_LIST="$1"
 fi
 
-PKG_LIST="/home/$USER/$OUTPUT_FILE"
 COMMAND="[ -f $PKG_LIST ] && /usr/bin/pacman -Qqe > $PKG_LIST 2> /dev/null"
 
 sudo touch "$PATH_TO_HOOK"
@@ -31,7 +34,7 @@ fi
 	echo "Type = Package"
 	echo "Target = *"
 	echo "[Action]"
-	echo "Description = Updating $OUTPUT_FILE"
+	echo "Description = Updating $PKG_LIST"
 	echo "When = PostTransaction"
 	echo "Exec = /usr/bin/sh -c '$COMMAND'"
 	echo "NeedsTargets"

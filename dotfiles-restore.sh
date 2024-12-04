@@ -51,12 +51,26 @@ if ! command -v yay; then
 	yay -Y --gendb
 fi
 
-# select package list depending on GPU driver installed
-if pacman -Qs nvidia | grep nvidia > /dev/null; then
-	PKG_FILE="$HOME/pkglist-nvidia.txt"
-else
-	PKG_FILE="$HOME/pkglist-intel.txt"
-fi
+pkglist_file1="$HOME/pkglist-intel.txt"
+pkglist_file2="$HOME/pkglist-nvidia.txt"
+pkglist_file3="$HOME/pkglist-nvidia-xorg.txt"
+
+echo "Available package lists:"
+echo "1) $pkglist_file1"
+echo "2) $pkglist_file2"
+echo "3) $pkglist_file3"
+echo "Please select a package list (1-3):"
+
+# Read user input
+read selection
+
+# Determine the selected file
+case "$selection" in
+    1) PKG_FILE="$pkglist_file1" ;;
+    2) PKG_FILE="$pkglist_file2" ;;
+    3) PKG_FILE="$pkglist_file3" ;;
+    *) echo "Invalid selection. Exiting." >&2; exit 1 ;;
+esac
 
 confirm "Do you want to install packages from $PKG_FILE?" || exit
 
@@ -99,7 +113,7 @@ gpg --decrypt --output ~/.config/github-copilot/hosts.json ~/.config/github-copi
 cp -f ~/.config/ksnip/ksnip.example.conf ~/.config/ksnip/ksnip.conf
 
 # setup pacman hook to update pkglist file automatically
-pacman-setup-hooks
+pacman-setup-hooks "$PKG_FILE"
 
 # setup keepassxc password
 echo "Configuring secret-tool for KeePassXC"
