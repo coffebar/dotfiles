@@ -45,6 +45,8 @@ electrum
 exfat-utils
 faac
 fakeroot
+faudio
+faudio-debug
 fd
 feh
 file
@@ -85,12 +87,12 @@ gvfs-mtp
 gzip
 haveged
 htop
-hyprcursor
-hyprland
+hyprland-git
 hyprland-monitor-attached
 hyprland-per-window-layout
+hyprland-protocols-git
 hyprpicker-git
-hyprutils
+hyprutils-git
 i3-wm
 imagemagick
 inotify-tools
@@ -106,7 +108,6 @@ keepassxc
 khal
 kooha
 ksnip
-lib32-opencl-nvidia
 libdv
 libinput-gestures
 libpulse
@@ -143,7 +144,6 @@ ntfs-3g
 ntp
 numlockx
 obsidian
-opencl-nvidia
 openvpn
 p7zip
 pacman
