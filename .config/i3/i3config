@@ -9,7 +9,7 @@
 # kbdd
 # ksnip
 # network-manager-applet
-# playerctl 
+# playerctl
 # polybar
 # rofi
 # syncthingtray
@@ -147,7 +147,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $mode_vpn "VPN toggle: 1 - wireguard(NL), 2 - openvpn(US), 0 - disable"
+set $mode_vpn "VPN toggle: 1 - wireguard(GB), 2 - openvpn(US), 0 - disable"
 mode $mode_vpn {
 	bindsym 1 exec --no-startup-id ~/lua/vpn.lua 1, mode "default"
 	bindsym 2 exec --no-startup-id ~/lua/vpn.lua 2, mode "default"
@@ -342,15 +342,12 @@ exec --no-startup-id $SESSION_CONF/polybar.sh
 # daemon to make per window layout using xkb
 exec --no-startup-id kbdd
 # syncthing tray
-exec --no-startup-id syncthingtray --wait &
+# exec --no-startup-id syncthingtray --wait &
 # clipboard manager
 exec --no-startup-id copyq
  
 # autotiling @link https://github.com/nwg-piotr/autotiling
 exec --no-startup-id autotiling &
-
-# touchpad gestures: https://github.com/bulletmark/libinput-gestures
-exec --no-startup-id systemctl start --user libinput-gestures.service
 
 # audio tray icon
 exec --no-startup-id pasystray &
@@ -360,13 +357,8 @@ exec --no-startup-id /bin/bash ~/Downloads/Telegram\ Desktop/unzip_here.sh &
 # telegram messanger
 exec --no-startup-id XDG_CURRENT_DESKTOP=gnome telegram-desktop &
 # Start KeePassXC with unlocking password # see https://github.com/keepassxreboot/keepassxc/issues/1267
-exec --no-startup-id /bin/sh -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin ~/KeePass/database.kdbx" &
+exec --no-startup-id /bin/sh -c "secret-tool lookup 'keepass' 'default' | QT_SCALE_FACTOR=1 QT_AUTO_SCREEN_SCALE_FACTOR=1 QT_SCREEN_SCALE_FACTORS=1 keepassxc --pw-stdin ~/KeePass/database.kdbx" &
 # remove "urgency" from KeePassXC on startup
 exec --no-startup-id /bin/sh -c 'until wmctrl -r KeePassXC -b remove,demands_attention; do sleep 1; done; sleep 2; wmctrl -r KeePassXC -b remove,demands_attention'
-# translator
-exec --no-startup-id crow &
 # pull ditfiles from github
 exec --no-startup-id $pull_cmd &
-# redshift
-exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent &
-exec --no-startup-id redshift-gtk &

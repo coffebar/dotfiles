@@ -1,0 +1,35 @@
+include ~/.config/i3/i3config
+
+# vac special config
+# Additional Requirements:
+# xcompmgr
+
+# workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# window compositor
+exec --no-startup-id "xcompmgr -n &"
+# desktop image
+exec --no-startup-id feh --bg-scale ~/Pictures/tree-mountain-sunset.jpg
+# load pre-saved layout and start browser
+exec --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg "workspace --no-auto-back-and-forth $ws1; append_layout ~/.config/vac/workspace-1.json"
+exec --no-startup-id [ "$XDG_VTNR" -eq '1' ] && i3-msg "workspace --no-auto-back-and-forth $ws2; append_layout ~/.config/vac/workspace-2.json"
+# update nvim plugins and keep terminal
+exec --no-startup-id alacritty -t Terminal
+# polkit-kde-agent
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
+exec --no-startup-id firefox &
+exec --no-startup-id thunderbird &
+exec --no-startup-id thunar --daemon
+exec --no-startup-id polybar -c ~/.config/vac/polybar.ini
+
+# vim:filetype=i3config
