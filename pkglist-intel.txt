@@ -207,6 +207,7 @@ ufw
 unrar
 unzip
 usbutils
+vi
 vim
 vlc
 wavpack
