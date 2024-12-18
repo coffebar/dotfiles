@@ -164,6 +164,7 @@ rsync
 rust-analyzer
 rustup
 s5cmd-bin
+s5cmd-bin-debug
 shellcheck
 signal-desktop
 slurp
@@ -213,6 +214,7 @@ wavpack
 waybar
 waybar-module-pacman-updates-git
 wbg
+wf-recorder
 wget
 which
 wireguard-tools
