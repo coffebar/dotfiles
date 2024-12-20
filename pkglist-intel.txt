@@ -1,5 +1,7 @@
 accountsservice
 acpi_call
+adspower-global
+adspower-global-debug
 alacritty
 alsa-plugins
 alsa-utils
@@ -164,7 +166,6 @@ rsync
 rust-analyzer
 rustup
 s5cmd-bin
-s5cmd-bin-debug
 shellcheck
 signal-desktop
 slurp

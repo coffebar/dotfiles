@@ -1,0 +1,2 @@
+#!/bin/sh
+/opt/AdsPower\ Global/adspower_global --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto
