@@ -1,3 +1,4 @@
+7zip
 accountsservice
 acpi_call
 alacritty
@@ -58,7 +59,6 @@ freerdp
 fuse2
 fuse3
 fuseiso
-fwupd
 gammastep
 gawk
 gcc
@@ -145,7 +145,6 @@ ntp
 numlockx
 obsidian
 openvpn
-p7zip
 pacman
 pacman-contrib
 pasystray
