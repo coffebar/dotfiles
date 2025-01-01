@@ -95,10 +95,6 @@
 
 - Automatic tiling via [autotiling](https://github.com/nwg-piotr/autotiling) script. Split direction depends on the currently focused window dimensions. I'm using vim-style HJKL to navigate inside WM.
 
-- UI scale options depend on the current display setup and [autorandr](https://github.com/phillipberndt/autorandr) profile name.
-
-- ``Super + \ `` open fuzzy finder to search for local text files in the home directory to edit in Neovim.
-
 - Some of wm's binds were improved by Lua script. Lua has more flexibility than i3config syntax. I like to switch automatically to the appropriate workspace after opening programs using a keyboard shortcut.
 
 #### Terminal
