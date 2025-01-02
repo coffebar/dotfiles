@@ -127,7 +127,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [Mofiqul/dracula.nvim](https://github.com/Mofiqul/dracula.nvim)  Dracula colorscheme for neovim written in Lua
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)  UI Component Library for Neovim.
 - [NeogitOrg/neogit](https://github.com/NeogitOrg/neogit)  An interactive and powerful Git interface for Neovim, inspired by Magit
-- [NvChad/nvim-colorizer.lua](https://github.com/NvChad/nvim-colorizer.lua)  Maintained fork of the fastest Neovim colorizer
+- [NvChad/nvim-colorizer.lua](https://github.com/NvChad/nvim-colorizer.lua)  The fastest Neovim colorizer
 - [Pocco81/AutoSave.nvim](https://github.com/Pocco81/AutoSave.nvim)  🧶 Automatically save your changes in NeoVim
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)  illuminate.vim - (Neo)Vim plugin for automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching.
 - [Shatur/neovim-session-manager](https://github.com/Shatur/neovim-session-manager)  A simple wrapper around :mksession.
@@ -136,7 +136,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [bloznelis/before.nvim](https://github.com/bloznelis/before.nvim)  Jump to the last edit in Neovim
 - [ckipp01/stylua-nvim](https://github.com/ckipp01/stylua-nvim)  Let&#39;s just use a formatter and never discuss formatting again.
 - [coffebar/crowtranslate.nvim](https://github.com/coffebar/crowtranslate.nvim)  Translate the visually selected text in Neovim.
-- [coffebar/neovim-project](https://github.com/coffebar/neovim-project)  Neovim project plugin simplifies project management by maintaining project history and providing quick access to projects via Telescope.
+- [coffebar/neovim-project](https://github.com/coffebar/neovim-project)  Neovim project plugin simplifies project management by maintaining project history and providing quick access to projects via Telescope or fzf-lua..
 - [coffebar/transfer.nvim](https://github.com/coffebar/transfer.nvim)  Syncing files with remote server using rsync and OpenSSH
 - [cohama/lexima.vim](https://github.com/cohama/lexima.vim)  Auto close parentheses and repeat by dot dot dot...
 - [elihunter173/dirbuf.nvim](https://github.com/elihunter173/dirbuf.nvim)  A file manager for Neovim which lets you edit your filesystem like you edit text
@@ -180,7 +180,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [nvim-pack/nvim-spectre](https://github.com/nvim-pack/nvim-spectre)  Find the enemy and replace them with dark power.
 - [nvim-telescope/telescope-live-grep-args.nvim](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)  Live grep with args
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)  Find, Filter, Preview, Pick. All lua, all the time.
-- [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)  lua `fork` of vim-web-devicons for neovim
+- [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)  Provides Nerd Font icons (glyphs) for use by neovim plugins
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)  Nvim Treesitter configurations and abstraction layer
 - [nvimtools/none-ls.nvim](https://github.com/nvimtools/none-ls.nvim)  null-ls.nvim reloaded / Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 - [petertriho/cmp-git](https://github.com/petertriho/cmp-git)  Git source for nvim-cmp
@@ -198,7 +198,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [skywind3000/asynctasks.vim](https://github.com/skywind3000/asynctasks.vim)  :rocket: Modern Task System for Project Building, Testing and Deploying !!
 - [tpope/vim-dotenv](https://github.com/tpope/vim-dotenv)  dotenv.vim: Basic support for .env and Procfile
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)  fugitive.vim: A Git wrapper so awesome, it should be illegal
-- [tzachar/highlight-undo.nvim](https://github.com/tzachar/highlight-undo.nvim)  Highlight changed text after Undo / Redo operations
+- [tzachar/highlight-undo.nvim](https://github.com/tzachar/highlight-undo.nvim)  Highlight changed text after any text changing operation
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)  Use treesitter to auto close and auto rename html tag
 <!-- plugins list end -->
 
