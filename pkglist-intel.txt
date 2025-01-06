@@ -1,7 +1,7 @@
+7zip
 accountsservice
 acpi_call
 adspower-global
-adspower-global-debug
 alacritty
 alsa-plugins
 alsa-utils
@@ -79,10 +79,11 @@ gvfs-mtp
 haveged
 htop
 hugo
-hyprland-git
+hyprland
 hyprland-monitor-attached
 hyprland-per-window-layout
 hyprpicker-git
+hyprutils
 imagemagick
 inotify-tools
 intel-media-driver
@@ -137,7 +138,6 @@ ntp
 obsidian
 openssh
 openvpn
-p7zip
 pacman-contrib
 patch
 pavucontrol
@@ -226,7 +226,7 @@ wmctrl
 wofi
 wrk
 wtype
-xdg-desktop-portal-hyprland-git
+xdg-desktop-portal-hyprland
 xdg-user-dirs
 xdg-utils
 xf86-input-synaptics
