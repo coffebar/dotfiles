@@ -1,3 +1,4 @@
+7zip
 accountsservice
 acpi_call
 alacritty
@@ -124,7 +125,6 @@ opencl-nvidia
 openssh
 openvpn
 os-prober
-p7zip
 pacman-contrib
 pasystray
 pavucontrol
@@ -149,6 +149,7 @@ rofi
 rose-pine-cursor
 rose-pine-hyprcursor
 rsync
+rtl8852au-dkms-git
 rtw89-dkms-git
 rust-analyzer
 rustup
