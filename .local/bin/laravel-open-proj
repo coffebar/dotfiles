@@ -60,6 +60,13 @@ tear_up() {
 	if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
 		OZ="--ozone-platform=wayland"
 	fi
+	# check if --force-device-scale-factor is in ~/.local/share/applications/google-chrome.desktop if file exists
+	if [ -f ~/.local/share/applications/google-chrome.desktop ]; then
+		SCALE=$(grep -oP 'force-device-scale-factor=\K[0-9.]+' ~/.local/share/applications/google-chrome.desktop)
+		if [ -n "$SCALE" ]; then
+			OZ="$OZ --force-device-scale-factor=$SCALE"
+		fi
+	fi
 	google-chrome-stable $OZ \
 		--profile-directory="$CHROME_PROFILE" > /dev/null 2>&1 &
 	sleep 1
