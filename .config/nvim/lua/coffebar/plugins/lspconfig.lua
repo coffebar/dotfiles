@@ -43,6 +43,11 @@ lspconfig.ts_ls.setup({
 -- vue js from @vue/language-server
 lspconfig.volar.setup({
   filetypes = { "vue" },
+  init_options = {
+    typescript = {
+      tsdk = vim.fn.expand("~/.local/share/pnpm/global/5/node_modules/typescript/lib/"),
+    },
+  },
 })
 -- lua, requires lua-language-server
 lspconfig.lua_ls.setup({})
