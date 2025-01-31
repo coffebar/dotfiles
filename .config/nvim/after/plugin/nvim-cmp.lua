@@ -141,6 +141,27 @@ cmp.setup.filetype("gitcommit", {
   },
 })
 
+cmp.setup.filetype("vue", {
+  sources = cmp.config.sources({
+    { name = "nvim_lsp" }, -- main
+    { name = "path" },
+    { name = "buffer" },
+    { name = "luasnip" },
+    ripgrep,
+  }),
+  sorting = {
+    comparators = {
+      cmp.config.compare.score,
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
+  },
+})
+
 cmp.setup.filetype("html", {
   sources = cmp.config.sources({
     { name = "nvim_lsp" }, -- main
