@@ -24,6 +24,7 @@ bluez-utils
 breeze5
 brightnessctl
 btrfs-progs
+caffeine-ng
 composer
 copyq
 cronie
@@ -86,8 +87,8 @@ kdenlive
 keepassxc
 khal
 ksnip
+lftp
 libappindicator-gtk2
-libinput-gestures
 libreoffice-fresh
 libreoffice-fresh-en-gb
 libreoffice-fresh-uk

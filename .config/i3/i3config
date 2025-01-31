@@ -352,6 +352,9 @@ exec --no-startup-id autotiling &
 # audio tray icon
 exec --no-startup-id pasystray &
 
+# caffeine-ng is a status bar application able to temporarily inhibit the screensaver and sleep mode.
+exec --no-startup-id caffeine &
+
 # script to extract zip files after download
 exec --no-startup-id /bin/bash ~/Downloads/Telegram\ Desktop/unzip_here.sh &
 # telegram messanger
