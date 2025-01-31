@@ -127,4 +127,5 @@ Sync/
 .histfile
 .nvidia-settings-rc
 .zcompdump
+.netrc
 
