@@ -1,7 +1,13 @@
 #!/bin/bash
 if grep Ubuntu /etc/os-release; then
-	echo "Ubuntu is not supported for now." # maybe someday
-	exit 1
+	sudo add-apt-repository ppa:neovim-ppa/unstable
+ 	sudo apt install neovim python3-autopep8 ansible-lint golang npm fd-find ripgrep xclip rsync python3-virtualenv wget rustup
+  	rustup default stable
+   	rustup component add rust-analyzer
+    	wget https://github.com/LuaLS/lua-language-server/releases/download/3.13.5/lua-language-server-3.13.5-linux-x64.tar.gz
+     	mkdir -p ~/.local/share/pnpm/lua-language-server && cd ~/.local/share/pnpm/lua-language-server && tar -xzf ~/lua-language-server-*.tar.gz
+        cd ~ && rm -f ~/lua-language-server-*.tar.gz
+	echo 'export PATH="$PATH:$HOME/.local/share/pnpm:$HOME/.node_modules/bin:$HOME/.local/share/pnpm/lua-language-server/bin"' >> .bashrc
 else
 	pacman --version || exit 1
 	# packages from arch repo
