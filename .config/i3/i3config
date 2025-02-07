@@ -344,7 +344,7 @@ exec --no-startup-id kbdd
 # syncthing tray
 # exec --no-startup-id syncthingtray --wait &
 # clipboard manager
-exec --no-startup-id copyq
+exec --no-startup-id QT_SCALE_FACTOR=1 copyq
  
 # autotiling @link https://github.com/nwg-piotr/autotiling
 exec --no-startup-id autotiling &

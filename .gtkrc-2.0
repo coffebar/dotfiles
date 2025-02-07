@@ -6,6 +6,7 @@ gtk-theme-name="Arc-Dark"
 gtk-icon-theme-name="bloom-classic"
 gtk-font-name="Droid Sans 12"
 gtk-cursor-theme-name="BreezeX-RosePine-Linux"
+# note: on PC set gtk-cursor-theme-size=24
 gtk-cursor-theme-size=32
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
