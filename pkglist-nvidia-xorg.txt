@@ -168,7 +168,6 @@ sshfs
 sshpass
 sudo
 syncthing
-syncthingtray
 systemd-resolvconf
 taskwarrior-tui
 telegram-desktop

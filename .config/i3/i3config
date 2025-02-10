@@ -12,7 +12,6 @@
 # playerctl
 # polybar
 # rofi
-# syncthingtray
 # ttf-droid
 # ttf-font-awesome-4
 # xsecurelock
@@ -236,10 +235,6 @@ set $pull_cmd pull-dotfiles
 bindsym $mod+p exec --no-startup-id alacritty\
  --class="workspace10-floating" -e /usr/bin/zsh -c "$pull_cmd"
 
-# show syncthing web ui
-bindsym $mod+s workspace --no-auto-back-and-forth $ws7;\
- exec --no-startup-id syncthingtray --webui
-
 # workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -341,8 +336,6 @@ exec --no-startup-id $SESSION_CONF/polybar.sh
 
 # daemon to make per window layout using xkb
 exec --no-startup-id kbdd
-# syncthing tray
-# exec --no-startup-id syncthingtray --wait &
 # clipboard manager
 exec --no-startup-id QT_SCALE_FACTOR=1 copyq
  
