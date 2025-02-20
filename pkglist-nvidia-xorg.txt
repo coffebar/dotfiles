@@ -15,6 +15,7 @@ autotiling-git
 aws-cli
 baloo
 baobab
+barrier
 base
 base-devel
 bind

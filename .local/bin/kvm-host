@@ -1,0 +1,56 @@
+#!/bin/sh
+# Goal:
+#  Extend x11 machine's keyboard and mouse to wayland machine
+# Method:
+#  run waynergy on client machine via ssh with nohup
+#  and barrier on host machine
+# Precondition:
+#  both machines are on the same network
+#  host machine has barrier installed
+#  client machine has waynergy installed
+#  client machine has ssh server running and host machine has ssh key added
+#  barrier configurated via GUI (cryptographic security disabled, client machine added, start in tray)
+
+# client machine ssh Host
+CLIENT_NAME="crab"
+# the first 3 octets of the network (e.g. 192.168.1)
+NET_PREFIX=$(ip -4 addr show | grep -oP '(?<=inet\s)(?!127\.0)\d+\.\d+\.\d+' | head -1)
+IP_REGEX="$NET_PREFIX.\d+" # e.g. 192.168.1.\d+
+
+# find localhost ip in the local network
+HOST_IP=$(ip a show scope global | grep -oP "$IP_REGEX" | head -1)
+if [ -z "$HOST_IP" ]; then
+	echo "IP not found for localhost by $IP_REGEX"
+	exit 1
+fi
+
+# try to connect to client machine to make sure ssh_config is working
+ssh -o PasswordAuthentication=no $CLIENT_NAME exit > /dev/null 2>&1
+
+if [ $? -eq 0 ]; then
+	# can connect to client machine by using ssh_config only
+	SSH_OPTIONS=''
+else
+	# require to find current ip of the client machine
+	IP_MASK=$NET_PREFIX".0/24" # e.g. 192.168.1.0/24
+	echo "Scaning $IP_MASK for $CLIENT_NAME with 22 port..."
+	CLIENT_IP=$(nmap -Pn -p 22 --open $IP_MASK -oG - | grep "$CLIENT_NAME" | awk '/22\/open/ {print $2}')
+	if [ -z "$CLIENT_IP" ]; then
+		echo "IP not found for $CLIENT_NAME"
+		exit 1
+	fi
+	echo "Found $CLIENT_NAME at $CLIENT_IP"
+	echo "Connecting to $CLIENT_NAME at $CLIENT_IP to run waynergy"
+	SSH_OPTIONS="-o Hostname=$CLIENT_IP"
+fi
+
+# start barrier if not running
+pgrep -f 'barrier' || barrier --disable-crypto > /dev/null 2>&1 &
+
+ssh $SSH_OPTIONS $CLIENT_NAME \
+	"WAYLAND_DISPLAY=wayland-1 nohup waynergy -c $HOST_IP -E > /dev/null 2>&1 & disown > /dev/null && exit"
+if [ $? -ne 0 ]; then
+	echo "Failed to connect to $CLIENT_NAME"
+	exit 1
+fi
+echo "Connected"
