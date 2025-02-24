@@ -142,6 +142,7 @@ polkit-kde-agent
 polybar
 postman-bin
 python-openai
+python-passlib
 python-pip
 python-virtualenv
 qt5ct
