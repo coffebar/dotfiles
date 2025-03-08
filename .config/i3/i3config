@@ -337,7 +337,7 @@ exec --no-startup-id $SESSION_CONF/polybar.sh
 # daemon to make per window layout using xkb
 exec --no-startup-id kbdd
 # clipboard manager
-exec --no-startup-id QT_SCALE_FACTOR=1 copyq
+exec --no-startup-id copyq
  
 # autotiling @link https://github.com/nwg-piotr/autotiling
 exec --no-startup-id autotiling &
@@ -353,7 +353,7 @@ exec --no-startup-id /bin/bash ~/Downloads/Telegram\ Desktop/unzip_here.sh &
 # telegram messanger
 exec --no-startup-id XDG_CURRENT_DESKTOP=gnome telegram-desktop &
 # Start KeePassXC with unlocking password # see https://github.com/keepassxreboot/keepassxc/issues/1267
-exec --no-startup-id /bin/sh -c "secret-tool lookup 'keepass' 'default' | QT_SCALE_FACTOR=1 QT_AUTO_SCREEN_SCALE_FACTOR=1 QT_SCREEN_SCALE_FACTORS=1 keepassxc --pw-stdin ~/KeePass/database.kdbx" &
+exec --no-startup-id /bin/sh -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin ~/KeePass/database.kdbx" &
 # remove "urgency" from KeePassXC on startup
 exec --no-startup-id /bin/sh -c 'until wmctrl -r KeePassXC -b remove,demands_attention; do sleep 1; done; sleep 2; wmctrl -r KeePassXC -b remove,demands_attention'
 # pull ditfiles from github
