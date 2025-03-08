@@ -97,6 +97,13 @@ if py_lsp_installed then
   local py_lsp_loaded = false
   local py_cwd = nil
   local augroup = vim.api.nvim_create_augroup("py_lsp", { clear = true })
+  local function guess_venv_path()
+    local venv_path = "venv"
+    if vim.fn.isdirectory(venv_path) == 0 and vim.fn.isdirectory(".venv") then
+      venv_path = ".venv"
+    end
+    return venv_path
+  end
   vim.api.nvim_create_autocmd("BufReadPost", {
     group = augroup,
     pattern = { "*.py" },
@@ -110,14 +117,14 @@ if py_lsp_installed then
           py_lsp.setup({
             host_python = "/bin/python3",
             language_server = "pyright",
-            default_venv_name = "venv",
+            default_venv_name = guess_venv_path(),
           })
         end, 500)
       else
         -- change venv if cwd changed since setup
         local cwd = vim.fn.getcwd()
         if cwd ~= py_cwd then
-          vim.api.nvim_command("PyLspActivateVenv")
+          vim.api.nvim_command("PyLspActivateVenv " .. guess_venv_path())
           py_cwd = cwd
         end
       end
