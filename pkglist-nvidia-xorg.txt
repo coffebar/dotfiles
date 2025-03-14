@@ -1,6 +1,7 @@
 7zip
 accountsservice
 acpi_call
+adspower-global
 alacritty
 alsa-plugins
 alsa-utils
@@ -30,6 +31,7 @@ composer
 copyq
 cronie
 crow-translate
+cuda
 dconf-editor
 deepin-icon-theme
 deluge
@@ -215,6 +217,7 @@ xf86-input-synaptics
 xf86-video-intel
 xfce4-settings
 xfce4-taskmanager
+xnconvert
 xorg-fonts-type1
 xorg-server
 xorg-xinit

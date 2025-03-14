@@ -1,2 +1,2 @@
 #!/bin/sh
-/opt/AdsPower\ Global/adspower_global --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto
+adspower-global --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto --force-device-scale-factor=1.5
