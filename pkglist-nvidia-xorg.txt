@@ -95,6 +95,7 @@ libappindicator-gtk2
 libreoffice-fresh
 libreoffice-fresh-en-gb
 libreoffice-fresh-uk
+libva-nvidia-driver
 linux
 linux-firmware
 linux-headers

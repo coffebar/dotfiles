@@ -60,6 +60,12 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 			export SDL_VIDEODRIVER=wayland
 			export XKB_DEFAULT_OPTIONS=caps:backspace
 			export GTK_THEME=Arc:dark
+			export ELECTRON_OZONE_PLATFORM_HINT=auto
+			if [ "$XDG_SESSION_OPT" = "vac" ]; then
+				export LIBVA_DRIVER_NAME=nvidia
+				export __GLX_VENDOR_LIBRARY_NAME=nvidia
+				export NVD_BACKEND=direct
+			fi
 			# start wayland compositor
 			exec $WM -c "$HYPRLAND_CONFIG"
 		else
