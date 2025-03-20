@@ -70,6 +70,11 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 			exec $WM -c "$HYPRLAND_CONFIG"
 		else
 			# fallback to xorg
+
+			# define fontconfig path for chromium
+			export FONTCONFIG_PATH=/etc/fonts
+
+			# start xorg
 			exec startx > /dev/null
 		fi
 	fi
