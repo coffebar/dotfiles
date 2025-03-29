@@ -13,6 +13,12 @@
 
 # client machine ssh Host
 CLIENT_NAME="crab"
+
+# check barrier is executable
+if ! command -v barrier &> /dev/null; then
+	echo "barrier is not installed on this machine"
+	exit 1
+fi
 # the first 3 octets of the network (e.g. 192.168.1)
 NET_PREFIX=$(ip -4 addr show | grep -oP '(?<=inet\s)(?!127\.0)\d+\.\d+\.\d+' | head -1)
 IP_REGEX="$NET_PREFIX.\d+" # e.g. 192.168.1.\d+
