@@ -214,6 +214,7 @@ vlc
 wavpack
 waybar
 waybar-module-pacman-updates-git
+waynergy
 wbg
 wf-recorder
 wget
