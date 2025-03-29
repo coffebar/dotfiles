@@ -23,6 +23,7 @@ bind
 blueman
 bluez
 bluez-utils
+brave-beta-bin
 breeze5
 brightnessctl
 btrfs-progs
