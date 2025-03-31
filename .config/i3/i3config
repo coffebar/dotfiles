@@ -166,8 +166,10 @@ bindsym $alt+Control+Left workspace --no-auto-back-and-forth prev_on_output
 bindsym $mod+$alt+Right move --no-auto-back-and-forth workspace to output right
 bindsym $mod+$alt+Left move --no-auto-back-and-forth workspace to output left
 
-# make a screenshot 
+# make a screenshot
 bindsym Print exec --no-startup-id ksnip -r
+# super+\ make a screenshot too
+bindcode $mod+51 exec --no-startup-id ksnip -r
 # start ksnip or open an editor window
 bindsym $mod+Print exec --no-startup-id ksnip
 
@@ -208,8 +210,8 @@ bindsym $alt+f exec --no-startup-id "~/lua/wm-keymap.lua f"
 bindsym XF86Explorer exec --no-startup-id "~/lua/wm-keymap.lua f"
 
 # super+/ open FZF script to open nvim
-bindcode $mod+51 exec --no-startup-id alacritty -t 'fzf:nvim' -e\
- bash ~/.config/nvim/find_and_edit.sh
+# bindcode $mod+51 exec --no-startup-id alacritty -t 'fzf:nvim' -e\
+#  bash ~/.config/nvim/find_and_edit.sh
 
 # more apps
 bindsym $alt+b workspace --no-auto-back-and-forth $ws1; \
