@@ -50,7 +50,15 @@ lspconfig.volar.setup({
   },
 })
 -- lua, requires lua-language-server
-lspconfig.lua_ls.setup({})
+lspconfig.lua_ls.setup({
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+    },
+  },
+})
 -- css, html
 -- requires vscode-langservers-extracted npm package
 --Enable (broadcasting) snippet capability for completion
