@@ -66,7 +66,7 @@ if has_wk then
     { "<leader>N", "<cmd>Neotree reveal<cr>", desc = "Reveal Neotree" },
     { "<leader>O", "O<esc>", desc = "Add blank line above" },
     { "<leader>P", "<cmd>Telescope neovim-project discover<cr>", desc = "Discover Project" },
-    { "<leader>T", "<cmd>TroubleToggle<cr>", desc = "Trouble" },
+    { "<leader>T", "<cmd>Trouble diagnostics<cr>", desc = "Trouble" },
     { "<leader>a", "<cmd>qa!<cr>", desc = "Quit" },
     { "<leader>b", "<cmd>Bdelete<cr>", desc = "Close this buffer" },
     { "<leader>c", group = "Copy" },
