@@ -72,3 +72,6 @@ g.gruvbox_invert_selection = "0"
 
 -- enable copilot on gitcommit and markdown
 g.copilot_filetypes = { gitcommit = true, markdown = true }
+
+-- show diagnostic as virtual lines
+vim.diagnostic.config({ virtual_lines = true, virtual_text = false })
