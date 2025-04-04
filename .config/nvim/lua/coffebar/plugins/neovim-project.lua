@@ -25,4 +25,5 @@ return {
   },
   -- Path to store history and sessions
   datapath = datapath,
+  follow_symlinks = "partial",
 }
