@@ -29,7 +29,7 @@ move_to_workspace() { # move window to workspace
 	fi
 }
 
-tear_up() {
+raise() {
 	# run VM
 	ter --class='wp-5' --command ./vendor/bin/sail up -d
 
@@ -77,21 +77,17 @@ tear_up() {
 	move_to_workspace google-chrome 1
 }
 
-tear_down() {
-	pkill -2 -f "$TERMINAL --working-directory=$PROJECT"
-	pkill -f "/opt/google/chrome/chrome" > /dev/null 2>&1
-	ter --class='wp-5' --command ./vendor/bin/sail down &
-}
-
 CHROME_OPENED=$(pgrep -af "$CHROME_PROFILE" | grep -v "$0")
 TERMINAL_OPENED=$(pgrep -af " --class=wp-5")
 
 if [ -z "$CHROME_OPENED" ] && [ -z "$TERMINAL_OPENED" ]; then
-	echo "Tear up"
-	tear_up
+	echo "Starting..."
+	raise
 else
-	echo "Tear down"
-	tear_down
+	echo "Stopping..."
+	pkill -2 -f "$TERMINAL --working-directory=$PROJECT"
+	pkill -f "/opt/google/chrome/chrome" > /dev/null 2>&1
+	ter --class='wp-5' --command ./vendor/bin/sail down &
 fi
 
 disown
