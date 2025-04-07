@@ -313,6 +313,8 @@ for_window [class="^jetbrains-phpstorm$" title="License Expired"] kill
 # workaround @link https://bugzilla.mozilla.org/show_bug.cgi?id=686747
 for_window [class="firefox"] resize grow height 1 px or 1 ppt
 for_window [class="-floating$"] floating enable, move position center
+# Picture-in-Picture window show on all workspaces
+for_window [class="firefox" title="Picture-in-Picture"] floating enable, sticky enable
 
 # colors:
 # class                 border    backgr. text      indicator child_border
