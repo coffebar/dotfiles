@@ -3,20 +3,20 @@
 #  Extend x11 machine's keyboard and mouse to wayland machine
 # Method:
 #  run waynergy on client machine via ssh with nohup
-#  and barrier on host machine
+#  and deskflow on host machine
 # Precondition:
 #  both machines are on the same network
-#  host machine has barrier installed
+#  host machine has deskflow installed
 #  client machine has waynergy installed
 #  client machine has ssh server running and host machine has ssh key added
-#  barrier configurated via GUI (cryptographic security disabled, client machine added, start in tray)
+#  deskflow configurated via GUI (cryptographic security disabled, client machine added, start in tray)
 
 # client machine ssh Host
 CLIENT_NAME="crab"
 
-# check barrier is executable
-if ! command -v barrier &> /dev/null; then
-	echo "barrier is not installed on this machine"
+# check deskflow is executable
+if ! command -v /usr/bin/deskflow &> /dev/null; then
+	echo "deskflow is not installed on this machine"
 	exit 1
 fi
 # the first 3 octets of the network (e.g. 192.168.1)
@@ -50,8 +50,8 @@ else
 	SSH_OPTIONS="-o Hostname=$CLIENT_IP"
 fi
 
-# start barrier if not running
-pgrep -f 'barrier' || barrier --disable-crypto > /dev/null 2>&1 &
+# start deskflow if not running
+pgrep -f 'deskflow' || /usr/bin/deskflow > /dev/null 2>&1 &
 
 ssh $SSH_OPTIONS $CLIENT_NAME \
 	"WAYLAND_DISPLAY=wayland-1 nohup waynergy -c $HOST_IP -E > /dev/null 2>&1 & disown > /dev/null && exit"

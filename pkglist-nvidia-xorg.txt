@@ -16,7 +16,6 @@ autotiling-git
 aws-cli
 baloo
 baobab
-barrier
 base
 base-devel
 bind
@@ -36,6 +35,7 @@ dconf-editor
 deepin-icon-theme
 deluge
 deluge-gtk
+deskflow
 dhcpcd
 dmidecode
 docker
