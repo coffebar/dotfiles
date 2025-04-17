@@ -66,7 +66,4 @@ install_nodejs_packages_if_needed pyright bash-language-server \
 
 go install golang.org/x/tools/gopls@latest
 
-# download stubs for LSP, currently only for PHP
-source ~/.config/nvim/download-stubs.sh
-
 nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
