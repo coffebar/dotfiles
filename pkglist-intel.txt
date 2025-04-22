@@ -31,6 +31,7 @@ cronie
 deepin-icon-theme
 deluge
 deluge-gtk
+deskflow
 dhcpcd
 dmidecode
 docker
@@ -83,7 +84,6 @@ hyprland
 hyprland-monitor-attached
 hyprland-per-window-layout
 hyprpicker-git
-hyprutils
 imagemagick
 inotify-tools
 intel-media-driver
