@@ -112,7 +112,6 @@ linux-zen-headers
 lsof
 ltex-ls-bin
 lua-language-server
-lxappearance
 lzop
 m4
 make
@@ -135,6 +134,7 @@ noto-fonts-emoji
 npm
 ntfs-3g
 ntp
+nwg-look
 obsidian
 openssh
 openvpn
