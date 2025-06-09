@@ -96,6 +96,7 @@ keepassxc
 khal
 kooha
 ksnip
+lftp
 libappindicator-gtk2
 libdv
 libinput-gestures
