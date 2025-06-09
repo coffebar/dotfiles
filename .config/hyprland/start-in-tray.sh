@@ -27,7 +27,7 @@ sleep 1 # wait for waybar
 
 nm-applet --indicator &
 syncthingtray --wait &
-XDG_CURRENT_DESKTOP=gnome telegram-desktop &
+XDG_CURRENT_DESKTOP=gnome /usr/bin/Telegram &
 blueman-applet &
 
 hyprctl dispatch workspace 1
