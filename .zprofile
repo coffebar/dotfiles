@@ -18,6 +18,12 @@ export RUSTFLAGS="--remap-path-prefix $HOME=~"
 export XDG_SESSION_OPT=$(cat /etc/hostname)
 export SESSION_CONF="$HOME/.config/$XDG_SESSION_OPT"
 
+if [ -f "$HOME/.openai" ] ; then
+	# load OpenAI API key from file
+	export OPENAI_API_KEY=$(cat "$HOME/.openai")
+fi
+
+
 if [ -z "$XDG_CONFIG_HOME" ]; then
 	export XDG_CACHE_HOME=$HOME/.cache
 	export XDG_CONFIG_HOME=$HOME/.config
