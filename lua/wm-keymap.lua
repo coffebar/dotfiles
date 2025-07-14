@@ -48,7 +48,7 @@ if key == "f" then
   os.execute(string.format('thunar "%s" &', dir))
 elseif key == "t" then
   -- switch to Telegram or open new instance on fail
-  local cmd = "XDG_CURRENT_DESKTOP=gnome telegram-desktop &"
+  local cmd = "XDG_CURRENT_DESKTOP=gnome Telegram &"
   if desktop_session == "i3" then
     local msg = sys("i3-msg '[class=\"^TelegramDesktop$\"] focus'")
     if not string.match(msg, '"success":true') then
