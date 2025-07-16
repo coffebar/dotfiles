@@ -1,0 +1,107 @@
+#!/bin/bash
+
+# Simple tmux setup for Claude Code workflow
+# Purpose: Edit prompts in Neovim and send them to Claude Code for processing
+# Creates a session with Neovim and Claude Code in vertical panes
+# Allows sending prompts from Neovim to Claude Code using F12 or Alt+Enter
+
+SESSION_NAME="claude-$(basename "$PWD")"
+PROMPT_FILE="/tmp/claude_prompt.md"
+
+# Check if Claude Code is installed
+if ! command -v claude &> /dev/null; then
+	echo "Error: Claude Code is not installed or not in PATH"
+	echo "Please install Claude Code first: https://docs.anthropic.com/en/docs/claude-code"
+	exit 1
+fi
+
+# Kill existing session if it exists
+tmux kill-session -t "$SESSION_NAME" 2> /dev/null || true
+
+# Create empty prompt file
+echo "" > "$PROMPT_FILE"
+
+# Configure tmux session settings
+tmux new-session -d -s "$SESSION_NAME" "nvim /tmp/claude_prompt.md"
+
+# Apply important tmux settings for this session
+tmux set-option -t "$SESSION_NAME" base-index 1
+tmux set-window-option -t "$SESSION_NAME" pane-base-index 1
+tmux set-option -t "$SESSION_NAME" renumber-windows on
+tmux set-option -t "$SESSION_NAME" mouse on
+
+# Split window vertically and start claude in new pane
+tmux split-window -h -t "$SESSION_NAME" "cd '$PWD' && claude"
+
+# Wait for panes to be ready
+sleep 2
+
+# Focus on left pane (nvim)
+tmux select-pane -t "$SESSION_NAME:1.1"
+
+# F12 action function
+f12_action() {
+    # Save file in nvim (left pane) - use session.%pane format
+    tmux send-keys -t $SESSION_NAME:1.1 Escape ":w" Enter
+    sleep 0.5
+
+    # Check if file exists and has content, then send to claude
+    if [ -f /tmp/claude_prompt.md ] && [ -s /tmp/claude_prompt.md ]; then
+        # Get the content and send it all at once
+        content=$(cat /tmp/claude_prompt.md | tr "\n" " ")
+        if [ -n "$content" ]; then
+            tmux send-keys -t $SESSION_NAME:1.2 "$content"
+            sleep 0.2
+            tmux send-keys -t $SESSION_NAME:1.2 Enter
+            # Clear prompt file and reload in nvim only after sending
+            echo "" > /tmp/claude_prompt.md
+            sleep 0.2
+            tmux send-keys -t $SESSION_NAME:1.1 ":e" Enter
+        fi
+    fi
+
+    tmux select-pane -t $SESSION_NAME:1.1
+}
+
+# Set up key bindings for F12 and Alt+Enter
+tmux bind-key -n F12 run-shell 'bash -c "
+    tmux send-keys -t $SESSION_NAME:1.1 Escape \":w\" Enter
+    sleep 0.5
+    if [ -f /tmp/claude_prompt.md ] && [ -s /tmp/claude_prompt.md ]; then
+        content=\$(cat /tmp/claude_prompt.md | tr \"\n\" \" \")
+        if [ -n \"\$content\" ]; then
+            tmux send-keys -t $SESSION_NAME:1.2 \"\$content\"
+            sleep 0.2
+            tmux send-keys -t $SESSION_NAME:1.2 Enter
+            echo \"\" > /tmp/claude_prompt.md
+            sleep 0.2
+            tmux send-keys -t $SESSION_NAME:1.1 \":e\" Enter
+        fi
+    fi
+    tmux select-pane -t $SESSION_NAME:1.1
+"'
+tmux bind-key -n M-Enter run-shell 'bash -c "
+    tmux send-keys -t $SESSION_NAME:1.1 Escape \":w\" Enter
+    sleep 0.5
+    if [ -f /tmp/claude_prompt.md ] && [ -s /tmp/claude_prompt.md ]; then
+        content=\$(cat /tmp/claude_prompt.md | tr \"\n\" \" \")
+        if [ -n \"\$content\" ]; then
+            tmux send-keys -t $SESSION_NAME:1.2 \"\$content\"
+            sleep 0.2
+            tmux send-keys -t $SESSION_NAME:1.2 Enter
+            echo \"\" > /tmp/claude_prompt.md
+            sleep 0.2
+            tmux send-keys -t $SESSION_NAME:1.1 \":e\" Enter
+        fi
+    fi
+    tmux select-pane -t $SESSION_NAME:1.1
+"'
+
+# Focus on Neovim pane initially
+tmux select-pane -t "$SESSION_NAME:1.1"
+
+# Send 'i' key to nvim to enter insert mode
+tmux send-keys -t "$SESSION_NAME:1.1" "i"
+
+# Attach to session
+tmux attach-session -t "$SESSION_NAME"

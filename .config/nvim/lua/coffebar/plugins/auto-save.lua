@@ -17,6 +17,11 @@ return {
       -- remote buffer
       return false -- disable auto-save
     end
+    -- disable for claude_prompt.md file
+    -- this is only for a custom script ~/.local/bin/tmux-nvim-claude
+    if fn.expand("%:t") == "claude_prompt.md" then
+      return false -- disable auto-save
+    end
     local utils = require("auto-save.utils.data")
     local exclude = {
       "dirbuf",
