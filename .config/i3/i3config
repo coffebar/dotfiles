@@ -282,7 +282,7 @@ bindsym $alt+Control+l exec --no-startup-id $Locker
 
 # assign apps to workspaces
 assign [class="firefox$"] → $ws1 
-assign [class="^TelegramDesktop$"] → $ws2
+assign [class="^org.telegram.desktop$"] → $ws2
 assign [class="^Alacritty$" title="Terminal"] → $ws2
 assign [class="^jetbrains-phpstorm$"] → $ws3
 assign [class="^Google-chrome$"] → $ws4
@@ -308,8 +308,8 @@ for_window [class="^KeePassXC$" title="Browser Access Request"] floating enable,
 for_window [class="^Gnome-calculator$"] floating enable, border pixel 0
 for_window [class="^Xreader$"] floating enable, border pixel 0
 for_window [class="^jetbrains" title="^Diff Between '"] floating enable, border pixel 0
-# for_window [class="^Telegram" title="Media viewer"] move window to output left
-for_window [class="^Telegram" title="Save "] move --no-auto-back-and-forth window to workspace "2" 
+# for_window [class="^org.telegram.desktop" title="Media viewer"] move window to output left
+for_window [class="^org.telegram.desktop" title="Save "] move --no-auto-back-and-forth window to workspace "2" 
 for_window [class="^jetbrains-phpstorm$" title="License Expired"] kill 
 # workaround @link https://bugzilla.mozilla.org/show_bug.cgi?id=686747
 for_window [class="firefox"] resize grow height 1 px or 1 ppt
@@ -356,7 +356,7 @@ exec --no-startup-id caffeine &
 # script to extract zip files after download
 exec --no-startup-id /bin/bash ~/Downloads/Telegram\ Desktop/unzip_here.sh &
 # telegram messanger
-exec --no-startup-id XDG_CURRENT_DESKTOP=gnome telegram-desktop &
+exec --no-startup-id XDG_CURRENT_DESKTOP=gnome /usr/bin/Telegram &
 # Start KeePassXC with unlocking password # see https://github.com/keepassxreboot/keepassxc/issues/1267
 exec --no-startup-id /bin/sh -c "secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin ~/KeePass/database.kdbx" &
 # remove "urgency" from KeePassXC on startup
