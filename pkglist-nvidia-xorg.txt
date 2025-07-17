@@ -118,7 +118,6 @@ network-manager-applet
 networkmanager
 networkmanager-openvpn
 nmap
-nodejs
 noto-fonts
 noto-fonts-emoji
 npm
@@ -181,6 +180,7 @@ thunar
 thunar-archive-plugin
 thunar-volman
 thunderbird
+tmux
 tomlplusplus
 traceroute
 ttf-bitstream-vera
@@ -230,7 +230,6 @@ xss-lock
 xterm
 yarn
 yay
-yay-debug
 zip
 zram-generator
 zsh
