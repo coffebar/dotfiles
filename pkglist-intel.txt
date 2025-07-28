@@ -196,7 +196,6 @@ traceroute
 ttf-bitstream-vera
 ttf-dejavu
 ttf-droid
-ttf-font-awesome
 ttf-font-awesome-4
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
@@ -225,6 +224,7 @@ wireless_tools
 wireplumber
 wl-clipboard
 wmctrl
+woff2-font-awesome
 wofi
 wrk
 wtype
