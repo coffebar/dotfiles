@@ -6,7 +6,7 @@
 # Allows sending prompts from Neovim to Claude Code using F12 or Alt+Enter
 
 SESSION_NAME="claude-$(basename "$PWD")"
-PROMPT_FILE="/tmp/claude_prompt.md"
+PROMPT_FILE="/tmp/instructions.prompt.md"
 
 # Check if Claude Code is installed
 if ! command -v claude &> /dev/null; then
@@ -22,7 +22,7 @@ tmux kill-session -t "$SESSION_NAME" 2> /dev/null || true
 echo "" > "$PROMPT_FILE"
 
 # Configure tmux session settings
-tmux new-session -d -s "$SESSION_NAME" "nvim /tmp/claude_prompt.md"
+tmux new-session -d -s "$SESSION_NAME" "nvim /tmp/instructions.prompt.md"
 
 # Apply important tmux settings for this session
 tmux set-option -t "$SESSION_NAME" base-index 1
@@ -39,60 +39,30 @@ sleep 2
 # Focus on left pane (nvim)
 tmux select-pane -t "$SESSION_NAME:1.1"
 
-# F12 action function
-f12_action() {
-    # Save file in nvim (left pane) - use session.%pane format
-    tmux send-keys -t $SESSION_NAME:1.1 Escape ":w" Enter
-    sleep 0.5
-
-    # Check if file exists and has content, then send to claude
-    if [ -f /tmp/claude_prompt.md ] && [ -s /tmp/claude_prompt.md ]; then
-        # Get the content and send it all at once
-        content=$(cat /tmp/claude_prompt.md | tr "\n" " ")
-        if [ -n "$content" ]; then
-            tmux send-keys -t $SESSION_NAME:1.2 "$content"
-            sleep 0.2
-            tmux send-keys -t $SESSION_NAME:1.2 Enter
-            # Clear prompt file and reload in nvim only after sending
-            echo "" > /tmp/claude_prompt.md
-            sleep 0.2
-            tmux send-keys -t $SESSION_NAME:1.1 ":e" Enter
-        fi
-    fi
-
-    tmux select-pane -t $SESSION_NAME:1.1
-}
-
 # Set up key bindings for F12 and Alt+Enter
 tmux bind-key -n F12 run-shell 'bash -c "
     tmux send-keys -t $SESSION_NAME:1.1 Escape \":w\" Enter
     sleep 0.5
-    if [ -f /tmp/claude_prompt.md ] && [ -s /tmp/claude_prompt.md ]; then
-        content=\$(cat /tmp/claude_prompt.md | tr \"\n\" \" \")
-        if [ -n \"\$content\" ]; then
-            tmux send-keys -t $SESSION_NAME:1.2 \"\$content\"
-            sleep 0.2
-            tmux send-keys -t $SESSION_NAME:1.2 Enter
-            echo \"\" > /tmp/claude_prompt.md
-            sleep 0.2
-            tmux send-keys -t $SESSION_NAME:1.1 \":e\" Enter
-        fi
+    if [ -f /tmp/instructions.prompt.md ] && [ -s /tmp/instructions.prompt.md ]; then
+        tmux load-buffer -b claude-prompt /tmp/instructions.prompt.md
+        tmux paste-buffer -b claude-prompt -t $SESSION_NAME:1.2
+        tmux delete-buffer -b claude-prompt
+        sleep 0.2
+        tmux send-keys -t $SESSION_NAME:1.2 Enter
+        echo \"\" > /tmp/instructions.prompt.md
     fi
     tmux select-pane -t $SESSION_NAME:1.1
 "'
 tmux bind-key -n M-Enter run-shell 'bash -c "
     tmux send-keys -t $SESSION_NAME:1.1 Escape \":w\" Enter
     sleep 0.5
-    if [ -f /tmp/claude_prompt.md ] && [ -s /tmp/claude_prompt.md ]; then
-        content=\$(cat /tmp/claude_prompt.md | tr \"\n\" \" \")
-        if [ -n \"\$content\" ]; then
-            tmux send-keys -t $SESSION_NAME:1.2 \"\$content\"
-            sleep 0.2
-            tmux send-keys -t $SESSION_NAME:1.2 Enter
-            echo \"\" > /tmp/claude_prompt.md
-            sleep 0.2
-            tmux send-keys -t $SESSION_NAME:1.1 \":e\" Enter
-        fi
+    if [ -f /tmp/instructions.prompt.md ] && [ -s /tmp/instructions.prompt.md ]; then
+        tmux load-buffer -b claude-prompt /tmp/instructions.prompt.md
+        tmux paste-buffer -b claude-prompt -t $SESSION_NAME:1.2
+        tmux delete-buffer -b claude-prompt
+        sleep 0.2
+        tmux send-keys -t $SESSION_NAME:1.2 Enter
+        echo \"\" > /tmp/instructions.prompt.md
     fi
     tmux select-pane -t $SESSION_NAME:1.1
 "'
