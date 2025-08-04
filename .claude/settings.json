@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
@@ -33,10 +34,61 @@
           {
             "type": "command",
             "command": "paplay ~/.claude/sound.mp3"
+          },
+          {
+            "type": "command",
+            "command": "~/pets/telegram-claude-relay/hooks/stop_hook.py"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/pets/telegram-claude-relay/hooks/stop_hook.py"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/pets/telegram-claude-relay/hooks/user_prompt_submit_hook.py"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/pets/telegram-claude-relay/hooks/pre_tool_use_hook.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/pets/telegram-claude-relay/hooks/post_tool_use_hook.py"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/pets/telegram-claude-relay/hooks/notification_hook.py"
           }
         ]
       }
     ]
-  },
-  "model": "opus"
+  }
 }
