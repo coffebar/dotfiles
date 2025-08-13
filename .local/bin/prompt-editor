@@ -4,6 +4,20 @@
 # Purpose: Edit prompts in Neovim and send them to Claude Code for processing
 # Creates a session with Neovim and Claude Code in vertical panes
 # Allows sending prompts from Neovim to Claude Code using F12 or Alt+Enter
+#
+# Usage: prompt-editor [path_to_project]
+
+OPTIONAL_PROJECT_PATH="$1"
+
+# If a project path is provided, cd to it
+if [ -n "$OPTIONAL_PROJECT_PATH" ]; then
+	if [ -d "$OPTIONAL_PROJECT_PATH" ]; then
+		cd "$OPTIONAL_PROJECT_PATH" || exit 1
+	else
+		echo "Error: Provided path '$OPTIONAL_PROJECT_PATH' is not a directory."
+		exit 1
+	fi
+fi
 
 SESSION_NAME="claude-$(basename "$PWD")"
 PROMPT_FILE="/tmp/instructions.prompt.md"
@@ -36,7 +50,19 @@ tmux split-window -h -t "$SESSION_NAME" "cd '$PWD' && claude"
 # Wait for panes to be ready
 sleep 2
 
-# Focus on left pane (nvim)
+# Create a second window with nvim for code editing
+tmux new-window -t "$SESSION_NAME:2" -n "editor" "nvim"
+
+# Create a third window for telegram-claude-relay
+RELAY_DIR="$HOME/pets/telegram-claude-relay"
+SOCKET_FILE="$RELAY_DIR/telegram-relay.sock"
+
+# Only start the relay if the socket file doesn't exist
+if [ ! -e "$SOCKET_FILE" ]; then
+	tmux new-window -t "$SESSION_NAME:3" -n "telegram-relay" "cd '$RELAY_DIR' && ./run.sh"
+fi
+
+# Focus on left pane (nvim) in first window
 tmux select-pane -t "$SESSION_NAME:1.1"
 
 # Set up key bindings for F12 and Alt+Enter
@@ -50,6 +76,8 @@ tmux bind-key -n F12 run-shell 'bash -c "
         sleep 0.2
         tmux send-keys -t $SESSION_NAME:1.2 Enter
         echo \"\" > /tmp/instructions.prompt.md
+        sleep 0.1
+        tmux send-keys -t $SESSION_NAME:1.1 Escape \":edit\" Enter
     fi
     tmux select-pane -t $SESSION_NAME:1.1
 "'
@@ -63,11 +91,14 @@ tmux bind-key -n M-Enter run-shell 'bash -c "
         sleep 0.2
         tmux send-keys -t $SESSION_NAME:1.2 Enter
         echo \"\" > /tmp/instructions.prompt.md
+        sleep 0.1
+        tmux send-keys -t $SESSION_NAME:1.1 Escape \":edit\" Enter
     fi
     tmux select-pane -t $SESSION_NAME:1.1
 "'
 
-# Focus on Neovim pane initially
+# Focus on first window and Neovim pane initially
+tmux select-window -t "$SESSION_NAME:1"
 tmux select-pane -t "$SESSION_NAME:1.1"
 
 # Send 'i' key to nvim to enter insert mode
