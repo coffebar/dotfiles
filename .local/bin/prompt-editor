@@ -19,7 +19,8 @@ if [ -n "$OPTIONAL_PROJECT_PATH" ]; then
 	fi
 fi
 
-SESSION_NAME="claude-$(basename "$PWD")"
+PROJECT_NAME="$(basename "$PWD")"
+SESSION_NAME="claude-$PROJECT_NAME"
 PROMPT_FILE="/tmp/instructions.prompt.md"
 
 # Check if Claude Code is installed
@@ -55,11 +56,20 @@ tmux new-window -t "$SESSION_NAME:2" -n "editor" "nvim"
 
 # Create a third window for telegram-claude-relay
 RELAY_DIR="$HOME/pets/telegram-claude-relay"
-SOCKET_FILE="$RELAY_DIR/telegram-relay.sock"
+PROJECT_ENV_FILE="$RELAY_DIR/.env.$PROJECT_NAME"
+
+# Check if project-specific .env file exists
+if [ -f "$PROJECT_ENV_FILE" ]; then
+	SOCKET_PATH="$RELAY_DIR/telegram-relay-$PROJECT_NAME.sock"
+	RELAY_START_CMD="./run.sh $PROJECT_NAME"
+else
+	SOCKET_PATH="$RELAY_DIR/telegram-relay.sock"
+	RELAY_START_CMD="./run.sh"
+fi
 
 # Only start the relay if the socket file doesn't exist
-if [ ! -e "$SOCKET_FILE" ]; then
-	tmux new-window -t "$SESSION_NAME:3" -n "telegram-relay" "cd '$RELAY_DIR' && ./run.sh"
+if [ ! -e "$SOCKET_PATH" ]; then
+	tmux new-window -t "$SESSION_NAME:3" -n "telegram-relay" "cd '$RELAY_DIR' && $RELAY_START_CMD"
 fi
 
 # Focus on left pane (nvim) in first window
