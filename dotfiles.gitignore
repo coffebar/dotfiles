@@ -129,4 +129,6 @@ Sync/
 .zcompdump
 .netrc
 .openai
+.claude.json*
+.credentials.json
 
