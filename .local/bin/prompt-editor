@@ -23,6 +23,40 @@ PROJECT_NAME="$(basename "$PWD")"
 SESSION_NAME="claude-$PROJECT_NAME"
 PROMPT_FILE="/tmp/instructions.prompt.md"
 
+# Check for matching Chrome profile to open
+CHROME_CONFIG="$HOME/.config/google-chrome/Local State"
+if [[ -f "$CHROME_CONFIG" ]]; then
+	# Search for profile with matching name
+	PROFILE_MATCH=$(grep -o '"Profile [0-9]*":{[^}]*"name":"'"$PROJECT_NAME"'"[^}]*}' "$CHROME_CONFIG")
+
+	if [[ -n "$PROFILE_MATCH" ]]; then
+		# Extract profile number (e.g., "Profile 6")
+		CHROME_PROFILE=$(echo "$PROFILE_MATCH" | grep -o 'Profile [0-9]*' | head -1)
+
+		# Open Chrome with the matching profile (detached from terminal)
+		OZ=""
+		if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
+			OZ="--ozone-platform=wayland"
+		fi
+		# Check for device scale factor in Chrome desktop file
+		if [ -f ~/.local/share/applications/google-chrome.desktop ]; then
+			SCALE=$(grep -oP 'force-device-scale-factor=\K[0-9.]+' ~/.local/share/applications/google-chrome.desktop | head -1)
+			if [ -n "$SCALE" ]; then
+				if [ -n "$OZ" ]; then
+					OZ="$OZ --force-device-scale-factor=$SCALE"
+				else
+					OZ="--force-device-scale-factor=$SCALE"
+				fi
+			fi
+		fi
+
+		google-chrome-stable $OZ --profile-directory="$CHROME_PROFILE" --no-first-run --no-default-browser-check > /dev/null 2>&1 &
+		disown
+	else
+		echo "No Chrome profile found with name: $PROJECT_NAME"
+	fi
+fi
+
 # Check if Claude Code is installed
 if ! command -v claude &> /dev/null; then
 	echo "Error: Claude Code is not installed or not in PATH"
@@ -70,6 +104,7 @@ fi
 # Only start the relay if the socket file doesn't exist
 if [ ! -e "$SOCKET_PATH" ]; then
 	tmux new-window -t "$SESSION_NAME:3" -n "telegram-relay" "cd '$RELAY_DIR' && $RELAY_START_CMD"
+	tmux set-window-option -t "$SESSION_NAME:telegram-relay" monitor-activity off
 fi
 
 # Focus on left pane (nvim) in first window

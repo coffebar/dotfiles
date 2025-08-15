@@ -62,7 +62,7 @@ raise() {
 	fi
 	# check if --force-device-scale-factor is in ~/.local/share/applications/google-chrome.desktop if file exists
 	if [ -f ~/.local/share/applications/google-chrome.desktop ]; then
-		SCALE=$(grep -oP 'force-device-scale-factor=\K[0-9.]+' ~/.local/share/applications/google-chrome.desktop)
+		SCALE=$(grep -oP 'force-device-scale-factor=\K[0-9.]+' ~/.local/share/applications/google-chrome.desktop | head -1)
 		if [ -n "$SCALE" ]; then
 			OZ="$OZ --force-device-scale-factor=$SCALE"
 		fi
