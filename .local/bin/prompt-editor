@@ -33,25 +33,29 @@ if [[ -f "$CHROME_CONFIG" ]]; then
 		# Extract profile number (e.g., "Profile 6")
 		CHROME_PROFILE=$(echo "$PROFILE_MATCH" | grep -o 'Profile [0-9]*' | head -1)
 
-		# Open Chrome with the matching profile (detached from terminal)
-		OZ=""
-		if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
-			OZ="--ozone-platform=wayland"
-		fi
-		# Check for device scale factor in Chrome desktop file
-		if [ -f ~/.local/share/applications/google-chrome.desktop ]; then
-			SCALE=$(grep -oP 'force-device-scale-factor=\K[0-9.]+' ~/.local/share/applications/google-chrome.desktop | head -1)
-			if [ -n "$SCALE" ]; then
-				if [ -n "$OZ" ]; then
-					OZ="$OZ --force-device-scale-factor=$SCALE"
-				else
-					OZ="--force-device-scale-factor=$SCALE"
+		# Check if chrome started with the profile
+		CHROME_OPENED=$(pgrep -af "profile-directory=$CHROME_PROFILE")
+		if [ -z "$CHROME_OPENED" ]; then
+			# Open Chrome with the matching profile (detached from terminal)
+			OZ=""
+			if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
+				OZ="--ozone-platform=wayland"
+			fi
+			# Check for device scale factor in Chrome desktop file
+			if [ -f ~/.local/share/applications/google-chrome.desktop ]; then
+				SCALE=$(grep -oP 'force-device-scale-factor=\K[0-9.]+' ~/.local/share/applications/google-chrome.desktop | head -1)
+				if [ -n "$SCALE" ]; then
+					if [ -n "$OZ" ]; then
+						OZ="$OZ --force-device-scale-factor=$SCALE"
+					else
+						OZ="--force-device-scale-factor=$SCALE"
+					fi
 				fi
 			fi
-		fi
 
-		google-chrome-stable $OZ --profile-directory="$CHROME_PROFILE" --no-first-run --no-default-browser-check > /dev/null 2>&1 &
-		disown
+			google-chrome-stable $OZ --profile-directory="$CHROME_PROFILE" --no-first-run --no-default-browser-check > /dev/null 2>&1 &
+			disown
+		fi
 	else
 		echo "No Chrome profile found with name: $PROJECT_NAME"
 	fi
