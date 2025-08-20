@@ -21,6 +21,10 @@
       "mcp__puppeteer__puppeteer_fill"
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline.sh"
+  },
   "enableAllProjectMcpServers": false,
   "enabledMcpjsonServers": [
     "memory",
