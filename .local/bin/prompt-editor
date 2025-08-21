@@ -111,6 +111,9 @@ if [ ! -e "$SOCKET_PATH" ]; then
 	tmux set-window-option -t "$SESSION_NAME:telegram-relay" monitor-activity off
 fi
 
+# Create a fourth window with nvim using default configuration and listening socket
+tmux new-window -t "$SESSION_NAME:4" -n "nvim-clean" "nvim --clean --listen /tmp/nvim-$PROJECT_NAME"
+
 # Focus on left pane (nvim) in first window
 tmux select-pane -t "$SESSION_NAME:1.1"
 
