@@ -73,5 +73,24 @@ g.gruvbox_invert_selection = "0"
 -- enable copilot on gitcommit and markdown
 g.copilot_filetypes = { gitcommit = true, markdown = true }
 
--- show diagnostic as virtual lines
-vim.diagnostic.config({ virtual_lines = true, virtual_text = false })
+-- modern diagnostic configuration for Neovim 0.11+
+vim.diagnostic.config({
+  virtual_lines = true,
+  virtual_text = false,
+  severity_sort = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.INFO] = " ",
+      [vim.diagnostic.severity.HINT] = " ",
+    }
+  },
+  float = {
+    border = "rounded",
+    header = "",
+    prefix = "",
+  },
+  underline = true,
+  update_in_insert = false,
+})
