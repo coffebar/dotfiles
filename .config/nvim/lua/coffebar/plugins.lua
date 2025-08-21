@@ -86,9 +86,10 @@ return {
   -- shows LSP progress
   {
     "j-hui/fidget.nvim",
-    tag = "legacy",
+    tag = "v1.6.1",
     event = "LspAttach",
     lazy = true,
+    opts = {},
   },
   -- show notifications in the corner of the screen
   {
@@ -103,7 +104,7 @@ return {
     opts = require("coffebar.plugins.neovim-project"),
     dependencies = {
       { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope.nvim", tag = "0.1.4" },
+      { "nvim-telescope/telescope.nvim", tag = "0.1.8" },
       { "Shatur/neovim-session-manager" },
     },
     init = function()
@@ -188,7 +189,6 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    tag = "v3.5.4",
     init = function()
       -- vim.opt.list = true
       -- vim.opt.listchars:append("space:⋅")
@@ -218,9 +218,8 @@ return {
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("trouble").setup({})
-    end,
+    opts = {},
+    cmd = "Trouble",
   },
   -- tabline plugin with re-orderable, auto-sizing
   {
