@@ -180,6 +180,8 @@ swayidle
 swaylock
 syncthing
 syncthingtray
+synology-drive
+synology-drive-debug
 systemd-resolvconf
 taskwarrior-tui
 telegram-desktop
