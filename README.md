@@ -136,7 +136,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [bloznelis/before.nvim](https://github.com/bloznelis/before.nvim)  Jump to the last edit in Neovim
 - [ckipp01/stylua-nvim](https://github.com/ckipp01/stylua-nvim)  Let&#39;s just use a formatter and never discuss formatting again.
 - [coffebar/crowtranslate.nvim](https://github.com/coffebar/crowtranslate.nvim)  Translate the visually selected text in Neovim.
-- [coffebar/neovim-project](https://github.com/coffebar/neovim-project)  Neovim project plugin simplifies project management by maintaining project history and providing quick access to projects via Telescope or fzf-lua..
+- [coffebar/neovim-project](https://github.com/coffebar/neovim-project)  Neovim project plugin simplifies project management by maintaining project history and providing quick access to projects via Telescope, snacks.nvim or fzf-lua
 - [coffebar/transfer.nvim](https://github.com/coffebar/transfer.nvim)  Syncing files with remote server using rsync and OpenSSH
 - [cohama/lexima.vim](https://github.com/cohama/lexima.vim)  Auto close parentheses and repeat by dot dot dot...
 - [elihunter173/dirbuf.nvim](https://github.com/elihunter173/dirbuf.nvim)  A file manager for Neovim which lets you edit your filesystem like you edit text
