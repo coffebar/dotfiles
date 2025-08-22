@@ -78,7 +78,7 @@ local pythonConfig = function()
 end
 
 local stylua = function()
-  return { exe = "stylua", stdin = false, try_node_modules = true }
+  return { exe = "/usr/bin/stylua", stdin = false, try_node_modules = false }
 end
 
 local stylefmt = function()

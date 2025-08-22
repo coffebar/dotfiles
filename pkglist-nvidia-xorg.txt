@@ -170,8 +170,10 @@ speech-dispatcher
 sqlitebrowser
 sshfs
 sshpass
+stylua
 sudo
 syncthing
+synology-drive
 systemd-resolvconf
 taskwarrior-tui
 telegram-desktop
