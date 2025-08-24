@@ -1,0 +1,203 @@
+---
+- name: Dotfiles Restoration System
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  become: false
+
+  vars:
+    # Default configuration
+    github_username: coffebar
+    dotfiles_repo: "{{ ansible_env.HOME }}/dotfiles"
+
+    # Hardware detection results (populated during runtime)
+    gpu_type: unknown
+    has_battery: false
+
+    # User choices
+    selected_package_profile: ""
+
+  pre_tasks:
+    # Hardware detection determines which packages to install and system optimizations to apply
+    # This is critical for proper driver installation and performance tuning
+    - name: Hardware Detection
+      block:
+        # Detect GPU type to determine appropriate driver packages
+        # NVIDIA requires proprietary drivers, AMD/Intel use open-source drivers
+        - name: Detect GPU hardware
+          shell: |
+            set -o pipefail
+            if lspci | grep -i nvidia >/dev/null 2>&1; then
+              echo "nvidia"
+            elif lspci | grep -i amd >/dev/null 2>&1 && lspci | grep -i vga >/dev/null 2>&1; then
+              echo "amd"
+            elif lspci | grep -i intel >/dev/null 2>&1 && lspci | grep -i vga >/dev/null 2>&1; then
+              echo "intel"
+            else
+              echo "unknown"
+            fi
+          register: gpu_detection_result
+          changed_when: false
+          check_mode: false
+
+        - name: Set GPU type fact
+          set_fact:
+            gpu_type: "{{ gpu_detection_result.stdout | trim | default('unknown', true) }}"
+
+        - name: Fallback GPU type if empty
+          set_fact:
+            gpu_type: "unknown"
+          when: gpu_type == "" or gpu_type is not defined
+
+        # Check for laptop battery to enable power management features
+        # Battery presence affects which power optimization packages are installed
+        - name: Check for battery presence
+          stat:
+            path: /sys/class/power_supply/BAT0
+          register: battery_check
+
+        - name: Set battery presence fact
+          set_fact:
+            has_battery: "{{ battery_check.stat.exists }}"
+
+        # Detect X11 vs Wayland session for NVIDIA driver compatibility
+        # NVIDIA Xorg drivers require different packages than Wayland
+        - name: Check if running under Xorg
+          shell: echo "$XDG_SESSION_TYPE"
+          register: session_type_check
+          changed_when: false
+          ignore_errors: true
+          check_mode: false
+
+        - name: Display detected hardware
+          debug:
+            msg:
+              - "Detected GPU: {{ gpu_type | upper }}"
+              - "Battery present: {{ 'YES' if has_battery else 'NO' }}"
+              - "Session type: {{ session_type_check.stdout | default('unknown') }}"
+
+        # Interactive package profile selection based on detected hardware
+        # Different GPU types require different driver packages:
+        # - Intel: Open-source drivers (mesa, vulkan-intel)
+        # - NVIDIA Wayland: Proprietary drivers optimized for Wayland
+        # - NVIDIA Xorg: Proprietary drivers with Xorg-specific packages
+        - name: Select package profile
+          pause:
+            prompt: |2
+
+              Select package installation profile:
+              1) Intel GPU packages (pkglist-intel.txt)
+              2) NVIDIA GPU packages (pkglist-nvidia.txt)
+              3) NVIDIA Xorg packages (pkglist-nvidia-xorg.txt)
+              4) Skip package installation
+
+              Recommended based on detected {{ gpu_type | upper }} GPU: {{
+                '2' if gpu_type == 'nvidia' and session_type_check.stdout != 'x11' else
+                '3' if gpu_type == 'nvidia' and session_type_check.stdout == 'x11' else
+                '1'
+              }}
+
+              Enter choice (1-4, invalid input defaults to Skip)
+          register: package_profile_choice
+
+        # Map user choice to package profile filename
+        # Defaults to skip for invalid input to avoid installing wrong packages
+        - name: Set selected package profile
+          set_fact:
+            selected_package_profile: "{{ 'intel' if package_profile_choice.user_input == '1' else 'nvidia' if package_profile_choice.user_input == '2' else 'nvidia-xorg'
+              if package_profile_choice.user_input == '3' else 'skip' if package_profile_choice.user_input == '4' else 'skip' }}"
+
+  tasks:
+    # Basic system setup (from original script)
+    - name: System Setup
+      import_tasks: tasks/system-setup.yml
+      tags: [system, always]
+
+    # Dotfiles repository (from original script)
+    - name: Dotfiles Repository Setup
+      import_tasks: tasks/dotfiles-repo.yml
+      tags: [dotfiles, repo]
+
+    # Package installation (from original script)
+    - name: Package Installation
+      import_tasks: tasks/packages.yml
+      tags: [packages]
+
+    # System configuration (from original script)
+    - name: System Configuration
+      import_tasks: tasks/system-config.yml
+      tags: [config, system]
+
+    # Services (from original script)
+    - name: Services Management
+      import_tasks: tasks/services.yml
+      tags: [services]
+
+    # Development environment (from original script)
+    - name: Development Environment
+      import_tasks: tasks/development.yml
+      tags: [development, dev]
+
+    # Security and credentials (from original script)
+    - name: Security Setup
+      import_tasks: tasks/security.yml
+      tags: [security, credentials]
+
+    # Hardware-specific (battery management from original script)
+    - name: Hardware Configuration
+      import_tasks: tasks/hardware-config.yml
+      tags: [hardware, battery]
+
+  post_tasks:
+    - name: Post-Installation Validation
+      block:
+        - name: Verify dotfiles repository is functional
+          stat:
+            path: "{{ dotfiles_repo }}/HEAD"
+          register: dotfiles_head_check
+          failed_when: not dotfiles_head_check.stat.exists
+
+        - name: Check essential packages are installed
+          shell: |
+            missing_critical=""
+            for pkg in git neovim tmux; do
+              if ! pacman -Q "$pkg" >/dev/null 2>&1; then
+                missing_critical="$missing_critical $pkg"
+              fi
+            done
+            if [ -n "$missing_critical" ]; then
+              echo "Missing critical packages:$missing_critical"
+              exit 1
+            fi
+            echo "All essential packages verified"
+          register: essential_packages_check
+          changed_when: false
+
+        - name: Verify service states for enabled services
+          systemd:
+            name: "{{ item }}"
+            state: started
+          loop:
+            - NetworkManager
+            - bluetooth
+          register: service_check
+          failed_when: false
+          changed_when: false
+          when: ansible_system == "Linux"
+
+        - name: Display validation results
+          debug:
+            msg:
+              - "✅ Dotfiles repository: {{ 'Functional' if dotfiles_head_check.stat.exists else 'Missing' }}"
+              - "✅ Essential packages: {{ essential_packages_check.stdout }}"
+              - "✅ Services: {{ service_check.results | selectattr('failed', 'equalto', false) | list | length }}/{{ service_check.results | length }} running"
+
+    - name: Completion message
+      debug:
+        msg:
+          - "Done. Consider re-login or reboot to apply all changes."
+          - "{{ 'Battery charge thresholds have been set to 60-80%' if has_battery else '' }}"
+
+  handlers:
+    - name: Import handlers
+      import_tasks: handlers/main.yml

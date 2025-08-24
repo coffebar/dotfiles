@@ -1,0 +1,99 @@
+---
+# Restart system services - failures are non-critical as services may not be installed
+- name: Restart_services
+  become: true
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+  loop:
+    - bluetooth
+    - docker
+    - cronie
+  failed_when: false # Services may not be installed or running
+  listen: restart_services
+
+- name: Relogin_required
+  debug:
+    msg: |
+      ========================================
+      IMPORTANT: Re-login Required!
+      ========================================
+      You have been added to new groups or system
+      settings have changed that require a new session.
+
+      Please log out and log back in for changes to
+      take full effect.
+      ========================================
+  listen: relogin_required
+
+- name: Reload_systemd
+  become: true
+  systemd:
+    daemon_reload: true
+  listen: reload_systemd
+
+# Restart NetworkManager - failure is acceptable if using different network manager
+- name: Restart_networkmanager
+  become: true
+  systemd:
+    name: NetworkManager
+    state: restarted
+  failed_when: false # System may use different network manager
+  listen: restart_networkmanager
+
+# Restart audio services - failures are acceptable for different audio systems
+- name: Restart_audio
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    scope: user
+  loop:
+    - pipewire
+    - pipewire-pulse
+    - wireplumber
+  failed_when: false # System may use ALSA/PulseAudio instead of PipeWire
+  listen: restart_audio
+
+- name: Update_font_cache
+  command: fc-cache -fv
+  register: font_cache_update
+  changed_when: font_cache_update.rc == 0
+  listen: update_font_cache
+
+- name: Reload_udev
+  become: true
+  command: udevadm control --reload-rules && udevadm trigger
+  register: udev_reload
+  changed_when: udev_reload.rc == 0
+  listen: reload_udev
+
+# Restart display managers - try common ones, failure is expected for unused managers
+- name: Restart_display_manager
+  become: true
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+  loop:
+    - gdm
+    - sddm
+    - lightdm
+  failed_when: false # Only one display manager will be active
+  listen: restart_display_manager
+
+# Update desktop application database - failure is non-critical
+- name: Update_desktop_database
+  command: update-desktop-database ~/.local/share/applications
+  failed_when: false # Directory may not exist or command may not be available
+  changed_when: true
+  listen: update_desktop_database
+
+# Reload GTK/GNOME settings - failure is acceptable for non-GNOME environments
+- name: Reload_gtk_settings
+  shell: |
+    # Reload GTK settings for running applications
+    dconf update
+    # Send signal to reload theme
+    killall -HUP gnome-shell 2>/dev/null || true
+  failed_when: false # Commands may not exist in non-GNOME environments
+  changed_when: true
+  listen: reload_gtk_settings

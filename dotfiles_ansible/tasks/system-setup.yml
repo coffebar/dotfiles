@@ -1,0 +1,74 @@
+---
+# Basic system setup tasks from original script
+- name: System Setup Tasks
+  block:
+    - name: Verify we're not running as root
+      fail:
+        msg: "This playbook must NOT be run as root! Please run as regular user."
+      when: ansible_user_id == "root"
+
+    - name: Enable color output in pacman
+      become: true
+      lineinfile:
+        path: /etc/pacman.conf
+        regexp: "^#Color"
+        line: "Color"
+        backup: true
+
+    - name: Install essential base packages
+      become: true
+      pacman:
+        name:
+          - git
+          - openssh
+          - base-devel
+          - python
+          - python-pip
+        state: present
+        update_cache: true
+
+    - name: Fix SSH key permissions if keys exist
+      shell: |
+        if [ -d ~/key/ssh ]; then
+          chmod 700 ~/key/ssh
+          chmod 600 ~/key/ssh/* 2>/dev/null || true
+        fi
+      changed_when: false
+      failed_when: false
+
+    - name: Create /tmp/yay directory for builds
+      file:
+        path: /tmp/yay
+        state: directory
+        mode: "0755"
+
+    - name: Check if yay is installed
+      command: which yay
+      register: yay_check
+      changed_when: false
+      failed_when: false
+
+    - name: Install yay AUR helper
+      when: yay_check.rc != 0
+      block:
+        - name: Clone yay repository
+          git:
+            repo: https://aur.archlinux.org/yay.git
+            dest: /tmp/yay-install
+            version: master
+
+        - name: Build and install yay
+          shell: |
+            cd /tmp/yay-install
+            makepkg -si --noconfirm
+          args:
+            creates: /usr/bin/yay
+
+        - name: Clean up yay build directory
+          file:
+            path: /tmp/yay-install
+            state: absent
+
+        - name: Generate yay database
+          command: yay -Y --gendb
+          changed_when: true

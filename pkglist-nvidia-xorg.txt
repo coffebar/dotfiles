@@ -1,6 +1,6 @@
 7zip
 accountsservice
-acpi_call
+acpi_call-dkms
 adspower-global
 alacritty
 alsa-plugins
@@ -96,7 +96,6 @@ libreoffice-fresh
 libreoffice-fresh-en-gb
 libreoffice-fresh-uk
 libva-nvidia-driver
-linux
 linux-firmware
 linux-headers
 linux-lts-headers

@@ -1,0 +1,32 @@
+---
+# Services from original script
+- name: Services Management
+  block:
+    - name: Check if TLP service exists # noqa: command-instead-of-module
+      ansible.builtin.command: systemctl list-unit-files tlp.service
+      register: tlp_service_check
+      failed_when: false
+      changed_when: false
+
+    - name: Enable and start system services (excluding TLP)
+      become: true
+      systemd:
+        name: "{{ item }}"
+        enabled: true
+        state: started
+      loop:
+        - cronie
+        - bluetooth
+        - docker
+        - ufw
+        - systemd-timesyncd.service
+      failed_when: false
+
+    - name: Enable and start TLP service if available
+      become: true
+      systemd:
+        name: tlp
+        enabled: true
+        state: started
+      when: tlp_service_check.rc == 0
+      failed_when: false

@@ -1,0 +1,118 @@
+---
+- name: Package Installation (Skipped)
+  debug:
+    msg: "Package installation skipped by user choice"
+  when: selected_package_profile == "skip"
+
+- name: Package Installation
+  when: selected_package_profile != "skip"
+  block:
+    - name: Set package list file based on profile
+      set_fact:
+        package_list_file: "{{ ansible_env.HOME }}/pkglist-{{ selected_package_profile }}.txt"
+
+    - name: Check if package list file exists
+      stat:
+        path: "{{ package_list_file }}"
+      register: pkglist_stat
+      failed_when: not pkglist_stat.stat.exists
+
+    - name: Read package list
+      slurp:
+        src: "{{ package_list_file }}"
+      register: package_list_content
+
+    - name: Parse package list
+      set_fact:
+        packages_to_install: "{{ (package_list_content.content | b64decode).split('\n') | select | list }}"
+
+    - name: Display package installation summary
+      debug:
+        msg:
+          - "Package profile: {{ selected_package_profile }}"
+          - "Package list: {{ package_list_file }}"
+          - "Total packages: {{ packages_to_install | length }}"
+
+    - name: Install packages in batches (idempotent)
+      block:
+        - name: Check which packages are already installed
+          shell: |
+            for pkg in {{ packages_to_install | join(' ') }}; do
+              if ! pacman -Q "$pkg" >/dev/null 2>&1 && ! yay -Q "$pkg" >/dev/null 2>&1; then
+                echo "$pkg"
+              fi
+            done
+          register: missing_packages
+          changed_when: false
+
+        - name: Create list of missing packages
+          set_fact:
+            packages_needed: "{{ missing_packages.stdout_lines | default([]) }}"
+
+        - name: Display packages to be installed
+          debug:
+            msg: "{{ packages_needed | length }} packages need installation"
+          when: packages_needed | length > 0
+
+        - name: Install missing packages via yay (batch mode)
+          shell: |
+            set -o pipefail
+            echo "{{ packages_needed | join('\n') }}" | yay -S --needed --builddir /tmp/yay --noconfirm --answerdiff=None --answerclean=None --removemake -
+          when: packages_needed | length > 0
+          become: false
+          register: yay_install
+          failed_when: yay_install.rc not in [0, 1] # 0=success, 1=some packages failed but not critical
+          changed_when: yay_install.rc == 0
+
+        - name: Retry failed packages individually
+          shell: |
+            yay -S --needed --builddir /tmp/yay --noconfirm "{{ item }}"
+          loop: "{{ packages_needed }}"
+          when:
+            - packages_needed | length > 0
+            - yay_install.rc != 0
+          ignore_errors: true # Individual failures are reported but don't stop the playbook
+          register: individual_install
+          changed_when: individual_install.rc == 0
+          become: false
+
+    - name: Setup pacman hook for package list updates (from original script)
+      ansible.builtin.command: "pacman-setup-hooks {{ package_list_file }}"
+      failed_when: false
+      changed_when: false
+
+    - name: Clean yay build cache
+      file:
+        path: /tmp/yay
+        state: absent
+      failed_when: false
+
+  rescue:
+    - name: Package installation error handler
+      debug:
+        msg: |
+          ❌ PACKAGE INSTALLATION FAILED
+
+          Common causes and solutions:
+          1. AUR packages requiring manual intervention:
+             → Run: yay -S --editmenu <package_name>
+          2. Package conflicts needing resolution:
+             → Run: yay -S --needed --force <package_name>
+          3. Build failures for AUR packages:
+             → Check build logs: journalctl -u systemd-tmpfiles-setup
+             → Clear yay cache: yay -Scc
+          4. Network connectivity issues:
+             → Check internet connection and AUR availability
+
+          Manual recovery commands:
+          # Install remaining packages:
+          yay -S --needed - < {{ package_list_file }}
+
+          # Check what failed:
+          yay -Q | grep -v $(cat {{ package_list_file }})
+
+          Technical details:
+          Profile: {{ selected_package_profile }}
+          Total packages: {{ packages_to_install | length }}
+          Error: {{ ansible_failed_result.msg | default('See output above for details') }}
+      failed_when: false

@@ -1,0 +1,73 @@
+---
+# Development environment tasks from original script
+- name: Development Environment Setup
+  block:
+    - name: Install Oh My Zsh
+      block:
+        - name: Check if Oh My Zsh is already installed
+          stat:
+            path: "{{ ansible_env.HOME }}/.oh-my-zsh"
+          register: omz_installed
+
+        - name: Download and install Oh My Zsh
+          shell: |
+            sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/main/tools/install.sh)" "" --unattended
+          when: not omz_installed.stat.exists
+          environment:
+            RUNZSH: "no"
+            CHSH: "no"
+          changed_when: true
+
+        - name: Install Zsh plugins
+          git:
+            repo: "{{ item.repo }}"
+            dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/{{ item.name }}"
+            version: master
+          loop:
+            - { name: "zsh-autosuggestions", repo: "https://github.com/zsh-users/zsh-autosuggestions" }
+            - { name: "zsh-syntax-highlighting", repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git" }
+            - { name: "zsh_codex", repo: "https://github.com/tom-doerr/zsh_codex.git" }
+          when: not omz_installed.stat.exists
+
+    - name: Setup Neovim
+      block:
+        - name: Check if nvim config fetch script exists
+          stat:
+            path: "{{ ansible_env.HOME }}/fetch-nvim-conf.sh"
+          register: nvim_script
+
+        - name: Run Neovim configuration setup
+          shell: |
+            export PATH="$PATH:$HOME/.local/share/pnpm:$HOME/.node_modules/bin"
+            sh "{{ ansible_env.HOME }}/fetch-nvim-conf.sh"
+          when: nvim_script.stat.exists
+          environment:
+            PATH: "{{ ansible_env.PATH }}:{{ ansible_env.HOME }}/.local/share/pnpm:{{ ansible_env.HOME }}/.node_modules/bin"
+          changed_when: true
+
+    - name: Install global packages via PNPM
+      shell: |
+        export PNPM_HOME=~/.local/share/pnpm
+        pnpm install -g uglify-js
+      environment:
+        PNPM_HOME: "{{ ansible_env.HOME }}/.local/share/pnpm"
+      changed_when: false
+      failed_when: false
+
+    - name: Install Claude Code CLI
+      ansible.builtin.command: npm install -g @anthropic-ai/claude-code
+      failed_when: false
+      changed_when: false
+
+    - name: Restore Intelephense license
+      block:
+        - name: Check for Intelephense license script
+          stat:
+            path: "{{ ansible_env.HOME }}/dev/Scripts/intelephense-licence.sh"
+          register: intelephense_script
+
+        - name: Run Intelephense license script
+          ansible.builtin.command: sh "{{ ansible_env.HOME }}/dev/Scripts/intelephense-licence.sh"
+          when: intelephense_script.stat.exists
+          failed_when: false
+          changed_when: false

@@ -1,0 +1,48 @@
+---
+# Security and credentials tasks from original script
+- name: Security and Credentials Setup
+  block:
+    - name: Restore GPG keys if available
+      include_tasks: gpg-restore.yml
+
+    - name: Decrypt GitHub Copilot credentials
+      block:
+        - name: Check for encrypted GitHub Copilot hosts file
+          stat:
+            path: "{{ ansible_env.HOME }}/.config/github-copilot/hosts.json.gpg"
+          register: copilot_encrypted
+
+        - name: Check if GitHub Copilot hosts already decrypted
+          stat:
+            path: "{{ ansible_env.HOME }}/.config/github-copilot/hosts.json"
+          register: copilot_decrypted
+
+        - name: Decrypt GitHub Copilot credentials with GPG agent
+          shell: |
+            gpg --batch --decrypt \
+                --output "{{ ansible_env.HOME }}/.config/github-copilot/hosts.json" \
+                "{{ ansible_env.HOME }}/.config/github-copilot/hosts.json.gpg"
+          when:
+            - copilot_encrypted.stat.exists
+            - not copilot_decrypted.stat.exists
+            - not ansible_check_mode
+          register: gpg_decrypt
+          failed_when:
+            - gpg_decrypt.rc != 0
+            - "'decryption failed' in gpg_decrypt.stderr | default('')"
+          changed_when: gpg_decrypt.rc == 0
+
+    - name: Setup KeePassXC integration
+      block:
+        - name: Check if secret-tool is available
+          command: which secret-tool
+          register: secret_tool_check
+          changed_when: false
+          failed_when: false
+
+        - name: Setup KeePassXC password in keyring (manual setup required)
+          debug:
+            msg: "KeePassXC password setup skipped - configure manually or use key file authentication"
+          when:
+            - secret_tool_check.rc == 0
+            - not ansible_check_mode

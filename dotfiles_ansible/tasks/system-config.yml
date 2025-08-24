@@ -1,0 +1,97 @@
+---
+# System configuration tasks from original script
+- name: System Configuration
+  block:
+    - name: Copy Xorg input device configs (if Xorg directory exists)
+      block:
+        - name: Check if Xorg config directory exists
+          stat:
+            path: /etc/X11/xorg.conf.d
+          register: xorg_dir
+
+        - name: Copy keyboard configuration
+          become: true
+          copy:
+            src: "{{ ansible_env.HOME }}/00-keyboard.conf"
+            dest: /etc/X11/xorg.conf.d/00-keyboard.conf
+            mode: "0644"
+            backup: true
+          when: xorg_dir.stat.exists
+          failed_when: false
+
+        - name: Copy touchpad configuration
+          become: true
+          copy:
+            src: "{{ ansible_env.HOME }}/30-touchpad.conf"
+            dest: /etc/X11/xorg.conf.d/30-touchpad.conf
+            mode: "0644"
+            backup: true
+          when: xorg_dir.stat.exists
+          failed_when: false
+
+    - name: Configure firewall (UFW)
+      block:
+        - name: Check if UFW is installed
+          ansible.builtin.command: which ufw
+          register: ufw_check
+          changed_when: false
+          failed_when: false
+          check_mode: false # Always run this check even in check mode
+
+        - name: Set default incoming policy to deny
+          become: true
+          community.general.ufw:
+            direction: incoming
+            default: deny
+          when: ufw_check.rc == 0
+
+        - name: Allow Syncthing
+          become: true
+          community.general.ufw:
+            rule: allow
+            name: syncthing
+          when: ufw_check.rc == 0
+
+        - name: Enable UFW
+          become: true
+          community.general.ufw:
+            state: enabled
+          when: ufw_check.rc == 0
+
+    - name: Configure GTK themes (from original script)
+      block:
+        - name: Set GTK dark mode preference
+          ansible.builtin.command: gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+          changed_when: false
+          failed_when: false
+          when: not ansible_check_mode
+
+        - name: Configure GTK file chooser to use current directory
+          shell: |
+            gsettings set org.gtk.Settings.FileChooser startup-mode cwd
+            gsettings set org.gtk.gtk4.Settings.FileChooser startup-mode cwd
+          changed_when: false
+          failed_when: false
+          when: not ansible_check_mode
+
+        - name: Set cursor theme and size
+          shell: |
+            gsettings set org.gnome.desktop.interface cursor-theme BreezeX-RosePine-Linux
+            gsettings set org.gnome.desktop.interface cursor-size 32
+          changed_when: false
+          failed_when: false
+          when: not ansible_check_mode
+
+        - name: Set icon theme
+          ansible.builtin.command: gsettings set org.gnome.desktop.interface icon-theme 'bloom-classic'
+          changed_when: false
+          failed_when: false
+          when: not ansible_check_mode
+
+    - name: Copy ksnip configuration example
+      copy:
+        src: "{{ ansible_env.HOME }}/.config/ksnip/ksnip.example.conf"
+        dest: "{{ ansible_env.HOME }}/.config/ksnip/ksnip.conf"
+        mode: "0644"
+        force: false
+      failed_when: false

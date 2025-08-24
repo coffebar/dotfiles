@@ -1,0 +1,66 @@
+---
+- name: GPG Key Restoration
+  block:
+    - name: Check for GPG key files
+      stat:
+        path: "{{ item }}"
+      register: gpg_files
+      loop:
+        - "{{ ansible_env.HOME }}/key/gpg/private.asc"
+        - "{{ ansible_env.HOME }}/key/gpg/public.asc"
+        - "{{ ansible_env.HOME }}/key/gpg/otrust.txt"
+
+    - name: Check if all GPG key files exist
+      set_fact:
+        gpg_keys_available: "{{ gpg_files.results[0].stat.exists and gpg_files.results[1].stat.exists and gpg_files.results[2].stat.exists }}"
+
+    - name: Debug GPG key availability
+      debug:
+        msg:
+          - "GPG keys available: {{ gpg_keys_available }}"
+          - "Private key exists: {{ gpg_files.results[0].stat.exists }}"
+          - "Public key exists: {{ gpg_files.results[1].stat.exists }}"
+          - "Trust file exists: {{ gpg_files.results[2].stat.exists }}"
+
+    - name: Restore GPG keys when available
+      when: gpg_keys_available
+      block:
+        - name: Import GPG private key
+          ansible.builtin.command:
+            cmd: gpg --batch --import {{ ansible_env.HOME }}/key/gpg/private.asc
+          register: import_private
+          changed_when: "'imported' in import_private.stderr or 'imported' in import_private.stdout"
+          failed_when: import_private.rc != 0 and 'already in secret keyring' not in import_private.stderr
+
+        - name: Import GPG public key
+          ansible.builtin.command:
+            cmd: gpg --batch --import {{ ansible_env.HOME }}/key/gpg/public.asc
+          register: import_public
+          changed_when: "'imported' in import_public.stderr or 'imported' in import_public.stdout"
+          failed_when: import_public.rc != 0 and 'already in public keyring' not in import_public.stderr
+
+        - name: Import GPG ownertrust
+          ansible.builtin.command:
+            cmd: gpg --import-ownertrust {{ ansible_env.HOME }}/key/gpg/otrust.txt
+          register: import_trust
+          changed_when: import_trust.rc == 0
+
+        - name: List imported GPG keys (private)
+          ansible.builtin.command:
+            cmd: gpg -K
+          register: gpg_private_keys
+          changed_when: false
+
+        - name: List imported GPG keys (public)
+          ansible.builtin.command:
+            cmd: gpg -k
+          register: gpg_public_keys
+          changed_when: false
+
+        - name: Display GPG key status
+          debug:
+            msg:
+              - "GPG keys successfully restored"
+              - "Private keys: {{ gpg_private_keys.stdout_lines | length }} found"
+              - "Public keys: {{ gpg_public_keys.stdout_lines | length }} found"
+          when: not ansible_check_mode

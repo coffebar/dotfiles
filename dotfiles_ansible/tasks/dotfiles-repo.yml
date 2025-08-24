@@ -1,0 +1,122 @@
+---
+- name: Dotfiles Repository Management
+  block:
+    - name: Check if dotfiles repository exists
+      stat:
+        path: "{{ dotfiles_repo }}"
+      register: repo_exists
+
+    - name: Clone dotfiles repository
+      when: not repo_exists.stat.exists
+
+      block:
+        - name: Clone bare repository from GitHub
+          git:
+            repo: "git@github.com:{{ github_username }}/dotfiles.git"
+            dest: "{{ dotfiles_repo }}"
+            bare: true
+            version: main
+          when: not repo_exists.stat.exists
+
+        - name: Configure work tree path
+          community.general.git_config:
+            name: core.worktree
+            value: "{{ ansible_env.HOME }}"
+            repo: "{{ dotfiles_repo }}"
+            scope: local
+          when:
+            - not repo_exists.stat.exists
+            - not ansible_check_mode
+
+        - name: Force checkout dotfiles (will overwrite existing files)
+          ansible.builtin.command: git --git-dir="{{ dotfiles_repo }}" --work-tree="{{ ansible_env.HOME }}" checkout -f
+          when:
+            - not repo_exists.stat.exists
+            - not ansible_check_mode
+          changed_when: true
+          register: checkout_result
+          failed_when:
+            - checkout_result.rc != 0
+            - "'error' in checkout_result.stderr.lower()"
+          tags: skip_ansible_lint
+
+        - name: Enable GPG signing for commits
+          ansible.builtin.command: "{{ ansible_env.HOME }}/.local/bin/github-enable-gpg"
+          when:
+            - not repo_exists.stat.exists
+            - not ansible_check_mode
+          failed_when: false
+          changed_when: false
+          tags: skip_ansible_lint
+
+        - name: Set custom gitignore path
+          community.general.git_config:
+            name: core.excludesFile
+            value: "{{ ansible_env.HOME }}/dotfiles.gitignore"
+            repo: "{{ dotfiles_repo }}"
+            scope: local
+          when:
+            - not repo_exists.stat.exists
+            - not ansible_check_mode
+
+    - name: Update existing dotfiles repository
+      when: repo_exists.stat.exists
+
+      block:
+        - name: Fetch latest changes from remote
+          ansible.builtin.command: git --git-dir="{{ dotfiles_repo }}" --work-tree="{{ ansible_env.HOME }}" fetch origin
+          changed_when: false
+          failed_when: false
+          tags: skip_ansible_lint
+
+        - name: Show repository status
+          ansible.builtin.command: git --git-dir="{{ dotfiles_repo }}" --work-tree="{{ ansible_env.HOME }}" status --short
+          register: repo_status
+          changed_when: false
+          tags: skip_ansible_lint
+
+        - name: Display repository status if changes exist
+          debug:
+            msg: "Repository has local changes: {{ repo_status.stdout_lines }}"
+          when: repo_status.stdout != ""
+
+    - name: Verify dotfiles repository is functional
+      ansible.builtin.command: git --git-dir="{{ dotfiles_repo }}" --work-tree="{{ ansible_env.HOME }}" status
+      changed_when: false
+      register: repo_verify
+      tags: skip_ansible_lint
+
+  rescue:
+    - name: Dotfiles repository error handler
+      debug:
+        msg: |-
+          ❌ DOTFILES REPOSITORY SETUP FAILED
+
+          Common causes and solutions:
+          1. SSH authentication issues:
+             → Generate SSH key: ssh-keygen -t ed25519 -C "your_email@example.com"
+             → Add to GitHub: cat ~/.ssh/id_ed25519.pub
+             → Test connection: ssh -T git@github.com
+
+          2. Repository access problems:
+             → Verify repo exists: https://github.com/{{ github_username }}/dotfiles
+             → Check permissions: Ensure you have read access
+             → Try HTTPS clone: git clone https://github.com/{{ github_username }}/dotfiles.git
+
+          3. GPG signing configuration:
+             → List GPG keys: gpg --list-secret-keys
+             → Set signing key: git config --global user.signingkey <KEY_ID>
+             → Enable signing: git config --global commit.gpgsign true
+
+          4. File conflicts during checkout:
+             → Backup existing files: mv ~/.bashrc ~/.bashrc.backup
+             → Retry checkout: git --git-dir={{ dotfiles_repo }} --work-tree={{ ansible_env.HOME }} checkout -f
+
+          Manual recovery:
+          # Clone manually:
+          git clone --bare git@github.com:{{ github_username }}/dotfiles.git {{ dotfiles_repo }}
+
+          Technical details:
+          Repository: {{ dotfiles_repo }}
+          Username: {{ github_username }}
+          Error: {{ ansible_failed_result.msg | default('See output above for details') }}
