@@ -1,0 +1,76 @@
+---
+# Ansible-lint configuration for production-ready code
+profile: production
+strict: true
+offline: false
+parseable: true
+quiet: false
+verbosity: 1
+
+# File patterns to check
+kinds:
+  - playbook: '*.yml'
+  - playbook: '*.yaml'
+  - playbook: 'playbooks/*.yml'
+  - playbook: 'playbooks/*.yaml'
+  - tasks: 'roles/*/tasks/*.yml'
+  - tasks: 'roles/*/tasks/*.yaml'
+  - tasks: 'tasks/*.yml'
+  - tasks: 'tasks/*.yaml'
+  - handlers: 'roles/*/handlers/*.yml'
+  - handlers: 'roles/*/handlers/*.yaml'
+  - handlers: 'handlers/*.yml'
+  - handlers: 'handlers/*.yaml'
+  - vars: 'roles/*/vars/*.yml'
+  - vars: 'roles/*/vars/*.yaml'
+  - vars: 'vars/*.yml'
+  - vars: 'vars/*.yaml'
+  - defaults: 'roles/*/defaults/*.yml'
+  - defaults: 'roles/*/defaults/*.yaml'
+  - defaults: 'defaults/*.yml'
+  - defaults: 'defaults/*.yaml'
+  - meta: 'roles/*/meta/*.yml'
+  - meta: 'roles/*/meta/*.yaml'
+  - meta: 'meta/*.yml'
+  - meta: 'meta/*.yaml'
+
+# Paths to exclude
+exclude_paths:
+  - .cache/
+  - .github/
+  - tests/
+  - molecule/
+  - .ansible-lint
+  - requirements.yml
+
+# Rules to warn about (not fail)
+warn_list:
+  - experimental
+  - role-name[path]
+  - schema[meta]
+
+# Rules to skip
+skip_list:
+  - yaml[line-length]  # Long lines are sometimes necessary
+  - name[template]     # Allow templated task names
+  - fqcn[action-core]  # Allow short form for core modules
+  - yaml[new-line-at-end-of-file]  # Skip end-of-file newline checks
+
+# Enable additional rules
+enable_list:
+  - args
+  - empty-string-compare
+  - no-log-password
+  - no-same-owner
+
+# Custom rule directories (if any)
+# rulesdir:
+#   - ./custom-rules/
+
+# Mock modules/roles to prevent install errors
+mock_modules:
+  - community.general.ufw
+  - community.general.timezone
+  - community.general.locale_gen
+
+mock_roles: []
