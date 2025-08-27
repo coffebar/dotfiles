@@ -60,6 +60,7 @@ gimp
 git
 git-delta
 git-lfs
+github-cli
 gnome-calculator
 gnome-disk-utility
 gnome-keyring
@@ -145,6 +146,7 @@ postman-bin
 python-openai
 python-passlib
 python-pip
+python-uv
 python-virtualenv
 qt5ct
 redshift-gtk-git
