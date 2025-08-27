@@ -45,19 +45,23 @@
             PATH: "{{ ansible_env.PATH }}:{{ ansible_env.HOME }}/.local/share/pnpm:{{ ansible_env.HOME }}/.node_modules/bin"
           changed_when: true
 
-    - name: Install global packages via PNPM
-      shell: |
-        export PNPM_HOME=~/.local/share/pnpm
-        pnpm install -g uglify-js
-      environment:
-        PNPM_HOME: "{{ ansible_env.HOME }}/.local/share/pnpm"
-      changed_when: false
-      failed_when: false
-
     - name: Install Claude Code CLI
-      ansible.builtin.command: npm install -g @anthropic-ai/claude-code
-      failed_when: false
-      changed_when: false
+      community.general.npm:
+        name: "@anthropic-ai/claude-code"
+        global: true
+        state: present
+
+    - name: Install OpenAI Codex package
+      community.general.npm:
+        name: "@openai/codex"
+        global: true
+        state: present
+
+    - name: Install Google Gemini CLI
+      community.general.npm:
+        name: "@google/gemini-cli"
+        global: true
+        state: present
 
     - name: Restore Intelephense license
       block:
