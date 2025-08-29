@@ -11,7 +11,7 @@ if grep Ubuntu /etc/os-release; then
 else
 	pacman --version || exit 1
 	# packages from arch repo
-	PKG=(autopep8 ansible-lint neovim go npm rust-analyzer lua-language-server fd ripgrep xclip rsync python-virtualenv wget perl-tidy)
+	PKG=(autopep8 ansible-lint neovim go npm rust-analyzer lua-language-server fd ripgrep xclip rsync python-virtualenv wget perl-tidy stylua)
 	# chech all packages if installed
 	# to avoid asking for sudo if nothing will be installed
 	TO_INSTALL=()
@@ -58,7 +58,7 @@ install_nodejs_packages_if_needed pyright bash-language-server \
 	typescript typescript-language-server \
 	stylefmt intelephense \
 	tree-sitter-cli \
-	eslint @johnnymorganz/stylua-bin \
+	eslint \
 	@shufo/prettier-plugin-blade \
 	emmet-ls \
 	neovim \

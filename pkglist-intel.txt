@@ -61,6 +61,7 @@ gimp
 git
 git-delta
 git-lfs
+github-cli
 gnome-calculator
 gnome-disk-utility
 gnome-keyring
@@ -142,6 +143,7 @@ openvpn
 pacman-contrib
 patch
 pavucontrol
+perl-tidy
 php
 picom
 pipewire
@@ -157,6 +159,7 @@ polybar
 python-openai
 python-passlib
 python-pip
+python-uv
 python-virtualenv
 remmina
 ripgrep
@@ -175,13 +178,13 @@ speech-dispatcher
 sqlitebrowser
 sshfs
 sshpass
+stylua
 sudo
 swayidle
 swaylock
 syncthing
 syncthingtray
 synology-drive
-synology-drive-debug
 systemd-resolvconf
 taskwarrior-tui
 telegram-desktop
@@ -230,6 +233,7 @@ woff2-font-awesome
 wofi
 wrk
 wtype
+xclip
 xdg-desktop-portal-hyprland
 xdg-user-dirs
 xdg-utils
