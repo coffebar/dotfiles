@@ -134,6 +134,7 @@ pacman-contrib
 pasystray
 pavucontrol
 perl-anyevent-i3
+perl-tidy
 php
 picom
 pipewire-alsa

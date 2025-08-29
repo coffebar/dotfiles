@@ -1,7 +1,7 @@
 #!/bin/bash
 if grep Ubuntu /etc/os-release; then
 	sudo add-apt-repository ppa:neovim-ppa/unstable
- 	sudo apt install neovim python3-autopep8 ansible-lint golang npm fd-find ripgrep xclip rsync python3-virtualenv wget rustup
+ 	sudo apt install neovim python3-autopep8 ansible-lint golang npm fd-find ripgrep xclip rsync python3-virtualenv wget rustup perltidy
   	rustup default stable
    	rustup component add rust-analyzer
     	wget https://github.com/LuaLS/lua-language-server/releases/download/3.13.5/lua-language-server-3.13.5-linux-x64.tar.gz
@@ -11,7 +11,7 @@ if grep Ubuntu /etc/os-release; then
 else
 	pacman --version || exit 1
 	# packages from arch repo
-	PKG=(autopep8 ansible-lint neovim go npm rust-analyzer lua-language-server fd ripgrep xclip rsync python-virtualenv wget)
+	PKG=(autopep8 ansible-lint neovim go npm rust-analyzer lua-language-server fd ripgrep xclip rsync python-virtualenv wget perl-tidy)
 	# chech all packages if installed
 	# to avoid asking for sudo if nothing will be installed
 	TO_INSTALL=()

@@ -89,6 +89,10 @@ local rustfmt = function()
   return { exe = "rustfmt", stdin = true, try_node_modules = false }
 end
 
+local perltidy = function()
+  return { exe = "perltidy", args = { "-st" }, stdin = true, try_node_modules = false }
+end
+
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 return {
   -- Enable or disable logging
@@ -109,6 +113,7 @@ return {
     php = { prettify.php },
     blade = { prettify.blade },
     python = { pythonConfig },
+    perl = { perltidy },
     rust = { rustfmt },
     scss = { stylefmt },
     sh = { prettify.sh },
