@@ -52,21 +52,23 @@ lspconfig.volar.setup({
     },
   },
   on_attach = function(client, _)
-    -- Disable overlapping capabilities that ts_ls also provides
-    client.server_capabilities.selectionRangeProvider = false
-    client.server_capabilities.foldingRangeProvider = false
-    client.server_capabilities.renameProvider = false
-    client.server_capabilities.documentSymbolProvider = false
-    client.server_capabilities.referencesProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-    client.server_capabilities.documentHighlightProvider = false
-    client.server_capabilities.definitionProvider = false
-    client.server_capabilities.completionProvider = false
-    client.server_capabilities.codeActionProvider = false
-    client.server_capabilities.inlayHintProvider = false
-    client.server_capabilities.semanticTokensProvider = false
-    client.server_capabilities.hoverProvider = false
-    client.server_capabilities.documentFormattingProvider = false
+    -- Define which capabilities are Vue-specific and should remain enabled
+    -- To maintain this list use https://gist.github.com/coffebar/59d7496c9735547bacb28059708ff0fd
+    local vue_only = {
+      colorProvider = true,
+      documentLinkProvider = true,
+      documentOnTypeFormattingProvider = true,
+      experimental = true,
+      linkedEditingRangeProvider = true,
+      textDocumentSync = true,
+      workspace = true,
+    }
+    -- Disable all capabilities except those in the whitelist
+    for capability, _ in pairs(client.server_capabilities) do
+      if not vue_only[capability] then
+        client.server_capabilities[capability] = false
+      end
+    end
   end,
 })
 -- lua, requires lua-language-server
