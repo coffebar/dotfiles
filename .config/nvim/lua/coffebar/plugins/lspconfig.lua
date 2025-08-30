@@ -19,7 +19,18 @@ lspconfig.ansiblels.setup({})
 lspconfig.bashls.setup({})
 -- javascript linter, requires vscode-langservers-extracted
 lspconfig.eslint.setup({})
+-- Vue Language Server 3.x configuration with ts_ls
+-- Setup ts_ls for TypeScript/JavaScript with Vue support
 lspconfig.ts_ls.setup({
+  init_options = {
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = vim.fn.expand("~/.local/share/pnpm/global/5/node_modules/@vue/typescript-plugin"),
+        languages = { "vue" },
+      },
+    },
+  },
   filetypes = {
     "javascript",
     "javascriptreact",
@@ -29,18 +40,10 @@ lspconfig.ts_ls.setup({
     "typescript.tsx",
     "vue",
   },
-  -- plugin for vue ts
-  init_options = {
-    plugins = {
-      {
-        name = "@vue/typescript-plugin",
-        languages = { "vue" },
-        location = vim.fn.expand("~/.local/share/pnpm/global/5/node_modules/@vue/typescript-plugin"),
-      },
-    },
-  },
 })
--- vue js from @vue/language-server
+
+-- Setup volar for Vue files
+-- Disable TypeScript features in volar since ts_ls handles them
 lspconfig.volar.setup({
   filetypes = { "vue" },
   init_options = {
@@ -48,6 +51,23 @@ lspconfig.volar.setup({
       tsdk = vim.fn.expand("~/.local/share/pnpm/global/5/node_modules/typescript/lib/"),
     },
   },
+  on_attach = function(client, _)
+    -- Disable overlapping capabilities that ts_ls also provides
+    client.server_capabilities.selectionRangeProvider = false
+    client.server_capabilities.foldingRangeProvider = false
+    client.server_capabilities.renameProvider = false
+    client.server_capabilities.documentSymbolProvider = false
+    client.server_capabilities.referencesProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+    client.server_capabilities.documentHighlightProvider = false
+    client.server_capabilities.definitionProvider = false
+    client.server_capabilities.completionProvider = false
+    client.server_capabilities.codeActionProvider = false
+    client.server_capabilities.inlayHintProvider = false
+    client.server_capabilities.semanticTokensProvider = false
+    client.server_capabilities.hoverProvider = false
+    client.server_capabilities.documentFormattingProvider = false
+  end,
 })
 -- lua, requires lua-language-server
 lspconfig.lua_ls.setup({
