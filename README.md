@@ -22,7 +22,6 @@
   - [:green_heart: neovim](https://neovim.io/) :green_heart:
   - 🦍 obsidian
 - [:art: Themes](https://github.com/coffebar/dotfiles#overview):
-
   - :desktop_computer: [Arc-Dark](https://github.com/horst3180/arc-theme) GTK theme
   - :basecamp: [bloom-classic](https://github.com/linuxdeepin/deepin-icon-theme) Icons and [RosePine](https://github.com/rose-pine/cursor) cursor
   - :new_moon_with_face: Telegram theme: [ArcDarkGrey](https://t.me/addtheme/arcdarkgrey)
@@ -53,17 +52,15 @@
 
 - PDE with code completion from many sources (including ripgrep, LSP, path and copilot), a bunch of LSP servers, autosave sessions and files, clipboard history, code formatting, color picker, fuzzy finder, git integration, incremental selection, quick project switching, code snippets, syncing of everything across devices.
 
-- `Super + F` quick search files inside $HOME using ripgrep with a custom ignore file.
-
 - Neo-tree has custom mappings: `Y` Copy absolute path, `t` Open directory in Thunar, `<c-r>` Replace in folder via Spectre, `<c-f>` Search with Telescope live grep.
 
 - dotfiles bare repository will be detected by vim-fugitive, because my config updates environment variables on DirChanged event.
 
-- `Super + er` open Telescope to select \*.sh script inside project and run it. Useful for build, run, deploy, any automation. Output will be shown in the quickfix window and hidden after timeout.
+- `<leader>er` runs AsyncTask project-run command for build automation. Output will be shown in the quickfix window.
 
-- `Super + t` opens Neovim's builtin Terminal. `Super + sa` opens external Alacritty in the current working directory.
+- `<leader>t` opens Neovim's builtin Terminal. `<leader>ta` opens external Alacritty in the current working directory.
 
-- `Super + b` close editor's buffer or `q` - close any other window (help, fugitive, spectre)
+- `<leader>b` close editor's buffer or `q` - close any other window (help, fugitive, spectre)
 
 - Different colorscheme and options for TTY.
 
@@ -99,23 +96,19 @@
 
 #### Terminal
 
-- ``Alt + e`` execute suggested command from zsh-autosuggestions.
+- `Alt + e` execute suggested command from zsh-autosuggestions.
 
-- ``Ctrl + x`` after typing `# comment question` provides OpenAI generated suggestion.
+- `Command + c` `Command + v` copy & paste. `Ctrl + c` and `Ctrl + p` in neovim.
 
-- ``Command + c`` ``Command + v`` copy & paste. `Ctrl + c` and `Ctrl + p` in neovim.
+- Nice aliases: **i** to install package, **v** to open Neovim, **yy** to perform system upgrade. `md2pdf` - convert markdown to pdf.
 
-- Nice aliases: **i** to install package, **md2pdf** to convert markdown file to pdf, **v** to open Neovim, **yy** to perform system upgrade. 
-
-- Custom pacman hook updates the list of explicitly installed packages (pkglist-intel.txt) when install or remove something.
-
+- Custom pacman hook updates the list of explicitly installed packages (pkglist-\*.txt files) when install or remove something.
 
 #### Neovim project management
 
 https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a287-4c476ed97ccc
 
 📦 [neovim-project](https://github.com/coffebar/neovim-project) plugin
-
 
 ## Neovim plugins full list
 
@@ -201,8 +194,6 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [tzachar/highlight-undo.nvim](https://github.com/tzachar/highlight-undo.nvim)  Highlight changed text after any text changing operation
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)  Use treesitter to auto close and auto rename html tag
 <!-- plugins list end -->
-
-
 
 ## Restore Neovim config
 
