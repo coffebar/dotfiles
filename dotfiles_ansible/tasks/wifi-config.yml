@@ -3,7 +3,7 @@
 - name: Get current WiFi connection name
   shell: |
     set -o pipefail
-    nmcli -t -f NAME,TYPE,DEVICE connection show --active | grep ':802-11-wireless:wlan' | cut -d: -f1
+    nmcli -t -f NAME,TYPE,DEVICE connection show --active | grep ':802-11-wireless:' | cut -d: -f1
   register: current_wifi_conn
   changed_when: false
   failed_when: current_wifi_conn.stdout == ""
