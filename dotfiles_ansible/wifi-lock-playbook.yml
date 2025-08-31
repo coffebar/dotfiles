@@ -1,0 +1,10 @@
+---
+- name: Lock WiFi to BSSID
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Lock current WiFi to BSSID
+      import_tasks: tasks/wifi-config.yml
+      tags: [wifi, network]

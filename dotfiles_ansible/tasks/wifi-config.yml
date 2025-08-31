@@ -1,0 +1,40 @@
+---
+# Lock current WiFi connection to BSSID to disable background scanning
+- name: Get current WiFi connection name
+  shell: |
+    set -o pipefail
+    nmcli -t -f NAME,TYPE,DEVICE connection show --active | grep ':802-11-wireless:wlan' | cut -d: -f1
+  register: current_wifi_conn
+  changed_when: false
+  failed_when: current_wifi_conn.stdout == ""
+
+- name: Get current BSSID
+  shell: |
+    set -o pipefail
+    # nmcli in terse mode escapes colons, so we need to remove backslashes
+    nmcli -t -f ACTIVE,BSSID device wifi list | grep '^yes:' | head -1 | cut -d: -f2- | sed 's/\\//g'
+  register: current_bssid
+  changed_when: false
+  failed_when: current_bssid.stdout == ""
+
+- name: Lock connection to BSSID using nmcli module
+  community.general.nmcli:
+    conn_name: "{{ current_wifi_conn.stdout }}"
+    wifi:
+      bssid: "{{ current_bssid.stdout }}"
+    state: present
+  become: true
+
+- name: Restart NetworkManager to apply BSSID lock
+  systemd:
+    name: NetworkManager
+    state: restarted
+  become: true
+
+- name: Display result
+  debug:
+    msg:
+      - "Locked: {{ current_wifi_conn.stdout }}"
+      - "BSSID: {{ current_bssid.stdout }}"
+      - "Background scanning disabled for this network"
+      - "Run this task at each location to lock that network"
