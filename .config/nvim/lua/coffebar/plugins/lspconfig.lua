@@ -19,8 +19,8 @@ lspconfig.ansiblels.setup({})
 lspconfig.bashls.setup({})
 -- javascript linter, requires vscode-langservers-extracted
 lspconfig.eslint.setup({})
--- Vue Language Server 3.x configuration with ts_ls
--- Setup ts_ls for TypeScript/JavaScript with Vue support
+-- TypeScript/JavaScript and Vue configuration
+-- Using ts_ls with @vue/typescript-plugin for Vue support
 lspconfig.ts_ls.setup({
   init_options = {
     plugins = {
@@ -40,36 +40,6 @@ lspconfig.ts_ls.setup({
     "typescript.tsx",
     "vue",
   },
-})
-
--- Setup volar for Vue files
--- Disable TypeScript features in volar since ts_ls handles them
-lspconfig.volar.setup({
-  filetypes = { "vue" },
-  init_options = {
-    typescript = {
-      tsdk = vim.fn.expand("~/.local/share/pnpm/global/5/node_modules/typescript/lib/"),
-    },
-  },
-  on_attach = function(client, _)
-    -- Define which capabilities are Vue-specific and should remain enabled
-    -- To maintain this list use https://gist.github.com/coffebar/59d7496c9735547bacb28059708ff0fd
-    local vue_only = {
-      colorProvider = true,
-      documentLinkProvider = true,
-      documentOnTypeFormattingProvider = true,
-      experimental = true,
-      linkedEditingRangeProvider = true,
-      textDocumentSync = true,
-      workspace = true,
-    }
-    -- Disable all capabilities except those in the whitelist
-    for capability, _ in pairs(client.server_capabilities) do
-      if not vue_only[capability] then
-        client.server_capabilities[capability] = false
-      end
-    end
-  end,
 })
 -- lua, requires lua-language-server
 lspconfig.lua_ls.setup({
