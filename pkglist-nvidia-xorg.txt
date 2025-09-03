@@ -98,7 +98,6 @@ libreoffice-fresh-en-gb
 libreoffice-fresh-uk
 libva-nvidia-driver
 linux-firmware
-linux-headers
 linux-lts-headers
 lsof
 ltex-ls-bin
@@ -157,7 +156,6 @@ rofi
 rose-pine-cursor
 rose-pine-hyprcursor
 rsync
-rtl8852au-dkms-git
 rtw89-dkms-git
 rust-analyzer
 rustup
