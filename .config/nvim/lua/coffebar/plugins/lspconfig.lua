@@ -1,27 +1,20 @@
-local lsp_installed, lspconfig = pcall(require, "lspconfig")
-if not lsp_installed then
-  return
-end
-
--- enable logging
--- vim.lsp.set_log_level("info")
-
 local py_lsp_installed, py_lsp = pcall(require, "py_lsp")
 
 -- load snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 
----------------- language servers ---------------------
+-- ansible
+vim.lsp.config["ansiblels"] = {}
 
---ansible
-lspconfig.ansiblels.setup({})
 -- bash, requires bash-language-server
-lspconfig.bashls.setup({})
+vim.lsp.config["bashls"] = {}
+
 -- javascript linter, requires vscode-langservers-extracted
-lspconfig.eslint.setup({})
+vim.lsp.config["eslint"] = {}
+
 -- TypeScript/JavaScript and Vue configuration
 -- Using ts_ls with @vue/typescript-plugin for Vue support
-lspconfig.ts_ls.setup({
+vim.lsp.config["ts_ls"] = {
   init_options = {
     plugins = {
       {
@@ -40,9 +33,10 @@ lspconfig.ts_ls.setup({
     "typescript.tsx",
     "vue",
   },
-})
+}
+
 -- lua, requires lua-language-server
-lspconfig.lua_ls.setup({
+vim.lsp.config["lua_ls"] = {
   settings = {
     Lua = {
       diagnostics = {
@@ -50,30 +44,35 @@ lspconfig.lua_ls.setup({
       },
     },
   },
-})
+}
+
 -- css, html
 -- requires vscode-langservers-extracted npm package
---Enable (broadcasting) snippet capability for completion
+-- Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-lspconfig.cssls.setup({ capabilities = capabilities })
-lspconfig.html.setup({ capabilities = capabilities })
-lspconfig.emmet_ls.setup({
+vim.lsp.config["cssls"] = { capabilities = capabilities }
+vim.lsp.config["html"] = { capabilities = capabilities }
+
+vim.lsp.config["emmet_ls"] = {
   capabilities = capabilities,
   filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "php", "vue" },
   init_options = {
     -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts
   },
-})
+}
+
 -- json
-lspconfig.jsonls.setup({
+vim.lsp.config["jsonls"] = {
   capabilities = capabilities,
   provideFormatter = true,
-})
+}
+
 -- go
-lspconfig.gopls.setup({})
+vim.lsp.config["gopls"] = {}
+
 -- php
-lspconfig.intelephense.setup({
+vim.lsp.config["intelephense"] = {
   settings = {
     intelephense = {
       -- see https://github.com/bmewburn/intelephense-docs/blob/master/installation.md#initialisation-options
@@ -164,9 +163,30 @@ lspconfig.intelephense.setup({
       },
     },
   },
-})
+}
+
 -- pyright lsp for python
-lspconfig.pyright.setup({})
+vim.lsp.config["pyright"] = {}
+
+-- rust, requires rust_analyzer
+vim.lsp.config["rust_analyzer"] = {}
+
+-- enable all servers
+vim.lsp.enable({
+  "ansiblels",
+  "bashls",
+  "eslint",
+  "ts_ls",
+  "lua_ls",
+  "cssls",
+  "html",
+  "emmet_ls",
+  "jsonls",
+  "gopls",
+  "intelephense",
+  "pyright",
+  "rust_analyzer",
+})
 
 if py_lsp_installed then
   local py_lsp_loaded = false
@@ -206,6 +226,3 @@ if py_lsp_installed then
     end,
   })
 end
-
--- rust, requires rust_analyzer
-lspconfig.rust_analyzer.setup({})

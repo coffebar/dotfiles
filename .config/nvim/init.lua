@@ -7,3 +7,6 @@ require("coffebar.plugin-managers")
 -- keymap goes after mapleader and after plugins
 require("coffebar.keymap")
 require("coffebar.filetype")
+
+-- lspconfig
+require("coffebar.plugins.lspconfig")

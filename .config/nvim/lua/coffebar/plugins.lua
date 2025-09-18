@@ -46,15 +46,6 @@ return {
   },
   -- s-motion to search by 2 characters
   { "justinmk/vim-sneak", lazy = true, keys = { "S", "s" } },
-  -- asynchronous completion framework
-  {
-    "neovim/nvim-lspconfig",
-    lazy = true,
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require("coffebar.plugins.lspconfig")
-    end,
-  },
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-buffer",
   "hrsh7th/cmp-path",
