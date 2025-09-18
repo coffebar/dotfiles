@@ -142,7 +142,6 @@ pix
 poedit
 polkit-kde-agent
 polybar
-postman-bin
 python-openai
 python-passlib
 python-pip
