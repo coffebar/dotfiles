@@ -75,7 +75,6 @@ gtk-engines
 gvfs
 gvfs-gphoto2
 gvfs-mtp
-haveged
 htop
 hugo
 i3-wm
@@ -104,10 +103,8 @@ ltex-ls-bin
 lua-language-server
 lxappearance
 lzop
-mako
 man-db
 mediainfo
-microsoft-edge-stable-bin
 mpv
 mtools
 mtpfs
@@ -160,7 +157,7 @@ rust-analyzer
 rustup
 s5cmd-bin
 sdl_ttf
-shellcheck
+shellcheck-bin
 signal-desktop
 simplescreenrecorder
 smartmontools
@@ -215,12 +212,10 @@ xcompmgr
 xdg-user-dirs
 xdg-utils
 xdotool
-xf86-input-synaptics
 xf86-video-intel
 xfce4-settings
 xfce4-taskmanager
 xnconvert
-xorg-fonts-type1
 xorg-server
 xorg-xinit
 xorg-xkill
