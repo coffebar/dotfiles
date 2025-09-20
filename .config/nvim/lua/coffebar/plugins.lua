@@ -141,6 +141,8 @@ return {
       ---Function to call after (un)comment
       post_hook = nil,
     },
+    event = "VeryLazy",
+    lazy = true,
   },
   -- automatically close pairs such as (), {}, ""
   { "cohama/lexima.vim", priority = 2, enabled = false },
@@ -173,6 +175,8 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 500
     end,
+    lazy = true,
+    event = "VeryLazy",
   },
   -- blank char visualization
   {
@@ -209,6 +213,8 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {},
     cmd = "Trouble",
+    lazy = true,
+    event = "VeryLazy",
   },
   -- tabline plugin with re-orderable, auto-sizing
   {
@@ -292,13 +298,6 @@ return {
       require("nvim-surround").setup({})
     end,
   },
-  -- transform Text Case
-  {
-    "johmsalas/text-case.nvim",
-    config = function()
-      require("textcase").setup({})
-    end,
-  },
   -- toggle Boolean
   {
     "nguyenvukhang/nvim-toggler",
@@ -341,6 +340,8 @@ return {
     config = function()
       require("nvim-ts-autotag").setup()
     end,
+    lazy = true,
+    event = "InsertEnter",
   },
   -- dim unused variables and functions using LSP and treesitter
   {
@@ -383,9 +384,9 @@ return {
     opts = {},
   },
   -- change line number color based on the current Vim mode
-  { "mawkler/modicator.nvim", opts = {} },
+  { "mawkler/modicator.nvim", opts = {}, lazy = true, event = "VeryLazy" },
   -- jump through the changes in multiple files
   { "bloznelis/before.nvim", lazy = true, opts = { history_size = 10 }, event = "VeryLazy" },
   -- Hugo support
-  "phelipetls/vim-hugo",
+  { "phelipetls/vim-hugo", lazy = true, ft = "markdown", enabled = false },
 }

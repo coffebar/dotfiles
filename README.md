@@ -147,7 +147,6 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)  markdown preview plugin for (neo)vim
 - [ibutra/checkbox.nvim](https://github.com/ibutra/checkbox.nvim)  Simple checkbox handling for neovim
 - [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)  💫  Extensible UI for Neovim notifications and LSP progress messages.
-- [johmsalas/text-case.nvim](https://github.com/johmsalas/text-case.nvim)  An all in one plugin for converting text case in Neovim
 - [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)  Add/change/delete surrounding delimiter pairs with ease. Written with in Lua.
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)  Git integration for buffers
 - [lukas-reineke/cmp-rg](https://github.com/lukas-reineke/cmp-rg)  ripgrep source for nvim-cmp
