@@ -44,8 +44,6 @@ return {
     opts = require("coffebar.plugins.formatter"),
     priority = 20,
   },
-  -- s-motion to search by 2 characters
-  { "justinmk/vim-sneak", lazy = true, keys = { "S", "s" } },
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-buffer",
   "hrsh7th/cmp-path",
@@ -145,9 +143,9 @@ return {
     },
   },
   -- automatically close pairs such as (), {}, ""
-  { "cohama/lexima.vim", priority = 2 },
+  { "cohama/lexima.vim", priority = 2, enabled = false },
   -- treesitter
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" },
   -- python venv manager
   { "HallerPatrick/py_lsp.nvim", priority = 2 },
   -- keep visible current function declaration
@@ -247,24 +245,6 @@ return {
     },
   },
   {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- required
-      -- "nvim-telescope/telescope.nvim", -- optional
-      "sindrets/diffview.nvim", -- optional
-    },
-    config = true,
-    opts = {
-      integrations = {
-        telescope = false,
-        diffview = true,
-      },
-    },
-    lazy = true,
-    event = "VeryLazy",
-    enabled = false,
-  },
-  {
     "sindrets/diffview.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     lazy = true,
@@ -272,14 +252,6 @@ return {
   },
   -- snippets
   { "rafamadriz/friendly-snippets" },
-  -- tests
-  {
-    "klen/nvim-test",
-    enabled = false,
-    config = function()
-      require("nvim-test").setup({})
-    end,
-  },
   -- generic way to handle build/run/test/deploy tasks
   {
     "skywind3000/asynctasks.vim",
@@ -377,34 +349,12 @@ return {
     lazy = true,
     event = { "BufReadPost", "BufNewFile" },
   },
-  -- copy history
-  {
-    "AckslD/nvim-neoclip.lua",
-    config = function()
-      require("neoclip").setup({
-        enable_macro_history = false,
-        keys = {
-          telescope = {
-            i = {
-              select = "<cr>",
-              delete = "<c-d>", -- delete an entry
-              edit = "<c-e>", -- edit an entry
-              custom = {},
-            },
-          },
-          fzf = {},
-        },
-      })
-    end,
-  },
   -- Github copilot
   { "github/copilot.vim", lazy = true, event = "VeryLazy" },
   -- delete buffers without closing window layout;
   { "moll/vim-bbye", priority = 1 },
   -- Interactive real time Neovim scratchpad
   { "rafcamlet/nvim-luapad", lazy = true, cmd = "Luapad" },
-  -- edit your filesystem like you edit text
-  { "elihunter173/dirbuf.nvim", lazy = true, cmd = "Dirbuf" },
   -- highlight arguments
   { "m-demare/hlargs.nvim", main = "hlargs", opts = { color = "#ef9062" } },
   -- highlight changed text after Undo / Redo operations
@@ -436,39 +386,6 @@ return {
   { "mawkler/modicator.nvim", opts = {} },
   -- jump through the changes in multiple files
   { "bloznelis/before.nvim", lazy = true, opts = { history_size = 10 }, event = "VeryLazy" },
-
   -- Hugo support
   "phelipetls/vim-hugo",
-  -- Laravel support
-  {
-    "adalessa/laravel.nvim",
-    tag = "v2.2.1",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "tpope/vim-dotenv",
-      "MunifTanjim/nui.nvim",
-      "nvimtools/none-ls.nvim",
-    },
-    cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
-    keys = {
-      { "LLa", ":Laravel artisan<cr>" },
-      { "LLr", ":Laravel routes<cr>" },
-      { "LLm", ":Laravel related<cr>" },
-    },
-    event = { "VeryLazy" },
-    opts = {
-      features = {
-        null_ls = {
-          enable = false,
-        },
-        route_info = {
-          enable = true, --- to enable the laravel.nvim virtual text
-          position = "right", --- where to show the info (available options 'right', 'top')
-          middlewares = true, --- wheather to show the middlewares section in the info
-          method = true, --- wheather to show the method section in the info
-          uri = true, --- wheather to show the uri section in the info
-        },
-      },
-    },
-  },
 }

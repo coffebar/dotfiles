@@ -73,7 +73,6 @@ if has_wk then
     { "<leader>cc", '"+yy', desc = "Copy line to system clipboard" },
     { "<leader>cf", "<cmd>%y+<cr>", desc = "Copy file content to system clipboard" },
     { "<leader>cl", '<cmd>let @+=expand("%:p")<cr>', desc = "Copy current buffer's absolute path" },
-    { "<leader>cr", "<cmd>Telescope neoclip<cr>", desc = "Neoclip" },
     { "<leader>cs", "<cmd>so %<cr>", desc = "Source current buffer" },
     { "<leader>e", group = "Run" },
     { "<leader>eb", "<cmd>AsyncTask project-build<cr>", desc = "./build.sh" },

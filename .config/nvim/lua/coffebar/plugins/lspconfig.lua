@@ -3,15 +3,6 @@ local py_lsp_installed, py_lsp = pcall(require, "py_lsp")
 -- load snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 
--- ansible
-vim.lsp.config["ansiblels"] = {}
-
--- bash, requires bash-language-server
-vim.lsp.config["bashls"] = {}
-
--- javascript linter, requires vscode-langservers-extracted
-vim.lsp.config["eslint"] = {}
-
 -- TypeScript/JavaScript and Vue configuration
 -- Using ts_ls with @vue/typescript-plugin for Vue support
 vim.lsp.config["ts_ls"] = {
@@ -32,17 +23,6 @@ vim.lsp.config["ts_ls"] = {
     "typescriptreact",
     "typescript.tsx",
     "vue",
-  },
-}
-
--- lua, requires lua-language-server
-vim.lsp.config["lua_ls"] = {
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
-    },
   },
 }
 
@@ -67,9 +47,6 @@ vim.lsp.config["jsonls"] = {
   capabilities = capabilities,
   provideFormatter = true,
 }
-
--- go
-vim.lsp.config["gopls"] = {}
 
 -- php
 vim.lsp.config["intelephense"] = {
@@ -158,33 +135,35 @@ vim.lsp.config["intelephense"] = {
         "Zend OPcache",
         "zip",
         "zlib",
-        -- addeditional stubs
         "wordpress",
       },
     },
   },
 }
 
--- pyright lsp for python
-vim.lsp.config["pyright"] = {}
-
--- rust, requires rust_analyzer
-vim.lsp.config["rust_analyzer"] = {}
-
 -- enable all servers
 vim.lsp.enable({
+  -- ansible
   "ansiblels",
+  -- bash, requires bash-language-server
   "bashls",
+  -- css
+  "cssls",
+  -- javascript linter, requires vscode-langservers-extracted
   "eslint",
   "ts_ls",
+  -- lua, requires lua-language-server
   "lua_ls",
-  "cssls",
   "html",
   "emmet_ls",
   "jsonls",
+  -- go
   "gopls",
+  -- php, requires intelephense
   "intelephense",
+  -- pyright lsp for python
   "pyright",
+  -- rust, requires rust_analyzer
   "rust_analyzer",
 })
 
