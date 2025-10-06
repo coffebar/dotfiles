@@ -114,6 +114,7 @@ network-manager-applet
 networkmanager
 networkmanager-openvpn
 nmap
+nodejs
 noto-fonts
 noto-fonts-emoji
 npm
