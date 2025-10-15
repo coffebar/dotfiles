@@ -75,7 +75,7 @@ tmux kill-session -t "$SESSION_NAME" 2> /dev/null || true
 echo "" > "$PROMPT_FILE"
 
 # Configure tmux session settings
-tmux new-session -d -s "$SESSION_NAME" "nvim /tmp/instructions.prompt.md"
+tmux new-session -d -s "$SESSION_NAME" -n "claude" "nvim /tmp/instructions.prompt.md"
 
 # Apply important tmux settings for this session
 tmux set-option -t "$SESSION_NAME" base-index 1
@@ -108,11 +108,16 @@ fi
 # Only start the relay if the socket file doesn't exist
 if [ ! -e "$SOCKET_PATH" ]; then
 	tmux new-window -t "$SESSION_NAME:3" -n "telegram-relay" "cd '$RELAY_DIR' && $RELAY_START_CMD"
+	tmux split-window -v -p 90 -t "$SESSION_NAME:telegram-relay"
+	tmux split-window -h -t "$SESSION_NAME:telegram-relay.2"
 	tmux set-window-option -t "$SESSION_NAME:telegram-relay" monitor-activity off
 fi
 
 # Create a fourth window with a clean terminal
 tmux new-window -t "$SESSION_NAME:4" -n "terminal"
+
+# Create a fifth window running codex CLI in project directory
+tmux new-window -t "$SESSION_NAME:5" -n "codex" "cd '$PWD' && codex"
 
 # Focus on left pane (nvim) in first window
 tmux select-pane -t "$SESSION_NAME:1.1"
