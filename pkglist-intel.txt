@@ -1,6 +1,5 @@
 7zip
 accountsservice
-acpi_call
 adspower-global
 alacritty
 alsa-plugins
@@ -106,9 +105,8 @@ libreoffice-fresh
 libreoffice-fresh-en-gb
 libreoffice-fresh-uk
 libtool
-linux
+libxml2-legacy
 linux-firmware
-linux-headers
 linux-zen
 linux-zen-headers
 lsof
@@ -169,7 +167,7 @@ rsync
 rust-analyzer
 rustup
 s5cmd-bin
-shellcheck
+shellcheck-bin
 signal-desktop
 slurp
 smartmontools
