@@ -26,4 +26,5 @@ return {
   -- Path to store history and sessions
   datapath = datapath,
   follow_symlinks = "partial",
+  per_branch_sessions = true,
 }
