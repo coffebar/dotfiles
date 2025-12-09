@@ -257,7 +257,7 @@ hide_edge_borders smart
 
 workspace_auto_back_and_forth yes
 
-set $Locker ~/.config/i3/locker.sh 
+set $Locker ~/.config/i3/locker.sh
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown, (c) autorandr
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
@@ -266,7 +266,7 @@ mode "$mode_system" {
     #bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym c exec --no-startup-id autorandr -c, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -363,3 +363,5 @@ exec --no-startup-id /bin/sh -c "secret-tool lookup 'keepass' 'default' | keepas
 exec --no-startup-id /bin/sh -c 'until wmctrl -r KeePassXC -b remove,demands_attention; do sleep 1; done; sleep 2; wmctrl -r KeePassXC -b remove,demands_attention'
 # pull ditfiles from github
 exec --no-startup-id $pull_cmd &
+# github copilot account: check limits
+exec --no-startup-id ~/pets/rotate_copilot/rotate_copilot.py
