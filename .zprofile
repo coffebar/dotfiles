@@ -34,7 +34,7 @@ fi
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 	# tty1, start GUI
 	if [ "$XDG_VTNR" -eq 1 ]; then
-		WM=/usr/bin/Hyprland
+		WM=/usr/bin/start-hyprland
 		if [ -f "$HOME/pets/Hyprland/build/src/Hyprland" ]; then
 			WM=$HOME/pets/Hyprland/build/src/Hyprland
 			export HYPRLAND_TRACE=1
@@ -43,14 +43,7 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 
 		USE_HYPRLAND=0
 		if [ -f "$WM" ]; then
-			if [ "$XDG_SESSION_OPT" = "potato" ]; then
-				# check if nvidia is installed
-				if ! [ -f "/usr/bin/nvidia-smi" ]; then
-					USE_HYPRLAND=1
-				fi
-			else
-				USE_HYPRLAND=1
-			fi
+			USE_HYPRLAND=1
 		fi
 
 		if [ "$USE_HYPRLAND" -eq 1 ]; then
@@ -73,7 +66,7 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 				export NVD_BACKEND=direct
 			fi
 			# start wayland compositor
-			exec $WM -c "$HYPRLAND_CONFIG"
+			exec $WM -- -c "$HYPRLAND_CONFIG"
 		else
 			# fallback to xorg
 
