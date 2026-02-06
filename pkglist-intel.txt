@@ -44,6 +44,7 @@ easyeffects
 ecryptfs-utils
 efibootmgr
 electrum
+ex-vi-compat
 exfat-utils
 faac
 fakeroot
@@ -119,7 +120,6 @@ make
 mako
 man-db
 mediainfo
-microsoft-edge-stable-bin
 mpv
 mtools
 mtpfs
@@ -211,7 +211,6 @@ ufw
 unrar
 unzip
 usbutils
-vi
 vim
 vlc
 wavpack
