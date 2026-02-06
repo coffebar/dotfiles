@@ -148,8 +148,8 @@ return {
   { "cohama/lexima.vim", priority = 2, enabled = false },
   -- treesitter
   { "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" },
-  -- python venv manager
-  { "HallerPatrick/py_lsp.nvim", priority = 2 },
+  -- python venv manager (forked from HallerPatrick/py_lsp.nvim until merge PR #50)
+  { "coffebar/py_lsp.nvim", priority = 2 },
   -- keep visible current function declaration
   {
     "romgrk/nvim-treesitter-context",
