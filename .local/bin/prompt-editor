@@ -92,32 +92,12 @@ sleep 2
 # Create a second window with nvim for code editing
 tmux new-window -t "$SESSION_NAME:2" -n "editor" "nvim"
 
-# Create a third window for telegram-claude-relay
-RELAY_DIR="$HOME/pets/telegram-claude-relay"
-PROJECT_ENV_FILE="$RELAY_DIR/.env.$PROJECT_NAME"
+# Create a third window with 2 terminals side by side
+tmux new-window -t "$SESSION_NAME:3" -n "terminal"
+tmux split-window -h -t "$SESSION_NAME:3"
 
-# Check if project-specific .env file exists
-if [ -f "$PROJECT_ENV_FILE" ]; then
-	SOCKET_PATH="$RELAY_DIR/telegram-relay-$PROJECT_NAME.sock"
-	RELAY_START_CMD="./run.sh $PROJECT_NAME"
-else
-	SOCKET_PATH="$RELAY_DIR/telegram-relay.sock"
-	RELAY_START_CMD="./run.sh"
-fi
-
-# Only start the relay if the socket file doesn't exist
-if [ ! -e "$SOCKET_PATH" ]; then
-	tmux new-window -t "$SESSION_NAME:3" -n "telegram-relay" "cd '$RELAY_DIR' && $RELAY_START_CMD"
-	tmux split-window -v -p 90 -t "$SESSION_NAME:telegram-relay"
-	tmux split-window -h -t "$SESSION_NAME:telegram-relay.2"
-	tmux set-window-option -t "$SESSION_NAME:telegram-relay" monitor-activity off
-fi
-
-# Create a fourth window with a clean terminal
-tmux new-window -t "$SESSION_NAME:4" -n "terminal"
-
-# Create a fifth window running codex CLI in project directory
-tmux new-window -t "$SESSION_NAME:5" -n "codex" "cd '$PWD' && codex"
+# Create a fourth window running codex CLI in project directory
+tmux new-window -t "$SESSION_NAME:4" -n "codex" "cd '$PWD' && codex"
 
 # Focus on left pane (nvim) in first window
 tmux select-pane -t "$SESSION_NAME:1.1"
