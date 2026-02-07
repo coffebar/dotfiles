@@ -148,7 +148,7 @@ echo "Setting charge threshold..."
 sudo tlp setcharge 60 80 BAT0
 
 # install Claude Code
-npm install -g @anthropic-ai/claude-code
+curl -fsSL https://claude.ai/install.sh | bash
 
 # upgrade firmware
 echo "Firmware upgrade..."
