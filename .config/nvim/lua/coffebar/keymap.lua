@@ -61,6 +61,7 @@ if has_wk then
       desc = "Open recent projects",
     },
     { "<leader>>", "<cmd>BufferMoveNext<cr>", desc = "Move tab right (barbar)" },
+    { "<leader>C", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChatToggle" },
     { "<leader>F", "<cmd>SearchInHome<cr>", desc = "Search files in $HOME" },
     { "<leader>I", desc = "Toggle checkbox" },
     { "<leader>N", "<cmd>Neotree reveal<cr>", desc = "Reveal Neotree" },
@@ -115,11 +116,12 @@ if has_wk then
     { "<leader>gg", "<cmd>vert Git<cr>", desc = "Git" },
     { "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", desc = "History for current file" },
     { "<leader>gl", "<cmd>Flog -date=short<cr>", desc = "Git log (Flog)" },
+    { "<leader>gj", "<cmd>Telescope jira-git<cr>", desc = "Create a branch from Jira task" },
     {
       "<leader>gp",
       function()
         require("coffebar.jobstart").run({
-          cmd = "git push",
+          cmd = "git push -u origin HEAD",
           start_title = "Pushing",
           start_message = "Loading...",
           start_icon = " ",

@@ -389,4 +389,31 @@ return {
   { "bloznelis/before.nvim", lazy = true, opts = { history_size = 10 }, event = "VeryLazy" },
   -- Hugo support
   { "phelipetls/vim-hugo", lazy = true, ft = "markdown", enabled = false },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      { "nvim-lua/plenary.nvim", branch = "master" },
+    },
+    build = "make tiktoken",
+    opts = {
+      model = "claude-sonnet-4.6",
+      auto_insert_mode = false,
+      chat_autocomplete = false,
+      tools = {
+        "@copilot",
+        "bash",
+        "buffer",
+        "edit",
+        "file",
+        "gitdiff",
+        "glob",
+        "grep",
+        "selection",
+        "url",
+      },
+      window = {
+        border = "none",
+      },
+    },
+  },
 }

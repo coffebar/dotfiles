@@ -54,7 +54,7 @@ vim.lsp.config["intelephense"] = {
     intelephense = {
       -- see https://github.com/bmewburn/intelephense-docs/blob/master/installation.md#initialisation-options
       environment = {
-        phpVersion = "8.3.0",
+        phpVersion = "8.4.0",
       },
       files = {
         maxSize = 5000000, -- 5MB for stubs

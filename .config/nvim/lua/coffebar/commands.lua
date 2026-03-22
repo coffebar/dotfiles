@@ -275,3 +275,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
   group = augroup,
 })
+
+-- Auto-command to customize chat buffer behavior for GitHub Copilot Chat
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "copilot-*",
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.conceallevel = 0
+    vim.keymap.set("i", "<S-Tab>", 'copilot#Accept("\\<S-Tab>")', { expr = true, replace_keycodes = false })
+  end,
+})

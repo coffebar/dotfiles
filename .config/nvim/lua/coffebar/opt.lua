@@ -7,7 +7,7 @@ opt.errorbells = false
 -- show line numbers
 opt.number = true
 -- relative line numbers
-opt.relativenumber = true
+opt.relativenumber = false
 opt.shiftwidth = 2
 -- show tabs as 2 spaces
 opt.tabstop = 2
