@@ -25,7 +25,6 @@ breeze5
 brightnessctl
 btrfs-progs
 clipman
-cloudflare-warp-bin
 copyq
 cronie
 deepin-icon-theme
