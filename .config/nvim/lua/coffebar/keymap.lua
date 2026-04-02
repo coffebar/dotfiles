@@ -75,6 +75,56 @@ if has_wk then
     { "<leader>cf", "<cmd>%y+<cr>", desc = "Copy file content to system clipboard" },
     { "<leader>cl", '<cmd>let @+=expand("%:p")<cr>', desc = "Copy current buffer's absolute path" },
     { "<leader>cs", "<cmd>so %<cr>", desc = "Source current buffer" },
+    -- { "<leader>d", group = "Debug" },
+    -- {
+    --   "<leader>db",
+    --   function()
+    --     require("dap").toggle_breakpoint()
+    --   end,
+    --   desc = "Toggle breakpoint",
+    -- },
+    -- {
+    --   "<leader>dc",
+    --   function()
+    --     require("dap").continue()
+    --   end,
+    --   desc = "Continue",
+    -- },
+    -- {
+    --   "<leader>di",
+    --   function()
+    --     require("dap").step_into()
+    --   end,
+    --   desc = "Step into",
+    -- },
+    -- {
+    --   "<leader>do",
+    --   function()
+    --     require("dap").step_over()
+    --   end,
+    --   desc = "Step over",
+    -- },
+    -- {
+    --   "<leader>dO",
+    --   function()
+    --     require("dap").step_out()
+    --   end,
+    --   desc = "Step out",
+    -- },
+    -- {
+    --   "<leader>dt",
+    --   function()
+    --     require("dap").terminate()
+    --   end,
+    --   desc = "Terminate",
+    -- },
+    -- {
+    --   "<leader>du",
+    --   function()
+    --     require("dapui").toggle()
+    --   end,
+    --   desc = "Toggle DAP UI",
+    -- },
     { "<leader>e", group = "Run" },
     { "<leader>eb", "<cmd>AsyncTask project-build<cr>", desc = "./build.sh" },
     { "<leader>ed", "<cmd>AsyncTask project-deploy<cr>", desc = "./deploy.sh" },
