@@ -422,10 +422,21 @@ return {
             event = "msg_show",
             kind = { "echo", "echomsg" },
             any = {
-              { find = "php%-cs%-fixer" },
+              { find = "%^%[%[1G%^%[%[2K" },
+              { find = "░░░░░░░░░░░░" },
+              { find = "PHP Insights" },
+              { find = "Score scale: " },
+              { find = "Please enter the commit message for your changes" },
             },
           },
           opts = { skip = true },
+        },
+        {
+          filter = {
+            event = "msg_show",
+            kind = { "shell_out", "shell_err" },
+          },
+          view = "shell_cmd",
         },
       },
       notify = {
