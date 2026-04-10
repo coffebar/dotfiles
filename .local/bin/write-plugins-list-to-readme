@@ -62,7 +62,9 @@ function get_plugins(file_contents) {
 function render_html() {
   let html = "";
   plugins.forEach((plug, index) => {
-    const text = titles[index] ? titles[index].replace(/^[^:]+:/g, "") : "";
+    let text = titles[index] ? titles[index].replace(/^[^:]+:/g, "") : "";
+    // replace " · GitHub" from text
+    text = text.replace(/ · GitHub/g, "");
     html =
       html + "- [" + plug + "](https://github.com/" + plug + ") " + text + "\n";
   });
