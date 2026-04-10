@@ -398,6 +398,10 @@ return {
         mini = {
           timeout = 2000,
         },
+        shell_cmd = {
+          backend = "split",
+          enter = true,
+        },
       },
       routes = {
         {
@@ -409,7 +413,17 @@ return {
         {
           filter = {
             event = "msg_show",
+            kind = { "shell_out", "shell_err" },
+          },
+          view = "shell_cmd",
+        },
+        {
+          filter = {
+            event = "msg_show",
             kind = { "echo", "echomsg" },
+            any = {
+              { find = "php%-cs%-fixer" },
+            },
           },
           opts = { skip = true },
         },

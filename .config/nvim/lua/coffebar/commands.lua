@@ -196,6 +196,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "fugitiveblame",
     "git",
     "help",
+    "noice",
     "qf",
     "spectre_panel",
   },
@@ -235,7 +236,7 @@ vim.api.nvim_create_autocmd("User", {
     if servers ~= nil then
       for _, server in ipairs(servers) do
         if server.name == "intelephense" then
-          vim.lsp.stop_client(server.id)
+          vim.lsp.restart_client(server.id)
           break
         end
       end
