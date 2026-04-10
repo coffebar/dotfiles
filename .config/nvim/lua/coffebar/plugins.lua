@@ -368,6 +368,53 @@ return {
       highlight_for_count = true,
     },
   },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      messages = {
+        enabled = true,
+        view = "notify",
+        view_error = "notify",
+        view_warn = "notify",
+        view_history = "messages",
+        view_search = false,
+      },
+      presets = {
+        long_message_to_split = false,
+      },
+      cmdline = {
+        enabled = true,
+        view = "cmdline_popup",
+      },
+      views = {
+        mini = {
+          timeout = 2000,
+        },
+      },
+      routes = {
+        {
+          filter = {
+            find = "AutoSave: saved at",
+          },
+          view = "mini",
+        },
+        {
+          filter = {
+            event = "msg_show",
+            kind = { "echo", "echomsg" },
+          },
+          opts = { skip = true },
+        },
+      },
+      notify = {
+        enabled = true,
+      },
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+  },
   -- more features for the built-in terminal
   {
     "akinsho/toggleterm.nvim",
