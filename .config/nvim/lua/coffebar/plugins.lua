@@ -72,14 +72,6 @@ return {
     },
     event = "LspAttach",
   },
-  -- shows LSP progress
-  {
-    "j-hui/fidget.nvim",
-    tag = "v1.6.1",
-    event = "LspAttach",
-    lazy = true,
-    opts = {},
-  },
   -- show notifications in the corner of the screen
   {
     "rcarriga/nvim-notify",
@@ -106,6 +98,7 @@ return {
   {
     "coffebar/crowtranslate.nvim",
     lazy = true,
+    enabled = false,
     cmd = { "CrowTranslate" },
     opts = {
       language = "uk",
@@ -114,8 +107,6 @@ return {
       engine = "google", -- google, bing, libretranslate, lingva, yandex
     },
   },
-  -- search counter
-  { "google/vim-searchindex", lazy = true, keys = { "n", "N", "/" } },
   -- turn off highlighting when you are done searching
   { "romainl/vim-cool" },
   -- automatically save files
@@ -372,20 +363,36 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
+      lsp = {
+        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+        },
+      },
+      cmdline = {
+        enabled = true,
+        format = {
+          cmdline = { pattern = "^:", icon = "", lang = "vim" },
+          search_down = { kind = "search", pattern = "^/", icon = "", lang = "regex" },
+          search_up = { kind = "search", pattern = "^%?", icon = "", lang = "regex" },
+          filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
+          lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = "", lang = "lua" },
+          help = { pattern = "^:%s*he?l?p?%s+", icon = "" },
+          input = { view = "cmdline_input", icon = "󰥻 " }, -- Used by input()
+        },
+      },
       messages = {
         enabled = true,
         view = "notify",
         view_error = "notify",
         view_warn = "notify",
         view_history = "messages",
-        view_search = false,
+        view_search = "virtualtext",
       },
       presets = {
-        long_message_to_split = false,
-      },
-      cmdline = {
-        enabled = true,
-        view = "cmdline_popup",
+        long_message_to_split = true,
       },
       views = {
         mini = {
@@ -413,6 +420,8 @@ return {
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
+      "hrsh7th/nvim-cmp",
+      "rcarriga/nvim-notify",
     },
   },
   -- more features for the built-in terminal
