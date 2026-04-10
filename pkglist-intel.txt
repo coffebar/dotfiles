@@ -97,6 +97,7 @@ keepassxc
 khal
 kooha
 ksnip
+lazygit
 lftp
 libappindicator-gtk2
 libdv
