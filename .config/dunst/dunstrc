@@ -255,7 +255,7 @@
     # * context_all: Open context menu for all notifications.
     # These values can be strung together for each mouse event, and
     # will be executed in sequence.
-    mouse_left_click = close_current
+    mouse_left_click = open_url, close_current
     mouse_middle_click = do_action, close_current
     mouse_right_click = context
 
@@ -437,14 +437,14 @@
 #    set_stack_tag = "volume"
 
 [firefox-plugin]
-    appname = Firefox 
-    summary = "* Fingerprint *" 
+    appname = Firefox
+    summary = "* Fingerprint *"
     timeout = 2
     format = "%b"
     urgency = low
 
 [grimblast]
-    appname = grimblast 
+    appname = grimblast
     timeout = 2
 		new_icon = "/usr/share/icons/bloom-dark/mimetypes/48/image-png.svg"
 
