@@ -64,6 +64,7 @@ vim.lsp.config["intelephense"] = {
       },
       clearCache = true,
       stubs = {
+        "amqp",
         "apache",
         "bcmath",
         "bz2",

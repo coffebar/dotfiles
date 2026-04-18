@@ -135,8 +135,6 @@ return {
     event = "VeryLazy",
     lazy = true,
   },
-  -- automatically close pairs such as (), {}, ""
-  { "cohama/lexima.vim", priority = 2, enabled = false },
   -- treesitter
   { "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" },
   -- python venv manager (forked from HallerPatrick/py_lsp.nvim until merge PR #50)
@@ -358,6 +356,79 @@ return {
       redo = { hlgroup = "HighlightUndo", mode = "n", lhs = "<C-r>", map = "redo", opts = {} },
       highlight_for_count = true,
     },
+  },
+  -- php cs-fixer
+  {
+    "stephpy/vim-php-cs-fixer",
+    lazy = true,
+    ft = { "php" }, -- load only for PHP files
+    config = function()
+      vim.g.php_cs_fixer_config_file = ".php-cs-fixer.dist.php"
+      vim.g.php_cs_fixer_path = "bin/php-cs-fixer" -- or full path if needed
+      vim.g.php_cs_fixer_enable_default_mapping = 0
+      -- remove --level option
+      vim.g.php_cs_fixer_level = ""
+      vim.keymap.set("n", "<leader>cs", function()
+        vim.fn.PhpCsFixerFixFile()
+      end, { desc = "Fix PHP file", silent = true })
+    end,
+  },
+  -- debugger
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    ft = { "php" },
+    lazy = true,
+    config = function()
+      local dap, dapui = require("dap"), require("dapui")
+      -- Configure DAP UI
+      dapui.setup()
+
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated.dapui_config = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited.dapui_config = function()
+        dapui.close()
+      end
+      -- php debug adapter configuration
+      dap.adapters.php = {
+        type = "executable",
+        command = "node",
+        args = { os.getenv("HOME") .. "/vscode-php-debug/out/phpDebug.js" },
+      }
+      local function get_xdebug_port()
+        local compose = vim.loop.cwd() .. "/docker-compose.dev.yml"
+        if vim.fn.filereadable(compose) == 1 then
+          for _, line in ipairs(vim.fn.readfile(compose)) do
+            local port = line:match("XDEBUG_PORT:%s*(%d+)")
+            if port then
+              vim.notify("Using XDEBUG_PORT: " .. port, vim.log.levels.INFO)
+              return tonumber(port)
+            end
+          end
+        end
+        return 9000
+      end
+
+      dap.configurations.php = {
+        {
+          name = "xdebug",
+          type = "php",
+          request = "launch",
+          hostname = "0.0.0.0",
+          port = get_xdebug_port,
+          pathMappings = {
+            ["/var/www/app"] = "${workspaceFolder}",
+          },
+        },
+      }
+    end,
   },
   {
     "folke/noice.nvim",

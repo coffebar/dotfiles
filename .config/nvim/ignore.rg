@@ -21,7 +21,9 @@
 .npm/
 .oh-my-zsh/
 .pnpm-store/
-.rustup/
+node_modules/
+var/
+vendor/
 .thunderbird/
 .xxh/
 DocumSync/

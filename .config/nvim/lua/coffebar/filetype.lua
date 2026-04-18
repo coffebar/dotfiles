@@ -3,6 +3,7 @@ vim.filetype.add({
     mjml = "html",
     ejs = "html",
     http = "rest",
+    twig = "html",
     mts = "typescript",
     mtsx = "typescriptreact",
   },
