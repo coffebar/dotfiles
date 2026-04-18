@@ -122,6 +122,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)  illuminate.vim - (Neo)Vim plugin for automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching.
 - [Shatur/neovim-session-manager](https://github.com/Shatur/neovim-session-manager)  A simple wrapper around :mksession.
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)  A neovim lua plugin to help easily manage multiple terminal windows
+- [bin/php-cs-fixer](https://github.com/bin/php-cs-fixer) 
 - [bloznelis/before.nvim](https://github.com/bloznelis/before.nvim)  Jump to the last edit in Neovim
 - [ckipp01/stylua-nvim](https://github.com/ckipp01/stylua-nvim)  Let&#39;s just use a formatter and never discuss formatting again.
 - [coffebar/crowtranslate.nvim](https://github.com/coffebar/crowtranslate.nvim)  Translate the visually selected text in Neovim.
@@ -153,6 +154,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [m-demare/hlargs.nvim](https://github.com/m-demare/hlargs.nvim)  Highlight arguments&#39; definitions and usages, using Treesitter
 - [mawkler/modicator.nvim](https://github.com/mawkler/modicator.nvim)  Cursor line number mode indicator plugin for Neovim
 - [mboughaba/i3config.vim](https://github.com/mboughaba/i3config.vim)  Vim syntax highlighting for i3 config :point_left:
+- [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap)  Debug Adapter Protocol client implementation for Neovim
 - [mhartington/formatter.nvim](https://github.com/mhartington/formatter.nvim) mhartington/formatter.nvim
 - [moll/vim-bbye](https://github.com/moll/vim-bbye)  Delete buffers and close files in Vim without closing your windows or messing up your layout. Like Bclose.vim, but rewritten and well maintained.
 - [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)  One dark and light colorscheme for neovim &gt;= 0.5.0 written in lua based on Atom&#39;s One Dark and Light theme. Additionally, it comes with 5 color variant styles
@@ -162,6 +164,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)  plenary: full; complete; entire; absolute; unqualified. All the lua functions I don&#39;t want to write twice.
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)  A blazing fast and easy to configure neovim statusline plugin written in pure lua.
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)  Neovim plugin to manage the file system and other tree like structures.
+- [nvim-neotest/nvim-nio](https://github.com/nvim-neotest/nvim-nio)  A library for asynchronous IO in Neovim
 - [nvim-pack/nvim-spectre](https://github.com/nvim-pack/nvim-spectre)  Find the enemy and replace them with dark power.
 - [nvim-telescope/telescope-live-grep-args.nvim](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)  Live grep with args
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)  Find, Filter, Preview, Pick. All lua, all the time.
@@ -172,6 +175,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)  Set of preconfigured snippets for different languages.
 - [rafcamlet/nvim-luapad](https://github.com/rafcamlet/nvim-luapad)  Interactive real time neovim scratchpad for embedded lua engine - type and watch!
 - [rbong/vim-flog](https://github.com/rbong/vim-flog)  A blazingly fast, stunningly beautiful, exceptionally powerful git branch viewer for Vim/Neovim.
+- [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)  A UI for nvim-dap
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)  A fancy, configurable, notification manager for NeoVim
 - [romainl/vim-cool](https://github.com/romainl/vim-cool)  A very simple plugin that makes hlsearch more useful.
 - [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim)  The neovim tabline plugin.
@@ -180,6 +184,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim)  Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
 - [skywind3000/asyncrun.vim](https://github.com/skywind3000/asyncrun.vim)  :rocket: Run Async Shell Commands in Vim 8.0 / NeoVim and Output to the Quickfix Window !!
 - [skywind3000/asynctasks.vim](https://github.com/skywind3000/asynctasks.vim)  :rocket: Modern Task System for Project Building, Testing and Deploying !!
+- [stephpy/vim-php-cs-fixer](https://github.com/stephpy/vim-php-cs-fixer)  Use FriendsOfPHP/PHP-CS-Fixer
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)  fugitive.vim: A Git wrapper so awesome, it should be illegal
 - [tzachar/highlight-undo.nvim](https://github.com/tzachar/highlight-undo.nvim)  Highlight changed text after any text changing operation
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)  Use treesitter to auto close and auto rename html tag
