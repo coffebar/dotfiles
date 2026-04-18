@@ -116,8 +116,17 @@ local function update_git_env_for_dotfiles()
     return
   end
 
+  local unset_git_env = function()
+    vim.env.GIT_DIR = nil
+    vim.env.GIT_WORK_TREE = nil
+  end
+
   -- check if the current working directory should belong to dotfiles
   local cwd = vim.loop.cwd()
+  if cwd == nil then
+    unset_git_env()
+    return
+  end
   if vim.startswith(cwd, home .. "/.config/") or cwd == home or cwd == home .. "/.local/bin" then
     if vim.env.GIT_DIR == nil then
       -- export git location into ENV
@@ -126,9 +135,7 @@ local function update_git_env_for_dotfiles()
     end
   else
     if vim.env.GIT_DIR == git_dir then
-      -- unset variables
-      vim.env.GIT_DIR = nil
-      vim.env.GIT_WORK_TREE = nil
+      unset_git_env()
     end
   end
 end
@@ -231,16 +238,6 @@ vim.api.nvim_create_autocmd("User", {
   desc = "Update git env for dotfiles after loading session",
   callback = function()
     update_git_env_for_dotfiles()
-    -- restart LSP server for PHP to reload includePaths
-    local servers = vim.lsp.get_clients()
-    if servers ~= nil then
-      for _, server in ipairs(servers) do
-        if server.name == "intelephense" then
-          vim.lsp.restart_client(server.id)
-          break
-        end
-      end
-    end
   end,
 })
 
@@ -272,7 +269,32 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "gitcommit" },
   desc = "Switch to insert mode when open commit message",
   callback = function()
-    vim.api.nvim_command("startinsert")
+    vim.api.nvim_command("normal! A")
+    vim.api.nvim_command("startinsert!")
   end,
   group = augroup,
+})
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = { "SessionLoadPost" },
+  group = augroup,
+  callback = function()
+    -- restart LSP server for PHP to reload includePaths
+    local intelephense_running = false
+    local servers = vim.lsp.get_clients()
+    if servers == nil then
+      return
+    end
+    if servers ~= nil then
+      for _, server in ipairs(servers) do
+        if server.name == "intelephense" then
+          intelephense_running = true
+          break
+        end
+      end
+    end
+    if intelephense_running then
+      vim.api.nvim_command("LspRestart intelephense")
+    end
+  end,
 })
