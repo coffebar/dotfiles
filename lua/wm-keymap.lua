@@ -48,26 +48,36 @@ if key == "f" then
 	os.execute(string.format('thunar "%s" &', dir))
 elseif key == "t" then
 	-- switch to Telegram or open new instance on fail
-	local cmd = "XDG_CURRENT_DESKTOP=gnome Telegram &"
-	if desktop_session == "i3" then
-		local msg = sys("i3-msg '[class=\"^org.telegram.desktop$\"] focus'")
-		if not string.match(msg, '"success":true') then
+	if os.execute("flatpak list | grep -q com.slack.Slack") == true then
+		local cmd = "flatpak run com.slack.Slack --enable-features=UseOzonePlatform --ozone-platform=wayland"
+		if desktop_session == "Hyprland" then
 			os.execute(cmd)
-			os.execute("sleep 1 && i3-msg '[class=\"^org.telegram.desktop$\"] focus'")
+			os.execute("hyprctl dispatch workspace 2")
 		end
 	else
-		if desktop_session == "Hyprland" then
-			if not os.execute("hyprctl clients | rg org.telegram.desktop") then
+		local cmd = "XDG_CURRENT_DESKTOP=gnome Telegram &"
+		if desktop_session == "i3" then
+			local msg = sys("i3-msg '[class=\"^org.telegram.desktop$\"] focus'")
+			if not string.match(msg, '"success":true') then
 				os.execute(cmd)
+				os.execute("sleep 1 && i3-msg '[class=\"^org.telegram.desktop$\"] focus'")
 			end
-			os.execute("hyprctl dispatch workspace 2")
 		else
-			os.execute(string.format("wmctrl -a 'Telegram' || %s", cmd))
+			if desktop_session == "Hyprland" then
+				if not os.execute("hyprctl clients | rg org.telegram.desktop") then
+					os.execute(cmd)
+				end
+				os.execute("hyprctl dispatch workspace 2")
+			else
+				os.execute(string.format("wmctrl -a 'Telegram' || %s", cmd))
+			end
 		end
 	end
 elseif key == "b" then
 	if desktop_session == "Hyprland" then
-		os.execute("hyprctl dispatch workspace 1 && firefox -P default-release &")
+		os.execute("pkill -15 -f /opt/google/chrome/chrome")
+		os.execute("sleep 1; google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland")
+		os.execute("hyprctl dispatch workspace 1")
 	else
 		os.execute("wmctrl -a 'Mozilla Firefox' || firefox -P default-release &")
 	end
