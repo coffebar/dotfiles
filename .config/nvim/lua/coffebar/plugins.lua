@@ -541,4 +541,14 @@ return {
   { "bloznelis/before.nvim", lazy = true, opts = { history_size = 10 }, event = "VeryLazy" },
   -- Hugo support
   { "phelipetls/vim-hugo", lazy = true, ft = "markdown", enabled = false },
+  -- integrate tmux sessions with telescope
+  {
+    "trevarj/telescope-tmux.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("telescope").load_extension("tmux")
+    end,
+  },
 }

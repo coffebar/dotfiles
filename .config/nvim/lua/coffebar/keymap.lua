@@ -142,6 +142,7 @@ if has_wk then
     { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Marks" },
     { "<leader>fr", "<cmd>Telescope registers<cr>", desc = "Registers" },
     { "<leader>fs", "<cmd>Telescope git_files<cr>", desc = "Git status" },
+    { "<leader>ft", "<cmd>Telescope tmux pane_file_paths<cr>", desc = "Files from tmux output" },
     { "<leader>g", group = "Git" },
     { "<leader>gB", gitsigns.toggle_current_line_blame, desc = "Toggle current line blame" },
     {
