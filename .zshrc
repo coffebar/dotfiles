@@ -3,7 +3,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git sudo pip docker zsh-syntax-highlighting zsh-autosuggestions zsh_codex)
+plugins=(git sudo pip docker zsh-syntax-highlighting zsh-autosuggestions zsh_codex gh)
 
 source $ZSH/oh-my-zsh.sh
 
