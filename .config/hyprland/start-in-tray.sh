@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # start waybar and programs with tray icons after pause
 
 waybar_loop() {
@@ -6,7 +6,7 @@ waybar_loop() {
 	WAYBAR_RESTARTS=0
 	while [ $WAYBAR_RESTARTS != 6 ]; do # limited to 5 restars
 		waybar
-		let WAYBAR_RESTARTS++
+		((WAYBAR_RESTARTS++))
 		notify-send -a "start-in-tray.sh" "Waybar crashed!"
 		sleep 1
 	done
