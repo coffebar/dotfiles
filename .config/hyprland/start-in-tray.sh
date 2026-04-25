@@ -25,7 +25,6 @@ firefox &
 sleep 1 # wait for waybar
 
 nm-applet --indicator &
-syncthingtray --wait &
 XDG_CURRENT_DESKTOP=gnome /usr/bin/Telegram &
 blueman-applet &
 

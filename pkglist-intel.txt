@@ -181,7 +181,6 @@ sudo
 swayidle
 swaylock
 syncthing
-syncthingtray
 synology-drive
 systemd-resolvconf
 taskwarrior-tui
