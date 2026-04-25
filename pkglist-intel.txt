@@ -57,7 +57,6 @@ fuseiso
 gammastep
 gcc
 geoipupdate
-gi-docgen
 gimp
 git
 git-delta
@@ -70,14 +69,13 @@ gnome-system-monitor
 goaccess
 google-chrome
 gparted
-gperf
 gptfdisk
 grim
 grimblast-git
 groff
 gsfonts
-gst-plugins-bad
 gst-plugins-good
+gthumb
 gvfs
 gvfs-gphoto2
 gvfs-mtp
@@ -114,7 +112,6 @@ libxml2-legacy
 linux-firmware
 linux-zen
 linux-zen-headers
-lld
 lsof
 ltex-ls-bin
 lua-language-server
@@ -153,7 +150,6 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
-pix
 pkgconf
 playerctl
 poedit
@@ -169,8 +165,6 @@ ripgrep
 rose-pine-cursor
 rose-pine-hyprcursor
 rsync
-ruby
-ruby-stdlib
 rust-analyzer
 rustup
 s5cmd-bin
@@ -213,7 +207,6 @@ ttf-nerd-fonts-symbols
 ttf-ubuntu-font-family
 tumbler
 ufw
-unifdef
 unrar
 unzip
 usbutils
