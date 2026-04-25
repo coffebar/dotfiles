@@ -20,13 +20,20 @@ hyprctl monitors | grep eDP-2 && \
 	hyprctl --batch "keyword workspace 2,monitor:eDP-2 ; keyword workspace 4,monitor:eDP-2"
 
 waybar_loop &
-firefox &
-
 sleep 1 # wait for waybar
 
+if rg -q "Ubuntu" /etc/os-release; then
+	# Ubuntu
+	flatpak run com.slack.Slack --enable-features=UseOzonePlatform --ozone-platform=wayland &
+	~/.local/bin/postman --enable-features=UseOzonePlatform --ozone-platform=wayland &
+else
+	# Arch Linux
+	XDG_CURRENT_DESKTOP=gnome /usr/bin/Telegram &
+	firefox &
+	hyprctl dispatch moveworkspacetomonitor 2 0
+fi
+
 nm-applet --indicator &
-XDG_CURRENT_DESKTOP=gnome /usr/bin/Telegram &
 blueman-applet &
 
 hyprctl dispatch workspace 1
-hyprctl dispatch moveworkspacetomonitor 2 0
