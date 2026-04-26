@@ -27,7 +27,6 @@ brightnessctl
 btrfs-progs
 caffeine-ng
 calf
-cloudflare-warp-bin
 composer
 copyq
 cronie
@@ -78,6 +77,7 @@ gptfdisk
 grub
 gsfonts
 gst-plugins-good
+gthumb
 gtk-engines
 gvfs
 gvfs-gphoto2
@@ -91,7 +91,6 @@ intel-media-driver
 intel-ucode
 iw
 jq
-kate
 kbdd-git
 kdenlive
 keepassxc
@@ -99,6 +98,7 @@ khal
 ksnip
 kwayland
 lftp
+libgcc
 libreoffice-fresh
 libreoffice-fresh-en-gb
 libreoffice-fresh-uk
@@ -147,9 +147,7 @@ php
 picom
 pipewire-alsa
 pipewire-pulse
-pix
 playerctl
-poedit
 polkit-kde-agent
 polybar
 python-openai
@@ -237,7 +235,6 @@ xorg-server
 xorg-xinit
 xorg-xkill
 xorg-xsetroot
-xreader
 xsecurelock
 xss-lock
 xterm
