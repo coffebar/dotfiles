@@ -1,6 +1,6 @@
 # Font
 font-family = JetBrainsMono Nerd Font
-font-size = 14
+font-size = 11
 font-feature = -liga,-calt
 
 # Cursor
@@ -13,6 +13,7 @@ window-padding-balance = true
 background-opacity = 0.87
 window-save-state = never
 resize-overlay = never
+window-decoration = none
 
 # Colors
 background = #2b2e37
