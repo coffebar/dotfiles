@@ -50,6 +50,8 @@ fakeroot
 fd
 file-roller
 firefox
+foot
+foot-terminfo
 freerdp
 fuse2
 fuse3
@@ -161,6 +163,7 @@ python-pip
 python-uv
 python-virtualenv
 remmina
+resvg
 ripgrep
 rose-pine-cursor
 rose-pine-hyprcursor
@@ -237,6 +240,8 @@ xf86-input-synaptics
 xf86-video-intel
 yarn
 yay
+yazi
 zip
+zoxide
 zram-generator
 zsh
