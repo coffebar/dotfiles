@@ -7,3 +7,11 @@ alias dotf="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 alias v=$EDITOR
 alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep --color=never -P '(percentage|capacity|time|charge-)'"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
