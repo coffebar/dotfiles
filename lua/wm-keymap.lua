@@ -45,6 +45,13 @@ if key == "f" then
 		-- default directory to open
 		dir = home .. "/Downloads"
 	end
+	if desktop_session == "i3" and os.execute("which ghostty && which yazi") then
+		return os.execute(string.format('ghostty -e yazi "%s" &', dir))
+	else
+		if os.execute("which foot && which yazi") then
+			return os.execute(string.format('foot -e yazi "%s" &', dir))
+		end
+	end
 	os.execute(string.format('thunar "%s" &', dir))
 elseif key == "t" then
 	-- switch to Telegram or open new instance on fail

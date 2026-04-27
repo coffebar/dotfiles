@@ -27,6 +27,7 @@ brightnessctl
 btrfs-progs
 caffeine-ng
 calf
+chafa
 composer
 copyq
 cronie
@@ -62,6 +63,8 @@ file-roller
 firefox
 freerdp
 fuseiso
+ghostty
+ghostty-terminfo
 gimp
 git
 git-delta
@@ -161,6 +164,7 @@ qt6-scxml
 qt6-tools
 redshift-gtk-git
 remmina
+resvg
 ripgrep
 rofi
 rose-pine-cursor
@@ -236,10 +240,13 @@ xorg-xinit
 xorg-xkill
 xorg-xsetroot
 xsecurelock
+xsel
 xss-lock
 xterm
 yarn
 yay
+yazi
 zip
+zoxide
 zram-generator
 zsh
