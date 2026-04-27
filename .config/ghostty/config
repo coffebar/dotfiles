@@ -1,0 +1,44 @@
+# Font
+font-family = JetBrainsMono Nerd Font
+font-size = 14
+font-feature = -liga,-calt
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+
+
+# Window
+window-padding-balance = true
+background-opacity = 0.87
+window-save-state = never
+resize-overlay = never
+
+# Colors
+background = #2b2e37
+foreground = #F2F2F2
+
+# Normal colors (palette indices 0–7)
+palette = 0=#202020
+palette = 1=#CC0000
+palette = 2=#98c379
+palette = 3=#d19a66
+palette = 4=#61afef
+palette = 5=#c678dd
+palette = 6=#56b6c2
+palette = 7=#D3D7CF
+
+# Bright colors (palette indices 8–15)
+palette = 8=#88807C
+palette = 9=#F15D22
+palette = 10=#73C48F
+palette = 11=#FFCE51
+palette = 12=#48B9C7
+palette = 13=#AD7FA8
+palette = 14=#34E2E2
+palette = 15=#EEEEEC
+
+# Keybindings
+keybind = super+v=paste_from_clipboard
+keybind = super+c=copy_to_clipboard
+keybind = shift+enter=text:\x1b\r
