@@ -45,11 +45,12 @@ if key == "f" then
 		-- default directory to open
 		dir = home .. "/Downloads"
 	end
-	if desktop_session == "i3" and os.execute("which ghostty && which yazi") then
-		return os.execute(string.format('ghostty -e yazi "%s" &', dir))
-	else
-		if os.execute("which foot && which yazi") then
-			return os.execute(string.format('foot -e yazi "%s" &', dir))
+	if os.execute("which yazi") then
+		local terminals = { "foot", "ghostty" }
+		for _, term in ipairs(terminals) do
+			if os.execute("which " .. term) then
+				return os.execute(string.format('%s -e yazi "%s" &', term, dir))
+			end
 		end
 	end
 	os.execute(string.format('thunar "%s" &', dir))
