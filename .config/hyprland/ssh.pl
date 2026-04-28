@@ -4,7 +4,7 @@ use warnings;
 use File::Spec;
 
 my $ssh_config_file = "~/.ssh/config";
-my $terminal        = 'alacritty -e zsh -c';
+my $terminal        = 'foot -e zsh -c';
 my $ssh_command     = 'ssh';
 
 sub get_hosts {

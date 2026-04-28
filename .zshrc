@@ -9,6 +9,17 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.bash_aliases
 
+# foot integration:
+# allows to copy last command output to clipboard with Alt+l
+function precmd {
+    if ! builtin zle; then
+        print -n "\e]133;D\e\\"
+    fi
+}
+function preexec {
+    print -n "\e]133;C\e\\"
+}
+
 # zsh-autosuggestions mapping
 # ALT+a to accept completion
 bindkey '^[a' autosuggest-accept
