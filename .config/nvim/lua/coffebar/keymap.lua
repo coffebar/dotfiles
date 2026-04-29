@@ -73,7 +73,13 @@ if has_wk then
     { "<leader>cc", '"+yy', desc = "Copy line to system clipboard" },
     { "<leader>cf", "<cmd>%y+<cr>", desc = "Copy file content to system clipboard" },
     { "<leader>cl", '<cmd>let @+=expand("%:p")<cr>', desc = "Copy current buffer's absolute path" },
-    { "<leader>cr", '<cmd>let @+=expand("%")<cr>', desc = "Copy relative path to current file" },
+    {
+      "<leader>cr",
+      function()
+        vim.fn.setreg("+", vim.fn.fnamemodify(vim.fn.expand("%:p"), ":."))
+      end,
+      desc = "Copy relative path to current file",
+    },
     { "<leader>d", group = "Debug" },
     {
       "<leader>db",
