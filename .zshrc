@@ -20,6 +20,8 @@ function preexec {
     print -n "\e]133;C\e\\"
 }
 
+eval "$(zoxide init zsh)"
+
 # zsh-autosuggestions mapping
 # ALT+a to accept completion
 bindkey '^[a' autosuggest-accept
