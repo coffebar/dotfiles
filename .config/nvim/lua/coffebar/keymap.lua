@@ -80,6 +80,7 @@ if has_wk then
       end,
       desc = "Copy relative path to current file",
     },
+    { "<leader>cn", "<cmd>Noice dismiss<cr>", desc = "Dismiss Noice messages" },
     { "<leader>d", group = "Debug" },
     {
       "<leader>db",
