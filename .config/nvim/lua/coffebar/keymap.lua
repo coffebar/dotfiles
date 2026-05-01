@@ -60,6 +60,7 @@ if has_wk then
       end,
       desc = "Open recent projects",
     },
+    { "<leader>-", "<cmd>Noice dismiss<cr>", desc = "Dismiss Noice messages" },
     { "<leader>>", "<cmd>BufferMoveNext<cr>", desc = "Move tab right (barbar)" },
     { "<leader>F", "<cmd>SearchInHome<cr>", desc = "Search files in $HOME" },
     { "<leader>I", desc = "Toggle checkbox" },
