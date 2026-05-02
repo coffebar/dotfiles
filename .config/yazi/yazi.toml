@@ -6,3 +6,27 @@ linemode = "mtime"
 show_hidden = true
 show_symlink = true
 
+[opener]
+edit = [
+	{ run = 'nvim %s', block = true, for = "unix" },
+]
+gthumb = [
+	{ run = 'gthumb %s', orphan = true, for = "linux" },
+]
+open = [
+	{ run = 'xdg-open %s', orphan = true, desc = "Open" },
+]
+thunar = [
+	{ run = 'thunar %s', orphan = true, desc = "Open in Thunar" },
+]
+
+[open]
+rules = [
+	{ url = "*/", use = "thunar" },
+	{ name = "*.pdf", use = "open" },
+	{ url = "*.json", use = "edit" },
+	{ mime = "application/pdf", use = "open" },
+	{ mime = "image/*", use = "gthumb" },
+	{ mime = "text/*", use = "edit" },
+	{ url = "*", use = "open" },
+]

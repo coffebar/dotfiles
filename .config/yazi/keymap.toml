@@ -1,3 +1,8 @@
 [[mgr.prepend_keymap]]
 on  = "y"
 run = [ 'shell -- for path in %s; do echo "$path"; done | wl-copy -t text/uri-list', "yank" ]
+
+[[mgr.prepend_keymap]]
+on   = "T"
+run  = "shell --confirm 'thunar \"$@\"'"
+desc = "Open hovered/selected in Thunar"
