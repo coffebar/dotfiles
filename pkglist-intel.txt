@@ -87,7 +87,9 @@ hugo
 hyprland
 hyprland-monitor-attached
 hyprland-per-window-layout
+hyprlauncher
 hyprpicker-git
+hyprpolkitagent
 imagemagick
 inotify-tools
 intel-media-driver
@@ -155,7 +157,6 @@ pipewire-pulse
 pkgconf
 playerctl
 poedit
-polkit-kde-agent
 polybar
 python-openai
 python-passlib
