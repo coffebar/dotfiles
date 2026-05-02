@@ -27,10 +27,10 @@ end
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
-hl.bind("CONTROL_ALT + right", hl.dsp.focus({ workspace = "m+1" }))
-hl.bind("CONTROL_ALT + left", hl.dsp.focus({ workspace = "m-1" }))
+hl.bind("CONTROL + ALT + right", hl.dsp.focus({ workspace = "m+1" }))
+hl.bind("CONTROL + ALT + left", hl.dsp.focus({ workspace = "m-1" }))
 
-hl.bind("CONTROL_ALT + L", hl.dsp.exec_cmd("swaylock"))
+hl.bind("CONTROL + ALT + L", hl.dsp.exec_cmd("swaylock"))
 
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
@@ -64,10 +64,10 @@ hl.bind("mouse:276", hl.dsp.exec_cmd("wtype -M ctrl -M shift v -m ctrl -m shift"
 
 hl.bind("SUPER + R", hl.dsp.submap("resize"))
 hl.define_submap("resize", function()
-	hl.bind("L", hl.dsp.window.resize("40 0"), { repeating = true })
-	hl.bind("H", hl.dsp.window.resize("-40 0"), { repeating = true })
-	hl.bind("K", hl.dsp.window.resize("0 -40"), { repeating = true })
-	hl.bind("J", hl.dsp.window.resize("0 40"), { repeating = true })
+	hl.bind("L", hl.dsp.window.resize({ x = 40, y = 0, relative = true }), { repeating = true })
+	hl.bind("H", hl.dsp.window.resize({ x = -40, y = 0, relative = true }), { repeating = true })
+	hl.bind("K", hl.dsp.window.resize({ x = 0, y = -40, relative = true }), { repeating = true })
+	hl.bind("J", hl.dsp.window.resize({ x = 0, y = 40, relative = true }), { repeating = true })
 	hl.bind("escape", hl.dsp.submap("reset"))
 	hl.bind("Return", hl.dsp.submap("reset"))
 end)

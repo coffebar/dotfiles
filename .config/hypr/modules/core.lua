@@ -36,7 +36,6 @@ hl.config({
 	},
 
 	dwindle = {
-		pseudotile = true,
 		force_split = 1,
 	},
 
