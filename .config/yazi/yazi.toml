@@ -14,10 +14,10 @@ gthumb = [
 	{ run = 'gthumb %s', orphan = true, for = "linux" },
 ]
 open = [
-	{ run = 'xdg-open %s', orphan = true, desc = "Open" },
+	{ run = 'xdg-open %s', orphan = true, desc = "Open", for = "linux" },
 ]
 thunar = [
-	{ run = 'thunar %s', orphan = true, desc = "Open in Thunar" },
+	{ run = 'thunar %s', orphan = true, desc = "Open in Thunar", for = "linux" },
 ]
 
 [open]
