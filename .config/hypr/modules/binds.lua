@@ -30,8 +30,6 @@ hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind("CONTROL + ALT + right", hl.dsp.focus({ workspace = "m+1" }))
 hl.bind("CONTROL + ALT + left", hl.dsp.focus({ workspace = "m-1" }))
 
-hl.bind("CONTROL + ALT + L", hl.dsp.exec_cmd("swaylock"))
-
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
@@ -72,19 +70,28 @@ hl.define_submap("resize", function()
 	hl.bind("Return", hl.dsp.submap("reset"))
 end)
 
-hl.bind(
-	"SUPER + escape",
-	hl.dsp.exec_cmd(
-		"hyprctl dispatch submap logout; notify-send -a Hyprland -t 3500 $'\\ne - exit\\n\\nr - reboot\\n\\ns - suspend\\n\\nS - poweroff\\n\\nl - lock' -i /usr/share/icons/breeze-dark/actions/32/system-suspend.svg"
-	)
-)
+local lock_cmd = os.getenv("LOCK_CMD") or "hyprlock"
+
+hl.bind("SUPER + escape", hl.dsp.submap("logout"))
+
+hl.on("keybinds.submap", function(name)
+	if name == "logout" then
+		hl.notification.create({ text = "e - exit\nr - reboot\ns - suspend\nS - poweroff\nl - lock", duration = 3500 })
+	end
+end)
 
 hl.define_submap("logout", function()
-	hl.bind("E", hl.dsp.exec_cmd("~/.config/hyprland/exit.sh &"), { release = true })
-	hl.bind("S", hl.dsp.exec_cmd("hyprctl dispatch submap reset && systemctl suspend"), { release = true })
-	hl.bind("R", hl.dsp.exec_cmd("systemctl reboot"), { release = true })
-	hl.bind("SHIFT + S", hl.dsp.exec_cmd("systemctl poweroff -i"), { release = true })
-	hl.bind("L", hl.dsp.exec_cmd("hyprctl dispatch submap reset && swaylock"), { release = true })
-	hl.bind("escape", hl.dsp.submap("reset"), { release = true })
+	hl.bind("E", hl.dsp.exit())
+	hl.bind("S", function()
+		hl.dispatch(hl.dsp.exec_cmd("systemctl suspend"))
+		hl.dsp.submap("reset")()
+	end)
+	hl.bind("R", hl.dsp.exec_cmd("systemctl reboot"))
+	hl.bind("SHIFT + S", hl.dsp.exec_cmd("systemctl poweroff -i"))
+	hl.bind("L", function()
+		hl.dispatch(hl.dsp.exec_cmd(lock_cmd))
+		hl.dsp.submap("reset")()
+	end)
+	hl.bind("escape", hl.dsp.submap("reset"))
 	hl.bind("Return", hl.dsp.submap("reset"))
 end)
