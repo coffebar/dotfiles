@@ -4,6 +4,21 @@ if not installed then
 end
 
 telescope.setup({
+  defaults = {
+    layout_config = {
+      horizontal = {
+        width = 0.99,
+        height = 0.99,
+        preview_width = 0.5,
+      },
+      vertical = {
+        width = 0.99,
+        height = 0.99,
+        preview_height = 0.5,
+      },
+    },
+  },
+
   pickers = {
     find_files = {
       find_command = {
