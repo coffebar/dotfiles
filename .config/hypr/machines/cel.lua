@@ -19,12 +19,6 @@ hl.config({
 	input = {
 		kb_layout = "us,ru,ua",
 	},
-	dwindle = {
-		preserve_split = true,
-	},
-	debug = {
-		disable_logs = true,
-	},
 })
 
 -- autostart
@@ -32,9 +26,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("swaybg -i /usr/share/backgrounds/Fuji_san_by_amaral.png")
 	hl.exec_cmd("foot")
 	hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh")
-	hl.exec_cmd('alacritty --class workspace10 -e zsh -c "pull-dotfiles"')
-	hl.exec_cmd("~/.config/hyprland/start-in-tray.sh")
-	hl.exec_cmd("hypridle")
 	hl.exec_cmd("google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland")
 	hl.exec_cmd("datagrip")
 	hl.exec_cmd("~/.local/bin/token-vault")
@@ -119,8 +110,6 @@ hl.window_rule({
 	match = { title = "^(meet%.google%.com is sharing your screen%.)$" },
 	workspace = "10 silent",
 })
-
-hl.bind("CONTROL + ALT + L", hl.dsp.exec_cmd("hyprlock"))
 
 local nord_network = os.getenv("NORD_NETWORK") or ""
 

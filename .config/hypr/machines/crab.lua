@@ -1,21 +1,7 @@
 hl.on("hyprland.start", function()
-	hl.exec_cmd(
-		"wbg --stretch ~/Pictures/wallpapers/karsten-wurth-7BjhtdogU3A-unsplash.jpg || swaybg -i ~/Pictures/wallpapers/bridge.jpg"
-	)
+	hl.exec_cmd("wbg --stretch ~/Pictures/wallpapers/karsten-wurth-7BjhtdogU3A-unsplash.jpg")
 	hl.exec_cmd("RUST_LOG='debug' /usr/bin/hyprland-per-window-layout > /tmp/hyprland-per-window-layout.log 2>&1")
-	hl.exec_cmd('foot --title workspace10 -e zsh -c "pull-dotfiles"')
-	hl.exec_cmd("~/.config/hyprland/start-in-tray.sh")
 	hl.exec_cmd("/bin/sh -c \"secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin ~/KeePass/database.kdbx\"")
 	hl.exec_cmd("/bin/bash ~/Downloads/Telegram\\ Desktop/unzip_here.sh")
-	hl.exec_cmd("swayidle -w timeout 600 swaylock before-sleep swaylock")
-	hl.exec_cmd("/usr/bin/hyprland-monitor-attached ~/.config/hyprland/monadd.sh")
 	hl.exec_cmd("/usr/lib/thunderbird/thunderbird")
-	-- hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme prefer-dark")
-	-- hl.exec_cmd("gsettings set org.gtk.Settings.FileChooser startup-mode cwd")
-	-- hl.exec_cmd("gsettings set org.gtk.gtk4.Settings.FileChooser startup-mode cwd")
-	-- hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme BreezeX-RosePine-Linux")
-	-- hl.exec_cmd("gsettings set org.gnome.desktop.interface icon-theme 'bloom-classic'")
-	-- hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-size 32")
 end)
-
-hl.bind("CONTROL + ALT + L", hl.dsp.exec_cmd("swaylock"))

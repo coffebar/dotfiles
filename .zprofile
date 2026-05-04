@@ -47,7 +47,6 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 		fi
 
 		if [ "$USE_HYPRLAND" -eq 1 ]; then
-			HYPRLAND_CONFIG="$HOME/.config/hyprland/hyprland.conf"
 			export XDG_SESSION_TYPE="wayland"
 			# Log WLR errors and logs to the hyprland log
 			export HYPRLAND_LOG_WLR=1
@@ -66,7 +65,7 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ]; then
 				export NVD_BACKEND=direct
 			fi
 			# start wayland compositor
-			exec $WM -- -c "$HYPRLAND_CONFIG"
+			exec $WM
 		else
 			# fallback to xorg
 

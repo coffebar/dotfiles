@@ -60,7 +60,7 @@ elseif key == "t" then
 		local cmd = "flatpak run com.slack.Slack --enable-features=UseOzonePlatform --ozone-platform=wayland"
 		if desktop_session == "Hyprland" then
 			os.execute(cmd)
-			os.execute("hyprctl dispatch workspace 2")
+			os.execute("hyprctl dispatch 'hl.dsp.focus({workspace=2})'")
 		end
 	else
 		local cmd = "XDG_CURRENT_DESKTOP=gnome Telegram &"
@@ -75,7 +75,7 @@ elseif key == "t" then
 				if not os.execute("hyprctl clients | rg org.telegram.desktop") then
 					os.execute(cmd)
 				end
-				os.execute("hyprctl dispatch workspace 2")
+				os.execute("hyprctl dispatch 'hl.dsp.focus({workspace=2})'")
 			else
 				os.execute(string.format("wmctrl -a 'Telegram' || %s", cmd))
 			end
@@ -85,7 +85,7 @@ elseif key == "b" then
 	if desktop_session == "Hyprland" then
 		os.execute("pkill -15 -f /opt/google/chrome/chrome")
 		os.execute("sleep 1; google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland")
-		os.execute("hyprctl dispatch workspace 1")
+		os.execute("hyprctl dispatch 'hl.dsp.focus({workspace=1})'")
 	else
 		os.execute("wmctrl -a 'Mozilla Firefox' || firefox -P default-release &")
 	end

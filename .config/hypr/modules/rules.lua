@@ -7,14 +7,6 @@ hl.window_rule({ name = "ws-edge", match = { class = "Microsoft-edge" }, workspa
 hl.window_rule({ name = "ws-thunderbird", match = { class = "org.mozilla.Thunderbird" }, workspace = "6 silent" })
 hl.window_rule({ name = "ws-keepass", match = { class = "org.keepassxc.KeePassXC" }, workspace = "9 silent" })
 hl.window_rule({ name = "ws10-class", match = { class = "workspace10" }, workspace = "10 silent" })
-
-hl.window_rule({ name = "wp-3", match = { class = "^(wp-3)$" }, workspace = "3 silent" })
-hl.window_rule({ name = "wp-4", match = { class = "^(wp-4)$" }, workspace = "4 silent" })
-hl.window_rule({ name = "wp-5", match = { class = "^(wp-5)$" }, workspace = "5 silent" })
-hl.window_rule({ name = "wp-6", match = { class = "^(wp-6)$" }, workspace = "6 silent" })
-hl.window_rule({ name = "wp-7", match = { class = "^(wp-7)$" }, workspace = "7 silent" })
-hl.window_rule({ name = "wp-8", match = { class = "^(wp-8)$" }, workspace = "8 silent" })
-hl.window_rule({ name = "wp-9", match = { class = "^(wp-9)$" }, workspace = "9 silent" })
 hl.window_rule({ name = "ws10-title", match = { title = "^(workspace10)$" }, workspace = "10 silent" })
 
 hl.window_rule({

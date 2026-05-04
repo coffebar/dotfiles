@@ -44,8 +44,7 @@ hl.bind("ALT + M", hl.dsp.exec_cmd("movies"))
 hl.bind("ALT + T", hl.dsp.exec_cmd("~/lua/wm-keymap.lua t"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd('foot -e "nvim"'))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("pull-dotfiles"))
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("~/.config/hyprland/menu.sh"))
-hl.bind(mainMod .. " + Grave", hl.dsp.exec_cmd("~/.config/hyprland/ssh.pl"))
+hl.bind(mainMod .. " + Grave", hl.dsp.exec_cmd("~/.config/hypr/ssh.pl"))
 
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { repeating = true })
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
@@ -72,6 +71,7 @@ end)
 
 local lock_cmd = os.getenv("LOCK_CMD") or "hyprlock"
 
+hl.bind("CONTROL + ALT + L", hl.dsp.exec_cmd(lock_cmd))
 hl.bind("SUPER + escape", hl.dsp.submap("logout"))
 
 hl.on("keybinds.submap", function(name)
