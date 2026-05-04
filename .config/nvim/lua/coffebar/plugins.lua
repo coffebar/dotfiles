@@ -85,8 +85,9 @@ return {
     opts = require("coffebar.plugins.neovim-project"),
     dependencies = {
       { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope.nvim", tag = "0.1.8" },
+      { "nvim-telescope/telescope.nvim" },
       { "Shatur/neovim-session-manager" },
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     init = function()
       -- enable saving the state of plugins in the session
