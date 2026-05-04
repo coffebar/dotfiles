@@ -42,7 +42,7 @@ end)
 
 local function move_workspaces(assignments)
 	for ws, mon in pairs(assignments) do
-		hl.dsp.workspace.move({ workspace = ws, monitor = mon })
+		hl.dispatch(hl.dsp.workspace.move({ workspace = ws, monitor = mon }))
 	end
 end
 
@@ -61,7 +61,7 @@ local function apply_monitor_layout(name)
 			[6] = "eDP-1",
 		})
 		hl.exec_cmd("sudo systemctl restart nordlayer")
-		hl.dsp.focus({ workspace = 4 })
+		hl.dispatch(hl.dsp.focus({ workspace = 4 }))
 	elseif name == "DP-8" then
 		hl.monitor({ output = "eDP-1", mode = "1920x1200@60", position = "1920x0", scale = "1.2" })
 		move_workspaces({
@@ -76,7 +76,7 @@ local function apply_monitor_layout(name)
 			[6] = "eDP-1",
 		})
 		hl.exec_cmd("sudo systemctl restart nordlayer")
-		hl.dsp.focus({ workspace = 4 })
+		hl.dispatch(hl.dsp.focus({ workspace = 4 }))
 	elseif name == "HDMI-A-1" then
 		hl.monitor({ output = "HDMI-A-1", mode = "3840x2160@60", position = "0x0", scale = "1.5" })
 		hl.monitor({ output = "eDP-1", mode = "1920x1200@60", position = "0x1441", scale = "1.2" })
@@ -93,6 +93,7 @@ local function apply_monitor_layout(name)
 			[6] = "eDP-1",
 		})
 		hl.exec_cmd("sudo systemctl restart nordlayer")
+		hl.dispatch(hl.dsp.focus({ workspace = 1 }))
 	end
 end
 
