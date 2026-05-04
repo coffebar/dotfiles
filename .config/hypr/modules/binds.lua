@@ -76,11 +76,18 @@ hl.bind("SUPER + escape", hl.dsp.submap("logout"))
 
 hl.on("keybinds.submap", function(name)
 	if name == "logout" then
-		hl.notification.create({ text = "e - exit\nr - reboot\ns - suspend\nS - poweroff\nl - lock", duration = 3500 })
+		hl.notification.create({
+			text = "c - reload\ne - exit\nr - reboot\ns - suspend\nS - poweroff\nl - lock",
+			duration = 3500,
+		})
 	end
 end)
 
 hl.define_submap("logout", function()
+	hl.bind("C", function()
+		hl.dispatch(hl.dsp.exec_cmd("hyprctl reload"))
+		hl.dsp.submap("reset")()
+	end)
 	hl.bind("E", hl.dsp.exit())
 	hl.bind("S", function()
 		hl.dispatch(hl.dsp.exec_cmd("systemctl suspend"))
