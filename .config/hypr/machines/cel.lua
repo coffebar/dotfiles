@@ -28,7 +28,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh")
 	hl.exec_cmd("google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland")
 	hl.exec_cmd("datagrip")
-	hl.exec_cmd("~/.local/bin/token-vault")
+	hl.exec_cmd("zsh ~/.local/bin/token-vault")
 end)
 
 local function move_workspaces(assignments)
