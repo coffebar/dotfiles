@@ -44,12 +44,12 @@ local function apply_monitor_layout(name)
 			[1] = "DP-5",
 			[2] = "DP-5",
 			[3] = "DP-5",
-			[7] = "DP-6",
-			[8] = "DP-6",
-			[9] = "DP-6",
 			[4] = "eDP-1",
 			[5] = "eDP-1",
 			[6] = "eDP-1",
+			[7] = "DP-6",
+			[8] = "DP-6",
+			[9] = "DP-6",
 		})
 		hl.exec_cmd("sudo systemctl restart nordlayer")
 		hl.dispatch(hl.dsp.focus({ workspace = 4 }))
@@ -59,12 +59,12 @@ local function apply_monitor_layout(name)
 			[1] = "DP-7",
 			[2] = "DP-7",
 			[3] = "DP-7",
-			[7] = "DP-8",
-			[8] = "DP-8",
-			[9] = "DP-8",
 			[4] = "eDP-1",
 			[5] = "eDP-1",
 			[6] = "eDP-1",
+			[7] = "DP-8",
+			[8] = "DP-8",
+			[9] = "DP-8",
 		})
 		hl.exec_cmd("sudo systemctl restart nordlayer")
 		hl.dispatch(hl.dsp.focus({ workspace = 4 }))
