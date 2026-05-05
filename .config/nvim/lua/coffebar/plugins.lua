@@ -137,7 +137,7 @@ return {
     lazy = true,
   },
   -- treesitter
-  { "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter", branch = "main", lazy = false, build = ":TSUpdate" },
   -- python venv manager (forked from HallerPatrick/py_lsp.nvim until merge PR #50)
   { "coffebar/py_lsp.nvim", priority = 2 },
   -- keep visible current function declaration
