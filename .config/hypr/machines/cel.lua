@@ -25,7 +25,6 @@ hl.config({
 hl.on("hyprland.start", function()
 	hl.exec_cmd("swaybg -i /usr/share/backgrounds/Fuji_san_by_amaral.png")
 	hl.exec_cmd("foot")
-	hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets,ssh")
 	hl.exec_cmd("google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland")
 	hl.exec_cmd("datagrip")
 	hl.exec_cmd("zsh ~/.local/bin/token-vault")
