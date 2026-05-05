@@ -96,9 +96,13 @@
 
 #### Terminal
 
+- `Alt + a` ergonomic replacement of `Ctrl + b` for tmux.
+
 - `Alt + e` execute suggested command from zsh-autosuggestions.
 
-- `Command + c` `Command + v` copy & paste. `Ctrl + c` and `Ctrl + p` in neovim.
+- `Alt + l` copy previous command output to clipboard.
+
+- `Super + c` `Super + v` copy & paste. `Ctrl + c` and `Ctrl + p` in neovim.
 
 - Nice aliases: **i** to install package, **v** to open Neovim, **yy** to perform system upgrade. `md2pdf` - convert markdown to pdf.
 
