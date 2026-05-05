@@ -127,7 +127,12 @@ local function update_git_env_for_dotfiles()
     unset_git_env()
     return
   end
-  if vim.startswith(cwd, home .. "/.config/") or cwd == home or cwd == home .. "/.local/bin" then
+  if
+    vim.startswith(cwd, home .. "/.config/")
+    or cwd == home
+    or cwd == home .. "/.local/bin"
+    or cwd == home .. "/lua"
+  then
     if vim.env.GIT_DIR == nil then
       -- export git location into ENV
       vim.env.GIT_DIR = git_dir
