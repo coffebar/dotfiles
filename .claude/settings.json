@@ -18,7 +18,10 @@
       "mcp__puppeteer__puppeteer_evaluate",
       "mcp__puppeteer__puppeteer_fill"
     ],
-    "deny": ["Bash(php *)", "Bash(composer *)"]
+    "deny": [
+      "Bash(php *)",
+      "Bash(composer *)"
+    ]
   },
   "enableAllProjectMcpServers": false,
   "hooks": {
@@ -45,5 +48,6 @@
     "php-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true
-  }
+  },
+  "tui": "fullscreen"
 }
