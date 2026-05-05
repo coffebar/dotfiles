@@ -111,8 +111,7 @@ hl.window_rule({
 	workspace = "10 silent",
 })
 
-local nord_network = os.getenv("NORD_NETWORK") or ""
-
+hl.bind("CONTROL + ALT + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind("ALT + V", hl.dsp.submap("vpn"))
 hl.on("keybinds.submap", function(name)
 	if name == "vpn" then
@@ -122,7 +121,8 @@ end)
 
 hl.define_submap("vpn", function()
 	hl.bind("1", function()
-		hl.dispatch(hl.dsp.exec_cmd("nordlayer connect " .. nord_network))
+		local nord_network = os.getenv("NORD_NETWORK") or ""
+		hl.dispatch(hl.dsp.exec_cmd("nordlayer connect --silent " .. nord_network))
 		hl.dsp.submap("reset")()
 	end)
 	hl.bind("2", function()
