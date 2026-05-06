@@ -11,11 +11,3 @@ hl.monitor({
 hl.monitor({ output = "DP-2", disabled = true })
 hl.monitor({ output = "DP-3", disabled = true })
 hl.monitor({ output = "desc:BOE 0x094C", mode = "1920x1200@60", position = "0x1440", scale = "1" })
-
-hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "2", monitor = "eDP-1" })
-hl.workspace_rule({ workspace = "3", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "4", monitor = "eDP-1" })
-hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "9", monitor = "HDMI-A-1" })

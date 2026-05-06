@@ -23,7 +23,6 @@ hl.config({
 
 -- autostart
 hl.on("hyprland.start", function()
-	hl.exec_cmd("swaybg -i /usr/share/backgrounds/Fuji_san_by_amaral.png")
 	hl.exec_cmd("foot")
 	hl.exec_cmd("google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland")
 	hl.exec_cmd("datagrip")
@@ -32,7 +31,8 @@ end)
 
 local function move_workspaces(assignments)
 	for ws, mon in pairs(assignments) do
-		hl.dispatch(hl.dsp.workspace.move({ workspace = ws, monitor = mon }))
+		-- hl.dispatch(hl.dsp.workspace.move({ workspace = ws, monitor = mon }))
+		hl.workspace_rule({ workspace = ws, monitor = mon })
 	end
 end
 
@@ -74,16 +74,15 @@ local function apply_monitor_layout(name)
 			[1] = "HDMI-A-1",
 			[2] = "HDMI-A-1",
 			[3] = "HDMI-A-1",
+			[4] = "eDP-1",
+			[5] = "eDP-1",
+			[6] = "eDP-1",
 			[7] = "HDMI-A-1",
 			[8] = "HDMI-A-1",
 			[9] = "HDMI-A-1",
 			[10] = "HDMI-A-1",
-			[4] = "eDP-1",
-			[5] = "eDP-1",
-			[6] = "eDP-1",
 		})
 		hl.exec_cmd("sudo systemctl restart nordlayer")
-		hl.dispatch(hl.dsp.focus({ workspace = 1 }))
 	end
 end
 

@@ -1,13 +1,9 @@
 hl.window_rule({ name = "ws-firefox", match = { class = "firefox" }, workspace = "1 silent" })
 hl.window_rule({ name = "ws-telegram", match = { class = "org.telegram.desktop" }, workspace = "2 silent" })
-hl.window_rule({ name = "ws-phpstorm", match = { class = "jetbrains-phpstorm" }, workspace = "3 silent" })
-hl.window_rule({ name = "ws-chrome-upper", match = { class = "Google-chrome" }, workspace = "4 silent" })
-hl.window_rule({ name = "ws-chrome-lower", match = { class = "google-chrome" }, workspace = "4 silent" })
+hl.window_rule({ name = "ws-chrome", match = { class = "google-chrome" }, workspace = "4 silent" })
 hl.window_rule({ name = "ws-edge", match = { class = "Microsoft-edge" }, workspace = "5 silent" })
 hl.window_rule({ name = "ws-thunderbird", match = { class = "org.mozilla.Thunderbird" }, workspace = "6 silent" })
 hl.window_rule({ name = "ws-keepass", match = { class = "org.keepassxc.KeePassXC" }, workspace = "9 silent" })
-hl.window_rule({ name = "ws10-class", match = { class = "workspace10" }, workspace = "10 silent" })
-hl.window_rule({ name = "ws10-title", match = { title = "^(workspace10)$" }, workspace = "10 silent" })
 
 hl.window_rule({
 	name = "ff-pip-float",
