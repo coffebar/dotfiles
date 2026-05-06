@@ -51,7 +51,6 @@ local function apply_monitor_layout(name)
 			[9] = "DP-6",
 		})
 		hl.exec_cmd("sudo systemctl restart nordlayer")
-		hl.dispatch(hl.dsp.focus({ workspace = 4 }))
 	elseif name == "DP-8" then
 		hl.monitor({ output = "eDP-1", mode = "1920x1200@60", position = "1920x0", scale = "1.2" })
 		move_workspaces({
@@ -66,7 +65,6 @@ local function apply_monitor_layout(name)
 			[9] = "DP-8",
 		})
 		hl.exec_cmd("sudo systemctl restart nordlayer")
-		hl.dispatch(hl.dsp.focus({ workspace = 4 }))
 	elseif name == "HDMI-A-1" then
 		hl.monitor({ output = "HDMI-A-1", mode = "3840x2160@60", position = "0x0", scale = "1.5" })
 		hl.monitor({ output = "eDP-1", mode = "1920x1200@60", position = "0x1441", scale = "1.2" })
