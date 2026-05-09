@@ -1,3 +1,17 @@
+local function ts_expand()
+  if vim.fn.mode():match("[vV\22]") then
+    vim.cmd("normal an")
+  else
+    vim.cmd("normal van")
+  end
+end
+
+local function ts_shrink()
+  if vim.fn.mode():match("[vV\22]") then
+    vim.cmd("normal in")
+  end
+end
+
 -- keymap documentation plugin
 --
 local has_wk, wk = pcall(require, "which-key")
@@ -406,6 +420,12 @@ if has_wk then
       mode = "x",
     })
   end
+
+  wk.add({
+    { "<CR>", ts_expand, mode = { "n", "x" }, desc = "Tree-sitter incremental selection" },
+    { "<Tab>", ts_expand, mode = "x", desc = "Tree-sitter node incremental selection" },
+    { "<S-Tab>", ts_shrink, mode = "x", desc = "Tree-sitter node decremental selection" },
+  })
 else
   -- without "which-key" plugin
   -- if it fails to load for some reason
