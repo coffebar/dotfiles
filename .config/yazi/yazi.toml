@@ -23,7 +23,7 @@ thunar = [
 [open]
 rules = [
 	{ url = "*/", use = "thunar" },
-	{ name = "*.pdf", use = "open" },
+	{ url = "*.pdf", use = "open" },
 	{ url = "*.json", use = "edit" },
 	{ mime = "application/pdf", use = "open" },
 	{ mime = "image/*", use = "gthumb" },
