@@ -8,5 +8,4 @@ hl.monitor({
 	scale = "1",
 	mirror = "eDP-1",
 })
-hl.monitor({ output = "DP-3", disabled = true })
 hl.monitor({ output = "desc:BOE 0x094C", mode = "1920x1200@60", position = "0x1440", scale = "1" })

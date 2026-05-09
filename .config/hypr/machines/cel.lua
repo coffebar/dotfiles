@@ -79,20 +79,19 @@ local function apply_monitor_layout(name)
 			[9] = "DP-8",
 		})
 		hl.exec_cmd("sudo systemctl restart nordlayer")
-	elseif name == "HDMI-A-1" then
-		hl.monitor({ output = "HDMI-A-1", mode = "3840x2160@60", position = "0x0", scale = "1.5" })
+	elseif name == "DP-3" then
 		hl.monitor({ output = "eDP-1", mode = "1920x1200@60", position = "0x1441", scale = "1.2" })
 		move_workspaces({
-			[1] = "HDMI-A-1",
-			[2] = "HDMI-A-1",
-			[3] = "HDMI-A-1",
+			[1] = "DP-3",
+			[2] = "DP-3",
+			[3] = "DP-3",
 			[4] = "eDP-1",
 			[5] = "eDP-1",
 			[6] = "eDP-1",
-			[7] = "HDMI-A-1",
-			[8] = "HDMI-A-1",
-			[9] = "HDMI-A-1",
-			[10] = "HDMI-A-1",
+			[7] = "DP-3",
+			[8] = "DP-3",
+			[9] = "DP-3",
+			[10] = "DP-3",
 		})
 		hl.exec_cmd("sudo systemctl restart nordlayer")
 	end
