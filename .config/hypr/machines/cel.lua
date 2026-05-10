@@ -17,17 +17,6 @@ hl.monitor({ output = "eDP-1", mode = "1920x1200@60", position = "auto", scale =
 hl.monitor({ output = "desc:Dell Inc. DELL P2722HE D0TCBH3", mode = "1920x1080", position = "0x0", scale = "1" })
 hl.monitor({ output = "desc:Dell Inc. DELL P2719H 7JJ9QS2", mode = "1920x1080", position = "3520x0", scale = "1" })
 
--- workspace rules
-hl.workspace_rule({ workspace = "1", monitor = "DP-5" })
-hl.workspace_rule({ workspace = "2", monitor = "DP-5" })
-hl.workspace_rule({ workspace = "3", monitor = "DP-5" })
-hl.workspace_rule({ workspace = "4", monitor = "eDP-1" })
-hl.workspace_rule({ workspace = "5", monitor = "eDP-1" })
-hl.workspace_rule({ workspace = "6", monitor = "eDP-1" })
-hl.workspace_rule({ workspace = "7", monitor = "DP-6" })
-hl.workspace_rule({ workspace = "8", monitor = "DP-6" })
-hl.workspace_rule({ workspace = "9", monitor = "DP-6" })
-
 -- core overrides
 hl.config({
 	input = {
