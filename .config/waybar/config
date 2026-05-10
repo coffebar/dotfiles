@@ -5,9 +5,9 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "idle_inhibitor", "pulseaudio", "backlight", "network", "custom/updates"],
+    "modules-left": ["hyprland/workspaces", "idle_inhibitor", "pulseaudio", "network", "custom/updates"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["hyprland/submap", "hyprland/language", "cpu", "memory", "temperature", "battery", "tray", "clock"],
+    "modules-right": ["hyprland/submap", "hyprland/language", "backlight", "cpu", "memory", "battery", "tray", "clock"],
     // Modules configuration
      "hyprland/workspaces": {
          "disable-scroll": true,
@@ -43,6 +43,9 @@
     },
     "hyprland/language": {
         "format": "{}",
+        "format-en": "En",
+        "format-uk": "Uk",
+        "format-ru": "Ru",
         "max-length": 18
     },
     "sway/mode": {
@@ -83,6 +86,9 @@
     },
     "idle_inhibitor": {
         "format": "{icon}",
+        "tooltip": true,
+        "tooltip-format-activated": "Idle_inhibitor active",
+        "tooltip-format-deactivated": "Idle_inhibitor not active",
         "format-icons": {
             "activated": "",
             "deactivated": ""
@@ -90,7 +96,7 @@
     },
     "tray": {
         // "icon-size": 21,
-        "spacing": 0
+        "spacing": 2
     },
     "clock": {
         // "timezone": "America/New_York",
@@ -102,7 +108,9 @@
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% ",
+        "tooltip": true,
+	    "tooltip-format": "{used:0.1f}GB/{total:0.1f}G"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -136,10 +144,10 @@
     },
     "network": {
         // "interface": "wlan0", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-wifi": "",
+        "format-ethernet": "{ipaddr}/{cidr}",
+        "tooltip-format": "{essid} {ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
@@ -147,8 +155,8 @@
         // "scroll-step": 10, // %, can be a float
         "format": "{volume}%{icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-bluetooth-muted": "󰝟 {icon} {format_source}",
+        "format-muted": "󰝟 {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
