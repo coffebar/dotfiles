@@ -169,6 +169,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)  Neovim plugin to manage the file system and other tree like structures.
 - [nvim-neotest/nvim-nio](https://github.com/nvim-neotest/nvim-nio)  A library for asynchronous IO in Neovim
 - [nvim-pack/nvim-spectre](https://github.com/nvim-pack/nvim-spectre)  Find the enemy and replace them with dark power.
+- [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)  FZF sorter for telescope written in c
 - [nvim-telescope/telescope-live-grep-args.nvim](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)  Live grep with args
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)  Find, Filter, Preview, Pick. All lua, all the time.
 - [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)  Provides Nerd Font icons (glyphs) for use by neovim plugins
