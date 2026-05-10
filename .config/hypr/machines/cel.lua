@@ -21,12 +21,12 @@ hl.monitor({ output = "desc:Dell Inc. DELL P2719H 7JJ9QS2", mode = "1920x1080", 
 hl.workspace_rule({ workspace = "1", monitor = "DP-5" })
 hl.workspace_rule({ workspace = "2", monitor = "DP-5" })
 hl.workspace_rule({ workspace = "3", monitor = "DP-5" })
-hl.workspace_rule({ workspace = "7", monitor = "DP-6" })
-hl.workspace_rule({ workspace = "8", monitor = "DP-6" })
-hl.workspace_rule({ workspace = "9", monitor = "DP-6" })
 hl.workspace_rule({ workspace = "4", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "5", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "6", monitor = "eDP-1" })
+hl.workspace_rule({ workspace = "7", monitor = "DP-6" })
+hl.workspace_rule({ workspace = "8", monitor = "DP-6" })
+hl.workspace_rule({ workspace = "9", monitor = "DP-6" })
 
 -- core overrides
 hl.config({
