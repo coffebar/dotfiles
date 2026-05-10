@@ -13,9 +13,15 @@ hl.env(
 		.. "/.local/share/lua-language-server/bin:/usr/libexec"
 )
 -- monitors
-hl.monitor({ output = "eDP-1", mode = "1920x1200@60", position = "auto", scale = "1.2" })
+local laptop_monitor = "eDP-1"
+hl.monitor({ output = laptop_monitor, mode = "1920x1200@60", position = "auto", scale = "1.2" })
 hl.monitor({ output = "desc:Dell Inc. DELL P2722HE D0TCBH3", mode = "1920x1080", position = "0x0", scale = "1" })
 hl.monitor({ output = "desc:Dell Inc. DELL P2719H 7JJ9QS2", mode = "1920x1080", position = "3520x0", scale = "1" })
+
+-- workspace rules
+hl.workspace_rule({ workspace = "4", monitor = laptop_monitor })
+hl.workspace_rule({ workspace = "5", monitor = laptop_monitor })
+hl.workspace_rule({ workspace = "6", monitor = laptop_monitor })
 
 -- core overrides
 hl.config({
@@ -30,6 +36,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland")
 	hl.exec_cmd("datagrip")
 	hl.exec_cmd("~/.local/bin/token-vault")
+	hl.exec_cmd("vpn on")
 end)
 
 local function move_workspaces(assignments)
@@ -41,48 +48,35 @@ end
 
 local function apply_monitor_layout(name)
 	if name == "DP-5" then
-		hl.monitor({ output = "eDP-1", mode = "1920x1200@60", position = "1920x0", scale = "1.2" })
+		hl.monitor({ output = laptop_monitor, mode = "1920x1200@60", position = "1920x0", scale = "1.2" })
 		move_workspaces({
-			[1] = "DP-5",
-			[2] = "DP-5",
-			[3] = "DP-5",
-			[4] = "eDP-1",
-			[5] = "eDP-1",
-			[6] = "eDP-1",
+			[1] = name,
+			[2] = name,
+			[3] = name,
 			[7] = "DP-6",
 			[8] = "DP-6",
 			[9] = "DP-6",
 		})
-		hl.exec_cmd("sudo systemctl restart nordlayer")
 	elseif name == "DP-8" then
-		hl.monitor({ output = "eDP-1", mode = "1920x1200@60", position = "1920x0", scale = "1.2" })
+		hl.monitor({ output = laptop_monitor, mode = "1920x1200@60", position = "1920x0", scale = "1.2" })
 		move_workspaces({
 			[1] = "DP-7",
 			[2] = "DP-7",
 			[3] = "DP-7",
-			[4] = "eDP-1",
-			[5] = "eDP-1",
-			[6] = "eDP-1",
-			[7] = "DP-8",
-			[8] = "DP-8",
-			[9] = "DP-8",
+			[7] = name,
+			[8] = name,
+			[9] = name,
 		})
-		hl.exec_cmd("sudo systemctl restart nordlayer")
-	elseif name == "DP-3" then
-		hl.monitor({ output = "eDP-1", mode = "1920x1200@60", position = "0x1441", scale = "1.2" })
+	elseif name == "DP-3" or name == "DP-1" then
+		hl.monitor({ output = laptop_monitor, mode = "1920x1200@60", position = "0x1441", scale = "1.2" })
 		move_workspaces({
-			[1] = "DP-3",
-			[2] = "DP-3",
-			[3] = "DP-3",
-			[4] = "eDP-1",
-			[5] = "eDP-1",
-			[6] = "eDP-1",
-			[7] = "DP-3",
-			[8] = "DP-3",
-			[9] = "DP-3",
-			[10] = "DP-3",
+			[1] = name,
+			[2] = name,
+			[3] = name,
+			[7] = name,
+			[8] = name,
+			[9] = name,
 		})
-		hl.exec_cmd("sudo systemctl restart nordlayer")
 	end
 end
 
@@ -94,6 +88,7 @@ end
 
 hl.on("monitor.added", function(monitor)
 	apply_monitor_layout(monitor.name)
+	hl.exec_cmd("sudo systemctl restart nordlayer")
 end)
 hl.on("hyprland.start", function()
 	apply_all_connected()
