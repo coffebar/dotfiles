@@ -2,6 +2,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("/bin/sh -c \"secret-tool lookup 'keepass' 'default' | keepassxc --pw-stdin ~/KeePass/database.kdbx\"")
 	hl.exec_cmd("/bin/bash ~/Downloads/Telegram\\ Desktop/unzip_here.sh")
 	hl.exec_cmd("/usr/lib/thunderbird/thunderbird")
+	hl.exec_cmd("firefox")
 end)
 
 local external_monitor = "desc:BNQ BenQ PD2705U 89P03368019"

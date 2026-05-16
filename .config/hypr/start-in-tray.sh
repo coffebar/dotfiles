@@ -26,8 +26,6 @@ if rg -q "Ubuntu" /etc/os-release; then
 else
 	# Arch Linux
 	XDG_CURRENT_DESKTOP=gnome /usr/bin/Telegram &
-	firefox &
-	hyprctl dispatch moveworkspacetomonitor 2 0
 fi
 
 nm-applet --indicator &
