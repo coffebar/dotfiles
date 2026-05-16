@@ -108,7 +108,6 @@ hl.window_rule({
 	workspace = "10 silent",
 })
 
-hl.bind("CONTROL + ALT + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind("ALT + V", hl.dsp.submap("vpn"))
 hl.on("keybinds.submap", function(name)
 	if name == "vpn" then

@@ -1,0 +1,25 @@
+#!/bin/bash
+# Before locking:
+# - set keyboard layout to default one
+# - pause music player
+# - create lock directory to prevent multiple locks
+
+switch_xkb_hypr_default() {
+	local blacklist_mask='^(video-|power-|sleep-|yubico-|integrated-camera|intel-hid-event)'
+	hyprctl devices -j | jq -r '.keyboards[]?.name // empty' \
+		| rg -vP "$blacklist_mask" \
+		| xargs -r -I {} hyprctl switchxkblayout "{}" 0
+}
+
+switch_xkb_hypr_default
+
+playerctl pause > /dev/null 2>&1 &
+
+session_key="${HYPRLAND_INSTANCE_SIGNATURE:-${XDG_SESSION_ID:-default}}"
+lockdir="/tmp/hyprlock.${session_key}"
+mkdir "$lockdir" 2> /dev/null || exit 0
+
+trap 'rmdir -- "$lockdir" >/dev/null 2>&1 || true' EXIT INT TERM
+
+hyprlock "$@"
+exit $?
