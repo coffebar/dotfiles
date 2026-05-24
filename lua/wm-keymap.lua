@@ -45,14 +45,6 @@ if key == "f" then
 		-- default directory to open
 		dir = home .. "/Downloads"
 	end
-	if os.execute("which yazi") then
-		local terminals = { "foot", "ghostty" }
-		for _, term in ipairs(terminals) do
-			if os.execute("which " .. term) then
-				return os.execute(string.format('%s -e yazi "%s" &', term, dir))
-			end
-		end
-	end
 	os.execute(string.format('thunar "%s" &', dir))
 elseif key == "t" then
 	-- switch to Telegram or open new instance on fail
