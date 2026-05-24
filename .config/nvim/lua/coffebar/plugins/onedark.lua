@@ -1,6 +1,6 @@
 return {
   style = "warm",
-  transparent = false, -- Show/hide background
+  transparent = true, -- Show/hide background
   term_colors = false, -- Change terminal color as per the selected theme style
 
   -- toggle theme style ---
