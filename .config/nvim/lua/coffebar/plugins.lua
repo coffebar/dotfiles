@@ -78,6 +78,11 @@ return {
     init = function()
       vim.notify = require("notify")
     end,
+    opts = {
+      max_width = 80,
+      max_height = 20,
+      background_colour = "#2b2e37",
+    },
   },
   -- project manager
   {
