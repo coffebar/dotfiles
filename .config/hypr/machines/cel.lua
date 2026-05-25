@@ -33,9 +33,9 @@ hl.config({
 -- autostart
 hl.on("hyprland.start", function()
 	hl.exec_cmd("foot")
+	hl.exec_cmd(home .. "/.local/bin/token-vault")
 	hl.exec_cmd("google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland")
 	hl.exec_cmd("datagrip")
-	hl.exec_cmd("~/.local/bin/token-vault")
 	hl.exec_cmd("vpn on")
 end)
 
