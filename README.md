@@ -188,6 +188,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim)  Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
 - [skywind3000/asyncrun.vim](https://github.com/skywind3000/asyncrun.vim)  :rocket: Run Async Shell Commands in Vim 8.0 / NeoVim and Output to the Quickfix Window !!
 - [skywind3000/asynctasks.vim](https://github.com/skywind3000/asynctasks.vim)  :rocket: Modern Task System for Project Building, Testing and Deploying !!
+- [sphamba/smear-cursor.nvim](https://github.com/sphamba/smear-cursor.nvim)  🌠 Neovim plugin to animate the cursor with a smear effect in all terminals
 - [stephpy/vim-php-cs-fixer](https://github.com/stephpy/vim-php-cs-fixer)  Use FriendsOfPHP/PHP-CS-Fixer
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)  fugitive.vim: A Git wrapper so awesome, it should be illegal
 - [trevarj/telescope-tmux.nvim](https://github.com/trevarj/telescope-tmux.nvim)  Integration for tmux with telescope.nvim

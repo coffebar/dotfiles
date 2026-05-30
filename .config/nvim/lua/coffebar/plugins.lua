@@ -113,6 +113,10 @@ return {
       engine = "google", -- google, bing, libretranslate, lingva, yandex
     },
   },
+  {
+    "sphamba/smear-cursor.nvim",
+    opts = {},
+  },
   -- turn off highlighting when you are done searching
   { "romainl/vim-cool" },
   -- automatically save files
