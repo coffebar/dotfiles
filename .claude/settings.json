@@ -19,20 +19,28 @@
       "mcp__puppeteer__puppeteer_fill"
     ],
     "deny": [
-      "Bash(php *)",
-      "Bash(composer *)"
     ]
   },
   "enableAllProjectMcpServers": false,
   "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/csfix-diff.sh"
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "jq -n '{hookSpecificOutput: {hookEventName: \"PreToolUse\", permissionDecision: \"deny\", permissionDecisionReason: \"PHP CLI commands are not allowed\"}}'",
-            "if": "Bash(php *)"
+            "command": "bash ~/.claude/hooks/php-to-dphp.sh"
           }
         ]
       }
