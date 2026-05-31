@@ -21,6 +21,10 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+if (( $+parameters[ZSH_HIGHLIGHT_STYLES] )); then
+  ZSH_HIGHLIGHT_STYLES[comment]='fg=yellow,bold'
+fi
+
 # Aggregate RSS by command name and show apps using >100MB
 alias memgt100m='ps -eo comm,rss --no-headers | awk '\''{rss[$1]+=$2} END{for (c in rss) if (rss[c]>102400) printf "%-20s %6.2f GB\n", c, rss[c]/1024/1024}'\'' | sort -k2,2nr'
 
