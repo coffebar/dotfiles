@@ -113,6 +113,7 @@ return {
       engine = "google", -- google, bing, libretranslate, lingva, yandex
     },
   },
+  -- cursor jump animation
   {
     "sphamba/smear-cursor.nvim",
     opts = {},

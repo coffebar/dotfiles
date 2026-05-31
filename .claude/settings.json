@@ -38,6 +38,9 @@
       }
     ]
   },
+  "worktree": {
+    "baseRef": "fresh"
+  },
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline.sh"
@@ -47,7 +50,8 @@
     "pyright-lsp@claude-plugins-official": true,
     "php-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true
+    "lua-lsp@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true
   },
   "tui": "fullscreen"
 }
