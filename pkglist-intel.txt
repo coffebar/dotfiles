@@ -84,7 +84,6 @@ gvfs-gphoto2
 gvfs-mtp
 haveged
 htop
-hugo
 hyprcursor
 hypridle
 hyprland
@@ -220,7 +219,8 @@ ufw
 unrar
 unzip
 usbutils
-vicinae
+vicinae-bin
+vicinae-bin-debug
 vim
 vlc
 wavpack
