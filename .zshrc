@@ -14,6 +14,12 @@ if [[ "$XDG_SESSION_OPT" == "cel" ]]; then
 	dtest() {
 		docker compose -f docker-compose.dev.yml exec -it php env XDEBUG_MODE=off php bin/phpunit "$@"
 	}
+	migrtest() {
+		docker compose -f docker-compose.dev.yml exec -it php bin/console doctrine:database:drop --if-exists --env=test --force
+		docker compose -f docker-compose.dev.yml exec -it php bin/console doctrine:database:create --if-not-exists --env=test
+		docker compose -f docker-compose.dev.yml exec -it php bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration --env=test
+		docker compose -f docker-compose.dev.yml exec -it php bin/console cache:clear --env=test
+	}
 else
 	plugins+=(zsh_codex)
 	source ~/.bash_aliases
