@@ -85,6 +85,7 @@ gvfs-mtp
 haveged
 htop
 hyprcursor
+hyprgraphics
 hypridle
 hyprland
 hyprland-guiutils
@@ -220,7 +221,6 @@ unrar
 unzip
 usbutils
 vicinae-bin
-vicinae-bin-debug
 vim
 vlc
 wavpack
