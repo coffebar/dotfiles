@@ -18,8 +18,7 @@
       "mcp__puppeteer__puppeteer_evaluate",
       "mcp__puppeteer__puppeteer_fill"
     ],
-    "deny": [
-    ]
+    "deny": []
   },
   "enableAllProjectMcpServers": false,
   "hooks": {
@@ -61,5 +60,6 @@
     "lua-lsp@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true
   },
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "autoCompactEnabled": false
 }
