@@ -1,0 +1,15 @@
+#!/bin/bash
+# Lock the screen and wait until hyprlock is actually up before suspending
+
+if ! pidof hyprlock > /dev/null; then
+	~/.local/bin/lock &
+	# lock does layout/playerctl work before exec'ing hyprlock
+	for _ in $(seq 1 40); do
+		pidof hyprlock > /dev/null && break
+		sleep 0.05
+	done
+	# give hyprlock a moment to acquire the session lock and render a frame
+	sleep 0.3
+fi
+
+exec systemctl suspend
