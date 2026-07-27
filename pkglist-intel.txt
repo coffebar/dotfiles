@@ -91,12 +91,17 @@ hyprland
 hyprland-guiutils
 hyprland-monitor-attached
 hyprland-per-window-layout
+hyprland-protocols
+hyprland-qt-support
+hyprlang
 hyprlauncher
 hyprlock
 hyprpaper
 hyprpicker-git
 hyprpolkitagent
 hyprtoolkit
+hyprutils
+hyprwayland-scanner
 hyprwire
 imagemagick
 inotify-tools
