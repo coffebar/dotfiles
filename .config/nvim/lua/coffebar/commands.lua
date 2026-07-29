@@ -298,7 +298,7 @@ vim.api.nvim_create_autocmd("User", {
         end
       end
     end
-    if intelephense_running then
+    if intelephense_running and vim.fn.exists(":LspRestart") == 2 then
       vim.api.nvim_command("LspRestart intelephense")
     end
   end,
