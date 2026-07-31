@@ -126,10 +126,8 @@ libreoffice-fresh-en-gb
 libreoffice-fresh-uk
 libtool
 libxml2-legacy
-linux
 linux-firmware
-linux-zen
-linux-zen-headers
+linux-lts
 lsof
 ltex-ls-bin
 lua-language-server
