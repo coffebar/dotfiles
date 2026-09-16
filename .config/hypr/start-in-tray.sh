@@ -22,7 +22,6 @@ if rg -q "Ubuntu" /etc/os-release; then
 	# Ubuntu
 	flatpak run com.slack.Slack --enable-features=UseOzonePlatform --ozone-platform=wayland &
 	~/.local/bin/postman --enable-features=UseOzonePlatform --ozone-platform=wayland &
-	/usr/bin/nordlayer-tray &
 else
 	# Arch Linux
 	XDG_CURRENT_DESKTOP=gnome /usr/bin/Telegram &

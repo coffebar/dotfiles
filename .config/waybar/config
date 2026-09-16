@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "idle_inhibitor", "pulseaudio", "network", "custom/updates"],
+    "modules-left": ["hyprland/workspaces", "idle_inhibitor", "pulseaudio", "network", "custom/nordlayer", "custom/updates"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["hyprland/submap", "hyprland/language", "backlight", "cpu", "memory", "battery", "tray", "clock"],
     // Modules configuration
@@ -189,6 +189,22 @@
         "on-click": "sleep 0.1 && swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
+    },
+    "custom/nordlayer": {
+        "format": "{icon}",
+        "return-type": "json",
+        "interval": 5,
+        "signal": 8,
+        "exec-if": "command -v nordlayer > /dev/null",
+        "exec": "$HOME/.config/waybar/nordlayer-status",
+        "format-icons": {
+            "connected": "",
+            "connecting": "",
+            "disconnecting": "",
+            "disconnected": "",
+            "logged-out": "",
+            "error": ""
+        }
     },
     "custom/updates": {
         "format": "{} {icon}",

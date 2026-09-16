@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+STATUS_TIMEOUT=${NORDLAYER_STATUS_TIMEOUT:-5}
+NORDLAYER_BIN=${NORDLAYER_BIN:-nordlayer}
+
+esc() {
+  local s
+  s=$(printf '%s' "$1" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g' -e 's/&/\&amp;/g' \
+    -e 's/</\&lt;/g' -e 's/>/\&gt;/g')
+  printf '%s' "${s//$'\n'/\\n}"
+}
+
+emit() {
+  printf '{"text":"%s","alt":"%s","class":"%s","tooltip":"%s"}\n' \
+    "$(esc "$1")" "$2" "$2" "$(esc "$3")"
+  exit 0
+}
+
+join_lines() {
+  local out="" line
+  for line in "$@"; do
+    [[ -n $line ]] || continue
+    if [[ -z $out ]]; then
+      out=$line
+    else
+      out+=$'\n'$line
+    fi
+  done
+  printf '%s' "$out"
+}
+
+field() {
+  printf '%s\n' "$clean" | sed -n "s/^$1:[[:space:]]*//p" | head -n1 | sed 's/[[:space:]]*$//'
+}
+
+command -v "$NORDLAYER_BIN" >/dev/null 2>&1 || emit "n/a" error "nordlayer is not installed"
+
+raw=$(timeout "$STATUS_TIMEOUT" "$NORDLAYER_BIN" status 2>&1)
+plain=$(printf '%s\n' "$raw" \
+  | sed -e 's/\x1b\[[0-9;?]*[a-zA-Z]//g' -e 's/\r/\n/g' -e 's/\[[-\\|/]\][^.]*\.\.\.//g')
+clean=$(printf '%s\n' "$plain" | sed 's/.*\(Login:\)/\1/')
+
+login=$(field 'Login')
+if [[ -z $login ]]; then
+  detail=$(printf '%s\n' "$plain" | grep -v '^[[:space:]]*$' | head -n3)
+  emit "n/a" error "$(join_lines "nordlayer status unavailable" "$detail")"
+fi
+
+network=$(field 'Current network')
+network_line=${network:+"Network: $network"}
+
+account=""
+if [[ $login =~ \[(.+)\] ]]; then
+  account=${BASH_REMATCH[1]}
+fi
+account_line=""
+if [[ -n $account ]]; then
+  user=${account%% *}
+  if [[ $account == *" "* ]]; then
+    account_line="Account: $user [${account#* }]"
+  else
+    account_line="Account: $user"
+  fi
+fi
+
+case "$login" in
+  "Not logged in"*)
+    emit "logged out" logged-out \
+      "$(join_lines "Not logged in to NordLayer" "$network_line")"
+    ;;
+esac
+
+case "$(field 'VPN')" in
+  Connected*)
+    gateway=$(field 'Gateway')
+    server=$(field 'Server address')
+    protocol=$(field 'Protocol')
+    server_line=$server
+    [[ -n $protocol ]] && server_line="${server_line:+$server_line }($protocol)"
+    emit "${gateway:-connected}" connected \
+      "$(join_lines "${gateway:-Connected}" "$server_line" "$network_line" "$account_line")"
+    ;;
+  Connecting*)
+    emit "connecting…" connecting \
+      "$(join_lines "Connecting to NordLayer…" "$network_line" "$account_line")"
+    ;;
+  Disconnecting*)
+    emit "disconnecting…" disconnecting \
+      "$(join_lines "Disconnecting from NordLayer…" "$network_line" "$account_line")"
+    ;;
+  *)
+    emit "off" disconnected \
+      "$(join_lines "VPN not connected" "$network_line" "$account_line")"
+    ;;
+esac
