@@ -32,8 +32,8 @@ hl.config({
 
 -- autostart
 hl.on("hyprland.start", function()
-	hl.exec_cmd("foot")
-	hl.exec_cmd(home .. "/.local/bin/token-vault")
+	hl.exec_cmd("foot tmux", { workspace = "4 silent" })
+	hl.exec_cmd("zsh -c 'exec " .. home .. "/.local/bin/token-vault' >> /tmp/token-vault.log 2>&1")
 	hl.exec_cmd("google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland")
 	hl.exec_cmd("datagrip")
 	hl.exec_cmd("systemctl --user start repin-on-release")
