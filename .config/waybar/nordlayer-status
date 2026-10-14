@@ -2,7 +2,7 @@
 set -uo pipefail
 
 STATUS_TIMEOUT=${NORDLAYER_STATUS_TIMEOUT:-5}
-NORDLAYER_BIN=${NORDLAYER_BIN:-nordlayer}
+CONTAINER=${NORDLAYER_CONTAINER:-nordlayer-vpn}
 
 esc() {
   local s
@@ -34,9 +34,26 @@ field() {
   printf '%s\n' "$clean" | sed -n "s/^$1:[[:space:]]*//p" | head -n1 | sed 's/[[:space:]]*$//'
 }
 
-command -v "$NORDLAYER_BIN" >/dev/null 2>&1 || emit "n/a" error "nordlayer is not installed"
+[[ -e /sys/class/net/nlx0 ]] && emit "host vpn" host-vpn \
+  "$(join_lines "NordLayer is connected on the host, calls will suffer" "Run: nordlayer disconnect")"
 
-raw=$(timeout "$STATUS_TIMEOUT" "$NORDLAYER_BIN" status 2>&1)
+command -v docker >/dev/null 2>&1 || emit "n/a" error "docker is not installed"
+
+state=$(timeout "$STATUS_TIMEOUT" docker inspect -f '{{.State.Status}}' "$CONTAINER" 2>/dev/null)
+case "$state" in
+  running) ;;
+  exited | created)
+    emit "off" disconnected "$(join_lines "VPN container is stopped" "Run: vpn on")"
+    ;;
+  "")
+    emit "n/a" error "Container $CONTAINER not found or docker is not responding"
+    ;;
+  *)
+    emit "$state" error "VPN container is $state"
+    ;;
+esac
+
+raw=$(timeout "$STATUS_TIMEOUT" docker exec -u nobody:nordlayer "$CONTAINER" nordlayer status 2>&1)
 plain=$(printf '%s\n' "$raw" \
   | sed -e 's/\x1b\[[0-9;?]*[a-zA-Z]//g' -e 's/\r/\n/g' -e 's/\[[-\\|/]\][^.]*\.\.\.//g')
 clean=$(printf '%s\n' "$plain" | sed 's/.*\(Login:\)/\1/')
@@ -46,9 +63,6 @@ if [[ -z $login ]]; then
   detail=$(printf '%s\n' "$plain" | grep -v '^[[:space:]]*$' | head -n3)
   emit "n/a" error "$(join_lines "nordlayer status unavailable" "$detail")"
 fi
-
-network=$(field 'Current network')
-network_line=${network:+"Network: $network"}
 
 account=""
 if [[ $login =~ \[(.+)\] ]]; then
@@ -67,7 +81,7 @@ fi
 case "$login" in
   "Not logged in"*)
     emit "logged out" logged-out \
-      "$(join_lines "Not logged in to NordLayer" "$network_line")"
+      "$(join_lines "Not logged in to NordLayer" "Run: ./nl login in ~/dev/nordlayer-docker")"
     ;;
 esac
 
@@ -79,18 +93,18 @@ case "$(field 'VPN')" in
     server_line=$server
     [[ -n $protocol ]] && server_line="${server_line:+$server_line }($protocol)"
     emit "${gateway:-connected}" connected \
-      "$(join_lines "${gateway:-Connected}" "$server_line" "$network_line" "$account_line")"
+      "$(join_lines "${gateway:-Connected}" "$server_line" "$account_line")"
     ;;
   Connecting*)
     emit "connecting…" connecting \
-      "$(join_lines "Connecting to NordLayer…" "$network_line" "$account_line")"
+      "$(join_lines "Connecting to NordLayer…" "$account_line")"
     ;;
   Disconnecting*)
     emit "disconnecting…" disconnecting \
-      "$(join_lines "Disconnecting from NordLayer…" "$network_line" "$account_line")"
+      "$(join_lines "Disconnecting from NordLayer…" "$account_line")"
     ;;
   *)
     emit "off" disconnected \
-      "$(join_lines "VPN not connected" "$network_line" "$account_line")"
+      "$(join_lines "VPN not connected, the container retries every 20 s" "$account_line")"
     ;;
 esac

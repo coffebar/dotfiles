@@ -88,7 +88,7 @@ end
 
 hl.on("monitor.added", function(monitor)
 	apply_monitor_layout(monitor.name)
-	hl.exec_cmd("sudo systemctl restart nordlayer")
+	hl.exec_cmd("vpn restart")
 end)
 hl.on("hyprland.start", function()
 	apply_all_connected()
@@ -137,7 +137,15 @@ hl.define_submap("vpn", function()
 	hl.bind("2", function()
 		hl.dispatch(hl.dsp.submap("reset"))
 		hl.dispatch(hl.dsp.exec_cmd("hyprctl dismissnotify"))
-		hl.dispatch(hl.dsp.exec_cmd("sudo systemctl restart nordlayer"))
+		hl.dispatch(hl.dsp.exec_cmd("vpn restart"))
+		hl.timer(function()
+			hl.notification.create({
+				text = "Restarting VPN",
+				duration = 2000,
+				color = "rgb(B0EA1F)",
+				font_size = 18,
+			})
+		end, { timeout = 100, type = "oneshot" })
 	end)
 	hl.bind("0", function()
 		hl.dispatch(hl.dsp.submap("reset"))
@@ -145,7 +153,7 @@ hl.define_submap("vpn", function()
 		hl.dispatch(hl.dsp.exec_cmd("vpn off"))
 		hl.timer(function()
 			hl.notification.create({
-				text = "Disconnecting from NordVPN",
+				text = "Disconnecting from VPN",
 				duration = 2000,
 				color = "rgb(B0EA1F)",
 				font_size = 18,

@@ -193,11 +193,12 @@
     "custom/nordlayer": {
         "format": "{icon}",
         "return-type": "json",
-        "interval": 5,
+        "interval": 15,
         "signal": 8,
-        "exec-if": "command -v nordlayer > /dev/null",
+        "exec-if": "command -v docker > /dev/null",
         "exec": "$HOME/.config/waybar/nordlayer-status",
         "format-icons": {
+            "host-vpn": "",
             "connected": "",
             "connecting": "",
             "disconnecting": "",

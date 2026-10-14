@@ -52,12 +52,32 @@
   color: rgba(238, 46, 36, 1);
 }
 
-#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-updates, #clock, #temperature, #language, #window, #tray {
+#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-updates, #custom-nordlayer, #clock, #temperature, #language, #window, #tray {
   margin: 4px 0px;
   padding: 0 4px;
   background-color: @base02;
   border-radius: 4px;
   min-width: 20px;
+}
+
+#custom-nordlayer.connected {
+  color: @base0B;
+}
+
+#custom-nordlayer.connecting, #custom-nordlayer.disconnecting {
+  color: @base0A;
+}
+
+#custom-nordlayer.disconnected {
+  color: @base04;
+}
+
+#custom-nordlayer.logged-out, #custom-nordlayer.error {
+  color: @base08;
+}
+
+#custom-nordlayer.host-vpn {
+  color: @base09;
 }
 
 #pulseaudio.muted, #pulseaudio.source-muted {
