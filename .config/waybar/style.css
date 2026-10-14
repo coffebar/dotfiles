@@ -65,7 +65,7 @@
 }
 
 #custom-nordlayer.connected {
-  color: @base0B;
+  /* color: @base0B; */
 }
 
 #custom-nordlayer.connecting, #custom-nordlayer.disconnecting {
