@@ -34,19 +34,23 @@ field() {
   printf '%s\n' "$clean" | sed -n "s/^$1:[[:space:]]*//p" | head -n1 | sed 's/[[:space:]]*$//'
 }
 
+command -v docker >/dev/null 2>&1 || exit 0
+
+if state=$(timeout "$STATUS_TIMEOUT" docker container ls -a \
+  --filter "name=^$CONTAINER\$" --format '{{.State}}' 2>/dev/null); then
+  [[ -n $state ]] || exit 0
+fi
+
 [[ -e /sys/class/net/nlx0 ]] && emit "host vpn" host-vpn \
   "$(join_lines "NordLayer is connected on the host, calls will suffer" "Run: nordlayer disconnect")"
 
-command -v docker >/dev/null 2>&1 || emit "n/a" error "docker is not installed"
-
-state=$(timeout "$STATUS_TIMEOUT" docker inspect -f '{{.State.Status}}' "$CONTAINER" 2>/dev/null)
 case "$state" in
   running) ;;
   exited | created)
     emit "off" disconnected "$(join_lines "VPN container is stopped" "Run: vpn on")"
     ;;
   "")
-    emit "n/a" error "Container $CONTAINER not found or docker is not responding"
+    emit "n/a" error "docker is not responding"
     ;;
   *)
     emit "$state" error "VPN container is $state"
