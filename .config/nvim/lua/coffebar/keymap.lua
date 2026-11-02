@@ -1,3 +1,49 @@
+local function github_base_url()
+  local remote = vim.fn.system("git remote get-url origin 2>/dev/null"):gsub("%s+$", "")
+  if remote == "" then
+    return nil
+  end
+  return remote
+    :gsub("^git@github%.com:", "https://github.com/")
+    :gsub("%.git$", "")
+end
+
+local function open_file_in_github()
+  local base = github_base_url()
+  if not base then
+    vim.notify("No git remote found", vim.log.levels.WARN)
+    return
+  end
+  local branch = vim.fn.system("git branch --show-current 2>/dev/null"):gsub("%s+$", "")
+  local git_root = vim.fn.system("git rev-parse --show-toplevel 2>/dev/null"):gsub("%s+$", "")
+  local rel_path = vim.fn.expand("%:p"):sub(#git_root + 2)
+  local line = vim.fn.line(".")
+  -- Use current branch if PR exists, otherwise fall back to default branch
+  local pr_exists = vim.fn.system("gh pr view --json url -q .url 2>/dev/null"):gsub("%s+$", "") ~= ""
+  if not pr_exists then
+    local default = vim.fn.system(
+      "git remote show origin 2>/dev/null | grep 'HEAD branch' | awk '{print $NF}'"
+    ):gsub("%s+$", "")
+    branch = (default ~= "") and default or "main"
+  end
+  local url = base .. "/blob/" .. branch .. "/" .. rel_path .. "#L" .. line
+  vim.fn.jobstart({ "xdg-open", url }, { detach = true })
+  vim.notify("Opening: " .. url, vim.log.levels.INFO)
+end
+
+local function open_pr_in_github()
+  local base = github_base_url()
+  if not base then
+    vim.notify("No git remote found", vim.log.levels.WARN)
+    return
+  end
+  local branch = vim.fn.system("git branch --show-current 2>/dev/null"):gsub("%s+$", "")
+  local pr_url = vim.fn.system("gh pr view --json url -q .url 2>/dev/null"):gsub("%s+$", "")
+  local url = (pr_url ~= "") and pr_url or (base .. "/pull/new/" .. branch)
+  vim.fn.jobstart({ "xdg-open", url }, { detach = true })
+  vim.notify("Opening: " .. url, vim.log.levels.INFO)
+end
+
 local function ts_expand()
   if vim.fn.mode():match("[vV\22]") then
     vim.cmd("normal an")
@@ -211,6 +257,8 @@ if has_wk then
     { "<leader>gt", gitsigns.toggle_deleted, desc = "toggle_deleted " },
     { "<leader>gu", gitsigns.undo_stage_hunk, desc = "Undo stage hunk" },
     { "<leader>gv", gitsigns.preview_hunk, desc = "preview hunk" },
+    { "<leader>go", open_file_in_github, desc = "Open file in GitHub" },
+    { "<leader>gw", open_pr_in_github, desc = "Open PR on GitHub (or create)" },
     { "<leader>h", "<cmd>BufferPrevious<cr>", desc = "Previous tab (barbar)" },
     { "<leader>i", desc = "Toggle boolean" },
     { "<leader>j", group = "Jump" },
