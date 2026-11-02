@@ -45,6 +45,16 @@ hl.window_rule({
 hl.window_rule({ name = "pavucontrol-center", match = { class = "pavucontrol" }, center = true })
 hl.window_rule({ name = "pavucontrol-float", match = { class = "pavucontrol" }, float = true })
 
+-- Toolbox positions itself beside its tray icon after mapping; waybar can't report that spot, so it lands off-screen
+hl.on("window.open", function(window)
+	if window.class ~= "jetbrains-toolbox" then
+		return
+	end
+	hl.timer(function()
+		hl.dispatch(hl.dsp.window.center({ window = "address:" .. window.address }))
+	end, { timeout = 300, type = "oneshot" })
+end)
+
 hl.window_rule({ name = "idle-inhibit-firefox", match = { class = "firefox" }, idle_inhibit = "fullscreen" })
 hl.window_rule({ name = "idle-inhibit-mpv", match = { class = "mpv" }, idle_inhibit = "fullscreen" })
 
