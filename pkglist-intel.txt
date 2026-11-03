@@ -100,8 +100,6 @@ hyprpaper
 hyprpicker-git
 hyprpolkitagent
 hyprtoolkit
-hyprutils
-hyprwayland-scanner
 hyprwire
 imagemagick
 inotify-tools
@@ -175,6 +173,7 @@ python-passlib
 python-pip
 python-uv
 python-virtualenv
+reflector
 remmina
 resvg
 ripgrep
@@ -231,7 +230,6 @@ wavpack
 waybar-git
 waybar-module-pacman-updates-git
 wayland-protocols
-waynergy
 wf-recorder
 wget
 which
