@@ -195,7 +195,7 @@
         "return-type": "json",
         "interval": 15,
         "signal": 8,
-        "exec-if": "command -v docker > /dev/null",
+        "exec-if": "command -v docker > /dev/null && test -d $HOME/dev/nordlayer-docker",
         "exec": "$HOME/.config/waybar/nordlayer-status",
         "format-icons": {
             "host-vpn": "",
