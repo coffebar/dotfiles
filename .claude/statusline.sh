@@ -7,7 +7,7 @@
 parse_input() {
 	local input
 	input=$(cat)
-	{ read -r current_dir; read -r model_display; read -r transcript_path; read -r ctx_pct; read -r session_cost; read -r total_input; read -r total_output; read -r rl_5h; read -r rl_7d; } < <(
+	{ read -r current_dir; read -r model_display; read -r transcript_path; read -r ctx_pct; read -r session_cost; read -r total_input; read -r total_output; read -r rl_5h; read -r rl_7d; read -r rl_5h_raw; read -r rl_5h_reset; read -r rl_7d_raw; read -r rl_7d_reset; } < <(
 		jq -r '
 			(.workspace.current_dir // .cwd),
 			(.model.display_name // "Claude"),
@@ -17,9 +17,31 @@ parse_input() {
 			(.context_window.total_input_tokens // 0 | if . >= 1000000 then (((. / 100000 | floor) / 10 | tostring) + "M") elif . >= 1000 then (((. / 100 | floor) / 10 | tostring) + "k") else tostring end),
 			(.context_window.total_output_tokens // 0 | if . >= 1000000 then (((. / 100000 | floor) / 10 | tostring) + "M") elif . >= 1000 then (((. / 100 | floor) / 10 | tostring) + "k") else tostring end),
 			(.rate_limits.five_hour.used_percentage // "" | if type == "number" then (. | round | tostring) else "" end),
-			(.rate_limits.seven_day.used_percentage // "" | if type == "number" then (. | round | tostring) else "" end)
+			(.rate_limits.seven_day.used_percentage // "" | if type == "number" then (. | round | tostring) else "" end),
+			(.rate_limits.five_hour.used_percentage // ""),
+			(.rate_limits.five_hour.resets_at // ""),
+			(.rate_limits.seven_day.used_percentage // ""),
+			(.rate_limits.seven_day.resets_at // "")
 		' <<< "$input"
 	)
+}
+
+pace_ratio() {
+	local used=$1 reset=${2%.*} window=$3
+	[[ -z "$used" || -z "$reset" ]] && return
+	local remaining=$(( reset - $(date +%s) ))
+	(( remaining < 0 )) && remaining=0
+	(( remaining > window )) && remaining=$window
+	local elapsed=$(( window - remaining ))
+	(( elapsed > 0 )) || return
+	LC_ALL=C awk -v u="$used" -v e="$elapsed" -v w="$window" 'BEGIN { printf "%.2f", (u / 100) / (e / w) }'
+}
+
+pace_segment() {
+	local ratio=$1 clr="\033[00m"
+	if awk -v r="$ratio" 'BEGIN { exit !(r > 1) }'; then clr="\033[33m"
+	elif awk -v r="$ratio" 'BEGIN { exit !(r < 1) }'; then clr="\033[32m"; fi
+	printf ' \033[02mpace:\033[00m%s%s\033[00m' "$clr" "$ratio"
 }
 
 # Get git branch with status indicator
@@ -97,6 +119,7 @@ build_statusline() {
 		elif [[ $rl_5h -ge 50 ]]; then rl5_clr="\033[33m"
 		else rl5_clr="\033[32m"; fi
 		line1+=" ${icon_5h} \033[02m5h:\033[00m${rl5_clr}${rl_5h}%\033[00m"
+		[[ -n "$pace_5h" ]] && line1+="$(pace_segment "$pace_5h")"
 	fi
 
 	if [[ -n "$rl_7d" ]]; then
@@ -104,6 +127,7 @@ build_statusline() {
 		elif [[ $rl_7d -ge 50 ]]; then rl7_clr="\033[33m"
 		else rl7_clr="\033[32m"; fi
 		line1+=" ${icon_7d} \033[02m7d:\033[00m${rl7_clr}${rl_7d}%\033[00m"
+		[[ -n "$pace_7d" ]] && line1+="$(pace_segment "$pace_7d")"
 	fi
 
 	printf "%b\n" "$line1"
@@ -118,6 +142,8 @@ main() {
 	dir_name="${current_dir##*/}"
 	get_git_info
 	get_prompt_preview
+	pace_5h=$(pace_ratio "$rl_5h_raw" "$rl_5h_reset" 18000)
+	pace_7d=$(pace_ratio "$rl_7d_raw" "$rl_7d_reset" 604800)
 	build_statusline
 }
 
