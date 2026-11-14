@@ -29,7 +29,6 @@ caffeine-ng
 calf
 chafa
 composer
-copyq
 cronie
 cuda
 dconf-editor
@@ -136,6 +135,7 @@ numlockx
 nvidia-open-lts
 obsidian
 onnxruntime-cuda
+openbsd-netcat
 opencl-nvidia
 opencv
 openssh
@@ -216,6 +216,7 @@ ufw
 unrar
 unzip
 usbutils
+vicinae-bin
 vim
 vlc
 wbg

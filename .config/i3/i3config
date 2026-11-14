@@ -4,7 +4,7 @@
 # alacritty
 # amixer
 # autotiling
-# copyq
+# vicinae
 # dunst
 # kbdd
 # ksnip
@@ -203,7 +203,8 @@ bindsym XF86Explorer exec --no-startup-id "~/lua/wm-keymap.lua f"
 # more apps
 bindsym $alt+b workspace --no-auto-back-and-forth $ws1; \
  exec --no-startup-id "~/lua/wm-keymap.lua b"
-bindsym $alt+c exec --no-startup-id copyq show
+bindsym $alt+c exec --no-startup-id vicinae 'vicinae://launch/clipboard/history?toggle=true'
+bindsym $alt+k exec --no-startup-id vicinae 'vicinae://launch/@coffebar/claude-tmux/claude-sessions?toggle=true'
 bindsym $alt+t workspace --no-auto-back-and-forth $ws2; \
  exec --no-startup-id "~/lua/wm-keymap.lua t"
 bindsym $alt+i workspace --no-auto-back-and-forth $ws3; \
@@ -287,7 +288,6 @@ assign [class="^wp-8"] → $ws8
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="ksnip"] floating enable, move position center
-for_window [class="^copyq$"] floating enable, move position center
 for_window [class="(?i)virtualbox"] floating enable
 for_window [class="^KeePassXC$"] move position center 
 for_window [class="^KeePassXC$" title="Browser Access Request"] floating enable, move window to workspace current
@@ -326,8 +326,8 @@ exec --no-startup-id $SESSION_CONF/polybar.sh
 
 # daemon to make per window layout using xkb
 exec --no-startup-id kbdd
-# clipboard manager
-exec --no-startup-id copyq
+# Vicinae owns clipboard history and runs its X11 clipboard server.
+exec --no-startup-id vicinae server --replace
  
 # autotiling @link https://github.com/nwg-piotr/autotiling
 exec --no-startup-id autotiling &
