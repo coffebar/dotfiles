@@ -204,7 +204,7 @@ bindsym XF86Explorer exec --no-startup-id "~/lua/wm-keymap.lua f"
 bindsym $alt+b workspace --no-auto-back-and-forth $ws1; \
  exec --no-startup-id "~/lua/wm-keymap.lua b"
 bindsym $alt+c exec --no-startup-id vicinae 'vicinae://launch/clipboard/history?toggle=true'
-bindsym $alt+k exec --no-startup-id vicinae 'vicinae://launch/@coffebar/claude-tmux/claude-sessions?toggle=true'
+bindsym $alt+k exec --no-startup-id vicinae 'vicinae://launch/@coffebar/store.vicinae.claude-tmux/claude-sessions?toggle=true'
 bindsym $alt+t workspace --no-auto-back-and-forth $ws2; \
  exec --no-startup-id "~/lua/wm-keymap.lua t"
 bindsym $alt+i workspace --no-auto-back-and-forth $ws3; \
