@@ -42,7 +42,7 @@ bindsym $mod+Return exec alacritty
 bindsym $alt+space kill
 
 # start a program launcher
-bindsym $mod+d exec rofi -show run -theme $rofi_theme -dpi $QT_FONT_DPI
+bindsym $mod+d exec vicinae toggle
 bindsym $mod+space exec rofi -show drun -theme $rofi_theme -dpi $QT_FONT_DPI
 # bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
 
