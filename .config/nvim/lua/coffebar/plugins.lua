@@ -322,6 +322,7 @@ return {
     lazy = true,
     event = { "BufReadPost", "BufNewFile" },
   },
+  { "github/copilot.vim", event = "VeryLazy" },
   -- delete buffers without closing window layout;
   { "moll/vim-bbye", priority = 1 },
   -- Interactive real time Neovim scratchpad

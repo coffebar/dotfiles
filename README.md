@@ -50,7 +50,7 @@
 
 #### Neovim
 
-- PDE with code completion from many sources (including ripgrep, LSP and path), a bunch of LSP servers, autosave sessions and files, clipboard history, code formatting, color picker, fuzzy finder, git integration, incremental selection, quick project switching, code snippets, syncing of everything across devices.
+- PDE with code completion from many sources (including ripgrep, LSP, path and Copilot), a bunch of LSP servers, autosave sessions and files, clipboard history, code formatting, color picker, fuzzy finder, git integration, incremental selection, quick project switching, code snippets, syncing of everything across devices.
 
 - Neo-tree has custom mappings: `Y` Copy absolute path, `t` Open directory in Thunar, `<c-r>` Replace in folder via Spectre, `<c-f>` Search with Telescope live grep.
 
@@ -135,6 +135,7 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [folke/noice.nvim](https://github.com/folke/noice.nvim)  💥 Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)  🚦 A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)  💥   Create key bindings that stick. WhichKey helps you remember your Neovim keymaps, by showing available keybindings in a popup as you type.
+- [github/copilot.vim](https://github.com/github/copilot.vim)  Neovim plugin for GitHub Copilot
 - [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)  improve neovim lsp experience
 - [gruvbox-community/gruvbox](https://github.com/gruvbox-community/gruvbox)  Retro groove color scheme for Vim - community maintained edition
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)  nvim-cmp source for buffer words
