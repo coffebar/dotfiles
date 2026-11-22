@@ -50,11 +50,9 @@ return {
   "hrsh7th/cmp-nvim-lua",
   "hrsh7th/cmp-cmdline",
   "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-emoji",
   "hrsh7th/cmp-nvim-lsp-signature-help",
   "L3MON4D3/LuaSnip",
   "saadparwaiz1/cmp_luasnip",
-  "hrsh7th/cmp-calc",
   "petertriho/cmp-git",
   -- ripgrep source for completion
   "lukas-reineke/cmp-rg",
@@ -122,30 +120,6 @@ return {
   { "romainl/vim-cool" },
   -- automatically save files
   { "Pocco81/AutoSave.nvim", opts = require("coffebar.plugins.auto-save"), priority = 40 },
-  -- commenter (gc)
-  {
-    "numToStr/Comment.nvim",
-    opts = {
-      ---Add a space b/w comment and the line
-      padding = true,
-      ---Whether the cursor should stay at its position
-      sticky = true,
-      ---Lines to be ignored while (un)comment
-      ignore = nil,
-      ---Disable keybindings
-      ---NOTE: If given `false` then the plugin won't create any mappings
-      mappings = {
-        basic = false,
-        extra = false,
-      },
-      ---Function to call before (un)comment
-      pre_hook = nil,
-      ---Function to call after (un)comment
-      post_hook = nil,
-    },
-    event = "VeryLazy",
-    lazy = true,
-  },
   -- treesitter
   { "nvim-treesitter/nvim-treesitter", branch = "main", lazy = false, build = ":TSUpdate" },
   -- python venv manager (forked from HallerPatrick/py_lsp.nvim until merge PR #50)
@@ -286,8 +260,6 @@ return {
     lazy = true,
     cmd = "Neotree",
   },
-  -- wrapper around the Lua code formatter
-  { "ckipp01/stylua-nvim", lazy = true, ft = "lua" },
   -- add or edit surrounding
   {
     "kylechui/nvim-surround",
@@ -350,8 +322,6 @@ return {
     lazy = true,
     event = { "BufReadPost", "BufNewFile" },
   },
-  -- Github copilot
-  { "github/copilot.vim", lazy = true, event = "VeryLazy" },
   -- delete buffers without closing window layout;
   { "moll/vim-bbye", priority = 1 },
   -- Interactive real time Neovim scratchpad

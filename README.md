@@ -50,7 +50,7 @@
 
 #### Neovim
 
-- PDE with code completion from many sources (including ripgrep, LSP, path and copilot), a bunch of LSP servers, autosave sessions and files, clipboard history, code formatting, color picker, fuzzy finder, git integration, incremental selection, quick project switching, code snippets, syncing of everything across devices.
+- PDE with code completion from many sources (including ripgrep, LSP and path), a bunch of LSP servers, autosave sessions and files, clipboard history, code formatting, color picker, fuzzy finder, git integration, incremental selection, quick project switching, code snippets, syncing of everything across devices.
 
 - Neo-tree has custom mappings: `Y` Copy absolute path, `t` Open directory in Thunar, `<c-r>` Replace in folder via Spectre, `<c-f>` Search with Telescope live grep.
 
@@ -128,7 +128,6 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)  A neovim lua plugin to help easily manage multiple terminal windows
 - [bin/php-cs-fixer](https://github.com/bin/php-cs-fixer) 
 - [bloznelis/before.nvim](https://github.com/bloznelis/before.nvim)  Jump to the last edit in Neovim
-- [ckipp01/stylua-nvim](https://github.com/ckipp01/stylua-nvim)  Let&#39;s just use a formatter and never discuss formatting again.
 - [coffebar/crowtranslate.nvim](https://github.com/coffebar/crowtranslate.nvim)  Translate the visually selected text in Neovim.
 - [coffebar/neovim-project](https://github.com/coffebar/neovim-project)  Neovim project plugin simplifies project management by maintaining project history and providing quick access to projects via Telescope, snacks.nvim or fzf-lua
 - [coffebar/py_lsp.nvim](https://github.com/coffebar/py_lsp.nvim)  Lsp Plugin for working with Python virtual environments
@@ -136,13 +135,10 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [folke/noice.nvim](https://github.com/folke/noice.nvim)  💥 Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)  🚦 A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)  💥   Create key bindings that stick. WhichKey helps you remember your Neovim keymaps, by showing available keybindings in a popup as you type.
-- [github/copilot.vim](https://github.com/github/copilot.vim)  Neovim plugin for GitHub Copilot
 - [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)  improve neovim lsp experience
 - [gruvbox-community/gruvbox](https://github.com/gruvbox-community/gruvbox)  Retro groove color scheme for Vim - community maintained edition
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)  nvim-cmp source for buffer words
-- [hrsh7th/cmp-calc](https://github.com/hrsh7th/cmp-calc)  nvim-cmp source for math calculation
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)  nvim-cmp source for vim&#39;s cmdline
-- [hrsh7th/cmp-emoji](https://github.com/hrsh7th/cmp-emoji)  nvim-cmp source for emoji
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)  nvim-cmp source for neovim builtin LSP client
 - [hrsh7th/cmp-nvim-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help)  cmp-nvim-lsp-signature-help
 - [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)  nvim-cmp source for nvim lua
@@ -163,7 +159,6 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)  One dark and light colorscheme for neovim &gt;= 0.5.0 written in lua based on Atom&#39;s One Dark and Light theme. Additionally, it comes with 5 color variant styles
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)  Quickstart configs for Nvim LSP
 - [nguyenvukhang/nvim-toggler](https://github.com/nguyenvukhang/nvim-toggler)  invert text in vim, purely with lua.
-- [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)  :brain: // Smart and powerful comment plugin for neovim. Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)  plenary: full; complete; entire; absolute; unqualified. All the lua functions I don&#39;t want to write twice.
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)  A blazing fast and easy to configure neovim statusline plugin written in pure lua.
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)  Neovim plugin to manage the file system and other tree like structures.

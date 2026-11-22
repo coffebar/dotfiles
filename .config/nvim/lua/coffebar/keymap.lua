@@ -382,15 +382,6 @@ if has_wk then
       desc = "Create/Edit a file under cursor",
     },
     { "gaa", "<cmd>TextCaseOpenTelescope<cr>", desc = "Text Case (Telescope)" },
-    {
-      "gc",
-      function()
-        return vim.v.count == 0 and "<Plug>(comment_toggle_linewise_current)" or "<Plug>(comment_toggle_linewise_count)"
-      end,
-      desc = "Comment line(s)",
-      expr = true,
-      replace_keycodes = true,
-    },
     { "gl", "<cmd>Git log<cr>", desc = "Git log" },
     {
       "gp",
@@ -424,7 +415,6 @@ if has_wk then
       { "<leader>rf", '<cmd>lua require("spectre").open_file_search()<cr>', desc = "Replace in current file" },
       { "<leader>rr", '<cmd>lua require("spectre").open_visual()<cr>', desc = "Replace selection in files" },
       { "gaa", "<cmd>TextCaseOpenTelescope<cr>", desc = "Text Case (Telescope)" },
-      { "gc", "<Plug>(comment_toggle_linewise_visual)", desc = "Comment line(s)" },
       { "s", '"fy<esc><cmd>let @/=@f[:-2]<cr><cmd>%s//\\=@0/gI<cr>', desc = "Replace selected text with Yanked" },
     },
   })
@@ -456,7 +446,6 @@ if has_wk then
   wk.add({
     -- Keep yank register untouched when pasting text over selection
     { "p", '"_dP', desc = "Paste over selection", mode = "x" },
-    { "T", "<cmd>CrowTranslate<cr>", desc = "Translate selected text", mode = "x" },
   })
 
   local lvg_args_installed, shortcuts = pcall(require, "telescope-live-grep-args.shortcuts")
@@ -478,4 +467,9 @@ else
   -- without "which-key" plugin
   -- if it fails to load for some reason
   require("coffebar.keymap-fallback")
+end
+
+local comment_line = vim.fn.maparg("gcc", "n", false, true).callback
+if comment_line then
+  vim.keymap.set("n", "gc", comment_line, { expr = true, nowait = true, desc = "Toggle comment line" })
 end

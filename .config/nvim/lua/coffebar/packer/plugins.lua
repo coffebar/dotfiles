@@ -38,11 +38,9 @@ return function(use)
   use("hrsh7th/cmp-nvim-lua")
   use("hrsh7th/cmp-cmdline")
   use("hrsh7th/nvim-cmp")
-  use("hrsh7th/cmp-emoji")
   use("hrsh7th/cmp-nvim-lsp-signature-help")
   use("L3MON4D3/LuaSnip")
   use("saadparwaiz1/cmp_luasnip")
-  use("hrsh7th/cmp-calc")
   use("petertriho/cmp-git")
   -- -- ripgrep source for completion
   use("lukas-reineke/cmp-rg")
@@ -76,8 +74,6 @@ return function(use)
   -- use("romainl/vim-cool")
   -- -- automatically save files
   use("Pocco81/auto-save.nvim")
-  -- -- commenter (gc)
-  use("numToStr/Comment.nvim")
   -- -- automatically close pairs such as (), {}, ""
   use("cohama/lexima.vim")
   -- -- treesitter
@@ -163,8 +159,6 @@ return function(use)
   })
   -- -- session manager
   -- -- use("Shatur/neovim-session-manager")
-  -- -- wrapper around the Lua code formatter
-  use("ckipp01/stylua-nvim")
   -- -- add or edit surrounding
   use({
     "kylechui/nvim-surround",
@@ -217,8 +211,6 @@ return function(use)
   --     })
   --   end,
   -- })
-  -- -- github copilot
-  -- use("github/copilot.vim")
   --
   use({
     "romgrk/barbar.nvim",

@@ -69,9 +69,7 @@ cmp.setup({
     { name = "nvim_lua" }, -- nvim lua function
     { name = "path" },
     { name = "buffer" },
-    { name = "calc" },
     ripgrep,
-    { name = "emoji", priority = 10 },
     { name = "nvim_lsp_signature_help" },
   }),
   sorting = {

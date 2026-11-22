@@ -70,9 +70,6 @@ g.diagnostic_signs = {
 g.gruvbox_contrast_dark = "hard"
 g.gruvbox_invert_selection = "0"
 
--- enable copilot on gitcommit and markdown
-g.copilot_filetypes = { gitcommit = true, markdown = true }
-
 -- modern diagnostic configuration for Neovim 0.11+
 vim.diagnostic.config({
   virtual_lines = true,

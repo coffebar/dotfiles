@@ -97,11 +97,6 @@ nnoremap("<leader>er", "<cmd>AsyncTask project-run<cr>")
 nnoremap("<leader>ee", "<cmd>call asyncrun#quickfix_toggle(8)<cr>")
 -- Close the current buffer
 nnoremap("<leader>b", "<cmd>Bdelete<cr>")
--- Comment.nvim
-nnoremap("gcc", function()
-  return vim.v.count == 0 and "<Plug>(comment_toggle_linewise_current)" or "<Plug>(comment_toggle_linewise_count)"
-end, { expr = true })
-vnoremap("gc", "<Plug>(comment_toggle_linewise_visual)")
 -- open terminal in split below and start Insert mode
 nnoremap("<leader>t", "<cmd>belowright split | resize 10 | terminal<cr>i")
 -- history for current file
