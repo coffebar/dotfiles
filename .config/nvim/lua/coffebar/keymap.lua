@@ -3,9 +3,7 @@ local function github_base_url()
   if remote == "" then
     return nil
   end
-  return remote
-    :gsub("^git@github%.com:", "https://github.com/")
-    :gsub("%.git$", "")
+  return remote:gsub("^git@github%.com:", "https://github.com/"):gsub("%.git$", "")
 end
 
 local function open_file_in_github()
@@ -21,9 +19,8 @@ local function open_file_in_github()
   -- Use current branch if PR exists, otherwise fall back to default branch
   local pr_exists = vim.fn.system("gh pr view --json url -q .url 2>/dev/null"):gsub("%s+$", "") ~= ""
   if not pr_exists then
-    local default = vim.fn.system(
-      "git remote show origin 2>/dev/null | grep 'HEAD branch' | awk '{print $NF}'"
-    ):gsub("%s+$", "")
+    local default =
+      vim.fn.system("git remote show origin 2>/dev/null | grep 'HEAD branch' | awk '{print $NF}'"):gsub("%s+$", "")
     branch = (default ~= "") and default or "main"
   end
   local url = base .. "/blob/" .. branch .. "/" .. rel_path .. "#L" .. line
