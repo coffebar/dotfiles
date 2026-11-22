@@ -187,7 +187,6 @@ https://github.com/coffebar/neovim-project/assets/3100053/e88ae41a-5606-46c4-a28
 - [sphamba/smear-cursor.nvim](https://github.com/sphamba/smear-cursor.nvim)  🌠 Neovim plugin to animate the cursor with a smear effect in all terminals
 - [stephpy/vim-php-cs-fixer](https://github.com/stephpy/vim-php-cs-fixer)  Use FriendsOfPHP/PHP-CS-Fixer
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)  fugitive.vim: A Git wrapper so awesome, it should be illegal
-- [trevarj/telescope-tmux.nvim](https://github.com/trevarj/telescope-tmux.nvim)  Integration for tmux with telescope.nvim
 - [tzachar/highlight-undo.nvim](https://github.com/tzachar/highlight-undo.nvim)  Highlight changed text after any text changing operation
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)  Use treesitter to auto close and auto rename html tag
 <!-- plugins list end -->
